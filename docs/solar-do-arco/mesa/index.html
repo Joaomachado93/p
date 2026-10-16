@@ -1,0 +1,35 @@
+<!doctype html>
+<html lang="pt-PT"><head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex,nofollow">
+<title>Solar do Arco — Pedir na mesa</title>
+<meta name="description" content="Demonstração de site para Solar do Arco — Mesa de autor junto à Rua de Santa Maria">
+<meta property="og:title" content="Solar do Arco — Pedir na mesa"><meta property="og:description" content="Demonstração de site para Solar do Arco — Mesa de autor junto à Rua de Santa Maria">
+<meta name="theme-color" content="#2f3b5c">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🏛️</text></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;800&family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../../assets/site.css">
+</head>
+<body class="mesa" data-page="mesa">
+<div id="menuview">
+<header class="m-top"><div class="r"><h1>🏛️ Solar do Arco</h1><span class="table" id="table">Mesa 7</span></div>
+<div class="tabs" id="tabs" role="tablist"></div></header>
+<p class="m-demo">Demonstração · ementa de exemplo · <a href="../">voltar ao site</a></p>
+<main class="m-list" id="list"></main>
+</div>
+<div id="doneview" class="done" hidden><div class="big">✅</div><h2>Pedido enviado!</h2>
+<p>Pedido <b id="orderno"></b> — já chegou à cozinha.</p>
+<div class="status"><div><i>1</i>Recebido</div><div><i>2</i>Em preparação</div><div><i>3</i>A caminho da mesa</div></div>
+<p><button class="btn btn-dark" id="again">Pedir mais alguma coisa</button></p>
+<p><a href="../cozinha/">Ver como aparece na cozinha →</a></p></div>
+<button class="cartbar" id="cartbar" hidden><span><span class="n" id="cartn">0</span>Ver pedido</span><span id="cartsum"></span></button>
+<div class="sheet" id="sheet"><div class="panel"><h2>O seu pedido</h2><div id="lines"></div>
+<div class="total"><span>Total</span><span id="total"></span></div>
+<label for="obs"><b>Observações</b></label><textarea id="obs" rows="2" placeholder="Sem cebola, bem passado…"></textarea>
+<button class="btn btn-dark" id="send">Enviar para a cozinha</button>
+<p style="text-align:center"><button class="btn btn-line" data-close style="width:auto">Continuar a escolher</button></p></div></div>
+<script id="data" type="application/json">{"slug": "solar-do-arco", "name": "Solar do Arco", "theme": {"preset": "elegante", "primary": "#2f3b5c", "accent": "#b88a3e", "bg": "#f7f4ee", "ink": "#181d2c", "font_display": "Playfair Display", "motif": "none"}, "menu": [{"category": "Entradas", "items": [{"name": "Queijo de cabra tostado", "desc": "mel e nozes", "price": 8.5}, {"name": "Croquetes de alheira", "desc": "", "price": 7.0}, {"name": "Sopa de legumes", "desc": "", "price": 3.5, "tags": ["veg"]}]}, {"category": "Pratos", "items": [{"name": "Polvo à lagareiro", "desc": "", "price": 18.5, "tags": ["popular"]}, {"name": "Lombo de porco preto", "desc": "", "price": 16.5}, {"name": "Bacalhau com natas", "desc": "", "price": 15.0}, {"name": "Risotto de cogumelos", "desc": "", "price": 13.5, "tags": ["veg"]}]}, {"category": "Sobremesas", "items": [{"name": "Tarte de maçã", "desc": "", "price": 4.5}, {"name": "Mousse de chocolate negro", "desc": "", "price": 4.5}, {"name": "Pudim de laranja", "desc": "", "price": 4.0}]}, {"category": "Vinhos", "items": [{"name": "Alvarinho (copo)", "desc": "", "price": 4.5}, {"name": "Tinto do Dão (copo)", "desc": "", "price": 4.0}]}]}</script>
+<script src="../../assets/owner.js"></script>
+<script src="../../assets/site.js"></script>
+</body></html>

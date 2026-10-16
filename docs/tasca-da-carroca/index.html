@@ -1,0 +1,72 @@
+<!doctype html>
+<html lang="pt-PT"><head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex,nofollow">
+<title>Tasca da Carroça — Sabores portugueses à mesa, em Candoso</title>
+<meta name="description" content="Demonstração de site para Tasca da Carroça — Sabores portugueses à mesa, em Candoso">
+<meta property="og:title" content="Tasca da Carroça — Sabores portugueses à mesa, em Candoso"><meta property="og:description" content="Demonstração de site para Tasca da Carroça — Sabores portugueses à mesa, em Candoso">
+<meta name="theme-color" content="#7a2e1d">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🥘</text></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600;9..144,800&family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../assets/site.css">
+</head>
+<body data-page="landing">
+<div class="demobar"><div class="wrap">
+<p>👋 Demonstração feita para <b>Tasca da Carroça</b> — textos e ementa são de exemplo.</p>
+<div class="actions"><a class="btn yes" data-owner="yes" href="#proposta">Quero avançar</a><a class="btn no" data-owner="no" href="#proposta">Não, obrigado</a></div>
+</div></div>
+<header class="hero">
+<nav class="nav"><div class="wrap"><a class="brand" href="#">Tasca da Carroça</a><ul><li><a href="#ementa">Ementa</a></li><li><a href="#mesa">Pedir na mesa</a></li><li><a href="#pedido">Reservas</a></li><li><a href="#contactos">Contactos</a></li></ul></div></nav>
+<div class="wrap"><div>
+<p class="eyebrow" style="color:var(--accent)">Cozinha tradicional portuguesa · Candoso S. Martinho</p>
+<h1>Tasca da Carroça</h1><p class="tagline">Sabores portugueses à mesa, em Candoso</p>
+<div class="ctas"><a class="btn btn-primary" href="#ementa">Ver ementa</a><a class="btn btn-ghost" href="tel:+351919019380">📞 Ligar</a><a class="btn btn-ghost" href="https://wa.me/351919019380" target="_blank" rel="noopener">💬 WhatsApp</a></div>
+<div class="meta"><span class="chip">⭐ 4,4 · 2 323 avaliações no Google</span><span class="chip">📍 Candoso S. Martinho</span></div>
+</div><div class="badge" aria-hidden="true">🥘</div></div>
+</header>
+<section class="highlights"><div class="wrap"><div class="grid"><div class="card"><div class="ic">🥘</div><h3>Cozinha tradicional</h3><p>Pratos portugueses de panela e brasa.</p></div><div class="card"><div class="ic">📱</div><h3>Pede da mesa</h3><p>Lê o QR code e faz o pedido sem esperar.</p></div><div class="card"><div class="ic">👨‍👩‍👧</div><h3>Para a família</h3><p>Doses generosas para partilhar à mesa.</p></div></div>
+<p class="intro">Cozinha tradicional portuguesa em Candoso (São Martinho), feita para partilhar à mesa. Vê a ementa e pede diretamente do teu lugar.</p></div></section>
+<section id="ementa"><div class="wrap">
+<div class="menu-head"><div><p class="eyebrow">Ementa</p><h2>Para todos os gostos</h2></div>
+<span class="note">✏️ Ementa de exemplo — substituímos pela vossa, com os vossos preços</span></div>
+<div class="tabs" id="tabs" role="tablist"></div><div class="items" id="items"></div>
+</div></section>
+<section class="qr" id="mesa"><div class="wrap">
+<div><p class="eyebrow">Novo · Pedidos por QR code</p><h2>O cliente pede da mesa. O pedido chega à cozinha.</h2>
+<ol class="steps"><li><div><b>Lê o QR code da mesa</b><br>Com a câmara do telemóvel, sem instalar nada.</div></li>
+<li><div><b>Escolhe e pede</b><br>Vê a ementa com preços, adiciona pratos e deixa observações.</div></li>
+<li><div><b>A cozinha recebe logo</b><br>O pedido aparece no ecrã do balcão/cozinha com o número da mesa.</div></li></ol>
+<p style="opacity:.8">Menos espera nas horas de ponta, menos enganos nos pedidos e a equipa livre para servir.</p>
+<div class="links"><a class="btn btn-primary" href="mesa/?mesa=7">Experimentar como cliente</a><a class="btn btn-ghost" href="cozinha/">Ver ecrã da cozinha</a></div></div>
+<div class="qrcard"><div class="tent">Tasca da Carroça</div><small>Aponte a câmara · Mesa 7</small><div id="qrbox"></div><small>Peça aqui, sem esperar 🙌</small></div>
+</div></section>
+<section id="pedido"><div class="wrap split">
+<div><p class="eyebrow">Pedido de reserva</p><h2>Reserve a sua mesa</h2><p>Escolha o dia e a hora — o pedido chega por WhatsApp e confirmamos logo.</p>
+<div class="preview" aria-live="polite"></div><p class="preview-cap" hidden>↑ Assim chegaria a mensagem ao vosso WhatsApp. (Nesta demonstração nada é enviado.)</p></div>
+<form class="f" data-title="Pedido de reserva"><div class="row"><label>Nome<input name="Nome" required autocomplete="name"></label><label>Telemóvel<input name="Telemóvel" type="tel" required autocomplete="tel"></label></div>
+<div class="row"><label>Dia<input name="Dia" type="date" required></label><label>Hora<input name="Hora" type="time" value="20:00" required></label></div>
+<label>Pessoas<select name="Pessoas"><option>1</option><option>2</option><option>3</option><option>4</option><option>5</option><option>6</option><option>7</option><option>8</option><option>9</option><option>10</option><option>11</option><option>12</option></select></label>
+<label>Observações<textarea name="Observações" rows="2" placeholder="Cadeira de bebé, aniversário, alergias…"></textarea></label><button class="btn btn-dark" type="submit">Pedir reserva</button></form>
+</div></section>
+<section class="contact" id="contactos"><div class="wrap split">
+<div class="info"><p class="eyebrow">Onde estamos</p><h2>Venha visitar-nos</h2>
+<div class="line"><span>📍</span><div>R. de Rebôto 454, 4835-385 Candoso (São Martinho)<br><a href="https://www.google.com/maps/search/?api=1&query=Tasca%20da%20Carro%C3%A7a%2C%20R.%20de%20Reb%C3%B4to%20454%2C%204835-385%20Candoso%20%28S%C3%A3o%20Martinho%29" target="_blank" rel="noopener">Abrir no Google Maps →</a></div></div>
+<div class="line"><span>📞</span><a href="tel:+351919019380">919 019 380</a></div><div class="line"><span>💬</span><a href="https://wa.me/351919019380" target="_blank" rel="noopener">WhatsApp</a></div><div class="line"><span>🔗</span><a href="https://facebook.com/tascadacarroca/" target="_blank" rel="noopener">facebook.com/tascadacarroca/</a></div>
+<div class="line"><span>🕑</span><div>Horário — <i>a preencher convosco</i></div></div></div>
+<iframe class="map" loading="lazy" title="Mapa" src="https://www.google.com/maps?q=Tasca%20da%20Carro%C3%A7a%2C%20R.%20de%20Reb%C3%B4to%20454%2C%204835-385%20Candoso%20%28S%C3%A3o%20Martinho%29&output=embed"></iframe>
+</div></section>
+<section class="proposal" id="proposta"><div class="wrap"><div class="box">
+<div><p class="eyebrow">Proposta para Tasca da Carroça</p><h2>Gostou? Isto pode ser o vosso site.</h2>
+<p>Esta página foi feita de propósito para o Tasca da Carroça por João Machado, programador web aqui de Guimarães. Inclui:</p>
+<ul><li>Página rápida no telemóvel, com o vosso nome e cores</li><li>Ementa digital com QR code e pedidos feitos da mesa</li><li>Ementa/produtos e preços fáceis de actualizar</li><li>Botões para ligar, WhatsApp e mapa</li><li>Pedidos de reserva/encomenda directos para o WhatsApp</li><li>Domínio próprio (ex.: tasca.pt) ligado ao Google Maps</li></ul>
+<p style="color:var(--muted);font-size:.9rem">Eu trato do alojamento e da manutenção. Sem compromisso.</p></div>
+<div class="decide"><a class="btn yes2" data-owner="yes" href="#proposta">✅ Sim, quero avançar</a>
+<a class="btn btn-line" data-owner="no" href="#proposta">Não, obrigado</a></div>
+</div></div></section>
+<footer><div class="wrap"><span>© Tasca da Carroça · R. de Rebôto 454, 4835-385 Candoso (São Martinho)</span><span>Demonstração — não é o site oficial.</span></div></footer>
+<script id="data" type="application/json">{"slug": "tasca-da-carroca", "name": "Tasca da Carroça", "theme": {"preset": "rustico", "primary": "#7a2e1d", "accent": "#d9a441", "bg": "#fbf5ea", "ink": "#2b1a12", "font_display": "Fraunces", "motif": "grain"}, "menu": [{"category": "Entradas", "items": [{"name": "Pão, manteiga e azeitonas", "desc": "Couvert da casa", "price": 2.5}, {"name": "Salpicão", "desc": "Fatiado, servido com pão", "price": 6.5, "tags": ["popular"]}, {"name": "Queijo curado", "desc": "Tábua pequena", "price": 6}, {"name": "Caldo verde", "desc": "Taça", "price": 2.8}]}, {"category": "Pratos", "items": [{"name": "Bacalhau à lagareiro", "desc": "Com batata a murro", "price": 13.5, "tags": ["popular"]}, {"name": "Cabrito assado", "desc": "Com arroz de forno", "price": 15.5}, {"name": "Rojões à minhota", "desc": "Com papas de sarrabulho", "price": 12.5}, {"name": "Bitoque", "desc": "Com ovo, batata e arroz", "price": 9.5}, {"name": "Prato do dia", "desc": "Pergunta ao balcão", "price": 9.5}]}, {"category": "Sobremesas", "items": [{"name": "Arroz doce", "desc": "Com canela", "price": 3}, {"name": "Pudim abade de priscos", "desc": "Fatia", "price": 3.5}, {"name": "Leite-creme", "desc": "Queimado à mesa", "price": 3}]}, {"category": "Bebidas", "items": [{"name": "Vinho da casa (jarro 0,5 l)", "desc": "Tinto ou branco", "price": 5}, {"name": "Água 0,5 l", "desc": "", "price": 1.2}, {"name": "Café", "desc": "", "price": 0.8}]}]}</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+<script src="../assets/owner.js"></script>
+<script src="../assets/site.js"></script>
+</body></html>

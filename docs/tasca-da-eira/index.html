@@ -1,0 +1,72 @@
+<!doctype html>
+<html lang="pt-PT"><head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex,nofollow">
+<title>Tasca da Eira — Tasca com sabor a Minho, na Costa</title>
+<meta name="description" content="Demonstração de site para Tasca da Eira — Tasca com sabor a Minho, na Costa">
+<meta property="og:title" content="Tasca da Eira — Tasca com sabor a Minho, na Costa"><meta property="og:description" content="Demonstração de site para Tasca da Eira — Tasca com sabor a Minho, na Costa">
+<meta name="theme-color" content="#7F1D1D">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🍷</text></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Caveat+Brush&family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../assets/site.css">
+</head>
+<body data-page="landing">
+<div class="demobar"><div class="wrap">
+<p>👋 Demonstração feita para <b>Tasca da Eira</b> — textos e ementa são de exemplo.</p>
+<div class="actions"><a class="btn yes" data-owner="yes" href="#proposta">Quero avançar</a><a class="btn no" data-owner="no" href="#proposta">Não, obrigado</a></div>
+</div></div>
+<header class="hero">
+<nav class="nav"><div class="wrap"><a class="brand" href="#">Tasca da Eira</a><ul><li><a href="#ementa">Ementa</a></li><li><a href="#mesa">Pedir na mesa</a></li><li><a href="#pedido">Reservas</a></li><li><a href="#contactos">Contactos</a></li></ul></div></nav>
+<div class="wrap"><div>
+<p class="eyebrow" style="color:var(--accent)">Restaurante · Costa</p>
+<h1>Tasca da Eira</h1><p class="tagline">Tasca com sabor a Minho, na Costa</p>
+<div class="ctas"><a class="btn btn-primary" href="#ementa">Ver ementa</a><a class="btn btn-ghost" href="tel:+351253513148">📞 Ligar</a></div>
+<div class="meta"><span class="chip">⭐ 4,3 · 433 avaliações no Google</span><span class="chip">📍 Costa</span></div>
+</div><div class="badge" aria-hidden="true">🍷</div></div>
+</header>
+<section class="highlights"><div class="wrap"><div class="grid"><div class="card"><div class="ic">🍷</div><h3>Tasca à moda antiga</h3><p>Petiscos e vinho para uma mesa animada.</p></div><div class="card"><div class="ic">🧀</div><h3>Petiscos para partilhar</h3><p>Enchidos, queijos e fritos à mesa.</p></div><div class="card"><div class="ic">📱</div><h3>Pedido na mesa por QR</h3><p>Peça da mesa pelo telemóvel, sem esperar pela equipa.</p></div></div>
+<p class="intro">A Tasca da Eira é uma tasca na Costa, em Guimarães, com petiscos e pratos de inspiração tradicional. Uma ementa de exemplo, para pedir da mesa.</p></div></section>
+<section id="ementa"><div class="wrap">
+<div class="menu-head"><div><p class="eyebrow">Ementa</p><h2>Para todos os gostos</h2></div>
+<span class="note">✏️ Ementa de exemplo — substituímos pela vossa, com os vossos preços</span></div>
+<div class="tabs" id="tabs" role="tablist"></div><div class="items" id="items"></div>
+</div></section>
+<section class="qr" id="mesa"><div class="wrap">
+<div><p class="eyebrow">Novo · Pedidos por QR code</p><h2>O cliente pede da mesa. O pedido chega à cozinha.</h2>
+<ol class="steps"><li><div><b>Lê o QR code da mesa</b><br>Com a câmara do telemóvel, sem instalar nada.</div></li>
+<li><div><b>Escolhe e pede</b><br>Vê a ementa com preços, adiciona pratos e deixa observações.</div></li>
+<li><div><b>A cozinha recebe logo</b><br>O pedido aparece no ecrã do balcão/cozinha com o número da mesa.</div></li></ol>
+<p style="opacity:.8">Menos espera nas horas de ponta, menos enganos nos pedidos e a equipa livre para servir.</p>
+<div class="links"><a class="btn btn-primary" href="mesa/?mesa=7">Experimentar como cliente</a><a class="btn btn-ghost" href="cozinha/">Ver ecrã da cozinha</a></div></div>
+<div class="qrcard"><div class="tent">Tasca da Eira</div><small>Aponte a câmara · Mesa 7</small><div id="qrbox"></div><small>Peça aqui, sem esperar 🙌</small></div>
+</div></section>
+<section id="pedido"><div class="wrap split">
+<div><p class="eyebrow">Pedido de reserva</p><h2>Reserve a sua mesa</h2><p>Escolha o dia e a hora — o pedido chega por WhatsApp e confirmamos logo.</p>
+<div class="preview" aria-live="polite"></div><p class="preview-cap" hidden>↑ Assim chegaria a mensagem ao vosso WhatsApp. (Nesta demonstração nada é enviado.)</p></div>
+<form class="f" data-title="Pedido de reserva"><div class="row"><label>Nome<input name="Nome" required autocomplete="name"></label><label>Telemóvel<input name="Telemóvel" type="tel" required autocomplete="tel"></label></div>
+<div class="row"><label>Dia<input name="Dia" type="date" required></label><label>Hora<input name="Hora" type="time" value="20:00" required></label></div>
+<label>Pessoas<select name="Pessoas"><option>1</option><option>2</option><option>3</option><option>4</option><option>5</option><option>6</option><option>7</option><option>8</option><option>9</option><option>10</option><option>11</option><option>12</option></select></label>
+<label>Observações<textarea name="Observações" rows="2" placeholder="Cadeira de bebé, aniversário, alergias…"></textarea></label><button class="btn btn-dark" type="submit">Pedir reserva</button></form>
+</div></section>
+<section class="contact" id="contactos"><div class="wrap split">
+<div class="info"><p class="eyebrow">Onde estamos</p><h2>Venha visitar-nos</h2>
+<div class="line"><span>📍</span><div>R. José Francisco Ribeiro 1319, Costa<br><a href="https://www.google.com/maps/search/?api=1&query=Tasca%20da%20Eira%2C%20R.%20Jos%C3%A9%20Francisco%20Ribeiro%201319%2C%20Costa" target="_blank" rel="noopener">Abrir no Google Maps →</a></div></div>
+<div class="line"><span>📞</span><a href="tel:+351253513148">253 513 148</a></div><div class="line"><span>🔗</span><a href="https://facebook.com/tascadaeira" target="_blank" rel="noopener">facebook.com/tascadaeira</a></div>
+<div class="line"><span>🕑</span><div>Horário — <i>a preencher convosco</i></div></div></div>
+<iframe class="map" loading="lazy" title="Mapa" src="https://www.google.com/maps?q=Tasca%20da%20Eira%2C%20R.%20Jos%C3%A9%20Francisco%20Ribeiro%201319%2C%20Costa&output=embed"></iframe>
+</div></section>
+<section class="proposal" id="proposta"><div class="wrap"><div class="box">
+<div><p class="eyebrow">Proposta para Tasca da Eira</p><h2>Gostou? Isto pode ser o vosso site.</h2>
+<p>Esta página foi feita de propósito para o Tasca da Eira por João Machado, programador web aqui de Guimarães. Inclui:</p>
+<ul><li>Página rápida no telemóvel, com o vosso nome e cores</li><li>Ementa digital com QR code e pedidos feitos da mesa</li><li>Ementa/produtos e preços fáceis de actualizar</li><li>Botões para ligar, WhatsApp e mapa</li><li>Pedidos de reserva/encomenda directos para o WhatsApp</li><li>Domínio próprio (ex.: tasca.pt) ligado ao Google Maps</li></ul>
+<p style="color:var(--muted);font-size:.9rem">Eu trato do alojamento e da manutenção. Sem compromisso.</p></div>
+<div class="decide"><a class="btn yes2" data-owner="yes" href="#proposta">✅ Sim, quero avançar</a>
+<a class="btn btn-line" data-owner="no" href="#proposta">Não, obrigado</a></div>
+</div></div></section>
+<footer><div class="wrap"><span>© Tasca da Eira · R. José Francisco Ribeiro 1319, Costa</span><span>Demonstração — não é o site oficial.</span></div></footer>
+<script id="data" type="application/json">{"slug": "tasca-da-eira", "name": "Tasca da Eira", "theme": {"preset": "rustico", "primary": "#7F1D1D", "accent": "#4D7C0F", "bg": "#FAF3E8", "ink": "#241410", "font_display": "Caveat Brush", "motif": "grain"}, "menu": [{"category": "Petiscos", "items": [{"name": "Tábua de enchidos", "desc": "", "price": 9.0, "tags": ["popular"]}, {"name": "Queijo da serra", "desc": "", "price": 7.0}, {"name": "Moelas", "desc": "", "price": 6.0}, {"name": "Pica-pau", "desc": "", "price": 8.5}]}, {"category": "Pratos", "items": [{"name": "Rojões", "desc": "", "price": 10.5, "tags": ["popular"]}, {"name": "Bacalhau à Zé do Pipo", "desc": "", "price": 12.5}, {"name": "Costeleta grelhada", "desc": "", "price": 10.0}]}, {"category": "Bebidas", "items": [{"name": "Vinho tinto da casa (jarro)", "desc": "", "price": 7.0}, {"name": "Vinho verde (jarro)", "desc": "", "price": 7.0}, {"name": "Imperial", "desc": "", "price": 1.5}]}]}</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+<script src="../assets/owner.js"></script>
+<script src="../assets/site.js"></script>
+</body></html>

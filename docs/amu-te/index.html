@@ -1,0 +1,72 @@
+<!doctype html>
+<html lang="pt-PT"><head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex,nofollow">
+<title>AMU.TE — Tapas e petiscos no coração de Guimarães</title>
+<meta name="description" content="Demonstração de site para AMU.TE — Tapas e petiscos no coração de Guimarães">
+<meta property="og:title" content="AMU.TE — Tapas e petiscos no coração de Guimarães"><meta property="og:description" content="Demonstração de site para AMU.TE — Tapas e petiscos no coração de Guimarães">
+<meta name="theme-color" content="#b3392b">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🍷</text></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@600;800&family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../assets/site.css">
+</head>
+<body data-page="landing">
+<div class="demobar"><div class="wrap">
+<p>👋 Demonstração feita para <b>AMU.TE</b> — textos e ementa são de exemplo.</p>
+<div class="actions"><a class="btn yes" data-owner="yes" href="#proposta">Quero avançar</a><a class="btn no" data-owner="no" href="#proposta">Não, obrigado</a></div>
+</div></div>
+<header class="hero">
+<nav class="nav"><div class="wrap"><a class="brand" href="#">AMU.TE</a><ul><li><a href="#ementa">Ementa</a></li><li><a href="#mesa">Pedir na mesa</a></li><li><a href="#pedido">Reservas</a></li><li><a href="#contactos">Contactos</a></li></ul></div></nav>
+<div class="wrap"><div>
+<p class="eyebrow" style="color:var(--accent)">Tapas / petiscos · Centro histórico</p>
+<h1>AMU.TE</h1><p class="tagline">Tapas e petiscos no coração de Guimarães</p>
+<div class="ctas"><a class="btn btn-primary" href="#ementa">Ver ementa</a><a class="btn btn-ghost" href="tel:+351253551091">📞 Ligar</a><a class="btn btn-ghost" href="https://wa.me/351935563534" target="_blank" rel="noopener">💬 WhatsApp</a></div>
+<div class="meta"><span class="chip">⭐ 4,6 · 2 056 avaliações no Google</span><span class="chip">📍 Centro histórico</span></div>
+</div><div class="badge" aria-hidden="true">🍷</div></div>
+</header>
+<section class="highlights"><div class="wrap"><div class="grid"><div class="card"><div class="ic">🍤</div><h3>Petiscos para partilhar</h3><p>Pratos pequenos, muitas provas.</p></div><div class="card"><div class="ic">📱</div><h3>Pede da mesa</h3><p>Lê o QR code e faz o pedido sem esperar.</p></div><div class="card"><div class="ic">📅</div><h3>Reservas no TheFork</h3><p>Garante a tua mesa online.</p></div></div>
+<p class="intro">Tapas e petiscos na Praça de São Tiago, em frente aos arcos. Ideal para partilhar, pedir da mesa por QR code e reservar através do TheFork.</p></div></section>
+<section id="ementa"><div class="wrap">
+<div class="menu-head"><div><p class="eyebrow">Ementa</p><h2>Para todos os gostos</h2></div>
+<span class="note">✏️ Ementa de exemplo — substituímos pela vossa, com os vossos preços</span></div>
+<div class="tabs" id="tabs" role="tablist"></div><div class="items" id="items"></div>
+</div></section>
+<section class="qr" id="mesa"><div class="wrap">
+<div><p class="eyebrow">Novo · Pedidos por QR code</p><h2>O cliente pede da mesa. O pedido chega à cozinha.</h2>
+<ol class="steps"><li><div><b>Lê o QR code da mesa</b><br>Com a câmara do telemóvel, sem instalar nada.</div></li>
+<li><div><b>Escolhe e pede</b><br>Vê a ementa com preços, adiciona pratos e deixa observações.</div></li>
+<li><div><b>A cozinha recebe logo</b><br>O pedido aparece no ecrã do balcão/cozinha com o número da mesa.</div></li></ol>
+<p style="opacity:.8">Menos espera nas horas de ponta, menos enganos nos pedidos e a equipa livre para servir.</p>
+<div class="links"><a class="btn btn-primary" href="mesa/?mesa=7">Experimentar como cliente</a><a class="btn btn-ghost" href="cozinha/">Ver ecrã da cozinha</a></div></div>
+<div class="qrcard"><div class="tent">AMU.TE</div><small>Aponte a câmara · Mesa 7</small><div id="qrbox"></div><small>Peça aqui, sem esperar 🙌</small></div>
+</div></section>
+<section id="pedido"><div class="wrap split">
+<div><p class="eyebrow">Pedido de reserva</p><h2>Reserve a sua mesa</h2><p>Escolha o dia e a hora — o pedido chega por WhatsApp e confirmamos logo.</p>
+<div class="preview" aria-live="polite"></div><p class="preview-cap" hidden>↑ Assim chegaria a mensagem ao vosso WhatsApp. (Nesta demonstração nada é enviado.)</p></div>
+<form class="f" data-title="Pedido de reserva"><div class="row"><label>Nome<input name="Nome" required autocomplete="name"></label><label>Telemóvel<input name="Telemóvel" type="tel" required autocomplete="tel"></label></div>
+<div class="row"><label>Dia<input name="Dia" type="date" required></label><label>Hora<input name="Hora" type="time" value="20:00" required></label></div>
+<label>Pessoas<select name="Pessoas"><option>1</option><option>2</option><option>3</option><option>4</option><option>5</option><option>6</option><option>7</option><option>8</option><option>9</option><option>10</option><option>11</option><option>12</option></select></label>
+<label>Observações<textarea name="Observações" rows="2" placeholder="Cadeira de bebé, aniversário, alergias…"></textarea></label><button class="btn btn-dark" type="submit">Pedir reserva</button></form>
+</div></section>
+<section class="contact" id="contactos"><div class="wrap split">
+<div class="info"><p class="eyebrow">Onde estamos</p><h2>Venha visitar-nos</h2>
+<div class="line"><span>📍</span><div>Praça de São Tiago 15 (em frente aos arcos), 4810-445 Guimarães<br><a href="https://www.google.com/maps/search/?api=1&query=AMU.TE%2C%20Pra%C3%A7a%20de%20S%C3%A3o%20Tiago%2015%20%28em%20frente%20aos%20arcos%29%2C%204810-445%20Guimar%C3%A3es" target="_blank" rel="noopener">Abrir no Google Maps →</a></div></div>
+<div class="line"><span>📞</span><a href="tel:+351253551091">253 551 091</a></div><div class="line"><span>💬</span><a href="https://wa.me/351935563534" target="_blank" rel="noopener">WhatsApp</a></div><div class="line"><span>🔗</span><a href="https://facebook.com/p/AMUTE-100063596079400/" target="_blank" rel="noopener">facebook.com/p/AMUTE-100063596079400/</a></div>
+<div class="line"><span>🕑</span><div>Horário — <i>a preencher convosco</i></div></div></div>
+<iframe class="map" loading="lazy" title="Mapa" src="https://www.google.com/maps?q=AMU.TE%2C%20Pra%C3%A7a%20de%20S%C3%A3o%20Tiago%2015%20%28em%20frente%20aos%20arcos%29%2C%204810-445%20Guimar%C3%A3es&output=embed"></iframe>
+</div></section>
+<section class="proposal" id="proposta"><div class="wrap"><div class="box">
+<div><p class="eyebrow">Proposta para AMU.TE</p><h2>Gostou? Isto pode ser o vosso site.</h2>
+<p>Esta página foi feita de propósito para o AMU.TE por João Machado, programador web aqui de Guimarães. Inclui:</p>
+<ul><li>Página rápida no telemóvel, com o vosso nome e cores</li><li>Ementa digital com QR code e pedidos feitos da mesa</li><li>Ementa/produtos e preços fáceis de actualizar</li><li>Botões para ligar, WhatsApp e mapa</li><li>Pedidos de reserva/encomenda directos para o WhatsApp</li><li>Domínio próprio (ex.: amu.pt) ligado ao Google Maps</li></ul>
+<p style="color:var(--muted);font-size:.9rem">Eu trato do alojamento e da manutenção. Sem compromisso.</p></div>
+<div class="decide"><a class="btn yes2" data-owner="yes" href="#proposta">✅ Sim, quero avançar</a>
+<a class="btn btn-line" data-owner="no" href="#proposta">Não, obrigado</a></div>
+</div></div></section>
+<footer><div class="wrap"><span>© AMU.TE · Praça de São Tiago 15 (em frente aos arcos), 4810-445 Guimarães</span><span>Demonstração — não é o site oficial.</span></div></footer>
+<script id="data" type="application/json">{"slug": "amu-te", "name": "AMU.TE", "theme": {"preset": "moderno", "primary": "#b3392b", "accent": "#2d6a5a", "bg": "#fdf6ef", "ink": "#241815", "font_display": "Bricolage Grotesque", "motif": "dots"}, "menu": [{"category": "Tapas frias", "items": [{"name": "Tábua de enchidos", "desc": "Seleção da casa", "price": 9.5, "tags": ["popular"]}, {"name": "Tábua de queijos", "desc": "Com doce", "price": 9.5}, {"name": "Azeitonas temperadas", "desc": "", "price": 3}, {"name": "Tosta de tomate", "desc": "Com azeite e orégano", "price": 4.5, "tags": ["veg"]}]}, {"category": "Tapas quentes", "items": [{"name": "Croquetes de carne", "desc": "6 un.", "price": 6.5, "tags": ["popular"]}, {"name": "Pica-pau", "desc": "Com pickles", "price": 8.5}, {"name": "Gambas ao alho", "desc": "Com malagueta", "price": 11.5, "tags": ["picante"]}, {"name": "Pataniscas de bacalhau", "desc": "Com arroz de feijão", "price": 7.5}, {"name": "Cogumelos salteados", "desc": "Com alho e salsa", "price": 6, "tags": ["veg"]}]}, {"category": "Para fechar", "items": [{"name": "Mousse de chocolate", "desc": "", "price": 3.5}, {"name": "Cheesecake de frutos vermelhos", "desc": "", "price": 4.5}]}, {"category": "Bebidas", "items": [{"name": "Sangria (jarro)", "desc": "Vinho, fruta e canela", "price": 12}, {"name": "Vinho verde (copo)", "desc": "", "price": 3}, {"name": "Cerveja de pressão", "desc": "", "price": 1.8}]}]}</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+<script src="../assets/owner.js"></script>
+<script src="../assets/site.js"></script>
+</body></html>
