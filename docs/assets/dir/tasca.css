@@ -1,0 +1,191 @@
+@import url('https://fonts.googleapis.com/css2?family=Alfa+Slab+One&family=Alegreya+Sans:ital,wght@0,400;0,500;0,700;0,800;1,400&family=Caveat:wght@500;700&display=swap');
+/* tasca — Minho tasca: whitewashed wall, azulejo bands and frames, a wood-framed ardósia (slate) menu with chalk prices,
+   toalha aos quadrados under the booking "placemat". Layout: hero = photo in an azulejo frame (split on desktop, stacked on phone);
+   one bold moment = the slate menu board; everything else quiet. */
+:root{
+  --bg:#f3f0e8; --surface:#fffdf8; --ink:#1f1c18; --muted:#5a5449; --line:rgba(31,28,24,.16);
+  --on-primary:#fff; --on-accent:#1f1c18;
+  --display:'Alfa Slab One',Rockwell,'Roboto Slab',Georgia,serif;
+  --body:'Alegreya Sans','Gill Sans',system-ui,sans-serif;
+  --label:'Alegreya Sans','Gill Sans',system-ui,sans-serif;
+  --hand:'Caveat','Bradley Hand','Segoe Print',cursive;
+  --radius:3px; --radius-lg:6px; --section:clamp(56px,9vw,104px); --maxw:1160px;
+  --slate:#252b2a; --slate-2:#2e3534; --chalk:#f1efe6; --chalk-dim:rgba(241,239,230,.74);
+  --azul:#1d4b8f; --wood:#6b4529;
+  --azulejo:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='48' height='48' viewBox='0 0 48 48'%3E%3Crect width='48' height='48' fill='%23f8f6f0'/%3E%3Cg fill='%231d4b8f'%3E%3Cpath d='M0 0H11A11 11 0 0 1 0 11Z'/%3E%3Cpath d='M48 0V11A11 11 0 0 1 37 0Z'/%3E%3Cpath d='M0 48V37A11 11 0 0 1 11 48Z'/%3E%3Cpath d='M48 48H37A11 11 0 0 1 48 37Z'/%3E%3Ccircle cx='24' cy='24' r='4.5'/%3E%3C/g%3E%3Cg fill='none' stroke='%231d4b8f' stroke-width='2.4'%3E%3Cpath d='M24 11L37 24L24 37L11 24Z'/%3E%3Cpath d='M24 0V11M24 37V48M0 24H11M37 24H48'/%3E%3Cpath d='M24 16Q30 24 24 32Q18 24 24 16Z' stroke-width='1.6'/%3E%3C/g%3E%3C/svg%3E");
+}
+body{background:var(--bg);color:var(--ink);font-size:18px;line-height:1.55}
+h1,h2,h3{font-weight:400;letter-spacing:.005em}
+h2{font-size:clamp(2rem,4.4vw,3.1rem);line-height:1.04}
+h3{font-family:var(--body);font-weight:800;font-size:1.18rem;line-height:1.2}
+.kicker{font:700 1.45rem/1 var(--hand);letter-spacing:0;text-transform:none;color:var(--primary)}
+:focus-visible{outline:3px solid var(--azul);outline-offset:3px}
+
+/* azulejo band — reused as a divider */
+.site-head::after,.site-foot::before,.proposal::before{content:"";display:block;height:20px;background:var(--azulejo) 0 0/20px 20px repeat-x}
+
+/* buttons */
+.btn{font:700 1.02rem/1 var(--body);border-radius:var(--radius);letter-spacing:.01em;min-height:48px}
+.btn-primary{background:var(--primary);color:var(--on-primary);box-shadow:0 2px 0 rgba(0,0,0,.25)}
+.btn-primary:hover{filter:brightness(1.1)}
+.btn-secondary{border-width:2px}
+
+/* header */
+.site-head{background:var(--surface)}
+.site-head-row{padding-block:14px}
+.brand{font:400 1.3rem/1.05 var(--display);color:var(--ink)}
+.nav{font:700 1rem/1 var(--label);gap:26px}
+.nav a{padding:6px 0}
+.nav a:hover{color:var(--primary);text-decoration:underline;text-decoration-thickness:2px}
+
+/* hero: photo inside an azulejo frame */
+.hero{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.12fr);align-items:center;gap:0;
+  padding-block:clamp(28px,4vw,56px);padding-right:var(--gutter-r)}
+.hero-media{grid-column:2;grid-row:1;height:min(74vh,620px);padding:16px;background:var(--azulejo) 0 0/32px 32px;
+  border-radius:var(--radius);box-shadow:0 18px 40px -18px rgba(31,28,24,.45)}
+.hero-media img{border-radius:2px;box-shadow:0 0 0 2px #f8f6f0}
+.hero-media--empty{position:relative}
+.hero-media--empty{background-size:56px 56px}
+.hero-media--empty::after{content:"";position:absolute;inset:16px;border:5px solid var(--azul);border-radius:2px;box-shadow:inset 0 0 0 6px #f8f6f0,inset 0 0 0 9px var(--azul)}
+.hero-copy{grid-column:1;grid-row:1;max-width:none;margin:0;gap:16px;
+  padding-block:24px;padding-left:max(var(--gutter),calc((100vw - var(--maxw))/2 + 16px));padding-right:clamp(24px,4vw,56px)}
+.hero-title{font-size:clamp(2.6rem,6.2vw,5.4rem);line-height:.98;letter-spacing:-.005em;overflow-wrap:break-word}
+.tagline{font-size:clamp(1.2rem,2vw,1.5rem);color:var(--muted);line-height:1.35}
+.facts{font-size:.95rem;color:var(--muted);gap:8px 20px}
+.facts .i{color:var(--primary);margin-top:.2em}
+.facts b{color:var(--ink)}
+
+/* about */
+.about{background:var(--surface);border-block:1px solid var(--line)}
+.lede{font-size:clamp(1.3rem,2.2vw,1.6rem);line-height:1.4}
+.services{font-weight:700}
+.services .i{color:var(--primary)}
+.points{gap:0;border-top:2px solid var(--ink)}
+.point{display:grid;grid-template-columns:28px 1fr;column-gap:14px;padding-block:16px;border-bottom:1px solid var(--line)}
+.point::before{content:"";grid-row:span 2;width:22px;height:22px;margin-top:2px;background:var(--azulejo) 50% 50%/22px 22px;border:1px solid var(--azul)}
+.point h3{margin-bottom:2px}
+.point p{grid-column:2}
+
+/* gallery: photos hung on the wall */
+.gallery{padding-top:var(--section)}
+.gallery-grid{gap:14px}
+.shot{background:#ddd6c8;border:6px solid var(--surface);box-shadow:0 10px 24px -14px rgba(31,28,24,.5)}
+.gallery-grid{grid-template-columns:1.5fr 1fr}
+.gallery-grid .shot:first-child:nth-last-child(3){grid-row:span 2;aspect-ratio:auto}
+.gallery-grid:has(> .shot:nth-child(2):last-child){grid-template-columns:1fr 1fr}
+.caption{font:500 1.15rem/1.2 var(--hand);color:var(--muted)}
+
+/* menu: the ardósia board in a wood frame (the bold moment) */
+.menu{padding-inline:var(--gutter) var(--gutter-r);padding-top:0}
+.menu > .wrap{position:relative;max-width:var(--maxw);padding:clamp(26px,4vw,52px) clamp(18px,4vw,56px);color:var(--chalk);
+  background:
+    radial-gradient(ellipse 60% 40% at 18% 12%,rgba(255,255,255,.07),transparent 70%),
+    radial-gradient(ellipse 50% 50% at 85% 80%,rgba(255,255,255,.05),transparent 70%),
+    repeating-linear-gradient(97deg,rgba(255,255,255,.012) 0 2px,transparent 2px 7px),
+    linear-gradient(var(--slate-2),var(--slate));
+  border:clamp(10px,1.6vw,16px) solid var(--wood);
+  border-image:repeating-linear-gradient(92deg,#7b5233 0 9px,#68432a 9px 13px,#845a39 13px 21px,#5e3c25 21px 24px) 16;
+  box-shadow:0 22px 44px -20px rgba(31,28,24,.6)}
+.menu .section-head{margin-bottom:20px;gap:8px}
+.menu .kicker{color:color-mix(in srgb,var(--accent) 70%,#fff);font-size:1.6rem}
+.menu h2{color:var(--chalk)}
+.menu .note{font:500 1.2rem/1.2 var(--hand);color:var(--chalk-dim)}
+.menu .tabs{gap:8px;padding-bottom:14px;border-bottom:1px dashed rgba(241,239,230,.3);margin-bottom:6px}
+.menu .tab{font:700 1rem/1 var(--body);min-height:44px;padding:.7em 1.1em;border:2px solid rgba(241,239,230,.45);border-radius:999px;color:var(--chalk);background:transparent}
+.menu .tab:hover{border-color:var(--chalk)}
+.menu .tab[aria-selected=true]{background:var(--chalk);border-color:var(--chalk);color:var(--slate)}
+.menu .tab:focus-visible{outline-color:color-mix(in srgb,var(--accent) 70%,#fff)}
+.menu .dishes{gap:0 64px}
+.menu .dish{border-bottom:1px solid rgba(241,239,230,.12);padding-block:14px}
+.menu .dish-name{font-weight:700;font-size:1.12rem;color:var(--chalk)}
+.menu .dish-dots{border-bottom:2px dotted rgba(241,239,230,.32);transform:translateY(-5px)}
+.menu .dish-price{font:700 1.75rem/1 var(--hand);color:color-mix(in srgb,var(--accent) 70%,#fff);transform:rotate(-2deg)}
+.menu .dish-desc{color:var(--chalk-dim);font-size:.97rem}
+.menu .tag{background:transparent;color:var(--chalk);border:1.5px solid rgba(241,239,230,.55);font-weight:800}
+.menu .tag-veg{color:#bfe5b5;border-color:#9cd08f}
+.menu .tag-picante{color:#ffc1b3;border-color:#ee9a86}
+
+/* QR */
+.qr{background:var(--primary);color:var(--on-primary)}
+.qr .kicker{color:color-mix(in srgb,var(--accent) 65%,#fff)}
+.qr h2{color:var(--on-primary)}
+.steps li::before{font:700 1.4rem/1 var(--hand);background:var(--accent);color:var(--on-accent)}
+.steps span{opacity:.88}
+.qr .btn-primary{background:var(--accent);color:var(--on-accent)}
+.qr .btn-secondary{color:var(--on-primary)}
+.qr-card{border:12px solid transparent;border-radius:var(--radius-lg);
+  background:linear-gradient(#fff,#fff) padding-box,var(--azulejo) 0 0/24px 24px border-box;box-shadow:0 24px 50px -18px rgba(0,0,0,.55)}
+.qr-name{font:400 1.1rem/1.1 var(--display)}
+.qr-card p{font:700 1.2rem/1.2 var(--hand);color:#444}
+
+/* booking: the tablecloth with a paper placemat on top */
+.book{padding-inline:var(--gutter) var(--gutter-r);background-color:#fbf8f2;
+  background-image:linear-gradient(90deg,color-mix(in srgb,var(--primary) 17%,transparent) 50%,transparent 50%),
+    linear-gradient(color-mix(in srgb,var(--primary) 17%,transparent) 50%,transparent 50%);
+  background-size:32px 32px}
+.book > .book-grid{background:var(--surface);padding:clamp(22px,4vw,52px);border-radius:var(--radius);box-shadow:0 18px 40px -16px rgba(31,28,24,.45);
+  outline:1px solid var(--line);outline-offset:-10px}
+.form{border:0;padding:0;background:transparent}
+.form label{font:700 .95rem/1.2 var(--label)}
+.form input,.form select,.form textarea{background:#fff;border:1.5px solid rgba(31,28,24,.28);border-radius:var(--radius)}
+.form input:focus,.form select:focus,.form textarea:focus{border-color:var(--primary);outline:2px solid color-mix(in srgb,var(--primary) 30%,transparent)}
+
+/* visit */
+.visit-block h3{font:800 .82rem/1 var(--label);letter-spacing:.14em}
+.visit-block h3 .i,address .i,.contacts .i{color:var(--primary)}
+address a{font-weight:700}
+.hours{width:100%;max-width:340px}
+.hours th,.hours td{padding:7px 0;border-bottom:1px dashed var(--line)}
+.hours td{text-align:right;font-weight:500}
+.map{border-radius:var(--radius);border:6px solid var(--surface);box-shadow:0 10px 24px -14px rgba(31,28,24,.5)}
+
+/* proposal */
+.proposal{padding-top:0;background:var(--surface)}
+.proposal::before{margin-bottom:var(--section)}
+.proposal h2{color:var(--ink)}
+
+/* footer */
+.site-foot{border-top:0;padding-top:0;background:var(--bg)}
+.site-foot::before{margin-bottom:30px}
+
+/* phone */
+@media (max-width:860px){
+  body{font-size:17px}
+  .site-head-row{padding-block:12px}
+  .site-head::after{height:14px;background-size:14px 14px}
+  .hero{grid-template-columns:minmax(0,1fr);padding:0}
+  .hero-media{grid-column:1;grid-row:1;height:clamp(230px,36svh,340px);padding:0 0 14px;border-radius:0;box-shadow:none;background-size:14px 14px;background-position:0 100%}
+  .hero-media img{border-radius:0;box-shadow:none}
+  .hero-media--empty{height:170px;padding:0;background-size:34px 34px;background-position:50% 50%}
+  .hero-media--empty::after{inset:10px var(--gutter-r) 10px var(--gutter);border-width:4px}
+  .hero-copy{grid-column:1;grid-row:2;padding:20px var(--gutter-r) 34px var(--gutter);gap:12px}
+  .hero-title{font-size:clamp(2.3rem,11vw,3.4rem)}
+  .tagline{font-size:1.15rem}
+  .hero .actions{gap:8px}
+  .hero .actions .btn-primary{flex:1 1 100%}
+  .hero .actions .btn-secondary{flex:1 1 0}
+  .menu{padding-inline:10px}
+  .menu > .wrap{padding:26px 16px 18px}
+  .menu .dish-price{font-size:1.6rem}
+  .book{padding-inline:12px}
+  .book > .book-grid{padding:24px 18px}
+  .gallery-grid{gap:10px;grid-template-columns:1fr 1fr}
+  .gallery-grid .shot:first-child:nth-last-child(3){grid-row:auto;aspect-ratio:16/9}
+  .gallery-grid .shot:first-child:nth-last-child(2),.gallery-grid .shot:nth-child(2):last-child{grid-column:auto;aspect-ratio:1}
+  .shot{border-width:4px}
+  .mbar{background:var(--surface);border-top:3px solid var(--azul)}
+  .mbar a{font:700 .76rem/1.1 var(--label)}
+}
+
+/* mesa / cozinha */
+.m-top h1{font-weight:400}
+.m-top::after{content:"";position:absolute;left:0;right:0;bottom:-10px;height:10px;background:var(--azulejo) 0 0/10px 10px repeat-x}
+.m-top .tab{font:700 .95rem/1 var(--body);border-radius:999px}
+.m-demo{padding-top:20px}
+.m-cat{font-weight:400;margin-top:28px}
+.m-item h4{font:800 1.05rem/1.25 var(--body)}
+.m-item .price{font:700 1.4rem/1 var(--hand);color:var(--primary)}
+.cartbar{background:var(--slate);color:var(--chalk);font-family:var(--body)}
+.sheet .panel h2,.done h1,.done h2{font-weight:400}
+.ticket{border-top-color:var(--azul)}
+.ticket h3{font-weight:800}

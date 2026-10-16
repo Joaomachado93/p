@@ -1,63 +1,74 @@
 <!doctype html>
-<html lang="pt-PT"><head>
-<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<html lang="pt-PT" data-dir="mercado" style="--primary:#2e7d32;--accent:#f2a900"><head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <meta name="robots" content="noindex,nofollow">
-<title>Supermercados Ribeiros — Compras de Pevidém, sem sair de casa</title>
+<title>Supermercados Ribeiros · Compras de Pevidém, sem sair de casa</title>
 <meta name="description" content="Demonstração de site para Supermercados Ribeiros — Compras de Pevidém, sem sair de casa">
-<meta property="og:title" content="Supermercados Ribeiros — Compras de Pevidém, sem sair de casa"><meta property="og:description" content="Demonstração de site para Supermercados Ribeiros — Compras de Pevidém, sem sair de casa">
+<meta property="og:title" content="Supermercados Ribeiros · Compras de Pevidém, sem sair de casa"><meta property="og:description" content="Demonstração de site para Supermercados Ribeiros — Compras de Pevidém, sem sair de casa">
 <meta name="theme-color" content="#2e7d32">
 <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🛒</text></svg>">
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@600;800&family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="../assets/site.css">
+
+<link rel="stylesheet" href="../assets/base.css">
+<link rel="stylesheet" href="../assets/dir/mercado.css">
 </head>
 <body data-page="landing">
-<div class="demobar"><div class="wrap">
-<p>👋 Demonstração feita para <b>Supermercados Ribeiros</b> — fotos e preços ilustrativos.</p>
-<div class="actions"><a class="btn yes" data-owner="yes" href="#proposta">Quero avançar</a><a class="btn no" data-owner="no" href="#proposta">Não, obrigado</a></div>
-</div></div>
-<header class="hero has-photo" style="--hero-img:url(../assets/img/supermarket-vegetables.jpg)">
-<nav class="nav"><div class="wrap"><a class="brand" href="#">Supermercados Ribeiros</a><ul><li><a href="#ementa">Produtos</a></li><li><a href="#pedido">Encomendas</a></li><li><a href="#contactos">Contactos</a></li></ul></div></nav>
-<div class="wrap"><div>
-<p class="eyebrow" style="color:var(--accent)">Supermercado · Pevidém</p>
-<h1>Supermercados Ribeiros</h1><p class="tagline">Compras de Pevidém, sem sair de casa</p>
-<div class="ctas"><a class="btn btn-primary" href="#ementa">Ver produtos</a><a class="btn btn-ghost" href="tel:+351253144217">📞 Ligar</a></div>
-<div class="meta"><a class="chip" href="https://www.google.com/maps/search/?api=1&query=Supermercados%20Ribeiros%2C%20R.%20Dr.%20Guilherme%20Augusto%20993%2C%20S.%20Jorge%20de%20Selho" target="_blank" rel="noopener">⭐ 4,3 · 176 avaliações no Google</a><a class="chip" href="https://www.google.com/maps/search/?api=1&query=Supermercados%20Ribeiros%2C%20R.%20Dr.%20Guilherme%20Augusto%20993%2C%20S.%20Jorge%20de%20Selho" target="_blank" rel="noopener">📍 R. Dr. Guilherme Augusto 993, S. Jorge de Selho</a></div>
-</div><div class="badge" aria-hidden="true">🛒</div></div>
-</header>
-<section class="highlights"><div class="wrap"><div class="grid"><div class="card"><div class="ic">📱</div><h3>Encomendas por WhatsApp</h3><p>Envie a sua lista de compras por mensagem, sem filas.</p></div><div class="card"><div class="ic">🚚</div><h3>Levantar ou entregar</h3><p>Passe na loja ou peça entrega, como lhe der mais jeito.</p></div><div class="card"><div class="ic">🛒</div><h3>Perto de si</h3><p>Na R. Dr. Guilherme Augusto, em S. Jorge de Selho.</p></div></div>
-<p class="intro">O Supermercados Ribeiros fica em S. Jorge de Selho, na zona de Pevidém. Envie a lista por WhatsApp e escolha entre levantar na loja ou receber as compras em casa.</p></div></section>
-<section class="gallery"><div class="wrap"><div class="gal"><figure><img src="../assets/img/fresh-bread.jpg" alt="fresh bread" loading="lazy"></figure><figure><img src="../assets/img/fruit-basket.jpg" alt="fruit basket" loading="lazy"></figure><figure><img src="../assets/img/grocery-shelves.jpg" alt="grocery shelves" loading="lazy"></figure></div><p class="gal-note">Fotografias ilustrativas — no site final usamos as vossas.</p></div></section>
-<section id="ementa"><div class="wrap">
-<div class="menu-head"><div><p class="eyebrow">Produtos</p><h2>O que encontra cá</h2></div>
-<span class="note">✏️ Ementa de exemplo — substituímos pela vossa, com os vossos preços</span></div>
-<div class="tabs" id="tabs" role="tablist"></div><div class="items" id="items"></div>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true"><symbol id="i-phone" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"/></symbol><symbol id="i-chat" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7.9 20A9 9 0 1 0 4 16.1L2 22Z"/></symbol><symbol id="i-pin" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></symbol><symbol id="i-clock" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></symbol><symbol id="i-nav" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 11l19-9-9 19-2-8-8-2z"/></symbol><symbol id="i-menu" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 2v7c0 1.1.9 2 2 2h4a2 2 0 0 0 2-2V2M7 2v20M21 15V2a5 5 0 0 0-5 5v6c0 1.1.9 2 2 2h3Zm0 0v7"/></symbol><symbol id="i-star" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01z"/></symbol><symbol id="i-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></symbol><symbol id="i-qr" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 3h7v7H3zM14 3h7v7h-7zM3 14h7v7H3zM14 14h3v3h-3zM20 14v7M14 20h3"/></symbol><symbol id="i-link" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/></symbol><symbol id="i-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></symbol></svg>
+<aside class="demobar" aria-label="Demonstração">
+<p><b>Demonstração</b> feita para Supermercados Ribeiros · fotos e preços ilustrativos</p>
+<div class="demobar-actions"><a class="btn btn-yes" data-owner="yes" href="#proposta">Quero avançar</a><a class="btn btn-no" data-owner="no" href="#proposta">Não, obrigado</a></div>
+</aside>
+<header class="site-head"><div class="wrap site-head-row">
+<a class="brand" href="#top">Supermercados Ribeiros</a>
+<nav aria-label="Secções"><ul class="nav"><li><a href="#ementa">Produtos</a></li><li><a href="#pedido">Encomendas</a></li><li><a href="#visitar">Visitar</a></li></ul></nav>
+</div></header>
+<main id="top">
+<section class="hero hero--photo">
+<figure class="hero-media"><img src="../assets/img/supermarket-vegetables.jpg" alt="" fetchpriority="high" width="1280" height="853"></figure>
+<div class="wrap hero-copy">
+<p class="kicker">Supermercado · Pevidém</p>
+<h1 class="hero-title">Supermercados Ribeiros</h1>
+<p class="tagline">Compras de Pevidém, sem sair de casa</p>
+<div class="actions"><a class="btn btn-primary" href="#ementa">Fazer encomenda</a><a class="btn btn-secondary" href="tel:+351253144217"><svg class="i" aria-hidden="true"><use href="#i-phone"/></svg>Ligar</a></div>
+<ul class="facts"><li><a href="https://www.google.com/maps/search/?api=1&query=Supermercados%20Ribeiros%2C%20R.%20Dr.%20Guilherme%20Augusto%20993%2C%20S.%20Jorge%20de%20Selho" target="_blank" rel="noopener"><svg class="i" aria-hidden="true"><use href="#i-star"/></svg><span><b class="rating">4,3</b><span class="sep"> · </span><span class="reviews">176 avaliações no Google</span></span></a></li><li><a href="https://www.google.com/maps/search/?api=1&query=Supermercados%20Ribeiros%2C%20R.%20Dr.%20Guilherme%20Augusto%20993%2C%20S.%20Jorge%20de%20Selho" target="_blank" rel="noopener"><svg class="i" aria-hidden="true"><use href="#i-pin"/></svg><span>R. Dr. Guilherme Augusto 993, S. Jorge de Selho</span></a></li></ul>
+</div>
+</section>
+<section class="about"><div class="wrap about-grid">
+<div class="about-text"><p class="lede">O Supermercados Ribeiros fica em S. Jorge de Selho, na zona de Pevidém. Envie a lista por WhatsApp e escolha entre levantar na loja ou receber as compras em casa.</p></div>
+<ul class="points"><li class="point"><h3>Encomendas por WhatsApp</h3><p>Envie a sua lista de compras por mensagem, sem filas.</p></li><li class="point"><h3>Levantar ou entregar</h3><p>Passe na loja ou peça entrega, como lhe der mais jeito.</p></li><li class="point"><h3>Perto de si</h3><p>Na R. Dr. Guilherme Augusto, em S. Jorge de Selho.</p></li></ul>
+</div></section>
+<section class="gallery" aria-label="Fotografias"><div class="wrap"><div class="gallery-grid"><figure class="shot"><img src="../assets/img/fresh-bread.jpg" alt="fresh bread" loading="lazy" width="1280" height="853"></figure><figure class="shot"><img src="../assets/img/fruit-basket.jpg" alt="fruit basket" loading="lazy" width="1280" height="853"></figure><figure class="shot"><img src="../assets/img/grocery-shelves.jpg" alt="grocery shelves" loading="lazy" width="1280" height="853"></figure></div><p class="caption">Fotografias ilustrativas · no site final usamos as vossas.</p></div></section>
+<section class="menu" id="ementa"><div class="wrap">
+<div class="section-head"><p class="kicker">Produtos</p><h2>O que encontra cá</h2><p class="note">Ementa de exemplo · substituímos pela vossa</p></div>
+<div class="tabs" id="tabs" role="tablist" aria-label="Categorias"></div>
+<ul class="dishes" id="items"></ul>
 </div></section>
 
-<section id="pedido"><div class="wrap split">
-<div><p class="eyebrow">Encomenda</p><h2>Faça a sua encomenda</h2><p>Diga o que precisa e quando quer levantar (ou receber). Respondemos por WhatsApp.</p>
-<div class="preview" aria-live="polite"></div><p class="preview-cap" hidden>↑ Assim chegaria a mensagem ao vosso WhatsApp. (Nesta demonstração nada é enviado.)</p></div>
-<form class="f" data-title="Encomenda"><div class="row"><label>Nome<input name="Nome" required autocomplete="name"></label><label>Telemóvel<input name="Telemóvel" type="tel" required autocomplete="tel"></label></div>
-<label>O que deseja<textarea name="Encomenda" rows="3" required placeholder="Ex.: 1 bolo de aniversário para 12 pessoas, 50 salgados variados…"></textarea></label>
-<div class="row"><label>Dia<input name="Dia" type="date" required></label><label>Levantar ou entregar<select name="Entrega"><option>Levantar na loja</option><option>Entrega ao domicílio</option></select></label></div><button class="btn btn-dark" type="submit">Enviar encomenda</button></form>
+<section class="book" id="pedido"><div class="wrap book-grid">
+<div class="book-copy"><p class="kicker">Encomendas</p><h2>Faça a sua encomenda</h2><p>Diga o que precisa e quando quer levantar ou receber. Respondemos por WhatsApp.</p>
+<div class="preview" aria-live="polite"></div><p class="preview-cap" hidden>Assim chegaria a mensagem ao vosso WhatsApp. Nesta demonstração nada é enviado.</p></div>
+<form class="form" data-title="Encomendas"><div class="row"><label for="f-nome">Nome<input id="f-nome" name="Nome" required autocomplete="name"></label><label for="f-tel">Telemóvel<input id="f-tel" name="Telemóvel" type="tel" required autocomplete="tel"></label></div>
+<label for="f-enc">O que deseja<textarea id="f-enc" name="Encomenda" rows="3" required placeholder="Ex.: 1 bolo de aniversário para 12 pessoas, 50 salgados variados…"></textarea></label>
+<div class="row"><label for="f-dia">Dia<input id="f-dia" name="Dia" type="date" required></label><label for="f-ent">Levantar ou entregar<select id="f-ent" name="Entrega"><option>Levantar na loja</option><option>Entrega ao domicílio</option></select></label></div><button class="btn btn-primary" type="submit">Enviar encomenda</button></form>
 </div></section>
-<section class="contact" id="contactos"><div class="wrap split">
-<div class="info"><p class="eyebrow">Onde estamos</p><h2>Venha visitar-nos</h2>
-<div class="line"><span>📍</span><div>R. Dr. Guilherme Augusto 993, S. Jorge de Selho<br><a href="https://www.google.com/maps/search/?api=1&query=Supermercados%20Ribeiros%2C%20R.%20Dr.%20Guilherme%20Augusto%20993%2C%20S.%20Jorge%20de%20Selho" target="_blank" rel="noopener">Abrir no Google Maps →</a></div></div>
-<div class="line"><span>📞</span><a href="tel:+351253144217">253 144 217</a></div><div class="line"><span>🔗</span><a href="https://facebook.com/SupermercadosRibeiros.1978" target="_blank" rel="noopener">facebook.com/SupermercadosRibeiros.1978</a></div>
-<div class="line"><span>🕑</span><div>Horário — <i>a confirmar convosco</i></div></div></div>
-<iframe class="map" loading="lazy" title="Mapa" src="https://www.google.com/maps?q=Supermercados%20Ribeiros%2C%20R.%20Dr.%20Guilherme%20Augusto%20993%2C%20S.%20Jorge%20de%20Selho&output=embed"></iframe>
+<section class="visit" id="visitar"><div class="wrap visit-grid">
+<div class="visit-info"><p class="kicker">Visitar</p><h2>Onde estamos</h2>
+<address><a href="https://www.google.com/maps/search/?api=1&query=Supermercados%20Ribeiros%2C%20R.%20Dr.%20Guilherme%20Augusto%20993%2C%20S.%20Jorge%20de%20Selho" target="_blank" rel="noopener"><svg class="i" aria-hidden="true"><use href="#i-pin"/></svg><span>R. Dr. Guilherme Augusto 993, S. Jorge de Selho</span></a></address>
+<div class="visit-block"><h3><svg class="i" aria-hidden="true"><use href="#i-clock"/></svg>Horário</h3><p class="muted">Horário a confirmar convosco</p></div>
+<ul class="contacts"><li><svg class="i" aria-hidden="true"><use href="#i-phone"/></svg><a href="tel:+351253144217">253 144 217</a></li><li><svg class="i" aria-hidden="true"><use href="#i-link"/></svg><a href="https://facebook.com/SupermercadosRibeiros.1978" target="_blank" rel="noopener">facebook.com/SupermercadosRibeiros.1978</a></li></ul>
+<a class="btn btn-secondary" href="https://www.google.com/maps/dir/?api=1&destination=Supermercados%20Ribeiros%2C%20R.%20Dr.%20Guilherme%20Augusto%20993%2C%20S.%20Jorge%20de%20Selho" target="_blank" rel="noopener"><svg class="i" aria-hidden="true"><use href="#i-nav"/></svg>Como chegar</a></div>
+<iframe class="map" loading="lazy" title="Mapa de Supermercados Ribeiros" src="https://www.google.com/maps?q=Supermercados%20Ribeiros%2C%20R.%20Dr.%20Guilherme%20Augusto%20993%2C%20S.%20Jorge%20de%20Selho&output=embed"></iframe>
 </div></section>
-<section class="proposal" id="proposta"><div class="wrap"><div class="box">
-<div><p class="eyebrow">Proposta para Supermercados Ribeiros</p><h2>Gostou? Isto pode ser o vosso site.</h2>
+<section class="proposal" id="proposta"><div class="wrap proposal-box">
+<div><p class="kicker">Proposta para Supermercados Ribeiros</p><h2>Gostou? Isto pode ser o vosso site.</h2>
 <p>Esta página foi feita de propósito para Supermercados Ribeiros por João Machado, programador web aqui de Guimarães. Inclui:</p>
-<ul><li>Página rápida no telemóvel, com o vosso nome e cores</li><li>Ementa/produtos e preços fáceis de atualizar</li><li>Botões para ligar, WhatsApp e mapa</li><li>Pedidos de reserva/encomenda directos para o WhatsApp</li><li>Domínio próprio (ex.: ribeiros.pt) ligado ao Google Maps</li></ul>
-<p style="color:var(--muted);font-size:.9rem">Eu trato do alojamento e da manutenção. Sem compromisso.</p></div>
-<div class="decide"><a class="btn yes2" data-owner="yes" href="#proposta">✅ Sim, quero avançar</a>
-<a class="btn btn-line" data-owner="no" href="#proposta">Não, obrigado</a></div>
-</div></div></section>
-<nav class="mbar" aria-label="Ações rápidas"><a href="tel:+351253144217"><span>📞</span>Ligar</a><a href="https://www.google.com/maps/dir/?api=1&destination=Supermercados%20Ribeiros%2C%20R.%20Dr.%20Guilherme%20Augusto%20993%2C%20S.%20Jorge%20de%20Selho" target="_blank" rel="noopener"><span>🧭</span>Direções</a><a href="#ementa"><span>🛒</span>Produtos</a></nav>
-<footer><div class="wrap"><span>© Supermercados Ribeiros · R. Dr. Guilherme Augusto 993, S. Jorge de Selho</span><span>Demonstração — não é o site oficial. Fotos: <a href="https://commons.wikimedia.org/wiki/File:Outdoor_market_fruit_and_vegetable_stall_Market_Place_Romford_London_01.jpg" target="_blank" rel="noopener">Acabashi</a> (CC BY-SA 4.0), <a href="https://commons.wikimedia.org/wiki/File:Fresh_bread_platter.jpg" target="_blank" rel="noopener">Didriks from Cambridge, MA, USA</a> (CC BY 2.0), <a href="https://commons.wikimedia.org/wiki/File:Bowl_of_Fresh_Fruit_(Unsplash).jpg" target="_blank" rel="noopener">Iwona Łach ywka</a> (CC0), <a href="https://commons.wikimedia.org/wiki/File:Fresh_Vegetables_display_in_Iloilo_Terminal_Public_Market_12.jpg" target="_blank" rel="noopener">OnlyJanz</a> (CC BY-SA 4.0) via Wikimedia Commons.</span></div></footer>
+<ul class="feats"><li><svg class="i" aria-hidden="true"><use href="#i-check"/></svg>Página rápida no telemóvel, com o vosso nome e identidade</li><li><svg class="i" aria-hidden="true"><use href="#i-check"/></svg>Ementa e preços fáceis de atualizar</li><li><svg class="i" aria-hidden="true"><use href="#i-check"/></svg>Botões para ligar, WhatsApp e direções</li><li><svg class="i" aria-hidden="true"><use href="#i-check"/></svg>Pedidos de reserva ou encomenda direto para o WhatsApp</li><li><svg class="i" aria-hidden="true"><use href="#i-check"/></svg>Domínio próprio (ex.: ribeiros.pt) ligado ao Google Maps</li></ul>
+<p class="muted">Eu trato do alojamento e da manutenção. Sem compromisso.</p></div>
+<div class="decide"><a class="btn btn-yes" data-owner="yes" href="#proposta">Sim, quero avançar</a><a class="btn btn-no" data-owner="no" href="#proposta">Não, obrigado</a></div>
+</div></section>
+</main>
+<footer class="site-foot"><div class="wrap"><p><b>Supermercados Ribeiros</b> · R. Dr. Guilherme Augusto 993, S. Jorge de Selho</p><p class="muted">Demonstração, não é o site oficial. Fotos: <a href="https://commons.wikimedia.org/wiki/File:Outdoor_market_fruit_and_vegetable_stall_Market_Place_Romford_London_01.jpg" target="_blank" rel="noopener">Acabashi</a> (CC BY-SA 4.0), <a href="https://commons.wikimedia.org/wiki/File:Fresh_bread_platter.jpg" target="_blank" rel="noopener">Didriks from Cambridge, MA, USA</a> (CC BY 2.0), <a href="https://commons.wikimedia.org/wiki/File:Bowl_of_Fresh_Fruit_(Unsplash).jpg" target="_blank" rel="noopener">Iwona Łach ywka</a> (CC0), <a href="https://commons.wikimedia.org/wiki/File:Fresh_Vegetables_display_in_Iloilo_Terminal_Public_Market_12.jpg" target="_blank" rel="noopener">OnlyJanz</a> (CC BY-SA 4.0) via Wikimedia Commons.</p></div></footer>
+<nav class="mbar" aria-label="Ações rápidas"><a href="tel:+351253144217"><svg class="i" aria-hidden="true"><use href="#i-phone"/></svg><span>Ligar</span></a><a href="https://www.google.com/maps/dir/?api=1&destination=Supermercados%20Ribeiros%2C%20R.%20Dr.%20Guilherme%20Augusto%20993%2C%20S.%20Jorge%20de%20Selho" target="_blank" rel="noopener"><svg class="i" aria-hidden="true"><use href="#i-nav"/></svg><span>Direções</span></a><a href="#ementa"><svg class="i" aria-hidden="true"><use href="#i-menu"/></svg><span>Produtos</span></a></nav>
 <script id="data" type="application/json">{"slug": "supermercados-ribeiros", "name": "Supermercados Ribeiros", "theme": {"preset": "fresco", "primary": "#2e7d32", "accent": "#f2a900", "bg": "#f4faf1", "ink": "#14301a", "font_display": "Bricolage Grotesque", "motif": "dots"}, "menu": [{"category": "Padaria", "items": [{"name": "Pão de Mafra (un.)", "desc": "", "price": 0.35}, {"name": "Pão de forma (un.)", "desc": "", "price": 1.5}, {"name": "Broa de milho (un.)", "desc": "", "price": 1.8, "tags": ["popular"]}]}, {"category": "Frutas e legumes", "items": [{"name": "Maçã Gala (kg)", "desc": "", "price": 1.99}, {"name": "Banana (kg)", "desc": "", "price": 1.49}, {"name": "Batata (kg)", "desc": "", "price": 0.99}, {"name": "Tomate (kg)", "desc": "", "price": 2.49}]}, {"category": "Talho", "items": [{"name": "Frango inteiro (kg)", "desc": "", "price": 3.99, "tags": ["popular"]}, {"name": "Bifes de peru (kg)", "desc": "", "price": 7.9}, {"name": "Carne picada mista (kg)", "desc": "", "price": 6.5}]}, {"category": "Mercearia", "items": [{"name": "Arroz carolino 1 kg (un.)", "desc": "", "price": 1.39}, {"name": "Azeite 750 ml (un.)", "desc": "", "price": 5.99}, {"name": "Leite meio-gordo 1 L (un.)", "desc": "", "price": 0.89}, {"name": "Massa esparguete 500 g (un.)", "desc": "", "price": 0.99}]}]}</script>
 <script src="../assets/owner.js"></script>
 <script src="../assets/site.js"></script>

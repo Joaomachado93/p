@@ -1,0 +1,185 @@
+@import url('https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght,SOFT@0,9..144,300..800,0..100;1,9..144,300..800,0..100&family=Figtree:wght@400;500;600;700&display=swap');
+/* pastelaria — "a montra": striped awning (toldo) over the shop sign, the hero photo in an arched glass window,
+   the menu as a pastel-tinted vitrine with paper price tags, ribbon (fita) tabs and kickers,
+   gallery + QR card as lace doilies (papel rendado), baker's twine as the divider. Brand primary tints all the pastels. */
+:root{
+  --bg:color-mix(in srgb,var(--primary) 4%,#fdf8f1);
+  --surface:#fffdf9;
+  --paper:color-mix(in srgb,var(--primary) 10%,#fff8f0);
+  --paper-2:color-mix(in srgb,var(--primary) 18%,#fff6ee);
+  --ink:#2e211c; --muted:#68564b; --line:rgba(74,42,26,.16);
+  --on-primary:#fff; --on-accent:#2e211c;
+  --display:'Fraunces',Georgia,'Times New Roman',serif;
+  --body:'Figtree',system-ui,-apple-system,'Segoe UI',sans-serif;
+  --label:'Figtree',system-ui,sans-serif;
+  --radius:4px; --radius-lg:16px;
+  --section:clamp(60px,9vw,116px); --maxw:1140px;
+  --twine:repeating-linear-gradient(-45deg,var(--primary) 0 5px,var(--surface) 5px 10px);
+  --r:7px; /* doily scallop radius */
+}
+[data-dir=pastelaria] body{background:var(--bg);color:var(--ink)}
+[data-dir=pastelaria] h1,[data-dir=pastelaria] h2,[data-dir=pastelaria] h3{font-family:var(--display);font-variation-settings:'SOFT' 100;font-weight:600;letter-spacing:-.01em}
+[data-dir=pastelaria] h2{font-size:clamp(2rem,4.4vw,3.2rem);font-weight:500}
+[data-dir=pastelaria] h2 em,[data-dir=pastelaria] .hero-title{font-style:normal}
+:focus-visible{outline:3px solid var(--primary);outline-offset:3px}
+
+/* ribbon kicker (fita) */
+.kicker{justify-self:start;display:inline-block;width:fit-content;font:700 .72rem/1 var(--label);letter-spacing:.16em;color:var(--on-primary);
+  background:var(--primary);padding:.6em 1.5em .6em 1em;clip-path:polygon(0 0,100% 0,calc(100% - 9px) 50%,100% 100%,0 100%)}
+
+/* buttons */
+.btn{border-radius:999px;font:600 1rem/1 var(--body);min-height:48px;padding:.75em 1.4em}
+.btn-primary{background:var(--primary);color:var(--on-primary);box-shadow:0 2px 0 color-mix(in srgb,var(--primary) 60%,#000)}
+.btn-primary:hover{background:color-mix(in srgb,var(--primary) 88%,#000)}
+.btn-secondary{background:var(--surface);color:var(--ink);border-color:var(--line)}
+.btn-secondary:hover{border-color:var(--ink)}
+
+/* ---------- header: awning + shop sign ---------- */
+.site-head{background:var(--bg)}
+.site-head::before{content:"";display:block;height:34px;
+  background:linear-gradient(rgba(0,0,0,.14),rgba(0,0,0,0) 45%),repeating-linear-gradient(90deg,var(--primary) 0 24px,var(--surface) 24px 48px);
+  -webkit-mask:linear-gradient(#000 0 0) top/100% calc(100% - 12px) no-repeat,radial-gradient(circle 12px at 50% 0,#000 97%,#0000) 0 100%/24px 12px repeat-x;
+          mask:linear-gradient(#000 0 0) top/100% calc(100% - 12px) no-repeat,radial-gradient(circle 12px at 50% 0,#000 97%,#0000) 0 100%/24px 12px repeat-x}
+.site-head-row{padding-block:12px 14px}
+.brand{font:600 clamp(1.35rem,2.4vw,1.7rem)/1 var(--display);font-style:italic;font-variation-settings:'SOFT' 100;color:var(--primary);letter-spacing:-.01em}
+.nav{font:600 .9rem/1 var(--body);gap:26px}
+.nav a{padding:.4em 0}
+.nav a:hover{text-decoration:none;box-shadow:inset 0 -2px 0 var(--primary)}
+
+/* ---------- hero: the shop window ---------- */
+.hero{display:grid;grid-template-columns:minmax(0,1fr);padding:8px 0 0}
+.hero-media{position:relative;margin:0 var(--gutter-r) 0 var(--gutter);aspect-ratio:5/4;background:var(--paper-2);
+  border-radius:48% 48% 14px 14px / 30% 30% 14px 14px;box-shadow:0 0 0 6px var(--surface),0 0 0 7px var(--line),0 18px 40px -18px rgba(60,30,15,.45)}
+.hero-media::after{content:"";position:absolute;inset:0;pointer-events:none;
+  background:linear-gradient(112deg,rgba(255,255,255,0) 30%,rgba(255,255,255,.26) 38%,rgba(255,255,255,0) 44%,rgba(255,255,255,0) 52%,rgba(255,255,255,.14) 56%,rgba(255,255,255,0) 60%)}
+.hero-media img{position:absolute;inset:0}
+.hero-media--empty{background:radial-gradient(circle at 50% 50%,var(--surface) 2.5px,transparent 3px) 0 0/16px 16px,linear-gradient(160deg,var(--paper-2),var(--paper))}
+.hero-copy{gap:14px;padding-block:26px 48px}
+.hero-title{font-size:clamp(2.6rem,7.4vw,5.6rem);font-weight:600;line-height:.98;letter-spacing:-.025em;color:var(--ink)}
+.tagline{font:italic 400 clamp(1.15rem,2vw,1.45rem)/1.35 var(--display);color:var(--muted)}
+.hero .actions{margin-top:4px}
+.facts{font-size:.92rem;color:var(--muted);padding-top:14px;border-top:1px dashed var(--line);margin-top:4px}
+.facts .i{color:var(--primary);margin-top:.15em}
+
+@media (min-width:861px){
+  .hero{grid-template-columns:minmax(0,1fr) minmax(0,1fr);align-items:center;gap:clamp(32px,5vw,72px);max-width:var(--maxw);margin:0 auto;
+    padding:clamp(16px,3vw,40px) var(--gutter-r) clamp(40px,6vw,80px) var(--gutter)}
+  .hero-media{grid-column:2;grid-row:1;margin:0;aspect-ratio:4/5;max-height:640px}
+  .hero-copy{grid-column:1;grid-row:1;padding:0;max-width:none;margin:0}
+}
+
+/* ---------- about ---------- */
+.about{position:relative}
+.lede{font:400 clamp(1.25rem,2.2vw,1.6rem)/1.42 var(--display);font-variation-settings:'SOFT' 100;color:var(--ink)}
+.services{font-size:.9rem;font-weight:600;gap:8px}
+.services li{background:var(--paper);padding:.45em .9em;border-radius:999px}
+.services .i{color:var(--primary)}
+.points{gap:0;border-top:1px solid var(--line)}
+.point{display:grid;grid-template-columns:auto minmax(0,1fr);column-gap:16px;padding:18px 0;border-bottom:1px solid var(--line);counter-increment:pt}
+.points{counter-reset:pt}
+.point::before{content:counter(pt,decimal-leading-zero);grid-row:span 2;font:italic 500 1.05rem/1.4 var(--display);color:var(--primary)}
+.point h3{font-size:1.25rem;margin-bottom:4px}
+
+/* ---------- gallery: doilies ---------- */
+.gallery-grid{gap:16px;align-items:start}
+.shot{position:relative;background:radial-gradient(circle,var(--paper) 1.6px,transparent 2px) 0 0/9px 9px,#fff;padding:calc(var(--r)*2);aspect-ratio:4/3;
+  -webkit-mask:linear-gradient(#000 0 0) content-box,radial-gradient(var(--r),#000 97%,#0000) 0 0/calc(var(--r)*2) calc(var(--r)*2) round;
+          mask:linear-gradient(#000 0 0) content-box,radial-gradient(var(--r),#000 97%,#0000) 0 0/calc(var(--r)*2) calc(var(--r)*2) round}
+.shot img{border-radius:2px}
+.caption{font-style:italic}
+
+/* ---------- menu: the vitrine ---------- */
+.menu{background:var(--paper);position:relative;border-top:6px solid transparent;border-image:var(--twine) 6}
+.menu .section-head{grid-template-columns:minmax(0,1fr);margin-bottom:26px}
+.note{font-style:italic}
+.tabs{gap:6px;padding:4px 2px 14px;margin-bottom:6px}
+.tab{min-height:44px;border:0;border-radius:0;background:var(--paper-2);color:var(--ink);font:600 .95rem/1 var(--body);
+  padding:.7em 1.5em;clip-path:polygon(0 0,100% 0,calc(100% - 10px) 50%,100% 100%,0 100%,10px 50%);transition:background .15s,color .15s}
+.tab:hover{background:color-mix(in srgb,var(--primary) 28%,#fff6ee)}
+.tab[aria-selected=true]{background:var(--primary);color:var(--on-primary)}
+.tab:focus-visible{outline:none;background:var(--ink);color:#fff}
+.dishes{gap:0 52px;background:var(--surface);border-radius:var(--radius-lg) var(--radius-lg) 6px 6px;padding:6px clamp(16px,3vw,32px);
+  box-shadow:inset 0 0 0 1px rgba(255,255,255,.9),0 1px 0 var(--line),0 14px 0 -8px color-mix(in srgb,var(--primary) 22%,#e9ddd2)}
+.dish{padding-block:18px;border-bottom:1px solid var(--line)}
+.dish-line{align-items:center;gap:12px}
+.dish-name{font:600 1.15rem/1.25 var(--display);font-variation-settings:'SOFT' 100;min-width:0}
+.dish-dots{border-bottom:2px dotted color-mix(in srgb,var(--primary) 35%,transparent);transform:translateY(3px)}
+.dish-price{position:relative;font:italic 650 1.05rem/1 var(--display);color:var(--on-primary);background:var(--primary);
+  padding:.42em .7em .42em 1.3em;clip-path:polygon(11px 0,100% 0,100% 100%,11px 100%,0 50%);
+  -webkit-mask:radial-gradient(circle 3px at 12px 50%,#0000 96%,#000);mask:radial-gradient(circle 3px at 12px 50%,#0000 96%,#000)}
+.dish-desc{font-size:.92rem;margin-top:6px}
+.tag{border-radius:999px;background:var(--paper-2);color:var(--ink);padding:.4em .7em}
+@media (min-width:861px){.dishes{padding-block:10px}
+  .gallery-grid{grid-auto-rows:clamp(220px,24vw,320px);align-items:stretch}.gallery-grid .shot{aspect-ratio:auto;height:100%}}
+
+/* ---------- QR: the counter card on a doily ---------- */
+.qr{background:var(--primary);color:var(--on-primary);
+  background-image:radial-gradient(circle,rgba(255,255,255,.08) 1.5px,transparent 2px);background-size:18px 18px}
+.qr .kicker{color:var(--primary);background:var(--surface)}
+.qr h2{color:var(--on-primary)}
+.steps li::before{background:var(--surface);color:var(--primary);font:italic 600 1.1rem/1 var(--display)}
+.steps span{opacity:.88}
+.qr .btn-primary{background:var(--surface);color:var(--primary);box-shadow:none}
+.qr .btn-primary:hover{background:#fff}
+.qr .btn-secondary{background:transparent;color:var(--on-primary);border-color:rgba(255,255,255,.55)}
+.qr .btn-secondary:hover{border-color:#fff}
+.qr :focus-visible{outline-color:#fff}
+.qr-card{--r:8px;border-radius:0;box-shadow:none;padding:calc(var(--r)*3);gap:6px;width:min(340px,100%);
+  background:linear-gradient(#fff,#fff) content-box,radial-gradient(circle,var(--paper-2) 1.8px,transparent 2.2px) 0 0/10px 10px,#fff;
+  -webkit-mask:linear-gradient(#000 0 0) content-box,radial-gradient(var(--r),#000 97%,#0000) 0 0/calc(var(--r)*2) calc(var(--r)*2) round;
+          mask:linear-gradient(#000 0 0) content-box,radial-gradient(var(--r),#000 97%,#0000) 0 0/calc(var(--r)*2) calc(var(--r)*2) round}
+.qr-card > *{background:#fff}
+.qr-card figcaption{padding:12px 12px 0}
+.qr-name{font-style:italic;color:var(--primary)}
+.qr-table{color:#3a2a22}
+.qr-card p{padding:0 12px 12px;color:#5a4a40;font-style:italic;font-family:var(--display)}
+
+/* ---------- order slip ---------- */
+.form{border-radius:6px;border:1px solid var(--line);background:var(--surface);box-shadow:0 18px 40px -26px rgba(60,30,15,.4);position:relative;
+  padding-top:clamp(30px,4vw,40px)}
+.form::before{content:"";position:absolute;left:0;right:0;top:12px;border-top:2px dashed var(--line)}
+.form label{font:600 .78rem/1.2 var(--label);letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
+.form input,.form select,.form textarea{text-transform:none;letter-spacing:0;font-size:1rem;color:var(--ink);background:var(--bg);border-color:var(--line);border-radius:6px}
+.form input:focus,.form select:focus,.form textarea:focus{outline:none;border-color:var(--primary);box-shadow:0 0 0 3px color-mix(in srgb,var(--primary) 22%,transparent)}
+.form .btn{justify-self:start}
+
+/* ---------- visit ---------- */
+address a{font:500 1.2rem/1.4 var(--display)}
+address .i,.contacts .i,.visit-block .i{color:var(--primary)}
+.visit-block{background:var(--surface);border:1px solid var(--line);border-radius:6px;padding:18px 20px}
+.visit-block h3{color:var(--primary)}
+.hours{width:100%}
+.hours th,.hours td{padding:7px 0;border-bottom:1px dotted var(--line)}
+.hours tr:last-child th,.hours tr:last-child td{border-bottom:0}
+.hours td{text-align:right}
+.map{border-radius:var(--radius-lg);box-shadow:0 0 0 6px var(--surface),0 0 0 7px var(--line)}
+
+/* ---------- proposal ---------- */
+.proposal{padding-top:0}
+.proposal-box{background:var(--paper);border-radius:var(--radius-lg);padding:clamp(24px,4vw,48px)}
+.proposal-box h2{font-size:clamp(1.8rem,3.6vw,2.6rem)}
+
+/* ---------- footer: baker's twine ---------- */
+.site-foot{border-top:6px solid transparent;border-image:var(--twine) 6;background:var(--surface)}
+.site-foot b{font-family:var(--display);font-style:italic;color:var(--primary)}
+
+@media (max-width:860px){
+  .mbar{background:var(--surface);border-top:0;box-shadow:0 -1px 0 var(--line),0 -8px 24px -12px rgba(60,30,15,.25)}
+  .gallery-grid{gap:12px}
+  .shot{--r:5px}
+  .dish-name{font-size:1.08rem}
+}
+
+/* ---------- mesa / cozinha ---------- */
+.m-top{background:var(--primary)}
+.m-top h1{font-style:italic}
+.m-table{background:var(--surface);color:var(--primary);border-radius:999px;font-family:var(--body)}
+.m-top .tab{background:rgba(255,255,255,.16);color:var(--on-primary)}
+.m-top .tab[aria-selected=true]{background:var(--surface);color:var(--primary)}
+.m-cat{font-weight:500}
+.m-item h4{font:600 1.08rem/1.25 var(--display);font-variation-settings:'SOFT' 100}
+.m-item .price{font:italic 650 1rem/1.2 var(--display);color:var(--primary)}
+.qty button.minus{background:var(--paper-2)}
+.cartbar{background:var(--ink);color:#fff;border-radius:999px}
+.cartbar .n{background:var(--surface);color:var(--ink);border-radius:999px}
+.ticket{border-top-color:var(--primary);border-radius:6px}

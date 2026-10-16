@@ -1,0 +1,198 @@
+@import url('https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,400..800;1,6..96,400..700&family=Jost:wght@400;500;600&display=swap');
+/* mesa — editorial fine dining: white tablecloth, framed photography (passe-partout), Bodoni + Jost,
+   carte-style menu on "card stock" with fine leaders, Roman numerals. Layout: framed photo + giant name
+   (stacked on phone, split on desktop); quiet ivory sections; one bold moment = the oversized Bodoni name. */
+:root{
+  --bg:#fbf9f5; --surface:#ffffff; --ink:#1d1a17; --muted:#5f5850; --line:rgba(29,26,23,.16);
+  --hair:rgba(29,26,23,.28); --linen:#f3eee6; --night:#1d1a17; --ivory:#f6f1e8;
+  --on-primary:#fff; --on-accent:#fff;
+  --display:'Bodoni Moda',Didot,'Bodoni 72',Georgia,serif; --body:'Jost','Futura','Century Gothic',system-ui,sans-serif; --label:'Jost','Futura',system-ui,sans-serif;
+  --radius:0px; --radius-lg:2px; --section:clamp(64px,10vw,128px); --maxw:1180px;
+}
+html[data-dir=mesa] body{background:var(--bg);color:var(--ink);font:400 17px/1.65 var(--body)}
+[data-dir=mesa] :focus-visible{outline:2px solid var(--primary);outline-offset:3px}
+[data-dir=mesa] h1,[data-dir=mesa] h2,[data-dir=mesa] h3{font-family:var(--display);font-weight:500;letter-spacing:-.01em;font-optical-sizing:auto}
+[data-dir=mesa] h2{font-size:clamp(2.1rem,4.6vw,3.4rem);line-height:1.04}
+[data-dir=mesa] h2::after{content:"";display:block;width:44px;height:1px;background:var(--accent);margin-top:20px}
+[data-dir=mesa] .kicker{font:500 .74rem/1.2 var(--label);letter-spacing:.26em;text-transform:uppercase;color:var(--primary)}
+[data-dir=mesa] ::selection{background:var(--primary);color:var(--on-primary)}
+
+/* buttons: square, tracked small caps */
+[data-dir=mesa] .btn{border-radius:0;min-height:50px;padding:.8em 1.5em;font:500 .8rem/1 var(--label);letter-spacing:.18em;text-transform:uppercase;border-width:1px}
+[data-dir=mesa] .btn:hover{transform:none}
+[data-dir=mesa] .btn-primary{background:var(--primary);color:var(--on-primary);border-color:var(--primary)}
+[data-dir=mesa] .btn-primary:hover{background:var(--night);border-color:var(--night)}
+[data-dir=mesa] .btn-secondary{border-color:var(--hair);color:var(--ink)}
+[data-dir=mesa] .btn-secondary:hover{border-color:var(--ink)}
+[data-dir=mesa] .demobar .btn{min-height:34px;letter-spacing:.08em;font-size:.72rem;padding:.45em .9em}
+[data-dir=mesa] .demobar .btn-no{color:#eee}
+
+/* header: centred masthead like a restaurant card */
+[data-dir=mesa] .site-head{background:var(--bg);border-bottom:1px solid var(--line)}
+[data-dir=mesa] .site-head-row{padding-block:20px}
+[data-dir=mesa] .brand{font:500 1.3rem/1.1 var(--display);letter-spacing:.01em}
+[data-dir=mesa] .nav{gap:30px;font:500 .74rem/1 var(--label);letter-spacing:.2em;text-transform:uppercase}
+[data-dir=mesa] .nav a{padding-block:6px;border-bottom:1px solid transparent}
+[data-dir=mesa] .nav a:hover{text-decoration:none;border-bottom-color:var(--accent)}
+
+/* hero: framed photograph + oversized name */
+[data-dir=mesa] .hero{display:grid;background:var(--bg)}
+[data-dir=mesa] .hero-media{margin:16px var(--gutter-r) 0 var(--gutter);aspect-ratio:5/4;background:var(--linen);
+  padding:10px;border:1px solid var(--line);box-shadow:inset 0 0 0 9px var(--surface);position:relative}
+[data-dir=mesa] .hero-media::after{content:"";position:absolute;inset:10px;border:1px solid rgba(255,255,255,.55);pointer-events:none}
+[data-dir=mesa] .hero-media img{width:100%;height:100%;object-fit:cover}
+[data-dir=mesa] .hero-media--empty,[data-dir=mesa] .hero:not(.hero--photo) .hero-media{
+  background:var(--primary);background-image:
+  radial-gradient(circle at 50% 50%,transparent 0 38%,rgba(255,255,255,.18) 38.3% 38.6%,transparent 39%),
+  radial-gradient(circle at 50% 50%,transparent 0 30%,rgba(255,255,255,.12) 30.3% 30.6%,transparent 31%);
+  box-shadow:inset 0 0 0 9px var(--surface)}
+[data-dir=mesa] .hero-copy{gap:14px;padding-block:26px 44px}
+[data-dir=mesa] .hero-title{font-size:clamp(2.7rem,11vw,7.2rem);font-weight:500;line-height:.96;letter-spacing:-.025em}
+[data-dir=mesa] .tagline{font:italic 400 clamp(1.15rem,2.2vw,1.55rem)/1.35 var(--display);color:var(--muted);max-width:30ch}
+[data-dir=mesa] .hero .actions{margin-top:8px}
+[data-dir=mesa] .facts{margin-top:10px;padding-top:16px;border-top:1px solid var(--line);font-size:.88rem;color:var(--muted);gap:8px 26px}
+[data-dir=mesa] .facts .i{color:var(--accent)}
+[data-dir=mesa] .facts b{color:var(--ink);font-family:var(--display);font-size:1.05rem}
+@media (min-width:861px){
+  [data-dir=mesa] .hero{grid-template-columns:minmax(0,1fr) minmax(0,1.05fr);max-width:var(--maxw);margin:0 auto;padding:clamp(28px,4vw,56px) var(--gutter-r) clamp(40px,5vw,72px) var(--gutter);gap:clamp(32px,5vw,72px);align-items:center}
+  [data-dir=mesa] .hero-media{order:2;margin:0;aspect-ratio:4/5;max-height:78vh;padding:14px;box-shadow:inset 0 0 0 13px var(--surface)}
+  [data-dir=mesa] .hero-media::after{inset:14px}
+  [data-dir=mesa] .hero-copy{order:1;padding:0;max-width:none;gap:20px}
+  [data-dir=mesa] .hero-title{font-size:clamp(3.4rem,6.4vw,6.4rem)}
+}
+
+/* about: italic lede, roman-numbered points */
+[data-dir=mesa] .about{border-top:1px solid var(--line)}
+[data-dir=mesa] .lede{font:italic 400 clamp(1.4rem,2.6vw,2rem)/1.35 var(--display);max-width:30ch;color:var(--ink)}
+[data-dir=mesa] .services{font:500 .74rem/1.3 var(--label);letter-spacing:.18em;text-transform:uppercase;color:var(--muted);gap:10px 22px;margin-top:28px}
+[data-dir=mesa] .services .i{color:var(--accent)}
+[data-dir=mesa] .points{counter-reset:pt;gap:0;border-top:1px solid var(--line)}
+[data-dir=mesa] .point{counter-increment:pt;display:grid;grid-template-columns:52px 1fr;column-gap:12px;padding-block:20px;border-bottom:1px solid var(--line)}
+[data-dir=mesa] .point::before{content:counter(pt,upper-roman);grid-row:span 2;font:italic 400 1.3rem/1.2 var(--display);color:var(--primary)}
+[data-dir=mesa] .point h3{font-size:1.3rem;margin-bottom:4px}
+[data-dir=mesa] .point p{font-size:.95rem}
+
+/* gallery: matted prints */
+[data-dir=mesa] .gallery-grid{gap:clamp(10px,1.6vw,20px)}
+[data-dir=mesa] .shot{background:var(--surface);padding:8px;border:1px solid var(--line);aspect-ratio:4/5}
+[data-dir=mesa] .gallery-grid .shot:first-child{aspect-ratio:auto}
+[data-dir=mesa] .shot img{transition:transform .8s ease}
+[data-dir=mesa] .caption{font:italic 400 .9rem/1.4 var(--display);color:var(--muted);margin-top:14px}
+
+/* menu: la carte */
+[data-dir=mesa] .menu{background:var(--linen);border-block:1px solid var(--line)}
+[data-dir=mesa] .menu .wrap{max-width:980px}
+[data-dir=mesa] .menu .wrap{background:var(--surface);box-shadow:inset 0 0 0 9px var(--surface),inset 0 0 0 10px var(--hair),0 1px 0 var(--line),0 30px 60px -40px rgba(29,26,23,.35);
+  padding:clamp(40px,6vw,72px) clamp(24px,6vw,72px)}
+[data-dir=mesa] .menu .section-head{justify-items:center;text-align:center;margin-bottom:28px}
+[data-dir=mesa] .menu h2{font-size:clamp(2.2rem,5vw,3.6rem)}
+[data-dir=mesa] .menu h2::after{margin:18px auto 0}
+[data-dir=mesa] .menu .note{font:italic 400 1rem/1.4 var(--display);color:var(--muted)}
+[data-dir=mesa] .tabs{justify-content:safe center;gap:4px 22px;padding:2px 2px 2px;margin:0 0 18px;border-bottom:1px solid var(--line)}
+[data-dir=mesa] .tab{font:500 .78rem/1 var(--label);letter-spacing:.2em;text-transform:uppercase;padding:14px 2px 13px;border:0;border-bottom:2px solid transparent;border-radius:0;color:var(--muted);margin-bottom:-1px;min-height:44px}
+[data-dir=mesa] .tab:hover{color:var(--ink)}
+[data-dir=mesa] .tab[aria-selected=true]{background:transparent;color:var(--primary);border-bottom-color:var(--primary)}
+[data-dir=mesa] .dishes{gap:0 64px}
+[data-dir=mesa] .dish{border-bottom:0;padding-block:15px}
+[data-dir=mesa] .dish-line{gap:8px}
+[data-dir=mesa] .dish-name{font:500 1.22rem/1.25 var(--display);letter-spacing:-.005em}
+[data-dir=mesa] .dish-dots{border-bottom:1px dotted var(--hair);transform:translateY(-5px)}
+[data-dir=mesa] .dish-price{font:500 1.15rem/1 var(--display);font-variant-numeric:lining-nums tabular-nums;color:var(--ink)}
+[data-dir=mesa] .dish-desc{font:400 .9rem/1.5 var(--body);color:var(--muted);margin-top:5px;max-width:46ch}
+[data-dir=mesa] .tag{font:500 .62rem/1 var(--label);letter-spacing:.16em;padding:.3em .5em;border-radius:0;background:transparent;border:1px solid var(--hair);color:var(--muted);margin-left:4px}
+[data-dir=mesa] .tag-veg{border-color:#5f8a5f;color:#2f5a2f;background:transparent}
+[data-dir=mesa] .tag-picante{border-color:#b0503c;color:#8a2a17;background:transparent}
+
+/* qr: evening service, dark linen */
+[data-dir=mesa] .qr{background:var(--night);color:var(--ivory)}
+[data-dir=mesa] .qr .kicker{color:var(--ivory);opacity:.75}
+[data-dir=mesa] .qr h2::after{background:var(--accent)}
+[data-dir=mesa] .steps{counter-reset:s;gap:0;border-top:1px solid rgba(246,241,232,.18)}
+[data-dir=mesa] .steps li{grid-template-columns:44px 1fr;padding-block:14px;border-bottom:1px solid rgba(246,241,232,.18)}
+[data-dir=mesa] .steps li::before{content:counter(s,upper-roman);width:auto;height:auto;border-radius:0;background:none;color:var(--ivory);display:block;font:italic 400 1.25rem/1.2 var(--display);opacity:.8}
+[data-dir=mesa] .steps b{font:500 1.15rem/1.3 var(--display)}
+[data-dir=mesa] .steps span{opacity:.78;font-size:.95rem}
+[data-dir=mesa] .qr .btn-primary{background:var(--ivory);color:var(--night);border-color:var(--ivory)}
+[data-dir=mesa] .qr .btn-primary:hover{background:#fff}
+[data-dir=mesa] .qr .btn-secondary{color:var(--ivory);border-color:rgba(246,241,232,.45)}
+[data-dir=mesa] .qr .btn-secondary:hover{border-color:var(--ivory)}
+[data-dir=mesa] .qr-card{border-radius:0;background:#fffdf9;padding:28px 24px;box-shadow:0 30px 70px rgba(0,0,0,.45);outline:1px solid rgba(29,26,23,.22);outline-offset:-10px}
+[data-dir=mesa] .qr-card figcaption{font-weight:500}
+[data-dir=mesa] .qr-name{font-weight:500}
+[data-dir=mesa] .qr-table{font:500 .7rem/1 var(--label);letter-spacing:.2em;color:#5f5850}
+[data-dir=mesa] .qr-card p{font:italic 400 .95rem/1.3 var(--display);color:#5f5850}
+
+/* booking: reply card with underline fields */
+[data-dir=mesa] .book-copy > p:not(.kicker):not(.preview-cap){font-size:1.05rem;color:var(--muted);max-width:38ch}
+[data-dir=mesa] .form{border-radius:0;border:1px solid var(--line);background:var(--surface);gap:20px;padding:clamp(22px,4vw,40px);box-shadow:inset 0 0 0 7px var(--surface),inset 0 0 0 8px var(--line)}
+[data-dir=mesa] .form label{font:500 .7rem/1.2 var(--label);letter-spacing:.2em;text-transform:uppercase;color:var(--muted);gap:4px}
+[data-dir=mesa] .form input,[data-dir=mesa] .form select,[data-dir=mesa] .form textarea{border:0;border-bottom:1px solid var(--hair);border-radius:0;background:transparent;padding:.55em 0;font:400 1.05rem/1.4 var(--body);letter-spacing:0;text-transform:none;color:var(--ink)}
+[data-dir=mesa] .form input:focus,[data-dir=mesa] .form select:focus,[data-dir=mesa] .form textarea:focus{outline:none;border-bottom:1px solid var(--primary);box-shadow:0 1px 0 var(--primary)}
+[data-dir=mesa] .form .btn{justify-self:start;margin-top:6px}
+[data-dir=mesa] .preview{border-radius:2px 14px 14px 14px}
+
+/* visit */
+[data-dir=mesa] .visit{border-top:1px solid var(--line)}
+[data-dir=mesa] address a{font:400 1.25rem/1.4 var(--display)}
+[data-dir=mesa] address .i,[data-dir=mesa] .contacts .i,[data-dir=mesa] .visit-block h3 .i{color:var(--accent)}
+[data-dir=mesa] .visit-block h3{font:500 .72rem/1 var(--label);letter-spacing:.22em;color:var(--muted)}
+[data-dir=mesa] .hours{width:100%;max-width:420px}
+[data-dir=mesa] .hours tr{border-bottom:1px dotted var(--hair)}
+[data-dir=mesa] .hours th{font:500 1rem/1.4 var(--display);padding:8px 16px 8px 0}
+[data-dir=mesa] .hours td{padding:8px 0;text-align:right;font-size:.95rem}
+[data-dir=mesa] .map{border-radius:0;border:1px solid var(--line);padding:0;filter:grayscale(.35) sepia(.08)}
+
+/* proposal */
+[data-dir=mesa] .proposal{background:var(--linen);border-top:1px solid var(--line)}
+[data-dir=mesa] .proposal-box{background:var(--surface);border:1px solid var(--line);padding:clamp(24px,5vw,56px);box-shadow:inset 0 0 0 8px var(--surface),inset 0 0 0 9px var(--line)}
+[data-dir=mesa] .proposal .kicker{color:var(--primary)}
+[data-dir=mesa] .feats .i{color:var(--primary)}
+[data-dir=mesa] .btn-yes{background:#1f6b3a;border-color:#1f6b3a;color:#fff}
+[data-dir=mesa] .btn-no{border-color:var(--hair)}
+
+/* footer */
+[data-dir=mesa] .site-foot{background:var(--bg);border-top:1px solid var(--line);color:var(--ink)}
+[data-dir=mesa] .site-foot b{font:500 1.1rem var(--display)}
+
+@media (max-width:860px){
+  [data-dir=mesa] .site-head-row{justify-content:center;padding-block:16px}
+  [data-dir=mesa] .brand{font-size:1.2rem;text-align:center}
+  [data-dir=mesa] .hero .actions{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+  [data-dir=mesa] .hero .actions .btn-primary{grid-column:1/-1}
+  [data-dir=mesa] .hero .actions .btn{padding-inline:.6em}
+  [data-dir=mesa] .menu{padding-block:40px}
+  [data-dir=mesa] .menu .wrap{margin-inline:12px;padding:44px 22px 36px}
+  [data-dir=mesa] .tabs{justify-content:flex-start}
+  [data-dir=mesa] .gallery-grid .shot:first-child{aspect-ratio:16/10}
+  [data-dir=mesa] .shot{padding:6px}
+  [data-dir=mesa] .mbar{background:var(--surface);border-top:1px solid var(--hair)}
+  [data-dir=mesa] .mbar a{font:500 .64rem/1.1 var(--label);letter-spacing:.14em;text-transform:uppercase}
+  [data-dir=mesa] .mbar .i{color:var(--primary)}
+}
+
+/* ---------- mesa / cozinha pages ---------- */
+[data-dir=mesa] .m-top{background:var(--primary)}
+[data-dir=mesa] .m-top h1{font-weight:500;font-size:1.45rem}
+[data-dir=mesa] .m-table{background:var(--surface);color:var(--ink);border-radius:0;font:500 .72rem/1 var(--label);letter-spacing:.18em;text-transform:uppercase}
+[data-dir=mesa] .m-top .tabs{border-bottom:0;justify-content:flex-start;gap:4px 18px;margin:8px 0 0}
+[data-dir=mesa] .m-top .tab{color:rgba(255,255,255,.78);border:0;border-bottom:2px solid transparent;padding:10px 2px;min-height:40px}
+[data-dir=mesa] .m-top .tab[aria-selected=true]{background:transparent;color:#fff;border-bottom-color:#fff}
+[data-dir=mesa] .m-demo{font:italic 400 .9rem/1.3 var(--display)}
+[data-dir=mesa] .m-cat{font-weight:500;font-size:1.7rem;margin:30px 0 6px;padding-bottom:10px;border-bottom:1px solid var(--hair)}
+[data-dir=mesa] .m-item{border-bottom:1px dotted var(--hair)}
+[data-dir=mesa] .m-item h4{font:500 1.12rem/1.25 var(--display)}
+[data-dir=mesa] .m-item .price{font:500 1.05rem/1 var(--display);font-variant-numeric:lining-nums tabular-nums;margin-top:8px}
+[data-dir=mesa] .qty button{border-radius:0;width:40px;height:40px;font-weight:400;font-family:var(--display)}
+[data-dir=mesa] .qty button.minus{background:transparent;border:1px solid var(--hair);color:var(--ink)}
+[data-dir=mesa] .cartbar{background:var(--night);color:var(--ivory);border-radius:0;font:500 .82rem/1 var(--label);letter-spacing:.16em;text-transform:uppercase}
+[data-dir=mesa] .cartbar .n{background:var(--ivory);color:var(--night);border-radius:0;letter-spacing:0}
+[data-dir=mesa] .sheet .panel{border-radius:0}
+[data-dir=mesa] .total{font:500 1.35rem var(--display)}
+[data-dir=mesa] .done-mark{border-radius:0}
+[data-dir=mesa] .ticket{border-radius:0;border-top:3px solid var(--primary)}
+[data-dir=mesa] .ticket h3{font-family:var(--display);font-weight:500}
+[data-dir=mesa] .qr h2::after{background:rgba(246,241,232,.45)}
+[data-dir=mesa] .qr-table{white-space:nowrap}
+[data-dir=mesa] .m-cat::after{content:none}
+[data-dir=mesa] .qty button{font:300 1.6rem/1 var(--body);color:var(--on-primary)}
+[data-dir=mesa] .qty button.minus{color:var(--ink)}

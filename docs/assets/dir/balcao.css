@@ -1,0 +1,205 @@
+@import url('https://fonts.googleapis.com/css2?family=Anton&family=Barlow:wght@400;500;600;700&family=Barlow+Condensed:wght@600;700;800&display=swap');
+/* balcão — street-food poster on kraft paper.
+   Layout: hero = loud poster (photo + brand-colour block, awning stripes, rotated rating sticker); the rest is quiet kraft
+   with black ink rules; menu = price board with big condensed numbers; hard offset shadows instead of soft blur. */
+:root{
+  --bg:#efe4cf;          /* kraft, light */
+  --surface:#f8f1e2;     /* paper bag inside */
+  --kraft:#d8c19a;       /* darker kraft for bands */
+  --ink:#1b140d;
+  --muted:#5b4a37;
+  --line:rgba(27,20,13,.2);
+  --on-primary:#fff;
+  --on-accent:#1b140d;
+  --display:'Anton',Impact,'Arial Narrow',sans-serif;
+  --body:'Barlow',system-ui,sans-serif;
+  --label:'Barlow Condensed','Arial Narrow',sans-serif;
+  --radius:4px; --radius-lg:6px;
+  --section:clamp(56px,8vw,104px); --maxw:1180px;
+  --hard:4px 4px 0 var(--ink);
+  --awning:repeating-linear-gradient(90deg,var(--primary) 0 28px,var(--surface) 28px 56px);
+}
+
+[data-dir=balcao] body{background-color:var(--bg);color:var(--ink);
+  /* faint paper fibre */
+  background-image:radial-gradient(rgba(120,85,40,.07) 1px,transparent 1.2px),radial-gradient(rgba(255,255,255,.25) 1px,transparent 1.2px);
+  background-size:7px 7px,11px 11px;background-position:0 0,3px 5px}
+[data-dir=balcao] h1,[data-dir=balcao] h2,[data-dir=balcao] h3{font-family:var(--display);font-weight:400;letter-spacing:.005em;text-transform:uppercase;line-height:.98}
+[data-dir=balcao] h2{font-size:clamp(2.3rem,6vw,4.2rem)}
+[data-dir=balcao] h3{font-size:1.35rem;letter-spacing:.02em}
+[data-dir=balcao] :focus-visible{outline:3px solid var(--ink);outline-offset:3px;box-shadow:0 0 0 6px var(--accent)}
+[data-dir=balcao] .kicker{font:700 .95rem/1 var(--label);letter-spacing:.12em;text-transform:uppercase;color:var(--ink);
+  display:inline-block;justify-self:start;background:var(--accent);color:var(--on-accent);padding:.38em .6em .32em;transform:rotate(-1.5deg)}
+
+/* buttons: sticker-cut, hard shadow */
+[data-dir=balcao] .btn{font:700 1.08rem/1 var(--label);letter-spacing:.06em;text-transform:uppercase;border:2.5px solid var(--ink);border-radius:var(--radius);min-height:50px;padding:.7em 1.2em;box-shadow:var(--hard)}
+[data-dir=balcao] .btn:hover{transform:translate(-1px,-1px);box-shadow:5px 5px 0 var(--ink)}
+[data-dir=balcao] .btn:active{transform:translate(3px,3px);box-shadow:1px 1px 0 var(--ink)}
+[data-dir=balcao] .btn-primary{background:var(--accent);color:var(--on-accent)}
+[data-dir=balcao] .btn-secondary{background:var(--surface);color:var(--ink)}
+[data-dir=balcao] .btn-yes{background:#1f7a3f;color:#fff}
+[data-dir=balcao] .btn-no{background:var(--surface);color:var(--ink)}
+[data-dir=balcao] .demobar .btn{box-shadow:none;border-width:1.5px;font:600 .82rem/1 system-ui,sans-serif;letter-spacing:0;text-transform:none;min-height:34px}
+[data-dir=balcao] .demobar .btn:hover{transform:none;box-shadow:none}
+[data-dir=balcao] .demobar .btn-no{background:transparent;color:#eee;border-color:#888}
+[data-dir=balcao] .demobar .btn-yes{border-color:#1f7a3f}
+
+/* header: black sign board, then awning */
+[data-dir=balcao] .site-head{background:var(--ink);color:#f8f1e2}
+[data-dir=balcao] .site-head::after{content:"";display:block;height:14px;background:var(--awning);
+  -webkit-mask:radial-gradient(circle at 14px 0,#000 14px,transparent 14.5px) 0 0/28px 14px repeat-x;mask:radial-gradient(circle at 14px 0,#000 14px,transparent 14.5px) 0 0/28px 14px repeat-x}
+[data-dir=balcao] .site-head-row{padding-block:14px}
+[data-dir=balcao] .brand{font:400 1.35rem/1 var(--display);text-transform:uppercase;letter-spacing:.02em;color:#f8f1e2}
+[data-dir=balcao] .nav{font:700 1.02rem/1 var(--label);text-transform:uppercase;letter-spacing:.08em;gap:26px}
+[data-dir=balcao] .nav a{color:#f8f1e2}
+[data-dir=balcao] .nav a:hover{color:var(--accent);text-decoration:none}
+
+/* ---------- HERO: the loud poster ---------- */
+[data-dir=balcao] .hero{display:grid;grid-template-columns:minmax(0,1fr);background:var(--primary);color:var(--on-primary);overflow:hidden;margin-top:-14px}
+[data-dir=balcao] .hero-media{position:relative;aspect-ratio:4/3;max-height:62vh;width:100%;background:var(--primary);border-bottom:4px solid var(--ink)}
+[data-dir=balcao] .hero-media img{filter:saturate(1.12) contrast(1.05)}
+[data-dir=balcao] .hero-media--empty,[data-dir=balcao] .hero:not(.hero--photo) .hero-media{aspect-ratio:auto;height:120px;border-bottom:0;
+  background:repeating-linear-gradient(-45deg,var(--primary) 0 22px,rgba(0,0,0,.18) 22px 44px)}
+[data-dir=balcao] .hero-copy{gap:16px;padding-block:30px 40px;position:static;
+  background:radial-gradient(rgba(0,0,0,.09) 1.2px,transparent 1.5px) 0 0/9px 9px}
+[data-dir=balcao] .hero .kicker{background:var(--ink);color:var(--accent);transform:rotate(-2deg);margin-top:-48px;position:relative;z-index:2;font-size:1rem;padding:.45em .7em .38em}
+[data-dir=balcao] .hero-title{font-size:clamp(3rem,13.5vw,7.4rem);line-height:.9;letter-spacing:0;text-transform:uppercase;color:var(--on-primary);
+  text-shadow:3px 3px 0 rgba(0,0,0,.35);overflow-wrap:break-word;hyphens:manual}
+[data-dir=balcao] .tagline{font:600 clamp(1.2rem,2.4vw,1.55rem)/1.3 var(--body);max-width:30ch}
+[data-dir=balcao] .hero .actions{gap:12px;margin-top:4px}
+[data-dir=balcao] .hero .btn-secondary{background:transparent;color:var(--on-primary);border-color:var(--on-primary);box-shadow:4px 4px 0 rgba(0,0,0,.4)}
+[data-dir=balcao] .hero .btn-primary{box-shadow:4px 4px 0 var(--ink)}
+[data-dir=balcao] .facts{font:600 1rem/1.3 var(--body);gap:10px 22px}
+[data-dir=balcao] .facts .i{margin-top:.1em}
+/* rating → round sticker slapped on the photo */
+[data-dir=balcao] .hero--photo .facts li:first-child{position:absolute;z-index:3;top:18px;right:16px;width:112px;height:112px;border-radius:50%;
+  background:var(--accent);color:var(--on-accent);display:grid;place-items:center;text-align:center;transform:rotate(9deg);
+  box-shadow:3px 4px 0 var(--ink);border:2.5px solid var(--ink)}
+[data-dir=balcao] .hero--photo .facts li:first-child a{display:grid;justify-items:center;gap:0;font:700 .78rem/1.05 var(--label);text-transform:uppercase;letter-spacing:.04em;padding:10px}
+[data-dir=balcao] .hero--photo .facts li:first-child .i{width:18px;height:18px;margin:0 0 2px}
+[data-dir=balcao] .hero--photo .facts li:first-child b{display:block;font:400 2.1rem/1 var(--display);letter-spacing:0}
+
+@media (min-width:861px){
+  [data-dir=balcao] .hero{grid-template-columns:1.05fr 1fr;min-height:min(78vh,720px)}
+  [data-dir=balcao] .hero-media{order:2;aspect-ratio:auto;max-height:none;height:100%;border-bottom:0;border-left:4px solid var(--ink)}
+  [data-dir=balcao] .hero-copy{order:1;max-width:none;margin:0;align-content:center;padding:72px 56px 72px max(32px,calc((100vw - var(--maxw))/2 + 16px))}
+  [data-dir=balcao] .hero .kicker{margin-top:0}
+  [data-dir=balcao] .hero-title{font-size:clamp(3.6rem,6.4vw,6.6rem)}
+  [data-dir=balcao] .hero--photo .facts li:first-child{top:34px;right:34px;width:140px;height:140px}
+  [data-dir=balcao] .hero--photo .facts li:first-child b{font-size:2.8rem}
+  [data-dir=balcao] .hero:not(.hero--photo){grid-template-columns:1fr}
+  [data-dir=balcao] .hero:not(.hero--photo) .hero-media{display:none}
+}
+
+/* ---------- about (quiet) ---------- */
+[data-dir=balcao] .lede{font:500 clamp(1.25rem,2.2vw,1.6rem)/1.4 var(--body);max-width:34ch}
+[data-dir=balcao] .services{font:700 1rem/1 var(--label);text-transform:uppercase;letter-spacing:.06em;gap:8px}
+[data-dir=balcao] .services li{border:2px solid var(--ink);padding:.45em .7em;background:var(--surface)}
+[data-dir=balcao] .points{gap:0;border-top:3px solid var(--ink)}
+[data-dir=balcao] .point{display:grid;grid-template-columns:48px 1fr;column-gap:16px;padding:16px 0;border-bottom:1.5px dashed rgba(27,20,13,.35);counter-increment:pt}
+[data-dir=balcao] .points{counter-reset:pt}
+[data-dir=balcao] .point::before{content:"0" counter(pt);grid-row:span 2;font:400 2rem/1 var(--display);color:var(--primary)}
+[data-dir=balcao] .point h3{margin-bottom:4px}
+[data-dir=balcao] .point p{color:var(--muted)}
+
+/* ---------- gallery: taped snapshots ---------- */
+[data-dir=balcao] .gallery-grid{gap:14px}
+[data-dir=balcao] .shot{border:3px solid var(--ink);background:var(--kraft);position:relative;overflow:hidden}
+[data-dir=balcao] .shot:nth-child(2){transform:rotate(.8deg)}
+[data-dir=balcao] .shot:nth-child(3){transform:rotate(-.8deg)}
+[data-dir=balcao] .caption{font:600 .9rem/1.3 var(--label);letter-spacing:.04em;color:var(--muted);margin-top:14px}
+
+/* ---------- MENU: price board ---------- */
+[data-dir=balcao] .menu{background:var(--kraft);border-block:3px solid var(--ink);
+  background-image:radial-gradient(rgba(90,60,25,.12) 1px,transparent 1.3px);background-size:6px 6px}
+[data-dir=balcao] .section-head{gap:12px;margin-bottom:26px}
+[data-dir=balcao] .note{font:600 .95rem/1.3 var(--label);letter-spacing:.03em;color:var(--muted)}
+[data-dir=balcao] .menu .note{color:#4a3a28}
+[data-dir=balcao] .tabs{gap:10px;padding:4px 6px 14px 2px;margin-bottom:10px}
+[data-dir=balcao] .tab{font:700 1.05rem/1 var(--label);letter-spacing:.07em;text-transform:uppercase;padding:.7em 1.05em;min-height:46px;
+  border:2.5px solid var(--ink);border-radius:var(--radius);background:var(--surface);color:var(--ink);box-shadow:3px 3px 0 var(--ink);transition:transform .12s,box-shadow .12s}
+[data-dir=balcao] .tab:hover{transform:translate(-1px,-1px)}
+[data-dir=balcao] .tab[aria-selected=true]{background:var(--ink);color:var(--accent);border-color:var(--ink);box-shadow:3px 3px 0 var(--primary)}
+[data-dir=balcao] .dishes{background:var(--surface);border:3px solid var(--ink);box-shadow:6px 6px 0 var(--ink);padding:6px clamp(16px,3vw,32px);gap:0 48px}
+[data-dir=balcao] .dish{padding-block:16px 15px;border-bottom:1.5px dashed rgba(27,20,13,.3)}
+[data-dir=balcao] .dish-line{gap:10px;align-items:last baseline}
+[data-dir=balcao] .dish-name{font:700 1.18rem/1.15 var(--label);letter-spacing:.03em;text-transform:uppercase;min-width:0}
+[data-dir=balcao] .dish-dots{border-bottom:3px dotted rgba(27,20,13,.45);transform:translateY(-5px)}
+[data-dir=balcao] .dish-price{font:400 clamp(1.7rem,4.2vw,2.1rem)/1 var(--display);color:var(--primary);letter-spacing:.01em}
+[data-dir=balcao] .dish-desc{color:var(--muted);font-size:.95rem;margin-top:5px}
+[data-dir=balcao] .tag{font:700 .78rem/1 var(--label);letter-spacing:.08em;border-radius:2px;padding:.35em .55em .3em;background:var(--ink);color:var(--surface)}
+[data-dir=balcao] .tag-popular{background:var(--accent);color:var(--on-accent);border:1.5px solid var(--ink);transform:rotate(-3deg)}
+[data-dir=balcao] .tag-veg{background:#cfe7c6;color:#163d16;border:1.5px solid #163d16}
+[data-dir=balcao] .tag-picante{background:#f6d2c8;color:#6e1a0b;border:1.5px solid #6e1a0b}
+
+/* ---------- QR: black counter ---------- */
+[data-dir=balcao] .qr{background:var(--ink);color:#f3e9d6}
+[data-dir=balcao] .qr .kicker{background:var(--accent);color:var(--on-accent)}
+[data-dir=balcao] .qr h2{color:#fff}
+[data-dir=balcao] .steps li::before{border-radius:0;font:400 1.3rem/1 var(--display);background:var(--accent);color:var(--on-accent);transform:rotate(-4deg)}
+[data-dir=balcao] .steps b{font:700 1.15rem/1.2 var(--label);text-transform:uppercase;letter-spacing:.05em}
+[data-dir=balcao] .steps span{opacity:.82}
+[data-dir=balcao] .qr .btn-secondary{background:transparent;color:#f3e9d6;border-color:#f3e9d6;box-shadow:4px 4px 0 var(--primary)}
+[data-dir=balcao] .qr .btn-primary{box-shadow:4px 4px 0 var(--primary);border-color:var(--accent)}
+[data-dir=balcao] .qr-card{border-radius:var(--radius);border:3px solid var(--ink);box-shadow:8px 8px 0 var(--accent);transform:rotate(2deg);background:#fff}
+[data-dir=balcao] .qr-name{font:400 1.2rem/1 var(--display);text-transform:uppercase}
+[data-dir=balcao] .qr-table{font:700 .9rem/1 var(--label);background:var(--primary);color:var(--on-primary);padding:.35em .55em}
+[data-dir=balcao] .qr-card p{font:700 .95rem/1.2 var(--label);text-transform:uppercase;letter-spacing:.05em;color:#3b2f22}
+
+/* ---------- booking ---------- */
+[data-dir=balcao] .form{background:var(--surface);border:3px solid var(--ink);border-radius:var(--radius);box-shadow:6px 6px 0 var(--primary)}
+[data-dir=balcao] .form label{font:700 .95rem/1.1 var(--label);letter-spacing:.06em;text-transform:uppercase}
+[data-dir=balcao] .form input,[data-dir=balcao] .form select,[data-dir=balcao] .form textarea{border:2px solid var(--ink);border-radius:var(--radius);background:#fffaf0;color:var(--ink);font-family:var(--body);text-transform:none;letter-spacing:0}
+[data-dir=balcao] .form input:focus,[data-dir=balcao] .form select:focus,[data-dir=balcao] .form textarea:focus{outline:none;box-shadow:0 0 0 3px var(--accent)}
+[data-dir=balcao] .form .btn{justify-self:start}
+
+/* ---------- visit ---------- */
+[data-dir=balcao] .visit{background:var(--surface);border-top:3px solid var(--ink)}
+[data-dir=balcao] address a{font:600 1.15rem/1.35 var(--body)}
+[data-dir=balcao] .visit-block h3{font:700 .95rem/1 var(--label);letter-spacing:.12em}
+[data-dir=balcao] .hours{font-size:1rem}
+[data-dir=balcao] .hours th{font-family:var(--label);font-weight:700;text-transform:uppercase;letter-spacing:.05em}
+[data-dir=balcao] .contacts .i,[data-dir=balcao] address .i{color:var(--primary)}
+[data-dir=balcao] .map{border:3px solid var(--ink);border-radius:var(--radius);box-shadow:6px 6px 0 var(--ink);background:var(--kraft)}
+
+/* ---------- proposal ---------- */
+[data-dir=balcao] .proposal{background:var(--bg)}
+[data-dir=balcao] .proposal-box{background:var(--surface);border:3px dashed var(--ink);padding:clamp(22px,4vw,44px)}
+[data-dir=balcao] .feats .i{color:var(--primary)}
+
+/* ---------- footer + bottom bar ---------- */
+[data-dir=balcao] .site-foot{background:var(--ink);color:#e9dcc4;border-top:0}
+[data-dir=balcao] .site-foot .muted{color:#bfae93}
+[data-dir=balcao] .site-foot::before{content:"";display:block;height:10px;background:var(--awning);margin-top:-36px;margin-bottom:26px}
+@media (max-width:860px){
+  [data-dir=balcao] .mbar{background:var(--ink);color:#f3e9d6;border-top:3px solid var(--accent)}
+  [data-dir=balcao] .mbar a{font:700 .8rem/1.1 var(--label);letter-spacing:.06em;text-transform:uppercase}
+  [data-dir=balcao] .mbar .i{color:var(--accent)}
+  [data-dir=balcao] .gallery-grid .shot:nth-child(n){transform:none}
+  [data-dir=balcao] .dishes{box-shadow:4px 4px 0 var(--ink)}
+  [data-dir=balcao] .about-grid{gap:30px}
+}
+
+/* ---------- mesa / cozinha ---------- */
+[data-dir=balcao] .m-top{background:var(--ink);color:#f8f1e2;border-bottom:4px solid var(--primary)}
+[data-dir=balcao] .m-top h1{font-size:1.5rem;color:#f8f1e2}
+[data-dir=balcao] .m-table{font:400 1rem/1 var(--display);letter-spacing:.03em;text-transform:uppercase;border:2px solid var(--accent);transform:rotate(-2deg)}
+[data-dir=balcao] .m-top .tab{background:transparent;color:#f8f1e2;border-color:rgba(248,241,226,.5);box-shadow:none}
+[data-dir=balcao] .m-top .tab[aria-selected=true]{background:var(--accent);color:var(--on-accent);border-color:var(--accent);box-shadow:none}
+[data-dir=balcao] .m-cat{font-size:1.9rem;color:var(--primary);margin-top:28px}
+[data-dir=balcao] .m-item{border-bottom:1.5px dashed rgba(27,20,13,.3)}
+[data-dir=balcao] .m-item h4{font:700 1.12rem/1.15 var(--label);text-transform:uppercase;letter-spacing:.03em}
+[data-dir=balcao] .m-item .price{font:400 1.45rem/1 var(--display);color:var(--primary);margin-top:6px}
+[data-dir=balcao] .qty button{border-radius:var(--radius);border:2px solid var(--ink);background:var(--accent);color:var(--on-accent);box-shadow:2px 2px 0 var(--ink)}
+[data-dir=balcao] .qty button.minus{background:var(--surface);color:var(--ink)}
+[data-dir=balcao] .cartbar{background:var(--ink);color:#f8f1e2;border-radius:var(--radius);border:2.5px solid var(--ink);box-shadow:5px 5px 0 var(--primary);font:700 1.1rem/1 var(--label);text-transform:uppercase;letter-spacing:.06em}
+[data-dir=balcao] .sheet .panel{border-radius:10px 10px 0 0;border-top:4px solid var(--ink)}
+[data-dir=balcao] .total{font:400 1.6rem/1 var(--display);text-transform:uppercase}
+[data-dir=balcao] .ticket{border:2.5px solid var(--ink);border-top:8px solid var(--accent);border-radius:var(--radius);box-shadow:4px 4px 0 var(--ink)}
+[data-dir=balcao] .ticket h3{font-family:var(--label);font-weight:800;text-transform:uppercase;letter-spacing:.04em}
+[data-dir=balcao] .done-mark{border-radius:var(--radius);border:3px solid var(--ink);box-shadow:4px 4px 0 var(--ink);transform:rotate(-4deg)}
+[data-dir=balcao] .status i{border-radius:var(--radius);font-family:var(--display)}
+
+@media (prefers-reduced-motion:reduce){
+  [data-dir=balcao] .btn:hover,[data-dir=balcao] .tab:hover{transform:none}
+}

@@ -1,0 +1,186 @@
+@import url('https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&family=Figtree:wght@400;500;600;700&family=Permanent+Marker&display=swap');
+/* mercado — the neighbourhood market: striped awning over the door, wrapping-paper ground, rubber-stamped labels,
+   fruit-crate slats, and hand-lettered yellow price cards on every product (the one loud moment).
+   Layout: mobile = photo on top, copy below like a shop sign; desktop = split hero (copy | photo). Fonts:
+   Bricolage Grotesque (signage), Figtree (body), Permanent Marker (prices only). */
+:root{
+  --bg:#f7f3e9; --surface:#fffdf8; --ink:#1e2219; --muted:#545a4c; --line:rgba(30,34,25,.16);
+  --on-primary:#fff; --on-accent:#1e1a10;
+  --display:'Bricolage Grotesque',Figtree,system-ui,sans-serif; --body:Figtree,system-ui,-apple-system,'Segoe UI',sans-serif;
+  --label:Figtree,system-ui,sans-serif; --hand:'Permanent Marker','Comic Sans MS',cursive;
+  --radius:4px; --radius-lg:6px; --section:clamp(56px,8vw,104px); --maxw:1160px;
+  --tag:#ffd94a; --tag-ink:#1e1a10; --crate:#e9dcc0; --crate-dark:#d8c59e;
+}
+
+/* ground: wrapping paper with a faint ruled weave */
+body{background:var(--bg);
+  background-image:repeating-linear-gradient(0deg,rgba(30,34,25,.025) 0 1px,transparent 1px 28px);
+  font-weight:400}
+h1,h2,h3{font-family:var(--display);font-weight:800;letter-spacing:-.015em;font-variation-settings:"opsz" 96}
+h2{font-size:clamp(2rem,4.6vw,3.2rem)}
+h3{font-size:1.15rem;font-weight:700;letter-spacing:0}
+::selection{background:var(--tag);color:var(--tag-ink)}
+:focus-visible{outline:3px solid var(--ink);outline-offset:3px}
+
+/* rubber stamp kicker */
+.kicker{display:inline-block;justify-self:start;font:700 .74rem/1 var(--label);letter-spacing:.16em;text-transform:uppercase;
+  color:var(--primary);border:2px solid currentColor;border-radius:3px;padding:.5em .7em .45em;transform:rotate(-1.5deg);
+  box-shadow:inset 0 0 0 1px rgba(255,255,255,.4)}
+
+/* buttons: solid, square-ish, a little like a shop till button */
+.btn{border-radius:var(--radius);font:700 1rem/1 var(--body);min-height:48px;padding:.75em 1.25em;border-width:2px}
+.btn-primary{background:var(--primary);color:var(--on-primary);box-shadow:0 3px 0 rgba(0,0,0,.28)}
+.btn-primary:hover{transform:translateY(-1px);box-shadow:0 4px 0 rgba(0,0,0,.28)}
+.btn-primary:active{transform:translateY(2px);box-shadow:0 1px 0 rgba(0,0,0,.28)}
+.btn-secondary{background:var(--surface);color:var(--ink);border-color:var(--ink)}
+@media (prefers-reduced-motion:reduce){.btn:hover,.btn:active{transform:none}}
+
+/* ---------- header with striped awning ---------- */
+.site-head{background:var(--surface);border-bottom:1px solid var(--line)}
+.site-head::before{content:"";display:block;height:16px;
+  background:repeating-linear-gradient(90deg,var(--primary) 0 28px,#efe5cd 28px 56px);
+  -webkit-mask:radial-gradient(14px 8px at 14px 8px,#000 98%,transparent) 0 0/28px 16px repeat-x,linear-gradient(#000,#000) 0 0/100% 8px no-repeat;
+          mask:radial-gradient(14px 8px at 14px 8px,#000 98%,transparent) 0 0/28px 16px repeat-x,linear-gradient(#000,#000) 0 0/100% 8px no-repeat}
+.site-head-row{padding-block:12px 14px}
+.brand{font:800 1.3rem/1.05 var(--display);letter-spacing:-.01em;color:var(--ink)}
+.nav{font:600 .95rem/1 var(--body);gap:6px}
+.nav a{display:block;padding:.6em .8em;border-radius:var(--radius)}
+.nav a:hover{text-decoration:none;background:var(--crate)}
+
+/* ---------- hero ---------- */
+.hero{background:var(--surface);border-bottom:1px solid var(--line)}
+.hero-media{position:relative;aspect-ratio:16/11;background:var(--primary)}
+.hero-media::after{content:"";position:absolute;left:0;right:0;bottom:0;height:12px;
+  background:repeating-linear-gradient(90deg,var(--crate-dark) 0 2px,var(--crate) 2px 120px);border-top:1px solid rgba(0,0,0,.15)}
+.hero-media--empty,.hero:not(.hero--photo) .hero-media{aspect-ratio:auto;min-height:150px;
+  background:var(--primary);
+  background-image:repeating-linear-gradient(0deg,rgba(255,255,255,.1) 0 2px,transparent 2px 34px),
+                   repeating-linear-gradient(90deg,rgba(0,0,0,.08) 0 3px,transparent 3px 120px)}
+.hero-copy{gap:14px;padding-block:28px 40px}
+.hero-title{font-size:clamp(2.6rem,9.5vw,5.4rem);line-height:.95;letter-spacing:-.03em;color:var(--ink);
+  font-variation-settings:"opsz" 96;font-stretch:90%}
+.tagline{font:500 clamp(1.1rem,2vw,1.4rem)/1.35 var(--body);color:var(--muted)}
+.hero .actions{margin-top:4px}
+.facts{gap:10px 20px;font-size:.92rem;color:var(--muted);margin-top:4px}
+.facts .i{color:var(--primary)}
+.facts b{color:var(--ink)}
+
+@media (min-width:861px){
+  .hero.hero--photo{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.08fr);min-height:min(78vh,640px)}
+  .hero--photo .hero-media{grid-column:2;grid-row:1;aspect-ratio:auto;height:100%}
+  .hero--photo .hero-copy{grid-column:1;grid-row:1;align-content:center;max-width:none;margin:0;
+    padding-left:max(var(--gutter),calc((100vw - var(--maxw))/2 + 16px));padding-right:clamp(28px,4vw,56px)}
+  .hero--photo .hero-title{font-size:clamp(3.2rem,5.6vw,5.4rem)}
+}
+
+/* ---------- about ---------- */
+.about{border-bottom:1px solid var(--line)}
+.lede{font:500 clamp(1.25rem,2.2vw,1.6rem)/1.4 var(--body);color:var(--ink)}
+.services li{border:1.5px dashed var(--line);border-radius:3px;padding:.3em .6em}
+.points{gap:0;border-top:2px solid var(--ink)}
+.point{display:grid;grid-template-columns:32px 1fr;column-gap:12px;padding:16px 0;border-bottom:1px dashed var(--line);counter-increment:pt}
+.points{counter-reset:pt}
+.point::before{content:counter(pt,decimal-leading-zero);grid-row:span 2;font:700 .8rem/1.6 var(--label);color:var(--primary);letter-spacing:.06em}
+.point h3{margin-bottom:2px}
+
+/* ---------- gallery: photos as stacked crates ---------- */
+.gallery{padding-top:var(--section)}
+.gallery-grid{gap:10px}
+.shot{border-radius:var(--radius);border:6px solid var(--surface);box-shadow:0 1px 0 var(--line),0 0 0 1px var(--line);background:var(--crate)}
+.caption{font-size:.8rem}
+
+/* ---------- product list: crate band + yellow price cards ---------- */
+.menu{background:var(--crate);
+  background-image:linear-gradient(var(--crate-dark),var(--crate-dark)),linear-gradient(var(--crate-dark),var(--crate-dark)),
+    repeating-linear-gradient(90deg,rgba(0,0,0,.035) 0 1px,transparent 1px 7px,rgba(255,255,255,.12) 7px 9px,transparent 9px 23px);
+  background-size:100% 3px,100% 3px,auto;background-position:0 12px,0 calc(100% - 12px),0 0;background-repeat:no-repeat,no-repeat,repeat;
+  border-block:12px solid var(--crate-dark)}
+.menu .section-head{gap:12px}
+.menu .note{color:#4d4637}
+.tabs{gap:8px;padding:4px 2px 14px}
+.tab{font:700 .95rem/1 var(--body);min-height:44px;padding:.7em 1.1em;border-radius:var(--radius);
+  border:2px solid var(--ink);background:var(--surface);color:var(--ink);box-shadow:0 2px 0 var(--ink);transition:background .15s,transform .1s}
+.tab:hover{background:#fff}
+.tab:active{transform:translateY(2px);box-shadow:none}
+.tab[aria-selected=true]{background:var(--primary);border-color:var(--ink);color:var(--on-primary)}
+.dishes{background:var(--surface);border:2px solid var(--ink);border-radius:var(--radius-lg);padding:4px 20px;gap:0 40px;
+  box-shadow:0 4px 0 rgba(30,34,25,.18)}
+.dish{display:grid;grid-template-columns:minmax(0,1fr);padding-block:14px;border-bottom:1px dashed var(--line)}
+.dish-line{align-items:center;gap:14px}
+.dish-name{min-width:0;font:600 1.05rem/1.3 var(--body)}
+.dish-dots{border-bottom:2px dotted rgba(30,34,25,.22);transform:translateY(2px);min-width:12px}
+.dish-price{position:relative;flex:none;font:400 1.3rem/1 var(--hand);color:var(--tag-ink);background:var(--tag);
+  padding:.42em .7em .38em 1.15em;border-radius:3px 6px 6px 3px;transform:rotate(-2.5deg);
+  box-shadow:1px 2px 0 rgba(0,0,0,.18);letter-spacing:.01em}
+.dish:nth-child(2n) .dish-price{transform:rotate(1.8deg)}
+.dish:nth-child(3n) .dish-price{transform:rotate(-1deg)}
+.dish-price::before{content:"";position:absolute;left:.42em;top:50%;width:6px;height:6px;margin-top:-3px;border-radius:50%;
+  background:var(--surface);box-shadow:inset 0 0 0 1px rgba(0,0,0,.25)}
+.dish-desc{font-size:.92rem;margin-top:6px}
+.tag{font:700 .64rem/1 var(--label);letter-spacing:.1em;border-radius:2px;background:transparent;color:var(--primary);border:1.5px solid currentColor;padding:.3em .5em}
+.tag-veg{background:transparent;color:#2b6a2b}
+.tag-picante{background:transparent;color:#9a2a14}
+@media (min-width:861px){
+  .dishes{padding:6px 28px}
+  .dish:nth-last-child(2):nth-child(odd){border-bottom:0}
+  .dish:last-child{border-bottom:0}
+}
+@media (max-width:860px){
+  .dishes{padding:2px 14px}
+  .dish:last-child{border-bottom:0}
+}
+
+/* ---------- qr (not used by current pages, kept on-direction) ---------- */
+.qr{background:var(--primary);color:var(--on-primary)}
+.qr .kicker{color:var(--on-primary)}
+.steps li::before{background:var(--tag);color:var(--tag-ink);border-radius:3px}
+.qr-card{border-radius:var(--radius-lg);border:2px solid var(--ink);box-shadow:0 6px 0 rgba(0,0,0,.25)}
+
+/* ---------- order slip ---------- */
+.book{border-bottom:1px solid var(--line)}
+.book-copy > p:not(.kicker){color:var(--muted);max-width:44ch}
+.form{position:relative;border:0;border-radius:0 0 var(--radius-lg) var(--radius-lg);background:var(--surface);
+  box-shadow:0 0 0 1px var(--line),0 10px 24px -14px rgba(30,34,25,.35);padding-top:clamp(30px,4vw,40px);margin-top:10px}
+.form::before{content:"";position:absolute;left:0;right:0;top:-9px;height:10px;
+  background:radial-gradient(circle at 8px 0,transparent 7px,var(--surface) 7.5px) -8px 0/16px 10px repeat-x}
+.form label{font:700 .78rem/1.2 var(--label);letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
+.form input,.form select,.form textarea{border:0;border-bottom:2px solid var(--line);border-radius:0;background:transparent;
+  font:500 1.02rem/1.4 var(--body);color:var(--ink);text-transform:none;letter-spacing:0;padding:.55em .1em}
+.form input:focus,.form select:focus,.form textarea:focus{outline:none;border-bottom-color:var(--primary);background:rgba(30,34,25,.03)}
+.form textarea{background-image:repeating-linear-gradient(0deg,var(--line) 0 1px,transparent 1px 1.4em);background-position:0 -1px;line-height:1.4}
+.form .btn{margin-top:6px}
+
+/* ---------- visit ---------- */
+.visit-block h3{font:700 .76rem/1 var(--label);letter-spacing:.14em;color:var(--muted)}
+.visit-block h3 .i{color:var(--primary)}
+.hours th{font-weight:700}
+.contacts .i,address .i{color:var(--primary)}
+address a{font-weight:600}
+.map{border-radius:var(--radius-lg);border:2px solid var(--ink)}
+
+/* ---------- proposal ---------- */
+.proposal{padding-top:0}
+.proposal-box{background:var(--surface);border:2px solid var(--ink);border-radius:var(--radius-lg);padding:clamp(22px,4vw,44px);
+  box-shadow:0 5px 0 rgba(30,34,25,.18)}
+.proposal-box > div:first-child > p:not(.kicker){color:var(--ink)}
+.proposal-box .muted{color:var(--muted)}
+
+/* ---------- footer + mobile bar ---------- */
+.site-foot{background:var(--ink);color:#e9e6dc;border-top:0;position:relative}
+.site-foot::before{content:"";position:absolute;left:0;right:0;top:0;height:8px;
+  background:repeating-linear-gradient(90deg,var(--primary) 0 28px,#efe5cd 28px 56px)}
+.site-foot .muted{color:#bdb9ad}
+@media (max-width:860px){
+  .mbar{background:var(--surface);border-top:2px solid var(--ink)}
+  .mbar a{font:700 .72rem/1.1 var(--body)}
+  .hero-copy{padding-block:24px 36px}
+}
+
+/* ---------- mesa / cozinha ---------- */
+.m-top h1{font-weight:800}
+.m-table{background:var(--tag);color:var(--tag-ink)}
+.m-top .tab{box-shadow:none;background:transparent;border-color:rgba(255,255,255,.45);color:var(--on-primary)}
+.m-top .tab[aria-selected=true]{background:var(--on-primary);color:var(--primary);border-color:var(--on-primary)}
+.m-item .price{display:inline-block;font:400 1.05rem/1 var(--hand);background:var(--tag);color:var(--tag-ink);padding:.3em .5em;border-radius:3px;transform:rotate(-2deg)}
+.cartbar .n,.steps li::before{background:var(--tag);color:var(--tag-ink)}
+.ticket{border-top-color:var(--primary)}

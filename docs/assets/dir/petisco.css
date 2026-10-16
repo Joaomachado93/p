@@ -1,0 +1,190 @@
+@import url('https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,400..900;1,6..96,400..700&family=Hanken+Grotesk:wght@400;500;600;700&display=swap');
+/* petisco — evening in the old town: dark tobacco/wine ground, candle-light gold, wine-label type (Bodoni Moda) over a quiet grotesk.
+   Layout: full-bleed night photo hero with the name set low like a label; the menu is the bold moment — a framed "rótulo" board
+   with gold leaders; everything else stays quiet and dark. Dark-first single theme; every colour set explicitly. */
+:root{
+  --bg:#15100e; --surface:#1f1714; --surface-2:#271d18; --ink:#f2e7d5; --muted:#b9a993; --line:rgba(242,231,213,.15);
+  --on-primary:#fff; --on-accent:#17100c;
+  --candle:color-mix(in oklab, var(--accent) 22%, #efbd5e);      /* brand-tinted candle gold, always light on the dark ground */
+  --candle-soft:color-mix(in oklab, var(--candle) 30%, transparent);
+  --wine:color-mix(in oklab, var(--primary) 70%, #0c0807);         /* brand colour pushed into the night */
+  --display:'Bodoni Moda',Didot,'Bodoni 72',Georgia,serif;
+  --body:'Hanken Grotesk',system-ui,-apple-system,'Segoe UI',sans-serif;
+  --label:'Hanken Grotesk',system-ui,sans-serif;
+  --radius:2px; --radius-lg:4px; --section:clamp(64px,10vw,124px); --maxw:1180px;
+  color-scheme:dark;
+}
+[data-dir=petisco] body{background:
+  radial-gradient(120% 60% at 85% 0%, color-mix(in oklab, var(--primary) 18%, transparent), transparent 70%),
+  var(--bg);color:var(--ink)}
+[data-dir=petisco] ::selection{background:var(--candle);color:#17100c}
+[data-dir=petisco] :focus-visible{outline:2px solid var(--candle);outline-offset:3px}
+[data-dir=petisco] h1,[data-dir=petisco] h2,[data-dir=petisco] h3{font-weight:500;letter-spacing:-.01em}
+[data-dir=petisco] h2{font-size:clamp(2rem,4.6vw,3.4rem);font-variation-settings:'opsz' 96}
+[data-dir=petisco] h3{font-size:1.25rem;font-weight:600}
+[data-dir=petisco] .kicker{font:600 .74rem/1.2 var(--label);letter-spacing:.24em;color:var(--candle);display:flex;align-items:center;gap:12px}
+[data-dir=petisco] .kicker::before{content:"";width:28px;height:1px;background:currentColor;flex:none}
+[data-dir=petisco] .muted,[data-dir=petisco] .note{color:var(--muted)}
+
+/* buttons: candle-gold primary, hairline secondary */
+[data-dir=petisco] .btn{border-radius:var(--radius);font:600 .86rem/1 var(--label);letter-spacing:.12em;text-transform:uppercase;min-height:48px;padding:.8em 1.35em}
+[data-dir=petisco] .btn-primary{background:var(--candle);color:#17100c;box-shadow:0 0 0 1px var(--candle),0 8px 30px -8px color-mix(in oklab, var(--candle) 60%, transparent)}
+[data-dir=petisco] .btn-primary:hover{background:color-mix(in oklab, var(--candle) 85%, #fff)}
+[data-dir=petisco] .btn-secondary{color:var(--ink);border-color:rgba(242,231,213,.45);border-width:1px;background:rgba(21,16,14,.35)}
+[data-dir=petisco] .btn-secondary:hover{border-color:var(--candle);color:var(--candle)}
+[data-dir=petisco] .btn-yes{background:#2f8a4f;color:#fff}
+[data-dir=petisco] .btn-no{color:var(--ink);border-color:rgba(242,231,213,.45);border-width:1px}
+[data-dir=petisco] .demobar .btn{letter-spacing:.04em;text-transform:none;font:600 .8rem/1 system-ui,sans-serif}
+
+/* header */
+[data-dir=petisco] .site-head{background:rgba(21,16,14,.92);border-bottom:1px solid var(--line)}
+[data-dir=petisco] .site-head-row{padding-block:16px}
+[data-dir=petisco] .brand{font:italic 600 1.45rem/1 var(--display);color:var(--ink);letter-spacing:0}
+[data-dir=petisco] .nav{gap:30px;font:600 .74rem/1 var(--label);letter-spacing:.2em;text-transform:uppercase}
+[data-dir=petisco] .nav a{color:var(--muted)}
+[data-dir=petisco] .nav a:hover{color:var(--candle);text-decoration:none}
+
+/* hero: photo fills the frame, copy sits low over a warm night gradient */
+[data-dir=petisco] .hero{display:grid;min-height:min(92vh,860px);background:#0d0907;overflow:hidden;isolation:isolate}
+[data-dir=petisco] .hero-media{grid-area:1/1;position:relative;background:var(--wine);z-index:-1}
+[data-dir=petisco] .hero-media img{position:absolute;inset:0;filter:saturate(1.05) contrast(1.05) brightness(.92)}
+[data-dir=petisco] .hero-media::after{content:"";position:absolute;inset:0;background:
+  radial-gradient(70% 55% at 78% 30%, rgba(255,190,90,.16), transparent 70%),
+  linear-gradient(180deg, rgba(13,9,7,.25) 0%, rgba(13,9,7,0) 22%, color-mix(in oklab, var(--wine) 45%, rgba(13,9,7,.62)) 52%, #120d0b 92%)}
+[data-dir=petisco] .hero-media--empty{background:
+  radial-gradient(40% 35% at 75% 30%, rgba(239,189,94,.35), transparent 70%),
+  repeating-linear-gradient(90deg, rgba(0,0,0,.18) 0 2px, transparent 2px 46px),
+  linear-gradient(160deg, var(--wine), #0d0907)}
+[data-dir=petisco] .hero-copy{grid-area:1/1;align-self:end;width:100%;gap:16px;padding-block:120px clamp(40px,6vw,80px);color:#f6ecdc}
+[data-dir=petisco] .hero .kicker{color:var(--candle);text-shadow:0 1px 12px rgba(0,0,0,.8)}
+[data-dir=petisco] .hero-title{font:italic 600 clamp(3.2rem,11vw,7.4rem)/.92 var(--display);font-variation-settings:'opsz' 96;letter-spacing:-.025em;
+  max-width:14ch;text-shadow:0 2px 30px rgba(0,0,0,.45);overflow-wrap:anywhere}
+[data-dir=petisco] .tagline{font:400 clamp(1.1rem,2.2vw,1.45rem)/1.4 var(--body);color:#eadcc6;max-width:34ch}
+[data-dir=petisco] .hero .actions{margin-top:6px}
+[data-dir=petisco] .facts{color:#d9c9b1;font-size:.9rem;gap:8px 26px;margin-top:10px;padding-top:16px;border-top:1px solid rgba(242,231,213,.18);max-width:760px}
+[data-dir=petisco] .facts .i{color:var(--candle)}
+[data-dir=petisco] .facts b{color:#fff}
+
+/* about */
+[data-dir=petisco] .lede{font:italic 400 clamp(1.4rem,2.6vw,2rem)/1.32 var(--display);color:var(--ink);max-width:30ch}
+[data-dir=petisco] .services{gap:10px;margin-top:28px}
+[data-dir=petisco] .services li{border:1px solid var(--line);padding:.45em .85em .45em .7em;font-size:.88rem;color:var(--ink);border-radius:999px}
+[data-dir=petisco] .services .i{color:var(--candle)}
+[data-dir=petisco] .points{counter-reset:pt;gap:0;border-top:1px solid var(--line)}
+[data-dir=petisco] .point{counter-increment:pt;display:grid;grid-template-columns:52px 1fr;column-gap:14px;padding-block:20px;border-bottom:1px solid var(--line)}
+[data-dir=petisco] .point::before{content:counter(pt,upper-roman);grid-row:span 2;font:italic 500 1.6rem/1 var(--display);color:var(--candle)}
+[data-dir=petisco] .point h3{font-family:var(--display)}
+
+/* gallery: framed like prints on a dark wall */
+[data-dir=petisco] .gallery-grid{gap:14px}
+[data-dir=petisco] .shot{background:var(--surface);border-radius:var(--radius);position:relative}
+[data-dir=petisco] .shot::after{content:"";position:absolute;inset:8px;border:1px solid rgba(242,231,213,.35);pointer-events:none}
+[data-dir=petisco] .shot img{filter:saturate(1.05) brightness(.95)}
+[data-dir=petisco] .caption{color:var(--muted);font-style:italic}
+
+/* menu: the bold moment — a wine-label board (double gold rule, Bodoni names, gold leaders) */
+[data-dir=petisco] .menu{background:
+  radial-gradient(60% 40% at 50% 0%, rgba(239,189,94,.08), transparent 70%),
+  linear-gradient(180deg, var(--surface) 0%, var(--bg) 100%);
+  border-block:1px solid var(--line)}
+[data-dir=petisco] .menu .wrap{max-width:1040px}
+[data-dir=petisco] .menu .section-head{margin-bottom:28px}
+[data-dir=petisco] .tabs{gap:6px;padding:2px 2px 14px;margin-bottom:18px}
+[data-dir=petisco] .tab{font:600 .78rem/1 var(--label);letter-spacing:.16em;text-transform:uppercase;padding:1em 1.2em;min-height:44px;border-radius:var(--radius);
+  border:1px solid rgba(242,231,213,.28);color:var(--ink);background:rgba(242,231,213,.03)}
+[data-dir=petisco] .tab:hover{border-color:var(--candle);color:var(--candle)}
+[data-dir=petisco] .tab[aria-selected=true]{background:var(--candle);border-color:var(--candle);color:#17100c}
+[data-dir=petisco] .dishes{position:relative;padding:clamp(18px,3.4vw,44px) clamp(18px,4vw,52px);gap:0 64px;background:
+  linear-gradient(180deg, rgba(242,231,213,.035), rgba(242,231,213,.01)), #120d0b;
+  border:1px solid var(--candle-soft);outline:1px solid var(--candle-soft);outline-offset:-7px;border-radius:var(--radius-lg)}
+[data-dir=petisco] .dish{border-bottom:1px solid var(--line);padding-block:18px}
+[data-dir=petisco] .dish-name{font:600 1.18rem/1.25 var(--display);color:var(--ink)}
+[data-dir=petisco] .dish-dots{border-bottom:1px dotted color-mix(in oklab, var(--candle) 55%, transparent);transform:translateY(-5px)}
+[data-dir=petisco] .dish-price{font:italic 600 1.18rem/1 var(--display);color:var(--candle)}
+[data-dir=petisco] .dish-desc{color:var(--muted);font-size:.92rem}
+[data-dir=petisco] .tag{background:rgba(242,231,213,.1);color:var(--ink);border-radius:2px;font-family:var(--label);letter-spacing:.12em}
+[data-dir=petisco] .tag-veg{background:#24402c;color:#c7ecc9}
+[data-dir=petisco] .tag-picante{background:#552018;color:#ffcfc2}
+
+/* qr */
+[data-dir=petisco] .qr{background:
+  radial-gradient(50% 60% at 80% 50%, rgba(239,189,94,.14), transparent 70%),
+  linear-gradient(135deg, var(--wine), #0f0b09 80%);color:var(--ink)}
+[data-dir=petisco] .qr .kicker{color:var(--candle)}
+[data-dir=petisco] .steps li::before{background:transparent;color:var(--candle);border:1px solid var(--candle);font:italic 600 1.05rem/1 var(--display)}
+[data-dir=petisco] .steps span{opacity:1;color:#d9c9b1}
+[data-dir=petisco] .qr-card{background:#f4ead6;color:#1c1410;border-radius:var(--radius);outline:1px solid #8a6a3a;outline-offset:-10px;padding:30px 28px;
+  transform:rotate(-2deg);box-shadow:0 30px 70px rgba(0,0,0,.55),0 0 80px -10px rgba(239,189,94,.25)}
+[data-dir=petisco] .qr-name{font:italic 600 1.3rem/1.1 var(--display)}
+[data-dir=petisco] .qr-table{color:#6b4f2a;font-family:var(--label);letter-spacing:.18em}
+[data-dir=petisco] .qr-card p{color:#4f3f30;font-style:italic;font-family:var(--display)}
+
+/* booking */
+[data-dir=petisco] .book-copy p:not(.kicker):not(.preview-cap){color:#d9c9b1}
+[data-dir=petisco] .form{background:var(--surface);border:1px solid var(--line);border-radius:var(--radius-lg)}
+[data-dir=petisco] .form label{font:600 .72rem/1.2 var(--label);letter-spacing:.16em;text-transform:uppercase;color:var(--muted)}
+[data-dir=petisco] .form input,[data-dir=petisco] .form select,[data-dir=petisco] .form textarea{font:400 1rem/1.4 var(--body);letter-spacing:0;text-transform:none;
+  background:#120d0b;color:var(--ink);border:1px solid rgba(242,231,213,.22);border-radius:var(--radius)}
+[data-dir=petisco] .form input:focus,[data-dir=petisco] .form select:focus,[data-dir=petisco] .form textarea:focus{border-color:var(--candle);outline:none;box-shadow:0 0 0 3px var(--candle-soft)}
+[data-dir=petisco] .form ::placeholder{color:#8d7f6d}
+[data-dir=petisco] .preview{background:#1f3b26;color:#e3f6d8}
+[data-dir=petisco] .preview-cap{color:var(--muted)}
+
+/* visit */
+[data-dir=petisco] address a{font:italic 500 1.25rem/1.35 var(--display);color:var(--ink)}
+[data-dir=petisco] address .i,[data-dir=petisco] .contacts .i,[data-dir=petisco] .visit-block h3 .i{color:var(--candle)}
+[data-dir=petisco] .visit-block h3{color:var(--candle);letter-spacing:.2em}
+[data-dir=petisco] .hours th{color:var(--muted);font-weight:500}
+[data-dir=petisco] .hours td{font-weight:600}
+[data-dir=petisco] .contacts a{color:var(--ink);text-decoration-color:var(--candle-soft);text-underline-offset:3px}
+[data-dir=petisco] .map{border-radius:var(--radius-lg);border:1px solid var(--line);background:#e6dccd;filter:invert(.9) hue-rotate(180deg) sepia(.25) saturate(.9)}
+
+/* proposal */
+[data-dir=petisco] .proposal{padding-top:0}
+[data-dir=petisco] .proposal-box{background:var(--surface);border:1px solid var(--candle-soft);outline:1px solid var(--candle-soft);outline-offset:-7px;
+  padding:clamp(24px,4vw,52px);border-radius:var(--radius-lg)}
+[data-dir=petisco] .proposal-box p:not(.kicker):not(.muted){color:#d9c9b1}
+[data-dir=petisco] .feats .i{color:var(--candle)}
+
+/* footer + mobile bar */
+[data-dir=petisco] .site-foot{border-top:1px solid var(--line);background:#0f0b09;color:var(--muted)}
+[data-dir=petisco] .site-foot b{font:italic 600 1.1rem var(--display);color:var(--ink)}
+[data-dir=petisco] .site-foot a{color:#d9c9b1}
+
+@media (max-width:860px){
+  [data-dir=petisco] .hero{min-height:calc(100svh - 150px)}
+  [data-dir=petisco] .hero-copy{padding-block:42vh 30px;gap:12px}
+  [data-dir=petisco] .hero-title{font-size:clamp(3rem,15vw,4.6rem)}
+  [data-dir=petisco] .hero .actions .btn{flex:1 1 auto}
+  [data-dir=petisco] .hero .actions .btn-primary{flex-basis:100%}
+  [data-dir=petisco] .facts{flex-direction:column;gap:8px}
+  [data-dir=petisco] .dishes{padding:10px 18px}
+  [data-dir=petisco] .dish-name,[data-dir=petisco] .dish-price{font-size:1.08rem}
+  [data-dir=petisco] .qr-card{transform:rotate(-1.5deg);margin-block:8px}
+  [data-dir=petisco] .mbar{background:rgba(18,13,11,.97);color:var(--ink);border-top:1px solid var(--candle-soft);backdrop-filter:blur(8px)}
+  [data-dir=petisco] .mbar a{font:600 .66rem/1.1 var(--label);letter-spacing:.12em;text-transform:uppercase}
+  [data-dir=petisco] .mbar .i{color:var(--candle)}
+}
+
+/* ---------- mesa / cozinha ---------- */
+[data-dir=petisco] body.mesa{background:var(--bg)}
+[data-dir=petisco] .m-top{background:linear-gradient(180deg, var(--wine), color-mix(in oklab, var(--wine) 80%, #0d0907));border-bottom:1px solid var(--candle-soft)}
+[data-dir=petisco] .m-top h1{font:italic 600 1.5rem/1.05 var(--display)}
+[data-dir=petisco] .m-table{background:var(--candle);color:#17100c;font-family:var(--label);letter-spacing:.08em}
+[data-dir=petisco] .m-top .tab{border-color:rgba(255,255,255,.3);color:#fff;background:rgba(0,0,0,.15)}
+[data-dir=petisco] .m-top .tab[aria-selected=true]{background:var(--candle);border-color:var(--candle);color:#17100c}
+[data-dir=petisco] .m-cat{font:italic 600 1.6rem/1.1 var(--display);color:var(--candle)}
+[data-dir=petisco] .m-item h4{font:600 1.08rem/1.25 var(--display)}
+[data-dir=petisco] .m-item .price{font:italic 600 1.05rem var(--display);color:var(--candle)}
+[data-dir=petisco] .qty button{background:var(--candle);color:#17100c}
+[data-dir=petisco] .qty button.minus{background:rgba(242,231,213,.12);color:var(--ink)}
+[data-dir=petisco] .cartbar{background:var(--candle);color:#17100c;font-family:var(--label);border-radius:var(--radius-lg);box-shadow:0 12px 40px rgba(0,0,0,.6)}
+[data-dir=petisco] .cartbar .n{background:#17100c;color:var(--candle)}
+[data-dir=petisco] .sheet{background:rgba(0,0,0,.65)}
+[data-dir=petisco] .sheet .panel{background:var(--surface);border-top:1px solid var(--candle-soft)}
+[data-dir=petisco] .sheet textarea{background:#120d0b}
+[data-dir=petisco] .total{font-family:var(--display)}
+[data-dir=petisco] .done-mark{background:var(--candle);color:#17100c}
+[data-dir=petisco] .status div.on i{background:var(--candle);color:#17100c}
+[data-dir=petisco] .ticket{background:var(--surface);border-color:var(--line);border-top-color:var(--candle)}
+[data-dir=petisco] .ticket h3{color:var(--ink)}

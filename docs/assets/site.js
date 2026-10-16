@@ -8,13 +8,6 @@
   const telHref = p => 'tel:+351' + String(p).replace(/\D/g, '');
   const waHref = (n, text) => 'https://wa.me/351' + n + (text ? '?text=' + encodeURIComponent(text) : '');
 
-  // ---------- theme ----------
-  const t = D.theme || {};
-  const root = document.documentElement.style;
-  ['primary', 'accent', 'bg', 'ink'].forEach(k => t[k] && root.setProperty('--' + k, t[k]));
-  if (t.font_display) root.setProperty('--display', `'${t.font_display}', Georgia, serif`);
-  document.body.classList.add('motif-' + (t.motif || 'none'));
-
   // ---------- owner accept/decline ----------
   function ownerLink(yes) {
     const O = window.OWNER || {};
@@ -33,14 +26,14 @@
   // ---------- menu tabs (shared) ----------
   function tabs(container, onPick) {
     container.innerHTML = D.menu.map((c, i) =>
-      `<button role="tab" aria-selected="${i === 0}" data-i="${i}">${esc(c.category)}</button>`).join('');
+      `<button class="tab" type="button" role="tab" aria-selected="${i === 0}" data-i="${i}">${esc(c.category)}</button>`).join('');
     container.addEventListener('click', e => {
       const b = e.target.closest('button'); if (!b) return;
       container.querySelectorAll('button').forEach(x => x.setAttribute('aria-selected', x === b));
       onPick(+b.dataset.i);
     });
   }
-  const tagHtml = tags => (tags || []).map(x => `<span class="tag ${esc(x)}">${esc(x === 'popular' ? '★ popular' : x)}</span>`).join('');
+  const tagHtml = tags => (tags || []).map(x => `<span class="tag tag-${esc(x)}">${esc(x === 'veg' ? 'vegetariano' : x)}</span>`).join('');
 
   if (page === 'landing') landing();
   if (page === 'mesa') mesa();
@@ -51,8 +44,8 @@
     const items = $('#items');
     const show = i => {
       items.innerHTML = D.menu[i].items.map(it => `
-        <div class="item"><div class="txt"><h4>${esc(it.name)} ${tagHtml(it.tags)}</h4>
-        ${it.desc ? `<p>${esc(it.desc)}</p>` : ''}</div><div class="price">${eur(it.price)}</div></div>`).join('');
+        <li class="dish"><div class="dish-line"><span class="dish-name">${esc(it.name)}</span><span class="dish-dots" aria-hidden="true"></span><span class="dish-price">${eur(it.price)}</span></div>
+        ${it.desc || (it.tags || []).length ? `<p class="dish-desc">${esc(it.desc || '')} ${tagHtml(it.tags)}</p>` : ''}</li>`).join('');
     };
     tabs($('#tabs'), show); show(0);
 
@@ -64,7 +57,7 @@
     }
 
     // reservation / order forms -> WhatsApp preview (demo never sends)
-    document.querySelectorAll('form.f').forEach(f => {
+    document.querySelectorAll('form.form').forEach(f => {
       f.addEventListener('submit', e => {
         e.preventDefault();
         const fd = new FormData(f);
@@ -152,7 +145,7 @@
           <small>${new Date(o.at).toLocaleTimeString('pt-PT', { hour: '2-digit', minute: '2-digit' })}</small>
           <ul>${o.lines.map(l => `<li><b>${l.q}×</b> ${esc(l.name)}</li>`).join('')}</ul>
           ${o.obs ? `<div class="obs">📝 ${esc(o.obs)}</div>` : ''}
-          <p><button class="btn ${o.ready ? 'btn-line' : 'btn-dark'}" data-i="${i}">${o.ready ? 'Servido ✓' : 'Marcar como pronto'}</button></p>
+          <p><button class="btn ${o.ready ? 'btn-secondary' : 'btn-primary'}" data-i="${i}">${o.ready ? 'Servido ✓' : 'Marcar como pronto'}</button></p>
         </div>`).join('')
         : `<div class="empty"><p style="font-size:3rem;margin:0">🧾</p><p>Ainda não há pedidos.<br>Abra a <a href="../mesa/?mesa=4">ementa da mesa</a> neste dispositivo, faça um pedido e ele aparece aqui.</p></div>`;
     }

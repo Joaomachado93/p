@@ -1,72 +1,82 @@
 <!doctype html>
-<html lang="pt-PT"><head>
-<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<html lang="pt-PT" data-dir="mesa" style="--primary:#0f5c73;--accent:#e07a5f"><head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <meta name="robots" content="noindex,nofollow">
-<title>A Marisqueira sem Marisco by Luís Brites — Apesar do nome, sem marisco</title>
+<title>A Marisqueira sem Marisco by Luís Brites · Apesar do nome, sem marisco</title>
 <meta name="description" content="Demonstração de site para A Marisqueira sem Marisco by Luís Brites — Apesar do nome, sem marisco">
-<meta property="og:title" content="A Marisqueira sem Marisco by Luís Brites — Apesar do nome, sem marisco"><meta property="og:description" content="Demonstração de site para A Marisqueira sem Marisco by Luís Brites — Apesar do nome, sem marisco">
+<meta property="og:title" content="A Marisqueira sem Marisco by Luís Brites · Apesar do nome, sem marisco"><meta property="og:description" content="Demonstração de site para A Marisqueira sem Marisco by Luís Brites — Apesar do nome, sem marisco">
 <meta name="theme-color" content="#0f5c73">
 <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🐟</text></svg>">
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="../assets/site.css">
+
+<link rel="stylesheet" href="../assets/base.css">
+<link rel="stylesheet" href="../assets/dir/mesa.css">
 </head>
 <body data-page="landing">
-<div class="demobar"><div class="wrap">
-<p>👋 Demonstração feita para <b>A Marisqueira sem Marisco by Luís Brites</b> — fotos e preços ilustrativos.</p>
-<div class="actions"><a class="btn yes" data-owner="yes" href="#proposta">Quero avançar</a><a class="btn no" data-owner="no" href="#proposta">Não, obrigado</a></div>
-</div></div>
-<header class="hero has-photo" style="--hero-img:url(../assets/img/menu-do-dia.jpg)">
-<nav class="nav"><div class="wrap"><a class="brand" href="#">A Marisqueira sem Marisco by Luís Brites</a><ul><li><a href="#ementa">Ementa</a></li><li><a href="#mesa">Pedir na mesa</a></li><li><a href="#pedido">Reservas</a></li><li><a href="#contactos">Contactos</a></li></ul></div></nav>
-<div class="wrap"><div>
-<p class="eyebrow" style="color:var(--accent)">Restaurante · Centro</p>
-<h1>A Marisqueira sem Marisco by Luís Brites</h1><p class="tagline">Apesar do nome, sem marisco</p>
-<div class="ctas"><a class="btn btn-primary" href="#ementa">Ver ementa</a><a class="btn btn-ghost" href="tel:+351253419250">📞 Ligar</a></div>
-<div class="meta"><a class="chip" href="https://www.google.com/maps/search/?api=1&query=A%20Marisqueira%20sem%20Marisco%20by%20Lu%C3%ADs%20Brites%2C%20R.%20de%20Cam%C3%B5es%2035%2C%204810-442%20Guimar%C3%A3es" target="_blank" rel="noopener">⭐ 4,7 · 251 avaliações no Google</a><a class="chip" href="https://www.google.com/maps/search/?api=1&query=A%20Marisqueira%20sem%20Marisco%20by%20Lu%C3%ADs%20Brites%2C%20R.%20de%20Cam%C3%B5es%2035%2C%204810-442%20Guimar%C3%A3es" target="_blank" rel="noopener">📍 R. de Camões 35, 4810-442 Guimarães</a></div>
-</div><div class="badge" aria-hidden="true">🐟</div></div>
-</header>
-<section class="highlights"><div class="wrap"><div class="grid"><div class="card"><div class="ic">😄</div><h3>Sem marisco, com graça</h3><p>Apesar do nome, não é uma marisqueira.</p></div><div class="card"><div class="ic">⭐</div><h3>4,7★ no Google</h3><p>4,7★ em 251 avaliações no Google.</p></div><div class="card"><div class="ic">📱</div><h3>Peça da mesa</h3><p>Por QR code, sem esperar pela equipa.</p></div></div>
-<p class="intro">A Marisqueira sem Marisco fica na Rua de Camões, no centro de Guimarães, e a graça começa no nome: não é uma marisqueira. Venha experimentar o menu do dia e descobrir a cozinha de Luís Brites.</p></div></section>
-<section class="gallery"><div class="wrap"><div class="gal"><figure><img src="../assets/img/bacalhau.jpg" alt="bacalhau" loading="lazy"></figure><figure><img src="../assets/img/sopa.jpg" alt="sopa" loading="lazy"></figure><figure><img src="../assets/img/pudim.jpg" alt="pudim" loading="lazy"></figure></div><p class="gal-note">Fotografias ilustrativas — no site final usamos as vossas.</p></div></section>
-<section id="ementa"><div class="wrap">
-<div class="menu-head"><div><p class="eyebrow">Ementa</p><h2>Para todos os gostos</h2></div>
-<span class="note">✏️ Ementa de exemplo — substituímos pela vossa, com os vossos preços</span></div>
-<div class="tabs" id="tabs" role="tablist"></div><div class="items" id="items"></div>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true"><symbol id="i-phone" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"/></symbol><symbol id="i-chat" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7.9 20A9 9 0 1 0 4 16.1L2 22Z"/></symbol><symbol id="i-pin" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></symbol><symbol id="i-clock" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></symbol><symbol id="i-nav" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 11l19-9-9 19-2-8-8-2z"/></symbol><symbol id="i-menu" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 2v7c0 1.1.9 2 2 2h4a2 2 0 0 0 2-2V2M7 2v20M21 15V2a5 5 0 0 0-5 5v6c0 1.1.9 2 2 2h3Zm0 0v7"/></symbol><symbol id="i-star" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01z"/></symbol><symbol id="i-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></symbol><symbol id="i-qr" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 3h7v7H3zM14 3h7v7h-7zM3 14h7v7H3zM14 14h3v3h-3zM20 14v7M14 20h3"/></symbol><symbol id="i-link" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/></symbol><symbol id="i-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></symbol></svg>
+<aside class="demobar" aria-label="Demonstração">
+<p><b>Demonstração</b> feita para A Marisqueira sem Marisco by Luís Brites · fotos e preços ilustrativos</p>
+<div class="demobar-actions"><a class="btn btn-yes" data-owner="yes" href="#proposta">Quero avançar</a><a class="btn btn-no" data-owner="no" href="#proposta">Não, obrigado</a></div>
+</aside>
+<header class="site-head"><div class="wrap site-head-row">
+<a class="brand" href="#top">A Marisqueira sem Marisco by Luís Brites</a>
+<nav aria-label="Secções"><ul class="nav"><li><a href="#ementa">Ementa</a></li><li><a href="#mesa">Pedir na mesa</a></li><li><a href="#pedido">Reservas</a></li><li><a href="#visitar">Visitar</a></li></ul></nav>
+</div></header>
+<main id="top">
+<section class="hero hero--photo">
+<figure class="hero-media"><img src="../assets/img/menu-do-dia.jpg" alt="" fetchpriority="high" width="1280" height="853"></figure>
+<div class="wrap hero-copy">
+<p class="kicker">Restaurante · Centro</p>
+<h1 class="hero-title">A Marisqueira sem Marisco by Luís Brites</h1>
+<p class="tagline">Apesar do nome, sem marisco</p>
+<div class="actions"><a class="btn btn-primary" href="#pedido">Reservar mesa</a><a class="btn btn-secondary" href="tel:+351253419250"><svg class="i" aria-hidden="true"><use href="#i-phone"/></svg>Ligar</a></div>
+<ul class="facts"><li><a href="https://www.google.com/maps/search/?api=1&query=A%20Marisqueira%20sem%20Marisco%20by%20Lu%C3%ADs%20Brites%2C%20R.%20de%20Cam%C3%B5es%2035%2C%204810-442%20Guimar%C3%A3es" target="_blank" rel="noopener"><svg class="i" aria-hidden="true"><use href="#i-star"/></svg><span><b class="rating">4,7</b><span class="sep"> · </span><span class="reviews">251 avaliações no Google</span></span></a></li><li><a href="https://www.google.com/maps/search/?api=1&query=A%20Marisqueira%20sem%20Marisco%20by%20Lu%C3%ADs%20Brites%2C%20R.%20de%20Cam%C3%B5es%2035%2C%204810-442%20Guimar%C3%A3es" target="_blank" rel="noopener"><svg class="i" aria-hidden="true"><use href="#i-pin"/></svg><span>R. de Camões 35, 4810-442 Guimarães</span></a></li></ul>
+</div>
+</section>
+<section class="about"><div class="wrap about-grid">
+<div class="about-text"><p class="lede">A Marisqueira sem Marisco fica na Rua de Camões, no centro de Guimarães, e a graça começa no nome: não é uma marisqueira. Venha experimentar o menu do dia e descobrir a cozinha de Luís Brites.</p></div>
+<ul class="points"><li class="point"><h3>Sem marisco, com graça</h3><p>Apesar do nome, não é uma marisqueira.</p></li><li class="point"><h3>4,7★ no Google</h3><p>4,7★ em 251 avaliações no Google.</p></li><li class="point"><h3>Peça da mesa</h3><p>Por QR code, sem esperar pela equipa.</p></li></ul>
 </div></section>
-<section class="qr" id="mesa"><div class="wrap">
-<div><p class="eyebrow">Novo · Pedidos por QR code</p><h2>O cliente pede da mesa. O pedido chega à cozinha.</h2>
-<ol class="steps"><li><div><b>Lê o QR code da mesa</b><br>Com a câmara do telemóvel, sem instalar nada.</div></li>
-<li><div><b>Escolhe e pede</b><br>Vê a ementa com preços, adiciona pratos e deixa observações.</div></li>
-<li><div><b>A cozinha recebe logo</b><br>O pedido aparece no ecrã do balcão/cozinha com o número da mesa.</div></li></ol>
-<p style="opacity:.8">Menos espera nas horas de ponta, menos enganos nos pedidos e a equipa livre para servir.</p>
-<div class="links"><a class="btn btn-primary" href="mesa/?mesa=7">Experimentar como cliente</a><a class="btn btn-ghost" href="cozinha/">Ver ecrã da cozinha</a></div></div>
-<div class="qrcard"><div class="tent">A Marisqueira sem Marisco by Luís Brites</div><small>Aponte a câmara · Mesa 7</small><div id="qrbox"></div><small>Peça aqui, sem esperar 🙌</small></div>
+<section class="gallery" aria-label="Fotografias"><div class="wrap"><div class="gallery-grid"><figure class="shot"><img src="../assets/img/bacalhau.jpg" alt="bacalhau" loading="lazy" width="1280" height="853"></figure><figure class="shot"><img src="../assets/img/sopa.jpg" alt="sopa" loading="lazy" width="1280" height="853"></figure><figure class="shot"><img src="../assets/img/pudim.jpg" alt="pudim" loading="lazy" width="1280" height="853"></figure></div><p class="caption">Fotografias ilustrativas · no site final usamos as vossas.</p></div></section>
+<section class="menu" id="ementa"><div class="wrap">
+<div class="section-head"><p class="kicker">Ementa</p><h2>O que se come cá</h2><p class="note">Ementa de exemplo · substituímos pela vossa</p></div>
+<div class="tabs" id="tabs" role="tablist" aria-label="Categorias"></div>
+<ul class="dishes" id="items"></ul>
 </div></section>
-<section id="pedido"><div class="wrap split">
-<div><p class="eyebrow">Pedido de reserva</p><h2>Reserve a sua mesa</h2><p>Escolha o dia e a hora — o pedido chega por WhatsApp e confirmamos logo.</p>
-<div class="preview" aria-live="polite"></div><p class="preview-cap" hidden>↑ Assim chegaria a mensagem ao vosso WhatsApp. (Nesta demonstração nada é enviado.)</p></div>
-<form class="f" data-title="Pedido de reserva"><div class="row"><label>Nome<input name="Nome" required autocomplete="name"></label><label>Telemóvel<input name="Telemóvel" type="tel" required autocomplete="tel"></label></div>
-<div class="row"><label>Dia<input name="Dia" type="date" required></label><label>Hora<input name="Hora" type="time" value="20:00" required></label></div>
-<label>Pessoas<select name="Pessoas"><option>1</option><option>2</option><option>3</option><option>4</option><option>5</option><option>6</option><option>7</option><option>8</option><option>9</option><option>10</option><option>11</option><option>12</option></select></label>
-<label>Observações<textarea name="Observações" rows="2" placeholder="Cadeira de bebé, aniversário, alergias…"></textarea></label><button class="btn btn-dark" type="submit">Pedir reserva</button></form>
+<section class="qr" id="mesa"><div class="wrap qr-grid">
+<div class="qr-copy"><p class="kicker">Pedidos por QR code</p><h2>O cliente pede da mesa. O pedido chega à cozinha.</h2>
+<ol class="steps"><li><b>Lê o código da mesa</b><span>Com a câmara do telemóvel, sem instalar nada.</span></li>
+<li><b>Escolhe e pede</b><span>Vê a ementa com preços, junta pratos e deixa observações.</span></li>
+<li><b>A cozinha recebe logo</b><span>O pedido aparece no ecrã do balcão com o número da mesa.</span></li></ol>
+<div class="actions"><a class="btn btn-primary" href="mesa/?mesa=7">Experimentar como cliente</a><a class="btn btn-secondary" href="cozinha/">Ver o ecrã da cozinha</a></div></div>
+<figure class="qr-card"><figcaption><span class="qr-name">A Marisqueira sem Marisco by Luís Brites</span><span class="qr-table">Mesa 7</span></figcaption><div id="qrbox"></div><p>Aponte a câmara e peça daqui</p></figure>
 </div></section>
-<section class="contact" id="contactos"><div class="wrap split">
-<div class="info"><p class="eyebrow">Onde estamos</p><h2>Venha visitar-nos</h2>
-<div class="line"><span>📍</span><div>R. de Camões 35, 4810-442 Guimarães<br><a href="https://www.google.com/maps/search/?api=1&query=A%20Marisqueira%20sem%20Marisco%20by%20Lu%C3%ADs%20Brites%2C%20R.%20de%20Cam%C3%B5es%2035%2C%204810-442%20Guimar%C3%A3es" target="_blank" rel="noopener">Abrir no Google Maps →</a></div></div>
-<div class="line"><span>📞</span><a href="tel:+351253419250">253 419 250</a></div><div class="line"><span>🔗</span><a href="https://facebook.com/p/Restaurante-Marisqueira-100067021094242/" target="_blank" rel="noopener">facebook.com/p/Restaurante-Marisqueira-100067021094242/</a></div>
-<div class="line"><span>🕑</span><div>Horário — <i>a confirmar convosco</i></div></div></div>
-<iframe class="map" loading="lazy" title="Mapa" src="https://www.google.com/maps?q=A%20Marisqueira%20sem%20Marisco%20by%20Lu%C3%ADs%20Brites%2C%20R.%20de%20Cam%C3%B5es%2035%2C%204810-442%20Guimar%C3%A3es&output=embed"></iframe>
+<section class="book" id="pedido"><div class="wrap book-grid">
+<div class="book-copy"><p class="kicker">Pedido de reserva</p><h2>Reserve a sua mesa</h2><p>Escolha o dia e a hora. O pedido chega por WhatsApp e confirmamos logo.</p>
+<div class="preview" aria-live="polite"></div><p class="preview-cap" hidden>Assim chegaria a mensagem ao vosso WhatsApp. Nesta demonstração nada é enviado.</p></div>
+<form class="form" data-title="Pedido de reserva"><div class="row"><label for="f-nome">Nome<input id="f-nome" name="Nome" required autocomplete="name"></label><label for="f-tel">Telemóvel<input id="f-tel" name="Telemóvel" type="tel" required autocomplete="tel"></label></div>
+<div class="row"><label for="f-dia">Dia<input id="f-dia" name="Dia" type="date" required></label><label for="f-hora">Hora<input id="f-hora" name="Hora" type="time" value="20:00" required></label></div>
+<label for="f-pessoas">Pessoas<select id="f-pessoas" name="Pessoas"><option>1</option><option>2</option><option>3</option><option>4</option><option>5</option><option>6</option><option>7</option><option>8</option><option>9</option><option>10</option><option>11</option><option>12</option></select></label>
+<label for="f-obs">Observações<textarea id="f-obs" name="Observações" rows="2" placeholder="Cadeira de bebé, aniversário, alergias…"></textarea></label><button class="btn btn-primary" type="submit">Pedir reserva</button></form>
 </div></section>
-<section class="proposal" id="proposta"><div class="wrap"><div class="box">
-<div><p class="eyebrow">Proposta para A Marisqueira sem Marisco by Luís Brites</p><h2>Gostou? Isto pode ser o vosso site.</h2>
+<section class="visit" id="visitar"><div class="wrap visit-grid">
+<div class="visit-info"><p class="kicker">Visitar</p><h2>Onde estamos</h2>
+<address><a href="https://www.google.com/maps/search/?api=1&query=A%20Marisqueira%20sem%20Marisco%20by%20Lu%C3%ADs%20Brites%2C%20R.%20de%20Cam%C3%B5es%2035%2C%204810-442%20Guimar%C3%A3es" target="_blank" rel="noopener"><svg class="i" aria-hidden="true"><use href="#i-pin"/></svg><span>R. de Camões 35, 4810-442 Guimarães</span></a></address>
+<div class="visit-block"><h3><svg class="i" aria-hidden="true"><use href="#i-clock"/></svg>Horário</h3><p class="muted">Horário a confirmar convosco</p></div>
+<ul class="contacts"><li><svg class="i" aria-hidden="true"><use href="#i-phone"/></svg><a href="tel:+351253419250">253 419 250</a></li><li><svg class="i" aria-hidden="true"><use href="#i-link"/></svg><a href="https://facebook.com/p/Restaurante-Marisqueira-100067021094242/" target="_blank" rel="noopener">facebook.com/p/Restaurante-Marisqueira-100067021094242/</a></li></ul>
+<a class="btn btn-secondary" href="https://www.google.com/maps/dir/?api=1&destination=A%20Marisqueira%20sem%20Marisco%20by%20Lu%C3%ADs%20Brites%2C%20R.%20de%20Cam%C3%B5es%2035%2C%204810-442%20Guimar%C3%A3es" target="_blank" rel="noopener"><svg class="i" aria-hidden="true"><use href="#i-nav"/></svg>Como chegar</a></div>
+<iframe class="map" loading="lazy" title="Mapa de A Marisqueira sem Marisco by Luís Brites" src="https://www.google.com/maps?q=A%20Marisqueira%20sem%20Marisco%20by%20Lu%C3%ADs%20Brites%2C%20R.%20de%20Cam%C3%B5es%2035%2C%204810-442%20Guimar%C3%A3es&output=embed"></iframe>
+</div></section>
+<section class="proposal" id="proposta"><div class="wrap proposal-box">
+<div><p class="kicker">Proposta para A Marisqueira sem Marisco by Luís Brites</p><h2>Gostou? Isto pode ser o vosso site.</h2>
 <p>Esta página foi feita de propósito para A Marisqueira sem Marisco by Luís Brites por João Machado, programador web aqui de Guimarães. Inclui:</p>
-<ul><li>Página rápida no telemóvel, com o vosso nome e cores</li><li>Ementa digital com QR code e pedidos feitos da mesa</li><li>Ementa/produtos e preços fáceis de atualizar</li><li>Botões para ligar, WhatsApp e mapa</li><li>Pedidos de reserva/encomenda directos para o WhatsApp</li><li>Domínio próprio (ex.: marisqueirasem.pt) ligado ao Google Maps</li></ul>
-<p style="color:var(--muted);font-size:.9rem">Eu trato do alojamento e da manutenção. Sem compromisso.</p></div>
-<div class="decide"><a class="btn yes2" data-owner="yes" href="#proposta">✅ Sim, quero avançar</a>
-<a class="btn btn-line" data-owner="no" href="#proposta">Não, obrigado</a></div>
-</div></div></section>
-<nav class="mbar" aria-label="Ações rápidas"><a href="tel:+351253419250"><span>📞</span>Ligar</a><a href="https://www.google.com/maps/dir/?api=1&destination=A%20Marisqueira%20sem%20Marisco%20by%20Lu%C3%ADs%20Brites%2C%20R.%20de%20Cam%C3%B5es%2035%2C%204810-442%20Guimar%C3%A3es" target="_blank" rel="noopener"><span>🧭</span>Direções</a><a href="#ementa"><span>🐟</span>Ementa</a></nav>
-<footer><div class="wrap"><span>© A Marisqueira sem Marisco by Luís Brites · R. de Camões 35, 4810-442 Guimarães</span><span>Demonstração — não é o site oficial. Fotos: <a href="https://commons.wikimedia.org/wiki/File:A_simple_Portuguese_meal_(Coimbra,_Portugal)_(49069738762).jpg" target="_blank" rel="noopener">Sharon Hahn Darlin</a> (CC BY 2.0), <a href="https://commons.wikimedia.org/wiki/File:Bacalao_a_braz.jpg" target="_blank" rel="noopener">Avicentegil</a> (CC BY-SA 4.0), <a href="https://commons.wikimedia.org/wiki/File:CaldoVerdeChristmasSoup.jpg" target="_blank" rel="noopener">Photo by M. Rehemtulla. Soup by Marlene.</a> (CC BY 2.0), <a href="https://commons.wikimedia.org/wiki/File:Pudim_de_leite_de_Las_vegas.jpg" target="_blank" rel="noopener">S.Moraes Jurema Oliveira (talk) 19:23, 26 December 2008 (UTC)</a> (CC BY-SA 3.0) via Wikimedia Commons.</span></div></footer>
+<ul class="feats"><li><svg class="i" aria-hidden="true"><use href="#i-check"/></svg>Página rápida no telemóvel, com o vosso nome e identidade</li><li><svg class="i" aria-hidden="true"><use href="#i-check"/></svg>Ementa digital com QR code e pedidos feitos da mesa</li><li><svg class="i" aria-hidden="true"><use href="#i-check"/></svg>Ementa e preços fáceis de atualizar</li><li><svg class="i" aria-hidden="true"><use href="#i-check"/></svg>Botões para ligar, WhatsApp e direções</li><li><svg class="i" aria-hidden="true"><use href="#i-check"/></svg>Pedidos de reserva ou encomenda direto para o WhatsApp</li><li><svg class="i" aria-hidden="true"><use href="#i-check"/></svg>Domínio próprio (ex.: marisqueirasem.pt) ligado ao Google Maps</li></ul>
+<p class="muted">Eu trato do alojamento e da manutenção. Sem compromisso.</p></div>
+<div class="decide"><a class="btn btn-yes" data-owner="yes" href="#proposta">Sim, quero avançar</a><a class="btn btn-no" data-owner="no" href="#proposta">Não, obrigado</a></div>
+</div></section>
+</main>
+<footer class="site-foot"><div class="wrap"><p><b>A Marisqueira sem Marisco by Luís Brites</b> · R. de Camões 35, 4810-442 Guimarães</p><p class="muted">Demonstração, não é o site oficial. Fotos: <a href="https://commons.wikimedia.org/wiki/File:A_simple_Portuguese_meal_(Coimbra,_Portugal)_(49069738762).jpg" target="_blank" rel="noopener">Sharon Hahn Darlin</a> (CC BY 2.0), <a href="https://commons.wikimedia.org/wiki/File:Bacalao_a_braz.jpg" target="_blank" rel="noopener">Avicentegil</a> (CC BY-SA 4.0), <a href="https://commons.wikimedia.org/wiki/File:CaldoVerdeChristmasSoup.jpg" target="_blank" rel="noopener">Photo by M. Rehemtulla. Soup by Marlene.</a> (CC BY 2.0), <a href="https://commons.wikimedia.org/wiki/File:Pudim_de_leite_de_Las_vegas.jpg" target="_blank" rel="noopener">S.Moraes Jurema Oliveira (talk) 19:23, 26 December 2008 (UTC)</a> (CC BY-SA 3.0) via Wikimedia Commons.</p></div></footer>
+<nav class="mbar" aria-label="Ações rápidas"><a href="tel:+351253419250"><svg class="i" aria-hidden="true"><use href="#i-phone"/></svg><span>Ligar</span></a><a href="https://www.google.com/maps/dir/?api=1&destination=A%20Marisqueira%20sem%20Marisco%20by%20Lu%C3%ADs%20Brites%2C%20R.%20de%20Cam%C3%B5es%2035%2C%204810-442%20Guimar%C3%A3es" target="_blank" rel="noopener"><svg class="i" aria-hidden="true"><use href="#i-nav"/></svg><span>Direções</span></a><a href="#ementa"><svg class="i" aria-hidden="true"><use href="#i-menu"/></svg><span>Ementa</span></a></nav>
 <script id="data" type="application/json">{"slug": "a-marisqueira-sem-marisco-by-luis-brites", "name": "A Marisqueira sem Marisco by Luís Brites", "theme": {"preset": "fresco", "primary": "#0f5c73", "accent": "#e07a5f", "bg": "#f1f8f8", "ink": "#0d2229", "font_display": "DM Serif Display", "motif": "waves"}, "menu": [{"category": "Pratos", "items": [{"name": "Menu do dia completo", "desc": "Sopa, prato, sobremesa e café", "price": 9.5, "tags": ["popular"]}, {"name": "Bacalhau confitado", "desc": "", "price": 13.5}, {"name": "Arroz de peixe", "desc": "", "price": 12.0}, {"name": "Lombo de porco assado", "desc": "", "price": 11.5}, {"name": "Bife de novilho", "desc": "", "price": 14.5}]}, {"category": "Entradas e sobremesas", "items": [{"name": "Sopa do dia", "desc": "", "price": 2.0}, {"name": "Croquetes de peixe", "desc": "", "price": 5.5}, {"name": "Mousse de chocolate", "desc": "", "price": 3.0}, {"name": "Pudim", "desc": "", "price": 3.0}]}, {"category": "Bebidas", "items": [{"name": "Água", "desc": "", "price": 1.2}, {"name": "Sumo natural", "desc": "", "price": 2.5}, {"name": "Café", "desc": "", "price": 0.8}]}]}</script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
 <script src="../assets/owner.js"></script>
