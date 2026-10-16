@@ -1,0 +1,54 @@
+/* Rota 2 Arcos — hook: the two arches in the name — twin round arches framing tapas, sangria and weekend music in the old town */
+@import url('https://fonts.googleapis.com/css2?family=Marcellus&display=swap');
+:root{
+  --arco:'Marcellus','Bodoni Moda',Georgia,serif;
+  --arcos:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='56' height='32' viewBox='0 0 56 32'%3E%3Cg fill='none' stroke='%23efbd5e' stroke-width='2.2'%3E%3Cpath d='M4 31V16A12 12 0 0 1 28 16V31M28 16A12 12 0 0 1 52 16V31M1 31H55'/%3E%3Cpath d='M9 31V17A7 7 0 0 1 23 17V31M33 31V17A7 7 0 0 1 47 17V31' stroke-width='1.2'/%3E%3C/g%3E%3C/svg%3E");
+  --arcos-orange:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='56' height='32' viewBox='0 0 56 32'%3E%3Cg fill='none' stroke='%23ec7a43' stroke-width='2.2'%3E%3Cpath d='M4 31V16A12 12 0 0 1 28 16V31M28 16A12 12 0 0 1 52 16V31M1 31H55'/%3E%3Cpath d='M9 31V17A7 7 0 0 1 23 17V31M33 31V17A7 7 0 0 1 47 17V31' stroke-width='1.2'/%3E%3C/g%3E%3C/svg%3E");
+}
+
+/* wordmark: carved Roman capitals-and-lowercase, with the two arches as its mark */
+html[data-dir] .brand{display:inline-flex;align-items:center;gap:10px;font:400 1.4rem/1 var(--arco);font-style:normal;letter-spacing:.04em}
+html[data-dir] .brand::before{content:"";width:34px;height:20px;flex:none;background:var(--arcos) center/contain no-repeat}
+html[data-dir] .hero-title{font:400 clamp(3rem,8.4vw,6.6rem)/1 var(--arco);font-style:normal;letter-spacing:.01em}
+html[data-dir] h2,html[data-dir] .point h3{font-family:var(--arco);font-weight:400}
+
+/* kickers: the hairline becomes two little arches */
+html[data-dir] .kicker::before{width:30px;height:18px;background:var(--arcos) center/contain no-repeat}
+
+/* hero: on desktop the copy stands inside a tall arch */
+@media (min-width:861px){
+  html[data-dir] .hero-copy{width:min(640px,calc(100% - 64px));margin-left:max(32px,calc((100vw - var(--maxw))/2 + 16px));
+    padding:120px 48px 48px;background:rgba(18,12,10,.78);border:1px solid var(--candle-soft);border-bottom:0;border-radius:320px 320px 0 0}
+  html[data-dir] .hero-title{font-size:clamp(3rem,5.4vw,5rem)}
+  html[data-dir] .facts{flex-direction:column}
+}
+
+/* gallery: every photo seen through an arch */
+html[data-dir] .shot{border-radius:999px 999px 3px 3px}
+html[data-dir] .shot::after{border-radius:999px 999px 0 0}
+
+/* menu: twin arches over the board, teal for the chosen tab (sangria-orange prices) */
+html[data-dir] .menu .section-head::before{content:"";width:62px;height:36px;background:var(--arcos) center/contain no-repeat}
+html[data-dir] .tab[aria-selected=true]{background:var(--accent);border-color:var(--accent);color:#fff}
+html[data-dir] .dish-price{font:400 1.2rem/1 var(--arco);color:#ec7a43}
+html[data-dir] .dish-name{font-family:var(--arco);font-weight:400}
+
+/* order: tapas first, then the photos in their arches */
+html[data-dir] .menu{order:1}
+html[data-dir] .gallery{order:2;padding-top:var(--section)}
+html[data-dir] .about{order:3}
+html[data-dir] .qr{order:4}
+html[data-dir] .book{order:5}
+html[data-dir] .visit{order:6}
+html[data-dir] .proposal{order:9}
+
+html[data-dir] .qr{background:radial-gradient(50% 60% at 80% 50%,rgba(15,118,110,.25),transparent 70%),linear-gradient(135deg,var(--wine),#0f0b09 80%)}
+html[data-dir] .qr-card{border-radius:160px 160px 4px 4px;padding-top:84px}
+html[data-dir] .qr-name,html[data-dir] .site-foot b,html[data-dir] .m-top h1{font-family:var(--arco);font-style:normal;font-weight:400}
+html[data-dir] .site-foot{background:var(--arcos-orange) 50% 18px/56px 32px no-repeat,#0f0b09;padding-top:70px}
+
+@media (max-width:860px){
+  html[data-dir] .brand{font-size:1.2rem}
+  html[data-dir] .hero-title{font-size:clamp(2.8rem,13vw,4.2rem)}
+  html[data-dir] .qr-card{border-radius:140px 140px 4px 4px}
+}

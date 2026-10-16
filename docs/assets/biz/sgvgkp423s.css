@@ -1,0 +1,67 @@
+/* Restaurante Bom Sabor — hook: Brazilian cooking, the losango (yellow rhombus on green) of Brazil as a band and frame */
+@import url('https://fonts.googleapis.com/css2?family=Baloo+2:wght@600;800&display=swap');
+:root{
+  --bg:#fbfaf3; --linen:#f1f4e8; --night:#123d24;
+  --display:'Baloo 2','Bodoni Moda',system-ui,sans-serif;
+  --losango:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 40 24'%3E%3Crect width='40' height='24' fill='%231e8449'/%3E%3Cpath d='M20 3L37 12 20 21 3 12z' fill='%23f5c518'/%3E%3Ccircle cx='20' cy='12' r='3.6' fill='%231e8449'/%3E%3C/svg%3E");
+  --gem:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 40 40'%3E%3Crect x='2' y='2' width='36' height='36' rx='6' fill='%231e8449'/%3E%3Cpath d='M20 7L35 20 20 33 5 20z' fill='%23f5c518'/%3E%3Ccircle cx='20' cy='20' r='6' fill='%231e8449'/%3E%3C/svg%3E");
+}
+
+/* wordmark: round, warm Baloo with the flag-diamond glyph */
+html[data-dir] .brand{display:inline-flex;align-items:center;gap:10px;font:800 1.35rem/1 var(--display);letter-spacing:-.01em;color:var(--primary)}
+html[data-dir] .brand::before{content:"";width:30px;height:30px;flex:none;background:var(--gem) center/contain no-repeat}
+html[data-dir] .hero-title{font:800 clamp(2.8rem,10vw,6rem)/.95 var(--display);letter-spacing:-.025em;color:var(--primary)}
+html[data-dir] .hero-title::after{content:"";display:block;height:24px;width:min(240px,70%);margin-top:14px;background:var(--losango) 0 0/40px 24px repeat-x;border-radius:3px}
+html[data-dir] h2{font-family:var(--display);font-weight:800;letter-spacing:-.02em}
+html[data-dir] h2::after{height:6px;width:52px;background:var(--accent);border-radius:3px}
+html[data-dir] .tagline{color:#3c4a3f}
+
+/* hero: the plate sits on a big yellow diamond (losango) */
+html[data-dir] .hero{overflow:hidden}
+html[data-dir] .hero-media{overflow:visible;background:transparent;box-shadow:none;border:0;padding:0;isolation:isolate;aspect-ratio:1;justify-self:center}
+html[data-dir] .hero-media::after{content:none}
+html[data-dir] .hero-media img{border-radius:50%;box-shadow:0 0 0 10px var(--surface),0 20px 44px -18px rgba(18,61,36,.65)}
+html[data-dir] .hero-media::before{content:"";position:absolute;inset:3%;z-index:-1;background:var(--accent);transform:rotate(45deg);border-radius:18px;box-shadow:0 0 0 12px var(--primary)}
+@media (min-width:861px){
+  html[data-dir] .hero-media{width:min(78%,420px);margin-block:48px;max-height:none;padding:0;box-shadow:none}
+  html[data-dir] .hero-title{font-size:clamp(3rem,6vw,5.6rem)}
+}
+@media (max-width:860px){
+  html[data-dir] .hero-media{width:min(66vw,300px);margin:64px auto 50px}
+}
+
+/* section order: food first, then the story, then pictures */
+html[data-dir] main>.hero{order:0}
+html[data-dir] main>.menu{order:1}
+html[data-dir] main>.about{order:2}
+html[data-dir] main>.gallery{order:3;padding-top:var(--section)}
+html[data-dir] main>.book{order:4}
+html[data-dir] main>.visit{order:5}
+html[data-dir] main>.proposal{order:99}
+
+/* menu: green card with a losango band header and diamond bullets */
+html[data-dir] .menu{background:var(--primary);border:0}
+html[data-dir] .menu .wrap{position:relative;padding-top:clamp(64px,7vw,86px);border-radius:10px;box-shadow:0 30px 60px -36px rgba(0,0,0,.6)}
+html[data-dir] .menu .wrap::before{content:"";position:absolute;left:0;right:0;top:0;height:24px;background:var(--losango) 0 0/40px 24px repeat-x;border-radius:10px 10px 0 0}
+html[data-dir] .menu h2{color:var(--primary)}
+html[data-dir] .tab{font:800 .95rem/1 var(--display);letter-spacing:.04em}
+html[data-dir] .tab[aria-selected=true]{color:var(--primary);border-bottom-color:var(--accent);border-bottom-width:4px}
+html[data-dir] .dish-name{font:700 1.18rem/1.25 var(--display)}
+html[data-dir] .dish-name::before{content:"";display:inline-block;width:.6em;height:.6em;margin-right:.45em;background:var(--accent);transform:rotate(45deg);box-shadow:0 0 0 2px var(--primary);vertical-align:.08em}
+html[data-dir] .dish-price{font:800 1.1rem/1 var(--display);color:var(--primary)}
+@media (max-width:860px){html[data-dir] .menu .wrap{padding-top:56px}}
+
+/* about: diamonds instead of numerals */
+html[data-dir] .point::before{content:"";width:28px;height:28px;background:var(--gem) center/contain no-repeat}
+html[data-dir] .lede{font-family:var(--display);font-style:normal;font-weight:600}
+
+/* footer: losango band */
+html[data-dir] .site-foot{border-top:0;position:relative;padding-top:56px}
+html[data-dir] .site-foot::before{content:"";position:absolute;left:0;right:0;top:0;height:24px;background:var(--losango) 0 0/40px 24px repeat-x}
+html[data-dir] .site-foot b{font:800 1.1rem var(--display);color:var(--primary)}
+
+/* mesa / cozinha */
+html[data-dir] .m-top h1{font:800 1.4rem/1.05 var(--display)}
+html[data-dir] .m-cat{font:800 1.6rem/1.1 var(--display);color:var(--primary)}
+html[data-dir] .m-item h4{font:700 1.08rem/1.25 var(--display)}
+html[data-dir] .m-item .price{font:800 1.05rem/1 var(--display);color:var(--primary)}

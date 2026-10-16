@@ -1,0 +1,51 @@
+/* Café Dom Pedro — hook: a café in Caldas das Taipas → coffee cup whose steam rises like the thermal waters; script café sign "Dom Pedro" */
+@import url('https://fonts.googleapis.com/css2?family=Lobster+Two:ital,wght@0,700;1,700&display=swap');
+:root{
+  --display:'Lobster Two','Fraunces',Georgia,serif;
+  --bg:color-mix(in srgb,var(--accent) 12%,#fbf6ee);
+  --crema:color-mix(in srgb,var(--accent) 30%,#fff8ee);
+  --cup:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 48 48'%3E%3Cg fill='none' stroke='%23E1A95F' stroke-width='2.4' stroke-linecap='round'%3E%3Cpath d='M16 4c-3 3 3 6 0 9s3 6 0 9M24 2c-3 3 3 6 0 9s3 6 0 9M32 4c-3 3 3 6 0 9s3 6 0 9'/%3E%3C/g%3E%3Cpath d='M7 27h30v4a13 13 0 0 1-13 13h-4A13 13 0 0 1 7 31Z' fill='%237A4B2A'/%3E%3Cpath d='M37 30h3a5 5 0 0 1 0 10h-5' fill='none' stroke='%237A4B2A' stroke-width='3'/%3E%3Cpath d='M3 46h40' stroke='%237A4B2A' stroke-width='2.6' stroke-linecap='round'/%3E%3C/svg%3E");
+  --waves:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 40 12'%3E%3Cpath d='M0 6c5-6 15-6 20 0s15 6 20 0' fill='none' stroke='%237A4B2A' stroke-width='2'/%3E%3C/svg%3E");
+}
+/* wordmark: café-sign script with a steaming cup */
+html[data-dir] .brand{display:inline-flex;align-items:center;gap:8px;font:700 1.7rem/1 var(--display);font-style:italic;color:var(--primary);letter-spacing:0}
+html[data-dir] .brand::before{content:"";width:28px;height:28px;flex:none;background:var(--cup) center/contain no-repeat}
+html[data-dir] .hero-title{font:700 clamp(3rem,7.6vw,6rem)/.95 var(--display);font-style:italic;color:var(--primary);letter-spacing:-.005em}
+html[data-dir] .hero-title::after{content:"";display:block;width:160px;height:14px;margin-top:16px;background:var(--waves) 0 0/40px 12px repeat-x}
+html[data-dir] h2{font-family:var(--display);font-weight:700;font-style:italic}
+
+/* hero: steam rising from the corner of the shop window; crema-tinted ground */
+html[data-dir] body{background:linear-gradient(180deg,var(--crema) 0,var(--bg) 900px)}
+html[data-dir] .hero-media{overflow:visible}
+html[data-dir] .hero-media img{border-radius:inherit}
+html[data-dir] .hero-copy::before{content:"";width:70px;height:70px;background:var(--cup) left bottom/contain no-repeat}
+
+/* thermal-water waves replace the baker's twine */
+html[data-dir] .menu,html[data-dir] .site-foot{border-image:none;border-top:0}
+html[data-dir] .menu::before,html[data-dir] .site-foot::before{content:"";display:block;height:12px;background:var(--waves) 0 0/40px 12px repeat-x;margin-top:-6px;opacity:.85}
+html[data-dir] .menu::before{margin-bottom:var(--section);margin-top:calc(-1 * var(--section))}
+html[data-dir] .site-foot::before{margin-bottom:24px}
+
+/* order: the counter first (vitrine), then the story, photos last */
+html[data-dir] .hero{order:0}
+html[data-dir] .menu{order:1}
+html[data-dir] .about{order:2}
+html[data-dir] .gallery{order:3;padding-top:var(--section)}
+html[data-dir] .book{order:4}
+html[data-dir] .visit{order:5}
+html[data-dir] .proposal{order:9}
+
+/* menu: coffee-ground header strip, steaming cup crest */
+html[data-dir] .menu{background:var(--crema)}
+html[data-dir] .menu .section-head{grid-template-columns:auto minmax(0,1fr);column-gap:18px;align-items:center}
+html[data-dir] .menu .section-head::before{content:"";grid-row:span 3;width:64px;height:64px;background:var(--cup) center/contain no-repeat}
+html[data-dir] .about{background:var(--surface)}
+html[data-dir] .site-foot b{font:700 1.3rem var(--display);font-style:italic;color:var(--primary)}
+
+@media (max-width:860px){
+  html[data-dir] .hero-title{font-size:clamp(2.9rem,14vw,4.2rem)}
+  html[data-dir] .hero-copy::before{width:50px;height:50px}
+  html[data-dir] .brand{font-size:1.45rem}
+  html[data-dir] .menu .section-head::before{width:48px;height:48px}
+}
+html[data-dir] .m-top h1{font-family:var(--display);font-style:italic}

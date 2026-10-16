@@ -1,0 +1,83 @@
+/* Chalé do Carmo - Penha — hook: the Penha ridge line and the chalé gable; a panoramic hero like the view from the terrace */
+@import url('https://fonts.googleapis.com/css2?family=Young+Serif&display=swap');
+:root{
+  --bg:#f5f7f2; --linen:#e9efe6; --night:#22402e; --pine:#2f5e40;
+  --peak:'Young Serif',Georgia,serif;
+  --ridge-cut:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 240 40' preserveAspectRatio='none'%3E%3Cpath fill='%23f5f7f2' d='M0 40V27l28-8 22 6 34-15 14-6 8 5 12-8 12 8 16 7 30 9 28-7 36 12v10z'/%3E%3C/svg%3E");
+  --ridge:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 140 30'%3E%3Cg fill='none' stroke='%233F7A55' stroke-width='2' stroke-linejoin='round' stroke-linecap='round'%3E%3Cpath d='M2 26l22-8 14 4 20-11 6 3'/%3E%3Cpath d='M76 14l6 2 18 4 14-6 24 10'/%3E%3C/g%3E%3Cpath fill='%23C98A3B' d='M64 16V9l6-6 6 6v7z'/%3E%3Cpath fill='%23f5f7f2' d='M68.5 16v-4h3v4z'/%3E%3C/svg%3E");
+}
+html[data-dir=mesa] body{background:var(--bg)}
+html[data-dir=mesa] h1,html[data-dir=mesa] h2{font-family:var(--peak);font-weight:400;letter-spacing:-.01em}
+html[data-dir=mesa] h2::after{width:140px;height:30px;margin-top:14px;background:var(--ridge) 0 50%/contain no-repeat}
+html[data-dir=mesa] .menu h2::after{margin-inline:auto}
+html[data-dir=mesa] .kicker{color:var(--pine)}
+
+/* wordmark: a small chalé gable over the name */
+html[data-dir=mesa] .brand{display:inline-flex;align-items:center;gap:.5em;font:400 1.25rem/1 var(--peak);color:var(--night)}
+html[data-dir=mesa] .brand::before{content:"";width:1.05em;height:1em;flex:none;background:var(--accent);
+  clip-path:polygon(50% 0,100% 48%,100% 100%,0 100%,0 48%)}
+html[data-dir=mesa] .hero-title{font:400 clamp(2.6rem,10vw,6rem)/1 var(--peak);color:var(--night);letter-spacing:-.02em}
+html[data-dir=mesa] .tagline{font-family:Georgia,serif}
+
+/* hero: a full-width panorama cut by the Penha skyline */
+html[data-dir=mesa] .hero-media{position:relative;margin:0;padding:0;border:0;box-shadow:none;aspect-ratio:16/11;background:var(--pine)}
+html[data-dir=mesa] .hero-media::after{content:"";inset:auto 0 -1px 0;height:clamp(36px,7vw,90px);border:0;background:var(--ridge-cut) 0 100%/100% 100% no-repeat}
+html[data-dir=mesa] .hero-media img{filter:saturate(1.05)}
+@media (min-width:861px){
+  html[data-dir=mesa] .hero{grid-template-columns:minmax(0,1fr);max-width:none;width:100%;margin:0;padding:0;gap:0}
+  html[data-dir=mesa] .hero-media{order:0;aspect-ratio:auto;height:min(46vh,430px);max-height:none;padding:0;box-shadow:none}
+  html[data-dir=mesa] .hero-media::after{inset:auto 0 -1px 0}
+  html[data-dir=mesa] .hero-copy{order:1;max-width:var(--maxw);width:100%;margin:clamp(8px,1.5vw,20px) auto 0;position:relative;
+    padding:0 var(--gutter-r) clamp(48px,6vw,80px) var(--gutter);display:grid;grid-template-columns:minmax(0,1.7fr) minmax(0,1fr);column-gap:56px;align-items:end}
+  html[data-dir=mesa] .hero-title{font-size:clamp(3.4rem,5.6vw,5rem)}
+  html[data-dir=mesa] .hero-copy > *{grid-column:1}
+  html[data-dir=mesa] .hero-copy .facts{grid-column:2;grid-row:2 / span 3;align-self:end;border-top:0;border-left:3px solid var(--accent);padding:4px 0 4px 20px;flex-direction:column}
+}
+
+/* order: the view and how to get there come early */
+html[data-dir=mesa] .about{order:1}
+html[data-dir=mesa] .visit{order:2}
+html[data-dir=mesa] .gallery{order:3}
+html[data-dir=mesa] .menu{order:4}
+html[data-dir=mesa] .qr{order:5}
+html[data-dir=mesa] .book{order:6}
+html[data-dir=mesa] .proposal{order:9}
+
+/* about + visit */
+html[data-dir=mesa] .about{background:var(--surface)}
+html[data-dir=mesa] .services li{background:var(--linen);color:var(--night);padding:.5em .9em}
+html[data-dir=mesa] .point::before{color:var(--accent);font-family:var(--peak);font-style:normal}
+html[data-dir=mesa] .visit{background:var(--linen);border-top:0}
+html[data-dir=mesa] .map{border:6px solid var(--surface);filter:none}
+
+/* menu: card under a gable */
+html[data-dir=mesa] .menu{background:var(--bg)}
+html[data-dir=mesa] .menu .wrap{position:relative;margin-top:40px}
+html[data-dir=mesa] .menu .wrap::before{content:"";position:absolute;left:50%;top:-38px;width:120px;height:40px;transform:translateX(-50%);
+  background:var(--surface);clip-path:polygon(50% 0,100% 100%,0 100%);filter:drop-shadow(0 -1px 0 var(--hair))}
+html[data-dir=mesa] .tab[aria-selected=true]{color:var(--pine);border-bottom-color:var(--accent)}
+html[data-dir=mesa] .dish-name{font:400 1.12rem/1.3 var(--peak)}
+html[data-dir=mesa] .dish-price{font:400 1.08rem/1 var(--peak);color:var(--pine)}
+
+/* buttons + qr in pine */
+html[data-dir=mesa] .btn-primary{background:var(--pine);border-color:var(--pine)}
+html[data-dir=mesa] .btn-primary:hover{background:var(--night);border-color:var(--night)}
+html[data-dir=mesa] .qr{background:var(--night)}
+html[data-dir=mesa] .qr-name{font:400 1rem/1.1 var(--peak)}
+
+/* footer: the skyline again */
+html[data-dir=mesa] .site-foot{border-top:0;padding-top:64px;background:var(--ridge) 50% 18px/140px 30px no-repeat,var(--bg)}
+html[data-dir=mesa] .site-foot b{font:400 1.1rem var(--peak);color:var(--night)}
+
+/* mesa / cozinha */
+html[data-dir=mesa] .m-top{background:var(--pine)}
+html[data-dir=mesa] .m-top h1{font:400 1.35rem/1.1 var(--peak)}
+html[data-dir=mesa] .m-cat,html[data-dir=mesa] .m-item h4{font-family:var(--peak);font-weight:400}
+html[data-dir=mesa] .qty button{background:var(--pine)}
+html[data-dir=mesa] .qty button.minus{background:transparent}
+html[data-dir=mesa] .cartbar{background:var(--night)}
+
+@media (max-width:860px){
+  html[data-dir=mesa] .brand{font-size:1.1rem}
+  html[data-dir=mesa] .hero-copy{margin-top:-6px}
+}

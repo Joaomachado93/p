@@ -1,0 +1,59 @@
+/* Forno da Vila — hook: the forno itself (a brick wood-oven mouth with its flame), Italian, by the Misericórdia */
+@import url('https://fonts.googleapis.com/css2?family=Italiana&display=swap');
+html[data-dir]{
+  --fv-mark:'Italiana','Didot',Georgia,serif;
+  --bg:#fbf5ec; --linen:#f3e7d6; --ivory:#f7efe2;
+  --fv-brick:color-mix(in oklab, var(--primary) 78%, #3a1a10);
+  --fv-oven:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='64' height='40' viewBox='0 0 64 40'%3E%3Cg fill='none' stroke='%23B91C1C' stroke-width='2'%3E%3Cpath d='M6 38a26 26 0 0 1 52 0'/%3E%3Cpath d='M16 38a16 16 0 0 1 32 0'/%3E%3Cpath d='M6 38h10M48 38h10M8.6 25l9.5 4M32 12v10M55.4 25l-9.5 4M15 16l7 7M49 16l-7 7'/%3E%3C/g%3E%3Cpath d='M24 38c1-6 5-9 8-13 3 4 7 7 8 13z' fill='%23d97706'/%3E%3Cpath d='M29 38c0-3 2-5 3-7 1 2 3 4 3 7z' fill='%23fbbf24'/%3E%3C/svg%3E");
+}
+
+/* wordmark: thin Italian capitals, a little oven above the name */
+html[data-dir] .brand{font:400 1.45rem/1 var(--fv-mark);text-transform:uppercase;letter-spacing:.14em;color:var(--fv-brick);display:inline-flex;align-items:center;gap:10px}
+html[data-dir] .brand::before{content:"";width:30px;height:19px;background:var(--fv-oven) center/contain no-repeat;flex:none}
+html[data-dir] .hero-title{font:400 clamp(3rem,10.5vw,7rem)/.95 var(--fv-mark);text-transform:uppercase;letter-spacing:.06em;color:#2a1410}
+html[data-dir] .hero-title::after{content:"";display:block;width:84px;height:52px;margin-top:18px;background:var(--fv-oven) left center/contain no-repeat}
+html[data-dir] .m-top h1{font-family:var(--fv-mark);text-transform:uppercase;letter-spacing:.1em}
+html[data-dir] .site-foot b{font-family:var(--fv-mark);text-transform:uppercase;letter-spacing:.12em}
+
+/* hero: the photo is framed as the oven mouth — round brick arch on a stone hearth */
+html[data-dir] .hero-media{border-radius:50% 50% 4px 4px / 34% 34% 4px 4px;border:0;padding:12px;background:var(--fv-brick);
+  box-shadow:inset 0 0 0 4px #e9c9a5,0 18px 0 -6px #d9c6ad,0 30px 50px -20px rgba(58,26,16,.5)}
+html[data-dir] .hero-media img{border-radius:50% 50% 2px 2px / 33% 33% 2px 2px}
+html[data-dir] .hero-media::after{inset:12px;border:2px dashed rgba(255,226,190,.45);border-radius:50% 50% 2px 2px / 33% 33% 2px 2px}
+@media (min-width:861px){
+  html[data-dir] .hero-media{aspect-ratio:5/6;padding:14px;box-shadow:inset 0 0 0 4px #e9c9a5,0 22px 0 -6px #d9c6ad,0 40px 60px -24px rgba(58,26,16,.5)}
+  html[data-dir] .hero-media img{border-radius:50% 50% 2px 2px / 36% 36% 2px 2px}
+  html[data-dir] .hero-media::after{inset:14px;border-radius:50% 50% 2px 2px / 36% 36% 2px 2px}
+}
+
+/* order: straight to the menu after the hero, photos follow, story after */
+html[data-dir] .menu{order:1}
+html[data-dir] .gallery{order:2;padding-top:var(--section)}
+html[data-dir] .about{order:3}
+html[data-dir] .qr{order:4}
+html[data-dir] .book{order:5}
+html[data-dir] .visit{order:6}
+html[data-dir] .proposal{order:99}
+
+/* menu: warm flour-dusted card under the oven arch */
+html[data-dir] .menu{background:linear-gradient(180deg,#f6ebdc,var(--bg));border-top:6px solid var(--fv-brick)}
+html[data-dir] .menu .section-head{text-align:center}
+html[data-dir] .menu .section-head::before{content:"";display:block;width:96px;height:60px;margin:0 auto 14px;background:var(--fv-oven) center/contain no-repeat}
+html[data-dir] .menu h2{font-family:var(--fv-mark);text-transform:uppercase;letter-spacing:.06em}
+html[data-dir] .dishes{background:#fffdf9;padding:10px clamp(18px,4vw,48px);border:1px solid #e6d3bb;outline:1px solid #e6d3bb;outline-offset:6px}
+html[data-dir] .dish-price{color:var(--fv-brick)}
+html[data-dir] .tab[aria-selected=true]{background:var(--fv-brick);border-color:var(--fv-brick);color:#fff}
+
+/* green accent kept small: basil rule under headings */
+html[data-dir] h2::after{background:var(--accent);height:2px}
+
+/* qr card: a pizza-box lid */
+html[data-dir] .qr-card{background:#fbf3e6;outline:2px solid var(--fv-brick);outline-offset:-12px}
+html[data-dir] .qr-name{font-family:var(--fv-mark);text-transform:uppercase;letter-spacing:.1em}
+
+@media (max-width:860px){
+  html[data-dir] .hero-media{aspect-ratio:1/1}
+  html[data-dir] .hero-title{letter-spacing:.04em}
+  html[data-dir] .hero-title::after{width:56px;height:34px;margin-top:12px}
+  html[data-dir] .brand{font-size:1.2rem;letter-spacing:.1em}
+}

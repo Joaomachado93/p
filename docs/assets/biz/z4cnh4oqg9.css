@@ -1,0 +1,83 @@
+/* Casa da Presa — hook: presa na brasa (iron grill grate, diagonal sear marks, ember glow) */
+@import url('https://fonts.googleapis.com/css2?family=Ultra&display=swap');
+:root{
+  --cp-font:'Ultra','Rockwell Extra Bold',Georgia,serif;
+  --cp-iron:#231a1a;
+  --cp-ember:color-mix(in srgb,var(--accent) 75%,#ff5a1f);
+  --bg:#f4eee6; --surface:#fffaf4;
+  /* grill grate: rounded frame with bars, an ember underneath */
+  --cp-grate:url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 48'><ellipse cx='32' cy='42' rx='22' ry='4' fill='%23d08a3c'/><rect x='6' y='6' width='52' height='30' rx='6' fill='none' stroke='%23231a1a' stroke-width='4'/><g stroke='%23231a1a' stroke-width='3.4'><path d='M18 8v26M28 8v26M38 8v26M48 8v26'/></g><path d='M6 36l-2 6M58 36l2 6' stroke='%23231a1a' stroke-width='3.4' stroke-linecap='round'/></svg>");
+  --cp-sear:repeating-linear-gradient(-32deg,transparent 0 40px,rgba(70,25,5,.85) 40px 46px,transparent 46px 80px);
+}
+html[data-dir] body{background:var(--bg)}
+
+/* wordmark: heavy slab, wine, grill grate as logo */
+html[data-dir] .brand{font:400 1.2rem/1 var(--cp-font);color:var(--primary);display:inline-flex;align-items:center;gap:10px}
+html[data-dir] .brand::before{content:"";width:38px;height:29px;flex:none;background:var(--cp-grate) 0 0/100% 100% no-repeat}
+html[data-dir] .hero-title{font:400 clamp(2.5rem,6vw,5.2rem)/1 var(--cp-font);color:#fff;letter-spacing:0}
+html[data-dir] h2{font-family:var(--cp-font);font-size:clamp(1.8rem,3.8vw,2.7rem)}
+
+/* hero: dark iron, the photo laid on the grill bars, copy glowing over embers */
+html[data-dir] .hero{background:radial-gradient(70% 90% at 25% 110%,color-mix(in srgb,var(--cp-ember) 55%,transparent),transparent 70%),
+  linear-gradient(160deg,color-mix(in srgb,var(--primary) 70%,#000),var(--cp-iron));color:#f6ece2}
+html[data-dir] .hero .kicker{color:#f1c58b}
+html[data-dir] .tagline{color:#f3e3d2;font-weight:500}
+html[data-dir] .facts,html[data-dir] .facts b{color:#eadacb}
+html[data-dir] .facts .i{color:#f1c58b}
+html[data-dir] .hero .btn-primary{background:var(--accent);color:#1f1c18}
+html[data-dir] .hero .btn-secondary{color:#fff}
+html[data-dir] .hero :focus-visible{outline-color:#f1c58b}
+html[data-dir] .hero-media{position:relative;padding:14px;border-radius:4px;box-shadow:0 18px 40px -16px rgba(0,0,0,.7);
+  background:repeating-linear-gradient(90deg,#3a2c2a 0 6px,#140e0e 6px 24px),#140e0e}
+html[data-dir] .hero-media::after{content:"";position:absolute;inset:14px;pointer-events:none;background:var(--cp-sear);opacity:.38;mix-blend-mode:multiply}
+html[data-dir] .hero-media--empty::after{border:0;box-shadow:none}
+
+/* order: straight to the grill — menu, photos, then the house */
+html[data-dir] .menu{order:1;padding-top:var(--section)}
+html[data-dir] .gallery{order:2;padding-top:0}
+html[data-dir] .about{order:3}
+html[data-dir] .qr{order:4}
+html[data-dir] .book{order:5}
+html[data-dir] .visit{order:6}
+html[data-dir] .proposal{order:9}
+
+/* menu: slate turned into an iron grill plate — sear marks across, ember-orange prices */
+html[data-dir] .menu > .wrap{border-image:none;border-color:var(--cp-iron);
+  background:var(--cp-sear),radial-gradient(60% 50% at 80% 100%,rgba(208,138,60,.18),transparent 70%),linear-gradient(#2b2120,#1c1515)}
+html[data-dir] .menu .section-head{grid-template-columns:auto minmax(0,1fr);column-gap:16px;align-items:center}
+html[data-dir] .menu .section-head::before{content:"";grid-row:span 3;width:64px;height:48px;border-radius:6px;background:#f1efe6 var(--cp-grate) 50% 50%/80% auto no-repeat}
+html[data-dir] .menu .section-head > *{grid-column:2}
+html[data-dir] .menu h2{font-family:var(--cp-font)}
+html[data-dir] .menu .dish-price{color:#f1b36d}
+html[data-dir] .menu .tab[aria-selected=true]{background:var(--accent);border-color:var(--accent);color:#1f1c18}
+
+/* about + gallery */
+html[data-dir] .point::before{background:var(--cp-grate) 50% 50%/100% auto no-repeat;border:0;width:28px}
+html[data-dir] .shot{border-color:var(--cp-iron)}
+
+/* qr: wine, with a grate stamp on the card */
+html[data-dir] .qr{background:linear-gradient(170deg,var(--primary),color-mix(in srgb,var(--primary) 60%,#000))}
+html[data-dir] .qr-card{background:linear-gradient(#fff,#fff) padding-box,repeating-linear-gradient(90deg,#3a2c2a 0 4px,#140e0e 4px 14px) border-box}
+html[data-dir] .qr-card::before{content:"";height:36px;background:var(--cp-grate) 50% 50%/auto 100% no-repeat}
+html[data-dir] .qr-name{font-family:var(--cp-font);font-size:1rem}
+
+/* dividers: iron bars instead of azulejo; footer ends on embers */
+html[data-dir] .site-head::after{height:10px;background:repeating-linear-gradient(90deg,#3a2c2a 0 6px,#140e0e 6px 18px)}
+html[data-dir] .proposal::before{height:10px;background:repeating-linear-gradient(90deg,#3a2c2a 0 6px,#140e0e 6px 18px)}
+html[data-dir] .site-foot::before{height:8px;background:linear-gradient(90deg,var(--primary),var(--cp-ember),var(--accent),var(--cp-ember),var(--primary))}
+html[data-dir] .site-foot b{font:400 1rem var(--cp-font);color:var(--primary)}
+
+@media (max-width:860px){
+  html[data-dir] .hero-media{padding:0 0 10px;border-radius:0;background:repeating-linear-gradient(90deg,#3a2c2a 0 5px,#140e0e 5px 16px)}
+  html[data-dir] .hero-media::after{inset:0 0 10px}
+  html[data-dir] .hero-title{font-size:clamp(2.2rem,11vw,3.2rem)}
+  html[data-dir] .brand{font-size:1.05rem}
+  html[data-dir] .site-head::after{height:8px}
+  html[data-dir] .menu .section-head::before{width:52px;height:40px}
+}
+
+/* mesa / cozinha */
+html[data-dir] .m-top h1{font:400 1.2rem/1.1 var(--cp-font)}
+html[data-dir] .m-top::after{height:8px;bottom:-8px;background:repeating-linear-gradient(90deg,#3a2c2a 0 5px,#140e0e 5px 16px)}
+html[data-dir] .m-cat{font-family:var(--cp-font);color:var(--primary)}
+html[data-dir] .m-item .price{color:var(--primary)}

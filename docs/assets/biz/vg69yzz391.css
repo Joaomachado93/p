@@ -1,0 +1,59 @@
+/* Buggy Pizzaria Hamburgueria — hook: the name "Buggy" → an off-road buggy: chunky tyre, checkered flag, speed */
+@import url('https://fonts.googleapis.com/css2?family=Bungee&display=swap');
+:root{
+  --tyre:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Ccircle cx='32' cy='32' r='30' fill='%231b140d'/%3E%3Cg fill='none' stroke='%23EAB308' stroke-width='3'%3E%3Ccircle cx='32' cy='32' r='14'/%3E%3Cpath d='M32 18v28M18 32h28M22 22l20 20M42 22L22 42' stroke-width='2'/%3E%3C/g%3E%3Ccircle cx='32' cy='32' r='5' fill='%23DC2626'/%3E%3Cg stroke='%23f8f1e2' stroke-width='3' stroke-linecap='round'%3E%3Cpath d='M32 4v5M32 55v5M4 32h5M55 32h5M12 12l4 4M48 48l4 4M52 12l-4 4M16 48l-4 4'/%3E%3C/g%3E%3C/svg%3E");
+  --checker:conic-gradient(var(--ink) 25%,#f8f1e2 0 50%,var(--ink) 0 75%,#f8f1e2 0) 0 0/14px 14px;
+}
+
+/* wordmark: road-sign block letters, a tyre for the "o" of the logo */
+html[data-dir] .brand{font:400 1.05rem/1 'Bungee',var(--display);letter-spacing:.02em;color:#f8f1e2;display:inline-flex;align-items:center;gap:10px}
+html[data-dir] .brand::before{content:"";width:30px;height:30px;flex:none;background:var(--tyre) center/contain no-repeat}
+html[data-dir] .hero-title{font-family:'Bungee',var(--display);font-size:clamp(2.2rem,5.4vw,4.6rem);line-height:1.02;letter-spacing:0}
+/* speed lines trailing the title */
+html[data-dir] .hero-title::after{content:"";display:block;width:min(220px,60%);height:16px;margin-top:12px;
+  background:linear-gradient(var(--accent),var(--accent)) 0 0/100% 4px no-repeat,linear-gradient(var(--accent),var(--accent)) 30px 100%/70% 4px no-repeat}
+
+/* checkered flag replaces the awning under the header and above the footer */
+html[data-dir] .site-head::after{height:14px;background:var(--checker);-webkit-mask:none;mask:none}
+html[data-dir] .site-foot{border-top:0}
+html[data-dir] .site-foot::before{content:"";display:block;height:14px;background:var(--checker);margin-bottom:28px}
+
+/* hero: a tyre rolls into the photo's corner; the rating sticker stays on the other side */
+html[data-dir] .hero-media::after{content:"";position:absolute;z-index:2;left:-26px;bottom:-26px;width:clamp(84px,11vw,132px);aspect-ratio:1;
+  background:var(--tyre) center/contain no-repeat;filter:drop-shadow(4px 4px 0 rgba(0,0,0,.35))}
+@media (prefers-reduced-motion:no-preference){
+  html[data-dir] .hero-media::after{animation:buggy-roll 1.4s cubic-bezier(.2,.7,.3,1) both}
+  @keyframes buggy-roll{from{transform:translateX(-120px) rotate(-300deg);opacity:0}to{transform:none;opacity:1}}
+}
+html[data-dir] .hero-media{overflow:visible}
+html[data-dir] .hero{overflow:hidden}
+
+/* section order: menu first — pizzas and burgers lead */
+html[data-dir] main > .menu{order:1}
+html[data-dir] main > .gallery{order:2}
+html[data-dir] main > .about{order:3}
+html[data-dir] main > .qr{order:4}
+html[data-dir] main > .book{order:5}
+html[data-dir] main > .visit{order:6}
+html[data-dir] main > .proposal{order:9}
+html[data-dir] .gallery{padding-block:var(--section)}
+
+/* menu: racing price board — checkered strip over the heading, prices in sign lettering */
+html[data-dir] .menu .section-head::before{content:"";display:block;width:112px;height:28px;margin-bottom:8px;background:var(--checker);border:2px solid var(--ink)}
+html[data-dir] .menu h2,html[data-dir] h2{font-family:'Bungee',var(--display);font-weight:400;letter-spacing:0}
+html[data-dir] .dish-price{font-family:'Bungee',var(--display)}
+
+/* QR card: a race number plate */
+html[data-dir] .qr-card{border-top:14px solid transparent;border-image:none;background:linear-gradient(#fff,#fff) padding-box,var(--checker) border-box}
+html[data-dir] .qr-name{font-family:'Bungee',var(--display);font-size:.95rem}
+
+/* mesa / cozinha */
+html[data-dir] .m-top h1{font-family:'Bungee',var(--display);font-size:clamp(.8rem,3.4vw,1.15rem);min-width:0;overflow-wrap:break-word}
+
+@media (max-width:860px){
+  html[data-dir] .brand{font-size:.86rem;gap:8px}
+  html[data-dir] .brand::before{width:26px;height:26px}
+  html[data-dir] .hero-title{font-size:clamp(1.9rem,9.4vw,2.8rem)}
+  html[data-dir] .hero-media::after{left:auto;right:14px;bottom:-30px;width:72px}
+  html[data-dir] h2{font-size:clamp(1.6rem,7.4vw,2.2rem)}
+}

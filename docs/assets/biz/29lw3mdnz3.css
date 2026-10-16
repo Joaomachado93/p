@@ -1,0 +1,43 @@
+/* Bar Cara & Coroa — hook: "cara ou coroa" (heads or tails) → a gold coin with a crown, flipped on the Praça de São Tiago */
+@import url('https://fonts.googleapis.com/css2?family=Gloock&display=swap');
+:root{
+  --coin:url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'><circle cx='32' cy='32' r='30' fill='%23e9b949'/><circle cx='32' cy='32' r='25' fill='none' stroke='%238a6414' stroke-width='2' stroke-dasharray='3 2.4'/><path d='M18 40 15 22l9 8 8-12 8 12 9-8-3 18Z' fill='%238a6414'/><path d='M18 44h28' stroke='%238a6414' stroke-width='3'/></svg>");
+  --coin-face:url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'><circle cx='32' cy='32' r='30' fill='%23e63946'/><circle cx='32' cy='32' r='25' fill='none' stroke='%23ffffff' stroke-width='2' stroke-dasharray='3 2.4'/><circle cx='32' cy='27' r='8' fill='%23ffffff'/><path d='M18 48q14-14 28 0' fill='%23ffffff'/></svg>");
+  --coinfont:'Gloock','Bodoni Moda',Georgia,serif;
+  --bg:color-mix(in oklab,var(--primary) 30%,#0b0d12); --surface:color-mix(in oklab,var(--primary) 40%,#121621);
+  --wine:color-mix(in oklab,var(--primary) 75%,#05070b);
+}
+/* wordmark: Gloock with a coin before it */
+html[data-dir] .brand{display:inline-flex;align-items:center;gap:10px;font:400 1.4rem/1 var(--coinfont);font-style:normal}
+html[data-dir] .brand::before{content:"";width:28px;height:28px;flex:none;background:var(--coin) center/contain no-repeat}
+html[data-dir] .hero-title{font:400 clamp(3rem,9vw,7rem)/.95 var(--coinfont);font-style:normal;letter-spacing:-.01em;max-width:12ch}
+/* the coin spins once over the hero (heads → tails) */
+html[data-dir] .hero-copy{position:relative}
+html[data-dir] .hero-copy::before{content:"";position:absolute;right:max(var(--gutter-r),calc((100vw - var(--maxw))/2 + 16px));top:clamp(60px,12vw,140px);
+  width:clamp(84px,12vw,150px);aspect-ratio:1;background:var(--coin) center/contain no-repeat;filter:drop-shadow(0 10px 24px rgba(0,0,0,.6));animation:cc-flip 3.2s ease-in-out 1s 1}
+@keyframes cc-flip{0%{transform:rotateY(0)}45%{transform:rotateY(540deg) translateY(-26px)}55%{transform:rotateY(540deg) translateY(-26px);background-image:var(--coin-face)}100%{transform:rotateY(720deg)}}
+@media (prefers-reduced-motion:reduce){html[data-dir] .hero-copy::before{animation:none}}
+html[data-dir] .hero-media::after{background:linear-gradient(180deg,rgba(8,12,20,.25) 0%,rgba(8,12,20,0) 22%,color-mix(in oklab,var(--wine) 55%,rgba(8,12,20,.6)) 52%,#0b0f18 92%)}
+/* order: the bar list straight after the hero, story later */
+main > .menu{order:1} main > .gallery{order:2} main > .about{order:3} main > .book{order:4} main > .visit{order:5} main > .proposal{order:9}
+html[data-dir] .gallery{padding-top:var(--section)}
+/* menu: two faces of the coin — odd rows heads (gold), even rows tails (red pips) */
+html[data-dir] .menu{background:linear-gradient(180deg,var(--surface),var(--bg))}
+html[data-dir] .menu .section-head{grid-template-columns:auto 1fr;column-gap:18px;align-items:center}
+html[data-dir] .menu .section-head::before{content:"";grid-row:span 3;width:64px;height:64px;background:var(--coin) center/contain no-repeat}
+html[data-dir] .dishes{background:linear-gradient(180deg,rgba(242,231,213,.035),rgba(242,231,213,.01)),#0a0e16}
+html[data-dir] .dish-name{font:400 1.2rem/1.25 var(--coinfont)}
+html[data-dir] .dish-name::before{content:"";display:inline-block;width:12px;height:12px;margin-right:10px;border-radius:50%;background:var(--candle);vertical-align:.05em}
+html[data-dir] .dish:nth-child(even) .dish-name::before{background:var(--accent)}
+html[data-dir] .tab[aria-selected=true]{box-shadow:inset 0 -3px 0 var(--accent)}
+html[data-dir] h2,html[data-dir] .lede,html[data-dir] .point h3{font-family:var(--coinfont);font-style:normal}
+html[data-dir] .point::before{content:"";width:34px;height:34px;background:var(--coin) center/contain no-repeat}
+html[data-dir] .point:nth-child(even)::before{background-image:var(--coin-face)}
+html[data-dir] .site-foot b{font:400 1.15rem var(--coinfont);font-style:normal}
+html[data-dir] .site-foot b::before{content:"";display:inline-block;width:18px;height:18px;margin-right:8px;vertical-align:-3px;background:var(--coin) center/contain no-repeat}
+html[data-dir] .site-foot{background:#080b12}
+@media (max-width:860px){
+  html[data-dir] .hero-title{font-size:clamp(2.8rem,14vw,4.2rem)}
+  html[data-dir] .hero-copy::before{top:calc(42vh - 96px);width:76px}
+  html[data-dir] .menu .section-head::before{width:48px;height:48px}
+}

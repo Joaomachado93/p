@@ -1,0 +1,88 @@
+/* Ar Belo — hook: the name and Rua de Belos Ares → fresh air: breeze curls, open sky, a warm sun */
+@import url('https://fonts.googleapis.com/css2?family=Italiana&display=swap');
+:root{
+  --bg:#f4f8f8; --linen:#e6f0f0; --surface:#ffffff; --night:#1d4e54; --sun:#E08A3C;
+  --air:'Italiana','Didot',Georgia,serif;
+  --breeze:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 36'%3E%3Ccircle cx='54' cy='9' r='7' fill='%23E08A3C'/%3E%3Cg fill='none' stroke='%232E7A82' stroke-width='2.4' stroke-linecap='round'%3E%3Cpath d='M3 12h26a6 6 0 1 0-6-6'/%3E%3Cpath d='M3 20h38a6 6 0 1 1-6 6'/%3E%3Cpath d='M9 28h16'/%3E%3C/g%3E%3C/svg%3E");
+}
+html[data-dir=mesa] body{background:linear-gradient(180deg,#d9ecee 0,#eef6f6 760px,var(--bg) 1000px) no-repeat,var(--bg)}
+html[data-dir=mesa] h1,html[data-dir=mesa] h2{font-family:var(--air);font-weight:400;letter-spacing:.01em}
+html[data-dir=mesa] h2::after{width:64px;height:36px;margin-top:10px;background:var(--breeze) 0 50%/contain no-repeat}
+html[data-dir=mesa] .menu h2::after{margin-inline:auto}
+html[data-dir=mesa] .kicker{color:var(--primary)}
+
+/* wordmark: airy lowercase with a breeze curl */
+html[data-dir=mesa] .brand{display:inline-flex;align-items:center;gap:.45em;font:400 1.7rem/1 var(--air);letter-spacing:.06em;text-transform:lowercase;color:var(--night)}
+html[data-dir=mesa] .brand::after{content:"";width:1.5em;height:.85em;background:var(--breeze) 50% 50%/contain no-repeat}
+html[data-dir=mesa] .hero-title{font:400 clamp(4rem,17vw,9rem)/.9 var(--air);letter-spacing:.02em;text-transform:lowercase;color:var(--night)}
+html[data-dir=mesa] .hero-title::after{content:"";display:block;width:1.3em;height:.72em;margin-top:.12em;background:var(--breeze) 0 50%/contain no-repeat}
+html[data-dir=mesa] .tagline{color:#4a5e60}
+
+/* hero: open sky gradient, photo in a soft rounded window with the sun rising behind */
+html[data-dir=mesa] .hero{background:transparent}
+html[data-dir=mesa] .site-head{background:#d9ecee;border-bottom-color:rgba(46,122,130,.15)}
+html[data-dir=mesa] .hero-media{position:relative;overflow:visible;padding:0;border:0;background:transparent;box-shadow:none;isolation:isolate}
+html[data-dir=mesa] .hero-media img{border-radius:120px 120px 24px 24px;box-shadow:0 30px 60px -30px rgba(29,78,84,.55)}
+html[data-dir=mesa] .hero-media::after{content:none}
+html[data-dir=mesa] .hero-media::before{content:"";position:absolute;z-index:-1;width:42%;aspect-ratio:1;border-radius:50%;right:-6%;top:-6%;
+  background:radial-gradient(circle,#f3b072 0%,var(--sun) 70%)}
+@media (min-width:861px){
+  html[data-dir=mesa] .hero-media{padding:0;box-shadow:none}
+  html[data-dir=mesa] .hero-media img{border-radius:220px 220px 28px 28px}
+}
+
+/* order: photos first, then the welcome, then the menu */
+html[data-dir=mesa] .gallery{order:1}
+html[data-dir=mesa] .about{order:2}
+html[data-dir=mesa] .menu{order:3}
+html[data-dir=mesa] .book{order:4}
+html[data-dir=mesa] .qr{order:5}
+html[data-dir=mesa] .visit{order:6}
+html[data-dir=mesa] .proposal{order:9}
+
+/* gallery + about */
+html[data-dir=mesa] .shot{padding:0;border:0;background:transparent}
+html[data-dir=mesa] .shot img{border-radius:18px}
+html[data-dir=mesa] .about{background:var(--surface)}
+html[data-dir=mesa] .services li{background:var(--linen);color:var(--night);padding:.55em 1em;border-radius:999px}
+html[data-dir=mesa] .point::before{color:var(--primary)}
+
+/* menu: a light card floating on sky, teal tabs as pills */
+html[data-dir=mesa] .menu{background:linear-gradient(180deg,var(--bg),#d9ecee)}
+html[data-dir=mesa] .menu .wrap{border-radius:28px;box-shadow:0 30px 70px -40px rgba(29,78,84,.55)}
+html[data-dir=mesa] .tabs{border-bottom:0;gap:8px}
+html[data-dir=mesa] .tab{border:1px solid rgba(46,122,130,.35);border-radius:999px;padding:12px 18px;color:var(--night);margin:0}
+html[data-dir=mesa] .tab[aria-selected=true]{background:var(--primary);color:#fff;border-color:var(--primary)}
+html[data-dir=mesa] .dish-name{font:500 1.1rem/1.3 var(--body)}
+html[data-dir=mesa] .dish-price{font:600 1.05rem/1 var(--body);color:var(--night)}
+html[data-dir=mesa] .dish-dots{border-bottom:2px dotted rgba(46,122,130,.4)}
+
+/* buttons */
+html[data-dir=mesa] .btn{border-radius:999px}
+html[data-dir=mesa] .btn-primary{background:var(--primary);border-color:var(--primary)}
+html[data-dir=mesa] .btn-primary:hover{background:var(--night);border-color:var(--night)}
+
+/* qr: deep teal sky */
+html[data-dir=mesa] .qr{background:linear-gradient(160deg,var(--night),#123236)}
+html[data-dir=mesa] .qr-card{border-radius:24px;outline:0}
+html[data-dir=mesa] .qr-card::before{content:"";justify-self:center;width:58px;height:32px;background:var(--breeze) 50% 50%/contain no-repeat}
+html[data-dir=mesa] .qr-name{font:400 1.25rem/1 var(--air);text-transform:lowercase}
+html[data-dir=mesa] .form,html[data-dir=mesa] .proposal-box,html[data-dir=mesa] .map{border-radius:20px}
+
+/* footer */
+html[data-dir=mesa] .site-foot{background:#d9ecee;border-top:0}
+html[data-dir=mesa] .site-foot b{font:400 1.5rem var(--air);text-transform:lowercase;color:var(--night)}
+
+/* mesa / cozinha */
+html[data-dir=mesa] .m-top{background:var(--primary)}
+html[data-dir=mesa] .m-top h1{font:400 1.7rem/1 var(--air);text-transform:lowercase}
+html[data-dir=mesa] .qty button{border-radius:50%;background:var(--primary)}
+html[data-dir=mesa] .qty button.minus{background:transparent}
+html[data-dir=mesa] .cartbar{background:var(--night);border-radius:999px}
+
+@media (max-width:860px){
+  html[data-dir=mesa] .brand{font-size:1.55rem}
+  html[data-dir=mesa] .hero-media{margin-top:28px}
+  html[data-dir=mesa] .hero-media::before{right:-2%;top:-8%}
+  html[data-dir=mesa] .menu .wrap{border-radius:20px}
+}

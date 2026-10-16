@@ -1,0 +1,70 @@
+/* Restaurante Gomásio — hook: gomásio itself (toasted sesame + salt) — scattered sesame seeds and a bowl-round ensō, macrobiotic calm */
+@import url('https://fonts.googleapis.com/css2?family=Shippori+Mincho:wght@500;600;700&display=swap');
+:root{
+  --gm-display:'Shippori Mincho','Bodoni Moda',Georgia,serif;
+  --bg:#f6f3ea; --linen:#efe9da; --surface:#fffdf7;
+  --rice:#efe6cf;
+  --sesame:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='72' height='72' viewBox='0 0 72 72'%3E%3Cg fill='%23d8c9a3'%3E%3Cellipse cx='12' cy='14' rx='2.4' ry='4.2' transform='rotate(-30 12 14)'/%3E%3Cellipse cx='46' cy='10' rx='2.4' ry='4.2' transform='rotate(40 46 10)'/%3E%3Cellipse cx='30' cy='38' rx='2.4' ry='4.2' transform='rotate(75 30 38)'/%3E%3Cellipse cx='60' cy='48' rx='2.4' ry='4.2' transform='rotate(-60 60 48)'/%3E%3Cellipse cx='16' cy='60' rx='2.4' ry='4.2' transform='rotate(15 16 60)'/%3E%3C/g%3E%3Cg fill='%233a3a30'%3E%3Cellipse cx='54' cy='26' rx='2.2' ry='3.9' transform='rotate(-15 54 26)'/%3E%3Cellipse cx='38' cy='64' rx='2.2' ry='3.9' transform='rotate(55 38 64)'/%3E%3C/g%3E%3C/svg%3E");
+  --enso:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Cpath d='M70 16A40 40 0 1 0 86 44' fill='none' stroke='%234C7A34' stroke-width='6' stroke-linecap='round'/%3E%3Cg fill='%23E5A93C'%3E%3Cellipse cx='44' cy='48' rx='3' ry='5.5' transform='rotate(-25 44 48)'/%3E%3Cellipse cx='56' cy='54' rx='3' ry='5.5' transform='rotate(35 56 54)'/%3E%3C/g%3E%3Cellipse cx='50' cy='62' rx='3' ry='5.5' fill='%233a3a30' transform='rotate(80 50 62)'/%3E%3C/svg%3E");
+}
+html[data-dir] body{background:var(--bg)}
+
+/* wordmark: a quiet Mincho with an ensō seal */
+html[data-dir] .brand{font:600 1.3rem/1 var(--gm-display);letter-spacing:.06em;color:var(--primary);display:inline-flex;align-items:center;gap:10px}
+html[data-dir] .brand::before{content:"";width:30px;height:30px;flex:none;background:var(--enso) center/contain no-repeat}
+html[data-dir] h1,html[data-dir] h2,html[data-dir] h3{font-family:var(--gm-display);font-weight:600}
+html[data-dir] .hero-title{font-weight:600;letter-spacing:-.005em;line-height:1.02;color:#253a1a}
+html[data-dir] .tagline{font-family:var(--gm-display);font-style:normal}
+html[data-dir] h2::after{width:10px;height:10px;border-radius:50%;background:var(--accent)}
+
+/* hero: seeds scattered on the ground, the photo served in a round bowl */
+html[data-dir] .hero{background:var(--sesame) 0 0/72px 72px,var(--bg);position:relative}
+html[data-dir] .hero-copy{background:color-mix(in srgb,var(--bg) 88%,transparent)}
+@media (min-width:861px){
+  html[data-dir] .hero{box-shadow:0 0 0 100vmax var(--bg);clip-path:inset(0 -100vmax)}
+  html[data-dir] .hero-media{aspect-ratio:1;border-radius:50%;max-height:560px;padding:14px;border:0;background:var(--rice);
+    box-shadow:inset 0 0 0 2px color-mix(in srgb,var(--primary) 40%,transparent),0 30px 60px -30px rgba(40,50,25,.5)}
+  html[data-dir] .hero-media img{border-radius:50%}
+  html[data-dir] .hero-media::after{inset:-26px;z-index:-1;border:0;border-radius:0;background:var(--enso) center/contain no-repeat;opacity:.7}
+  html[data-dir] .hero-copy{padding:28px!important;border-radius:4px}
+}
+
+/* order: buffet first — what's on the table today */
+html[data-dir] main .menu{order:1}
+html[data-dir] main .about{order:2}
+html[data-dir] main .gallery{order:3}
+html[data-dir] main .book{order:4}
+html[data-dir] main .visit{order:5}
+html[data-dir] main .proposal{order:9}
+
+/* menu: card laid on a sesame-strewn tray */
+html[data-dir] .menu{background:var(--sesame) 0 0/72px 72px,var(--linen)}
+html[data-dir] .menu .wrap{border-radius:6px}
+html[data-dir] .menu .section-head::before{content:"";width:64px;height:64px;background:var(--enso) center/contain no-repeat}
+html[data-dir] .tab[aria-selected=true]{color:var(--primary);border-bottom-color:var(--accent)}
+html[data-dir] .dish-name{font-family:var(--gm-display);font-weight:600}
+html[data-dir] .dish-price{color:#2f4d20;font-family:var(--gm-display)}
+html[data-dir] .dish-dots{border-bottom:2px dotted color-mix(in srgb,var(--accent) 70%,transparent)}
+
+/* about: seeds as point markers */
+html[data-dir] .point::before{content:"";width:12px;height:20px;margin:4px 0 0 6px;border-radius:50%;background:#3a3a30;transform:rotate(-20deg)}
+html[data-dir] .point:nth-child(2)::before{background:var(--accent)}
+html[data-dir] .point:nth-child(3)::before{background:#d8c9a3}
+html[data-dir] .lede{font-family:var(--gm-display);font-style:normal}
+
+/* footer: a strip of sesame */
+html[data-dir] .site-foot{border-top:0;position:relative}
+html[data-dir] .site-foot::before{content:"";display:block;height:28px;margin-bottom:28px;background:var(--sesame) 0 0/56px 56px,var(--linen)}
+html[data-dir] .site-foot{padding-top:0}
+html[data-dir] .site-foot b{font-family:var(--gm-display)}
+
+@media (max-width:860px){
+  html[data-dir] .hero-media{border-radius:50% 50% 4px 4px / 32% 32% 4px 4px}
+  html[data-dir] .hero-media::after{border-radius:inherit}
+  html[data-dir] .hero-copy{padding-inline:var(--gutter) var(--gutter-r)}
+}
+
+/* mesa / cozinha */
+html[data-dir] .m-top h1{font-family:var(--gm-display);font-weight:600}
+html[data-dir] .m-cat{font-family:var(--gm-display);font-weight:600}
+html[data-dir] body.mesa{background:var(--sesame) 0 0/72px 72px,var(--bg)}

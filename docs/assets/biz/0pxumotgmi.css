@@ -1,0 +1,63 @@
+/* Restaurante Várzea — hook: the name — a várzea, the flat riverside meadow: long horizon, furrowed fields, a meandering stream */
+@import url('https://fonts.googleapis.com/css2?family=Gilda+Display&display=swap');
+:root{
+  --bg:color-mix(in srgb,var(--primary) 4%,#fbfaf6);
+  --linen:color-mix(in srgb,var(--primary) 8%,#f5f3ec);
+  --meadow:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 120 36'%3E%3Cg fill='none' stroke-linecap='round'%3E%3Cpath d='M2 10h116' stroke='%23C2410C' stroke-width='1.6'/%3E%3Cpath d='M2 18h116M10 26h100M24 33h72' stroke='%2378716c' stroke-width='1.2'/%3E%3Cpath d='M2 22c14-8 26 8 40 0s26-8 40 0 24 6 36-2' stroke='%230369A1' stroke-width='3'/%3E%3C/g%3E%3Ccircle cx='96' cy='5' r='3.4' fill='%23C2410C'/%3E%3C/svg%3E");
+}
+
+/* wordmark: a calm, wide-set display serif — flat and long like the plain */
+html[data-dir] .brand{font:400 1.3rem/1 'Gilda Display',var(--display);letter-spacing:.2em;text-transform:uppercase;color:var(--primary)}
+html[data-dir] .hero-title{font-family:'Gilda Display',var(--display);font-weight:400;letter-spacing:.06em;line-height:1;color:var(--ink)}
+html[data-dir] .hero-title::after{content:"";display:block;width:min(300px,80%);aspect-ratio:120/36;margin-top:18px;background:var(--meadow) left center/contain no-repeat}
+html[data-dir] h2,html[data-dir] .menu h2{font-family:'Gilda Display',var(--display);font-weight:400;letter-spacing:.02em}
+html[data-dir] h2::after{background:var(--primary)}
+
+/* hero: a wide, low panorama on top (the open plain), the name below across the full width */
+@media (min-width:861px){
+  html[data-dir] .hero{grid-template-columns:minmax(0,1.3fr) minmax(0,1fr);gap:24px 64px;align-items:end}
+  html[data-dir] .hero-media{order:0;grid-column:1/-1;aspect-ratio:21/7;max-height:42vh;width:100%;padding:12px}
+  html[data-dir] .hero-copy{order:1;grid-column:1/-1;display:grid;grid-template-columns:minmax(0,1.3fr) minmax(0,1fr);gap:14px 64px;align-items:end}
+  html[data-dir] .hero-copy > .kicker,html[data-dir] .hero-copy > .hero-title{grid-column:1}
+  html[data-dir] .hero-copy > .tagline,html[data-dir] .hero-copy > .actions,html[data-dir] .hero-copy > .facts{grid-column:2}
+  html[data-dir] .hero-copy > .tagline{grid-row:1}
+  html[data-dir] .hero-copy > .actions{grid-row:2}
+  html[data-dir] .hero-copy > .facts{grid-row:3}
+  html[data-dir] .hero-copy > .hero-title{grid-row:2/4;font-size:clamp(3rem,5.2vw,4.8rem)}
+  html[data-dir] .hero-copy > .kicker{grid-row:1}
+}
+@media (max-width:860px){
+  html[data-dir] .hero-media{aspect-ratio:16/9}
+}
+
+/* palette nuance: river blue on a pale meadow; furrows tint the menu ground */
+html[data-dir] .menu{background:repeating-linear-gradient(0deg,color-mix(in srgb,var(--primary) 7%,transparent) 0 1px,transparent 1px 14px),var(--linen)}
+html[data-dir] .menu .section-head::after{content:"";width:150px;aspect-ratio:120/36;background:var(--meadow) center/contain no-repeat}
+html[data-dir] .menu h2::after{display:none}
+html[data-dir] .dish-price{color:var(--primary)}
+
+/* section order: lunch is the promise — menu straight after the hero, then the room and the story */
+html[data-dir] main > .menu{order:1}
+html[data-dir] main > .about{order:2}
+html[data-dir] main > .gallery{order:3}
+html[data-dir] main > .qr{order:4}
+html[data-dir] main > .book{order:5}
+html[data-dir] main > .visit{order:6}
+html[data-dir] main > .proposal{order:9}
+html[data-dir] .gallery{padding-bottom:var(--section)}
+
+/* QR: river blue at dusk */
+html[data-dir] .qr{background:color-mix(in srgb,var(--primary) 62%,#0b1d2a)}
+html[data-dir] .qr-name{font-family:'Gilda Display',var(--display);letter-spacing:.14em;text-transform:uppercase}
+
+/* footer horizon */
+html[data-dir] .site-foot::before{content:"";display:block;width:180px;aspect-ratio:120/36;margin:0 auto 22px;background:var(--meadow) center/contain no-repeat}
+
+/* mesa / cozinha */
+html[data-dir] .m-top h1{font-family:'Gilda Display',var(--display);min-width:0;overflow-wrap:break-word}
+
+@media (max-width:860px){
+  html[data-dir] .brand{font-size:1rem;letter-spacing:.12em}
+  html[data-dir] .hero-title{font-size:clamp(2.3rem,10.5vw,3.4rem);letter-spacing:.03em}
+  html[data-dir] .hero-title::after{width:180px;margin-top:14px}
+}

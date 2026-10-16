@@ -1,0 +1,48 @@
+/* Casa de Pasto O Luís — hook: a man's name on a house of food on Rua das Escolas — the school exercise book (caderno) and a pencil, written by hand */
+@import url('https://fonts.googleapis.com/css2?family=Patua+One&display=swap');
+:root{
+  --lu-wood:#7b3f1e; --lu-wood-d:#552810; --lu-ochre:#c28b2c; --lu-paper:#fffdf6; --lu-rule:rgba(43,102,170,.22); --lu-margin:rgba(200,48,48,.5);
+  --lu-pencil:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='24' viewBox='0 0 120 24'%3E%3Cpath d='M8 4h84v16H8z' fill='%23c28b2c'/%3E%3Cpath d='M8 4h84v5H8z' fill='%23e0b04e'/%3E%3Cpath d='M2 4h8v16H2z' fill='%23d97a7a'/%3E%3Cpath d='M9 4h4v16H9z' fill='%23b0b0a8'/%3E%3Cpath d='M92 4l22 8-22 8z' fill='%23f1d6a8'/%3E%3Cpath d='M108 10l6 2-6 2z' fill='%231f1c18'/%3E%3C/svg%3E");
+  --lu-lines:repeating-linear-gradient(transparent 0 31px,var(--lu-rule) 31px 32px);
+}
+/* wordmark: sign-painted Patua One; "O Luís" carried by a pencil underline */
+html[data-dir] .brand{font:400 1.35rem/1 'Patua One',var(--display);color:var(--lu-wood-d);display:inline-grid;gap:3px}
+html[data-dir] .brand::after{content:"";width:72px;height:14px;background:var(--lu-pencil) 0 0/100% 100% no-repeat}
+html[data-dir] .hero-title{font-family:'Patua One',var(--display);font-weight:400;color:var(--lu-wood-d);letter-spacing:0;line-height:1}
+html[data-dir] .hero-title::after{content:"";display:block;width:clamp(140px,22vw,220px);height:clamp(28px,4.4vw,44px);margin-top:14px;background:var(--lu-pencil) 0 0/100% 100% no-repeat}
+html[data-dir] h2{font-family:'Patua One',var(--display);font-weight:400}
+
+/* hero: copy written on a page of the exercise book (red margin + blue rules) */
+html[data-dir] .hero-copy{background:var(--lu-lines),linear-gradient(90deg,transparent 0 28px,var(--lu-margin) 28px 30px,transparent 30px),var(--lu-paper);background-position:0 14px,0 0,0 0;
+  padding:clamp(26px,4vw,44px) clamp(20px,3vw,40px) clamp(26px,4vw,44px) clamp(46px,5vw,64px);box-shadow:0 1px 0 var(--line),6px 8px 0 rgba(85,40,16,.12)}
+
+/* order: the school-day lunch board — menu first, then the story */
+html[data-dir] .hero{order:-10}
+html[data-dir] .menu{order:1}
+html[data-dir] .about{order:2}
+html[data-dir] .book{order:3}
+html[data-dir] .qr{order:4}
+html[data-dir] .gallery{order:5}
+html[data-dir] .visit{order:6}
+html[data-dir] .proposal{order:99}
+
+/* about: the lede in "handwriting" on ruled paper, pencil resting on it */
+html[data-dir] .about .about-text{position:relative;background:var(--lu-lines),linear-gradient(90deg,transparent 0 26px,var(--lu-margin) 26px 28px,transparent 28px),var(--lu-paper);
+  background-position:0 10px,0 0,0 0;padding:24px 22px 34px 44px;border:1px solid var(--line);transform:rotate(-.6deg)}
+html[data-dir] .about .about-text::after{content:"";position:absolute;right:-6px;bottom:-12px;width:120px;height:24px;background:var(--lu-pencil) 0 0/100% 100% no-repeat;transform:rotate(-8deg)}
+html[data-dir] .about .lede{font-family:var(--hand,'Patua One');font-size:clamp(1.55rem,2.6vw,1.95rem);line-height:32px;color:#1f3f6e}
+
+html[data-dir] .menu .section-head h2::after{content:"";display:block;width:110px;height:22px;margin-top:10px;background:var(--lu-pencil) 0 0/100% 100% no-repeat}
+html[data-dir] .point::before{background-color:var(--lu-ochre);color:#1f1c18}
+html[data-dir] .qr{background:var(--lu-wood)}
+html[data-dir] .site-foot b{font-family:'Patua One',var(--display);font-weight:400;color:var(--lu-wood-d)}
+
+/* mesa / cozinha pages */
+html[data-dir] .m-top{background:var(--lu-wood-d);border-bottom:4px solid var(--lu-ochre)}
+html[data-dir] .m-top h1{font-family:'Patua One',var(--display);font-weight:400}
+
+@media (max-width:860px){
+  html[data-dir] .hero-copy{margin:0 10px 18px;padding:24px 18px 28px 44px}
+  html[data-dir] .about .about-text{transform:none;padding:22px 16px 34px 40px}
+  html[data-dir] .about .about-text::after{right:6px;width:96px;height:19px}
+}

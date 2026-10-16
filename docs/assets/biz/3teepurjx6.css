@@ -1,0 +1,52 @@
+/* Restaurante Tosco — hook: "tosco" (rough-hewn, rustic stone) on the bank of the Ave at Riba de Ave */
+@import url('https://fonts.googleapis.com/css2?family=Bowlby+One&display=swap');
+html[data-dir]{
+  --ts-mark:'Bowlby One','Arial Black',Impact,sans-serif;
+  --ts-rust:var(--primary);
+  --ts-river:color-mix(in oklab, var(--accent) 85%, #04251f);
+  --bg:#eeeae2; --surface:#fbf9f4;
+  --ts-stones:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='30' viewBox='0 0 120 30'%3E%3Cg fill='%23b9ada0' stroke='%235b4b3e' stroke-width='1.5' stroke-linejoin='round'%3E%3Cpath d='M2 22l4-12 16-3 9 9-3 12H7z'/%3E%3Cpath d='M33 27l2-16 13-6 14 5 1 14-9 4z'/%3E%3Cpath d='M66 26l-1-13 10-8 17 3 3 11-8 8z'/%3E%3Cpath d='M98 27l2-12 9-5 9 6-1 12z'/%3E%3C/g%3E%3C/svg%3E");
+  --ts-wave:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='80' height='14' viewBox='0 0 80 14'%3E%3Cpath d='M0 7c10-8 20 8 40 0s30 8 40 0' fill='none' stroke='%230F766E' stroke-width='3'/%3E%3C/svg%3E");
+}
+
+/* wordmark: a heavy, blunt, chiselled name sitting on a rough stone */
+html[data-dir] .brand{font:400 1.3rem/1 var(--ts-mark);text-transform:uppercase;letter-spacing:.02em;color:#2b211a}
+html[data-dir] .brand::after{content:"";display:block;height:8px;margin-top:4px;background:var(--ts-wave) left center/40px 7px repeat-x}
+html[data-dir] .hero-title{font:400 clamp(2.2rem,3.9vw,4.4rem)/.95 var(--ts-mark);text-transform:uppercase;letter-spacing:-.005em;color:#2b211a;
+  text-shadow:2px 2px 0 color-mix(in oklab, var(--primary) 30%, transparent)}
+html[data-dir] .hero-title::after{content:"";display:block;height:30px;margin-top:14px;max-width:360px;background:var(--ts-stones) left center/120px 30px repeat-x}
+html[data-dir] .m-top h1,html[data-dir] .site-foot b,html[data-dir] h2,html[data-dir] .qr-name{font-family:var(--ts-mark);font-weight:400}
+
+/* hero: the photo cut like a hewn stone block — irregular edges instead of a tidy frame */
+html[data-dir] .hero-media{background:#5b4b3e;padding:12px;border-radius:0;
+  clip-path:polygon(2% 4%,30% 0,64% 3%,98% 0,100% 38%,97% 72%,100% 97%,62% 100%,34% 96%,0 100%,3% 62%,0 30%)}
+html[data-dir] .hero-media img{border-radius:0;box-shadow:none;
+  clip-path:polygon(2% 4%,30% 0,64% 3%,98% 0,100% 38%,97% 72%,100% 97%,62% 100%,34% 96%,0 100%,3% 62%,0 30%)}
+html[data-dir] .hero{position:relative}
+html[data-dir] .hero::after{content:"";position:absolute;left:0;right:0;bottom:0;height:14px;background:var(--ts-wave) left center/80px 14px repeat-x;opacity:.9}
+
+/* order: photos first (the food speaks), menu, then the house */
+html[data-dir] .gallery{order:1;padding-top:var(--section)}
+html[data-dir] .menu{order:2}
+html[data-dir] .about{order:3}
+html[data-dir] .qr{order:4}
+html[data-dir] .book{order:5}
+html[data-dir] .visit{order:6}
+html[data-dir] .proposal{order:99}
+html[data-dir] .shot{border-radius:0;clip-path:polygon(0 3%,50% 0,100% 2%,99% 97%,48% 100%,1% 98%)}
+
+/* menu: slate board on a rough stone ledge, river-teal tabs */
+html[data-dir] .menu .section-head::after{content:"";display:block;height:30px;margin-top:18px;background:var(--ts-stones) left center/120px 30px repeat-x}
+html[data-dir] .tab[aria-selected=true]{background:var(--ts-river);border-color:var(--ts-river);color:#fff}
+html[data-dir] .about .lede{border-left:6px solid var(--ts-river);padding-left:18px}
+html[data-dir] .points .point h3{color:var(--ts-river)}
+
+/* footer: the river runs along the bottom */
+html[data-dir] .site-foot{background-image:var(--ts-wave);background-repeat:repeat-x;background-size:80px 14px;background-position:left top;padding-top:30px}
+
+@media (max-width:860px){
+  html[data-dir] .hero-media{padding:8px}
+  html[data-dir] .brand{font-size:1.05rem}
+  html[data-dir] .hero-title{font-size:clamp(2rem,10vw,3rem)}
+  html[data-dir] .hero::after{bottom:auto;top:calc(clamp(230px,36svh,340px) + 0px);height:10px;background-size:56px 10px}
+}

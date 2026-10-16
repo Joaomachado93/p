@@ -1,0 +1,56 @@
+/* Piccolo Mondo — hook: the name — "small world" — a little globe with meridians, wrapped in the Italian tricolore (green/white/red brand) */
+@import url('https://fonts.googleapis.com/css2?family=Yellowtail&display=swap');
+:root{
+  --on-accent:#fff; --pm-green:#2e7d4f; --pm-green-d:#1b5233; --pm-red:#d7263d; --pm-red-d:#a8152a; --pm-white:#fbf8f1;
+  --pm-tri:linear-gradient(90deg,var(--pm-green) 0 33.33%,var(--pm-white) 33.33% 66.66%,var(--pm-red) 66.66%);
+  --pm-globe:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='80' height='80' viewBox='0 0 80 80'%3E%3Ccircle cx='40' cy='40' r='34' fill='%23fbf8f1' stroke='%232e7d4f' stroke-width='4'/%3E%3Cg fill='none' stroke='%232e7d4f' stroke-width='2.6'%3E%3Cellipse cx='40' cy='40' rx='14' ry='34'/%3E%3Cpath d='M40 6v68M6 40h68M11 24h58M11 56h58'/%3E%3C/g%3E%3Ccircle cx='58' cy='22' r='7' fill='%23d7263d'/%3E%3C/svg%3E");
+}
+/* wordmark: Yellowtail script, lower-case and warm, like a trattoria sign */
+html[data-dir] .brand{font:400 1.75rem/1 'Yellowtail',cursive;text-transform:none;letter-spacing:0;display:inline-flex;align-items:center;gap:8px}
+html[data-dir] .brand::before{content:"";width:26px;height:26px;flex:none;background:var(--pm-globe) 0 0/100% 100% no-repeat}
+html[data-dir] .hero-title{font-family:'Yellowtail',cursive;font-weight:400;text-transform:none;letter-spacing:0;line-height:1;font-size:clamp(3.4rem,14vw,7.6rem)}
+html[data-dir] .hero-title::after{content:"";display:block;width:132px;height:8px;margin-top:16px;background:var(--pm-tri);box-shadow:0 0 0 2px rgba(0,0,0,.18)}
+
+/* hero: green poster block, the photo cropped as a round globe on desktop */
+html[data-dir] .hero{background:var(--pm-green)}
+html[data-dir] .hero .btn-primary{background:var(--pm-white);color:var(--pm-red-d);border-color:var(--pm-white)}
+html[data-dir] .hero::before{content:"";position:absolute;left:0;right:0;bottom:0;height:10px;background:var(--pm-tri);border-top:3px solid var(--pm-white);z-index:3}
+html[data-dir] .hero .kicker,html[data-dir] .nav a:hover{color:#ff9aa6}
+
+/* order: the world on a plate — gallery up front, then menu */
+html[data-dir] .hero{order:-10}
+html[data-dir] .gallery{order:1}
+html[data-dir] .menu{order:2}
+html[data-dir] .about{order:3}
+html[data-dir] .qr{order:4}
+html[data-dir] .book{order:5}
+html[data-dir] .visit{order:6}
+html[data-dir] .proposal{order:99}
+
+/* menu: a tricolore ribbon across the board, globe stamp */
+html[data-dir] .menu .section-head{position:relative;padding-right:84px}
+html[data-dir] .menu .section-head::after{content:"";position:absolute;right:0;top:0;width:72px;height:72px;background:var(--pm-globe) 0 0/100% 100% no-repeat;transform:rotate(-12deg)}
+html[data-dir] .menu h2{font-family:'Yellowtail',cursive;text-transform:none;letter-spacing:0;font-weight:400;font-size:clamp(2.6rem,6vw,4rem)}
+html[data-dir] .dish-price{color:var(--pm-red-d)}
+html[data-dir] .tab[aria-selected=true]{background:var(--pm-green);color:#fff;border-color:var(--pm-green)}
+html[data-dir] .gallery .shot{border-radius:50%;aspect-ratio:1/1}
+html[data-dir] .gallery .shot img{border-radius:50%}
+html[data-dir] .gallery-grid{align-items:center}
+
+html[data-dir] .about .lede::first-line{color:var(--pm-green-d)}
+html[data-dir] .qr{background:var(--pm-green-d)}
+html[data-dir] .site-foot::before{background:var(--pm-tri) !important;height:10px !important}
+html[data-dir] .site-foot b{font-family:'Yellowtail',cursive;font-weight:400;font-size:1.5rem;text-transform:none}
+
+/* mesa / cozinha pages */
+html[data-dir] .m-top{background:var(--pm-green);box-shadow:inset 0 -6px 0 var(--pm-red)}
+html[data-dir] .m-top h1{font-family:'Yellowtail',cursive;font-weight:400;text-transform:none;font-size:1.9rem}
+
+@media (min-width:861px){
+  html[data-dir] .hero--photo .hero-media{border-radius:50%;width:min(44vw,560px);aspect-ratio:1/1;max-height:none;justify-self:center;align-self:center;margin:40px 0;border:6px solid var(--pm-white);box-shadow:0 0 0 10px var(--pm-red)}
+}
+@media (max-width:860px){
+  html[data-dir] .hero-media{border-radius:0 0 50% 50%/0 0 22% 22%}
+  html[data-dir] .menu .section-head{padding-right:62px}
+  html[data-dir] .menu .section-head::after{width:52px;height:52px}
+}

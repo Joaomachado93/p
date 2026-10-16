@@ -1,0 +1,69 @@
+/* Pintado de Fresco — hook: the name is the "wet paint" sign — a fresh brushstroke with drips, teal & coral, Praça de São Tiago evenings */
+@import url('https://fonts.googleapis.com/css2?family=Permanent+Marker&display=swap');
+:root{
+  --pf-hand:'Permanent Marker','Marker Felt',cursive;
+  --coral:#ff8a80;
+  --candle:color-mix(in oklab,var(--accent) 45%,#ffd0a8);
+  --candle-soft:color-mix(in oklab,var(--candle) 30%,transparent);
+  --wine:color-mix(in oklab,var(--primary) 62%,#081014);
+  --bg:#0f1416; --surface:#172024; --surface-2:#1d282c;
+  --stroke:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 40' preserveAspectRatio='none'%3E%3Cpath d='M4 12C30 6 70 9 110 7C140 5 170 8 196 10C198 16 196 22 192 24C170 26 150 23 128 25L128 34Q126 39 123 34L122 25C96 26 72 24 52 26L52 31Q50 36 48 31L47 26C32 27 16 26 6 24C2 20 2 15 4 12Z' fill='%23F25C54'/%3E%3C/svg%3E");
+}
+html[data-dir] body{background:radial-gradient(120% 60% at 85% 0%,color-mix(in oklab,var(--primary) 26%,transparent),transparent 70%),var(--bg)}
+
+/* wordmark: marker lettering with a coral brush swash beneath */
+html[data-dir] .brand{font:400 1.45rem/1 var(--pf-hand);font-style:normal;color:#f4efe6;position:relative;padding-bottom:8px}
+html[data-dir] .brand::after{content:"";position:absolute;left:-4px;right:-6px;bottom:-4px;height:12px;background:var(--stroke) center/100% 100% no-repeat;z-index:-1}
+html[data-dir] .site-head-row{isolation:isolate}
+html[data-dir] .hero-title{font:400 clamp(3rem,10vw,7rem)/1 var(--pf-hand);font-style:normal;letter-spacing:0;transform:rotate(-2deg);transform-origin:left bottom;max-width:12ch}
+html[data-dir] .hero-title::after{content:"";display:block;width:min(100%,520px);height:clamp(22px,3vw,34px);margin-top:4px;background:var(--stroke) center/100% 100% no-repeat}
+html[data-dir] h2{font-family:var(--pf-hand);font-style:normal;font-weight:400}
+
+/* the "Pintado de fresco" warning sign: hero kicker as a taped paper notice */
+html[data-dir] .hero .kicker{justify-self:start;width:fit-content;background:#f6efe1;color:#7a1e18;text-shadow:none;padding:.6em 1em;transform:rotate(-3deg);
+  box-shadow:0 10px 20px -8px rgba(0,0,0,.6);font-weight:700;letter-spacing:.18em}
+html[data-dir] .hero .kicker::before{background:var(--accent);width:18px;height:3px}
+
+/* hero: wet-paint teal wash at the bottom instead of plain night */
+html[data-dir] .hero-media::after{background:
+  radial-gradient(60% 50% at 80% 25%,color-mix(in oklab,var(--accent) 22%,transparent),transparent 70%),
+  linear-gradient(180deg,rgba(8,14,16,.2) 0%,rgba(8,14,16,0) 22%,color-mix(in oklab,var(--wine) 60%,rgba(8,14,16,.6)) 55%,#0f1416 94%)}
+
+/* order: drinks list first, then the square, then the story */
+html[data-dir] main .menu{order:1}
+html[data-dir] main .gallery{order:2;padding-top:var(--section)}
+html[data-dir] main .about{order:3}
+html[data-dir] main .book{order:4}
+html[data-dir] main .visit{order:5}
+html[data-dir] main .proposal{order:9}
+
+/* menu: board with a fresh paint stroke dripping from the top edge */
+html[data-dir] .menu .section-head h2{display:inline-block;width:fit-content;position:relative}
+html[data-dir] .menu .section-head h2::after{content:"";display:block;height:20px;margin-top:2px;background:var(--stroke) center/100% 100% no-repeat}
+html[data-dir] .dishes{border-color:color-mix(in oklab,var(--primary) 60%,transparent);outline-color:color-mix(in oklab,var(--primary) 50%,transparent);
+  background:linear-gradient(180deg,color-mix(in oklab,var(--primary) 12%,transparent),transparent 60%),#0c1214}
+html[data-dir] .dish-name{font-family:var(--body);font-weight:700;font-size:1.08rem}
+html[data-dir] .dish-price{font:400 1.25rem/1 var(--pf-hand);color:var(--coral)}
+html[data-dir] .tab[aria-selected=true]{background:var(--coral);border-color:var(--coral);color:#1a0c0b}
+
+/* gallery: frames splashed with a stroke of teal */
+html[data-dir] .shot::after{border-color:color-mix(in oklab,var(--primary) 70%,#fff)}
+html[data-dir] .gallery-grid .shot:first-child::before{content:"";position:absolute;z-index:1;left:12px;bottom:12px;width:140px;height:22px;background:var(--stroke) center/100% 100% no-repeat}
+
+/* points + footer signature */
+html[data-dir] .point::before{font:400 1.5rem/1 var(--pf-hand);color:var(--coral)}
+html[data-dir] .site-foot b{font:400 1.25rem var(--pf-hand);font-style:normal}
+html[data-dir] .site-foot{border-top:0;position:relative}
+html[data-dir] .site-foot::before{content:"";display:block;height:16px;margin:0 var(--gutter-r) 28px var(--gutter);background:var(--stroke) center/100% 100% no-repeat;opacity:.9}
+html[data-dir] .site-foot{padding-top:0}
+
+@media (max-width:860px){
+  html[data-dir] .hero-title{font-size:clamp(2.8rem,14vw,4.2rem)}
+  html[data-dir] .brand{font-size:1.2rem}
+  html[data-dir] .gallery-grid .shot:first-child::before{width:100px;height:16px}
+}
+
+/* mesa / cozinha */
+html[data-dir] .m-top h1,html[data-dir] .m-cat{font-family:var(--pf-hand);font-style:normal;font-weight:400}
+html[data-dir] .m-item .price{font:400 1.15rem var(--pf-hand);color:var(--coral)}
+html[data-dir] .ticket{border-top-color:var(--accent)}

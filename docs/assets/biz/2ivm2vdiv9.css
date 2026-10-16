@@ -1,0 +1,68 @@
+/* Restaurante «Pança» — hook: the name — a full, round belly → a round-bellied clay pot (panela de barro) of home cooking */
+@import url('https://fonts.googleapis.com/css2?family=Lilita+One&display=swap');
+:root{
+  --bg:#f5efe6; --surface:#fffaf3;
+  --barro:#a4532a; --barro-l:#efd9c6;
+  --pot:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 56'%3E%3Cg fill='none' stroke='%2378350F' stroke-width='2.6' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M16 18h32c8 6 10 14 8 21-3 9-12 13-24 13S11 48 8 39c-2-7 0-15 8-21Z' fill='%23efd9c6'/%3E%3Cpath d='M13 14h38v4H13z' fill='%23efd9c6'/%3E%3Cpath d='M9 27c-5 0-6 6-1 7M55 27c5 0 6 6 1 7'/%3E%3Cpath d='M24 9c-2-3 2-5 0-8M32 9c-2-3 2-5 0-8M40 9c-2-3 2-5 0-8' stroke-width='2'/%3E%3C/g%3E%3C/svg%3E");
+}
+
+/* wordmark: plump rounded letters, the pot as the logo */
+html[data-dir] .brand{font:400 1.4rem/1 'Lilita One',var(--display);color:var(--primary);letter-spacing:.01em;display:inline-flex;align-items:center;gap:10px}
+html[data-dir] .brand::before{content:"";width:34px;height:30px;flex:none;background:var(--pot) center/contain no-repeat}
+html[data-dir] .hero-title{font-family:'Lilita One',var(--display);font-weight:400;color:var(--primary);letter-spacing:.005em;line-height:1}
+html[data-dir] .hero .kicker{color:var(--accent)}
+html[data-dir] h2{font-family:'Lilita One',var(--display);font-weight:400}
+
+/* hero: the photo gets a round "belly" — wide ellipse frame in barro instead of the azulejo panel */
+@media (min-width:861px){
+  html[data-dir] .hero-media{border-radius:46% 46% 40% 40% / 38% 38% 30% 30%;padding:14px;margin-right:clamp(16px,3vw,40px);height:min(68vh,560px);
+    background:var(--barro-l);box-shadow:0 0 0 4px var(--primary),0 26px 44px -20px rgba(80,35,10,.55)}
+  html[data-dir] .hero-media img{border-radius:44% 44% 38% 38% / 36% 36% 28% 28%;box-shadow:none}
+}
+@media (max-width:860px){
+  html[data-dir] .hero-media{background:var(--barro-l);padding:0;border-radius:0 0 46% 46% / 0 0 16% 16%;overflow:hidden}
+  html[data-dir] .hero-media img{border-radius:0}
+}
+/* the pot sits on the hero copy like a stamp */
+html[data-dir] .hero-copy{position:relative}
+html[data-dir] .hero-copy::after{content:"";position:absolute;right:clamp(16px,4vw,48px);top:8px;width:64px;height:56px;
+  background:var(--pot) center/contain no-repeat;opacity:.9}
+
+/* home-cooking warmth: pot-shaped point markers */
+html[data-dir] .about{background:var(--surface)}
+html[data-dir] .point::before{background:var(--pot) center/contain no-repeat;border:0;width:26px;height:24px}
+html[data-dir] .points{border-top-color:var(--primary)}
+
+/* section order: straight to the food — menu first, then the story and photos */
+html[data-dir] main > .menu{order:1}
+html[data-dir] main > .about{order:2}
+html[data-dir] main > .gallery{order:3}
+html[data-dir] main > .qr{order:4}
+html[data-dir] main > .book{order:5}
+html[data-dir] main > .visit{order:6}
+html[data-dir] main > .proposal{order:9}
+html[data-dir] .menu{padding-top:var(--section);padding-bottom:var(--section)}
+html[data-dir] .gallery{padding-bottom:var(--section)}
+
+/* menu board: chunky chalk heading, rounded frame corners */
+html[data-dir] .menu > .wrap{border-radius:18px}
+html[data-dir] .menu h2{font-family:'Lilita One',var(--display)}
+html[data-dir] .menu .dish-price{color:#f2c9a8}
+
+/* QR: earthenware brown */
+html[data-dir] .qr{background:var(--primary)}
+html[data-dir] .qr-name{font-family:'Lilita One',var(--display)}
+
+/* booking tablecloth in red check (accent) */
+html[data-dir] .book{background-image:linear-gradient(90deg,color-mix(in srgb,var(--accent) 15%,transparent) 50%,transparent 50%),
+  linear-gradient(color-mix(in srgb,var(--accent) 15%,transparent) 50%,transparent 50%)}
+
+/* mesa / cozinha */
+html[data-dir] .m-top h1{font-family:'Lilita One',var(--display)}
+
+@media (max-width:860px){
+  html[data-dir] .brand{font-size:1.22rem}
+  html[data-dir] .brand::before{width:28px;height:25px}
+  html[data-dir] .hero-copy::after{width:46px;height:40px;top:14px}
+  html[data-dir] .hero .kicker{padding-right:56px}
+}

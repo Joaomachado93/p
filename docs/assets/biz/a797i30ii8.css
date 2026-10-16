@@ -1,0 +1,60 @@
+/* República do Polvo — hook: the octopus — a curling tentacle with suckers, ink-blue sea and a "republic" seal */
+@import url('https://fonts.googleapis.com/css2?family=Rozha+One&display=swap');
+:root{
+  --rp-sea:#0b4f6c; --rp-deep:#072f42; --rp-coral:#f26b4f; --rp-coral-ink:#b23a20; --rp-foam:#eef6f9;
+  --bg:#f3f8fa; --linen:#e4eef2;
+  --rp-tentacle:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120' viewBox='0 0 120 120'%3E%3Cpath d='M8 112C30 110 60 100 74 78s12-48-6-54-30 10-22 22 22 6 18-4' fill='none' stroke='%23f26b4f' stroke-width='14' stroke-linecap='round'/%3E%3Cg fill='%23fde3dc'%3E%3Ccircle cx='26' cy='108' r='3.4'/%3E%3Ccircle cx='46' cy='102' r='3.6'/%3E%3Ccircle cx='63' cy='90' r='3.6'/%3E%3Ccircle cx='76' cy='70' r='3.4'/%3E%3Ccircle cx='79' cy='50' r='3.2'/%3E%3Ccircle cx='72' cy='32' r='3'/%3E%3Ccircle cx='54' cy='30' r='2.6'/%3E%3Ccircle cx='48' cy='44' r='2.2'/%3E%3C/g%3E%3C/svg%3E");
+  --rp-waves:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='40' height='12' viewBox='0 0 40 12'%3E%3Cpath d='M0 6c5-6 15-6 20 0s15 6 20 0' fill='none' stroke='%23f26b4f' stroke-width='2'/%3E%3C/svg%3E");
+}
+/* wordmark: "República" small tracked caps over a heavy Rozha "do Polvo" feel */
+html[data-dir] .brand{font:400 1.45rem/1 'Rozha One',var(--display);color:var(--rp-deep);letter-spacing:.005em;display:inline-flex;align-items:center;gap:8px}
+html[data-dir] .brand::before{content:"";width:26px;height:26px;flex:none;background:var(--rp-tentacle) 0 0/100% 100% no-repeat}
+html[data-dir] .hero-title{font-family:'Rozha One',var(--display);font-weight:400;color:var(--rp-deep);letter-spacing:-.01em;line-height:.95}
+html[data-dir] .hero-title::after{content:"";display:block;height:12px;width:160px;margin-top:20px;background:var(--rp-waves) 0 0/40px 12px repeat-x}
+html[data-dir] h2{font-family:'Rozha One',var(--display);font-weight:400}
+html[data-dir] .kicker{color:var(--rp-sea)}
+
+/* hero: the tentacle curls out of the frame, deep-sea mat instead of linen */
+html[data-dir] .hero-media{background:var(--rp-deep);box-shadow:inset 0 0 0 9px var(--rp-deep);border-color:var(--rp-deep);overflow:visible}
+html[data-dir] .hero-media::before{content:"";position:absolute;z-index:3;left:-18px;bottom:-22px;width:150px;height:150px;
+  background:var(--rp-tentacle) 0 0/100% 100% no-repeat;pointer-events:none;transform:scaleX(-1) rotate(-6deg)}
+html[data-dir] .hero-media img{position:relative}
+html[data-dir] .hero .btn-primary{background:var(--rp-coral-ink);border-color:var(--rp-coral-ink)}
+html[data-dir] .hero .btn-primary:hover{background:var(--rp-deep);border-color:var(--rp-deep)}
+
+/* order: polvo first — menu straight after the hero, photos then story */
+html[data-dir] .hero{order:-10}
+html[data-dir] .menu{order:1}
+html[data-dir] .gallery{order:2}
+html[data-dir] .about{order:3}
+html[data-dir] .qr{order:4}
+html[data-dir] .book{order:5}
+html[data-dir] .visit{order:6}
+html[data-dir] .proposal{order:99}
+
+/* menu: the carte floats on deep water, prices in coral ink */
+html[data-dir] .menu{background:var(--rp-deep);border:0;position:relative;overflow:hidden}
+html[data-dir] .menu::before{content:"";position:absolute;right:-30px;top:-20px;width:240px;height:240px;opacity:.5;background:var(--rp-tentacle) 0 0/100% 100% no-repeat}
+html[data-dir] .menu .wrap{position:relative}
+html[data-dir] .menu h2::after{width:120px;height:12px;background:var(--rp-waves) 0 0/40px 12px repeat-x}
+html[data-dir] .dish-price{color:var(--rp-coral-ink)}
+html[data-dir] .tab[aria-selected=true]{color:var(--rp-coral-ink);border-bottom-color:var(--rp-coral)}
+
+/* about: the "republic" seal around the roman numerals */
+html[data-dir] .point::before{width:40px;height:40px;border:2px solid var(--rp-coral);border-radius:50%;display:grid;place-items:center;font-size:1rem;color:var(--rp-coral-ink);font-style:normal;font-family:'Rozha One',var(--display)}
+html[data-dir] .lede{font-family:'Rozha One',var(--display);font-style:normal;color:var(--rp-deep)}
+html[data-dir] .qr{background:var(--rp-sea)}
+html[data-dir] .qr h2::after{background:var(--rp-coral)}
+html[data-dir] .site-foot{border-top:0;position:relative}
+html[data-dir] .site-foot::before{content:"";display:block;height:12px;background:var(--rp-waves) 0 0/40px 12px repeat-x;margin-bottom:24px}
+html[data-dir] .site-foot b{font-family:'Rozha One',var(--display);font-weight:400}
+
+/* mesa / cozinha pages */
+html[data-dir] .m-top{background:var(--rp-deep);border-bottom:3px solid var(--rp-coral)}
+html[data-dir] .m-top h1{font-family:'Rozha One',var(--display);font-weight:400}
+html[data-dir] .ticket{border-top-color:var(--rp-coral)}
+
+@media (max-width:860px){
+  html[data-dir] .hero-media::before{width:96px;height:96px;left:-8px;bottom:-16px}
+  html[data-dir] .menu::before{width:150px;height:150px;opacity:.35}
+}

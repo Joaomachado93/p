@@ -1,0 +1,63 @@
+/* 1.º Bolo da Avó — hook: the name — "1.º" as a first-prize rosette, "da Avó" as grandma's gingham tablecloth and handwritten recipe card */
+@import url('https://fonts.googleapis.com/css2?family=Yeseva+One&display=swap');
+:root{
+  --rosette:url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 60 84'><path d='M18 44 8 80l12-7 6 11 8-36zM42 44l10 36-12-7-6 11-8-36z' fill='%23a0522d'/><g fill='%23e9b44c'><circle cx='30' cy='30' r='27'/></g><g fill='none' stroke='%23a0522d' stroke-width='2'><circle cx='30' cy='30' r='21'/><circle cx='30' cy='30' r='25' stroke-dasharray='3 3'/></g><path d='M24 22l6-4v24M24 42h12' fill='none' stroke='%23a0522d' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'/></svg>");
+  --gingham:repeating-linear-gradient(0deg,rgba(160,82,45,.16) 0 14px,transparent 14px 28px),repeating-linear-gradient(90deg,rgba(160,82,45,.16) 0 14px,transparent 14px 28px),#fffaf2;
+  --bg:#fcf6ec; --paper:#f7ead6; --paper-2:#f0dcc0;
+}
+/* awning becomes a gingham hem */
+:root .site-head::before{height:18px;-webkit-mask:none;mask:none;
+  background:repeating-linear-gradient(0deg,rgba(160,82,45,.55) 0 9px,transparent 9px 18px),repeating-linear-gradient(90deg,rgba(160,82,45,.55) 0 9px,rgba(255,250,242,1) 9px 18px)}
+
+/* wordmark: plump, old-fashioned display serif with a rosette */
+:root .brand{font:400 clamp(1.15rem,2.6vw,1.5rem)/1 'Yeseva One',Georgia,serif;font-style:normal;color:var(--primary);display:inline-flex;align-items:center;gap:10px}
+:root .brand::before{content:"";width:22px;height:31px;flex:none;background:var(--rosette) center/contain no-repeat}
+:root .hero .hero-title{font:400 clamp(2.8rem,11vw,6rem)/1 'Yeseva One',Georgia,serif;letter-spacing:-.01em;color:var(--primary)}
+:root h2{font-family:'Yeseva One',Georgia,serif!important;font-weight:400!important}
+
+/* hero: photo on the gingham tablecloth, a prize rosette pinned to its corner */
+:root .hero-media{border-radius:6px;box-shadow:0 0 0 10px #fff,0 16px 34px -14px rgba(90,40,15,.5);overflow:visible;transform:rotate(-1.5deg);
+  margin-top:22px!important;margin-bottom:10px!important}
+:root .hero-media img{border-radius:6px}
+:root .hero-media::after{content:"";inset:auto -12px -26px auto;width:78px;height:110px;background:var(--rosette) center/contain no-repeat;transform:rotate(8deg)}
+:root .hero{background:var(--gingham)}
+:root .hero-copy{background:#fffaf2;border-radius:6px;margin:22px 12px 26px!important;padding:24px 20px!important;box-shadow:0 2px 0 rgba(160,82,45,.25);width:auto}
+@media (min-width:861px){
+  :root .hero{width:100%;max-width:none!important;padding-block:56px!important;padding-inline:max(32px,calc((100vw - var(--maxw))/2 + 16px))!important}
+  :root .hero-media{margin:0!important}
+  :root .hero-copy{margin:0!important;padding:40px 36px!important}
+  :root .hero-media::after{width:100px;height:140px;inset:auto -26px -34px auto}
+}
+
+/* order: menu (the recipe box) before the story, gallery as the family album last */
+:root .menu{order:1}
+:root .about{order:2}
+:root .gallery{order:3}
+:root .book{order:4}
+:root .visit{order:5}
+:root .proposal{order:9}
+
+/* menu: recipe card on the tablecloth — ruled lines, red margin rule */
+:root .menu{background:var(--gingham);border-image:none;border-top:0}
+:root .menu .section-head{background:#fffaf2;padding:18px 20px;border-radius:4px;justify-self:start;box-shadow:0 2px 0 rgba(160,82,45,.25)}
+:root .dishes{border-radius:4px;padding-left:clamp(30px,5vw,56px);
+  background:linear-gradient(90deg,transparent calc(clamp(30px,5vw,56px) - 14px),rgba(200,60,50,.45) calc(clamp(30px,5vw,56px) - 14px) calc(clamp(30px,5vw,56px) - 12px),transparent 0),#fffdf8;
+  box-shadow:0 2px 0 rgba(160,82,45,.25),0 14px 28px -18px rgba(90,40,15,.6)}
+:root .dish{border-bottom:1px solid rgba(80,120,180,.28)}
+:root .dish-name{font-family:'Yeseva One',Georgia,serif;font-weight:400}
+:root .dish-price{background:var(--accent);color:#2e1a0e;clip-path:none;-webkit-mask:none;mask:none;border-radius:50%;width:auto;min-width:3.4em;text-align:center;padding:.8em .5em;font-size:.95rem}
+:root .tab{clip-path:none;border-radius:4px 4px 0 0;background:#fffaf2;border:1px solid rgba(160,82,45,.3);border-bottom:0}
+:root .tab[aria-selected=true]{background:var(--primary);color:#fff}
+
+/* gallery: family album snapshots */
+:root .gallery .shot{-webkit-mask:none;mask:none;background:#fff;padding:10px 10px 34px;border-radius:2px;box-shadow:0 10px 22px -14px rgba(60,30,10,.55)}
+:root .gallery .shot:nth-child(1){transform:rotate(-1.5deg)}
+:root .gallery .shot:nth-child(2){transform:rotate(2deg)}
+:root .gallery .shot:nth-child(3){transform:rotate(-2.5deg)}
+
+:root .kicker{background:var(--primary)}
+:root .point::before{color:var(--primary)}
+:root .site-foot .wrap::before{content:"";width:30px;height:42px;background:var(--rosette) center/contain no-repeat}
+@media (prefers-reduced-motion:reduce){:root .shot img{transition:none}}
+:root .hero{overflow:clip}
+@media (max-width:860px){:root .hero-media::after{inset:auto 6px -26px auto}}

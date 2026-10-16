@@ -1,0 +1,38 @@
+/* Marb's Burger Shop — hook: the burger itself → bun, lettuce, cheese and patty layers stacked as the brand stripe */
+@import url('https://fonts.googleapis.com/css2?family=Shrikhand&display=swap');
+:root{
+  --burger:url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 56'><path d='M6 22C6 6 58 6 58 22Z' fill='%23e8a33d' stroke='%231b140d' stroke-width='2.5'/><g fill='%23fff5d6'><ellipse cx='22' cy='14' rx='2' ry='1.2'/><ellipse cx='32' cy='11' rx='2' ry='1.2'/><ellipse cx='42' cy='14' rx='2' ry='1.2'/></g><path d='M4 27q5-5 10 0t10 0 10 0 10 0 10 0 10 0' fill='none' stroke='%234caf50' stroke-width='4'/><path d='M6 31h52l-8 7-6-5H6Z' fill='%23fcbf49' stroke='%231b140d' stroke-width='2'/><rect x='5' y='36' width='54' height='8' rx='4' fill='%235a2a14' stroke='%231b140d' stroke-width='2'/><path d='M7 47h50c0 6-50 6-50 0Z' fill='%23e8a33d' stroke='%231b140d' stroke-width='2.5'/></svg>");
+  --layers:linear-gradient(#e8a33d 0 30%,#1b140d 30% 36%,#4caf50 36% 48%,#fcbf49 48% 62%,#5a2a14 62% 88%,#1b140d 88%);
+  --diner:'Shrikhand','Anton',Impact,sans-serif;
+}
+/* wordmark: fat retro diner italic, not shouted in caps */
+html[data-dir] .brand{display:inline-flex;align-items:center;gap:10px;font:400 1.45rem/1 var(--diner);text-transform:none;letter-spacing:0;color:var(--accent)}
+html[data-dir] .brand::before{content:"";width:32px;height:28px;flex:none;background:var(--burger) center/contain no-repeat}
+html[data-dir] .hero-title{font:400 clamp(2.8rem,6.6vw,6rem)/1 var(--diner);text-transform:none;letter-spacing:0;color:#fff;text-shadow:3px 3px 0 var(--accent),6px 6px 0 var(--ink)}
+/* the awning becomes the burger stack */
+html[data-dir] .site-head::after{height:22px;-webkit-mask:none;mask:none;background:var(--layers)}
+html[data-dir] .hero{margin-top:0}
+/* hero: burger sticker replaces the round rating sticker position */
+html[data-dir] .hero-media::after{content:"";position:absolute;left:18px;bottom:18px;width:clamp(84px,10vw,120px);aspect-ratio:64/56;background:var(--burger) center/contain no-repeat;filter:drop-shadow(3px 4px 0 rgba(27,20,13,.6));transform:rotate(-8deg)}
+html[data-dir] .hero .kicker{background:var(--accent);color:var(--ink)}
+/* order: the board straight after the poster */
+main > .menu{order:1} main > .gallery{order:2} main > .about{order:3} main > .book{order:4} main > .visit{order:5} main > .proposal{order:9}
+html[data-dir] .gallery{padding-top:var(--section)}
+/* menu: each item stacked on a bun-layer edge */
+html[data-dir] .menu{border-top:0;border-bottom:0;position:relative}
+html[data-dir] .menu::before{content:"";position:absolute;left:0;right:0;top:0;height:22px;background:var(--layers)}
+html[data-dir] .menu h2{font:400 clamp(2.4rem,5.4vw,3.8rem)/1 var(--diner);text-transform:none;color:var(--primary)}
+html[data-dir] .menu .section-head{grid-template-columns:auto 1fr;column-gap:16px;align-items:center}
+html[data-dir] .menu .section-head::before{content:"";grid-row:span 3;width:72px;aspect-ratio:64/56;background:var(--burger) center/contain no-repeat}
+html[data-dir] .dish{padding-left:18px;background:var(--layers) 0 50%/7px calc(100% - 24px) no-repeat}
+html[data-dir] .dish-price{color:var(--primary)}
+html[data-dir] h2{font-family:var(--diner);text-transform:none;font-size:clamp(2.1rem,4.6vw,3.4rem)}
+html[data-dir] .point::before{font-family:var(--diner);color:var(--primary)}
+/* footer */
+html[data-dir] .site-foot::before{background:var(--layers);height:16px}
+html[data-dir] .site-foot b{font:400 1.2rem var(--diner);color:var(--accent)}
+@media (max-width:860px){
+  html[data-dir] .hero-title{font-size:clamp(2.5rem,13vw,3.8rem);text-shadow:2px 2px 0 var(--accent),4px 4px 0 var(--ink)}
+  html[data-dir] .menu .section-head::before{width:54px}
+  html[data-dir] .dish{padding-left:12px}
+}

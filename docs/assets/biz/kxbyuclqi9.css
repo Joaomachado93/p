@@ -1,0 +1,55 @@
+/* Fundador Churrasqueira Snack-Bar — hook: the churrasqueira grill — grate bars, grill marks and the flame */
+@import url('https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@800;900&display=swap');
+:root{
+  --fun-display:'Big Shoulders Display','Anton',Impact,sans-serif;
+  --grate:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Cpath d='M32 4C38 14 46 18 44 28C43 34 38 37 32 37C26 37 21 34 20 28C19 20 27 18 26 10C30 12 31 9 32 4Z' fill='%23f0b429'/%3E%3Cpath d='M32 18C35 24 39 26 38 31C37 34 35 35 32 35C29 35 27 34 26 31C26 27 30 26 32 18Z' fill='%23bd4413'/%3E%3Cg stroke='%231b140d' stroke-width='4' stroke-linecap='round'%3E%3Cpath d='M6 42H58M6 50H58M6 58H58'/%3E%3C/g%3E%3Cpath d='M6 40V60M58 40V60' stroke='%231b140d' stroke-width='3'/%3E%3C/svg%3E");
+  --bars:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='22' viewBox='0 0 16 22'%3E%3Crect width='16' height='22' fill='%231b140d'/%3E%3Crect x='5' y='0' width='6' height='22' rx='3' fill='%23f0b429'/%3E%3C/svg%3E");
+}
+
+/* wordmark: tall grill-house lettering with a flame-on-grate seal */
+html[data-dir] .brand{font:900 1.5rem/1 var(--fun-display);letter-spacing:.03em;display:inline-flex;align-items:center;gap:.4em}
+html[data-dir] .brand::before{content:"";width:1.5em;height:1.5em;flex:none;background:var(--grate) center/contain no-repeat;filter:drop-shadow(0 0 0 #f8f1e2)}
+html[data-dir] .hero-title{font-family:var(--fun-display);font-weight:900;letter-spacing:.01em;line-height:.86;
+  text-shadow:4px 4px 0 var(--ink)}
+html[data-dir] .hero-title::first-line{color:var(--accent)}
+
+/* hero: grill marks seared across the brand block, flame badge on the copy */
+html[data-dir] .hero{background-color:var(--primary);
+  background-image:repeating-linear-gradient(-28deg,transparent 0 46px,rgba(27,20,13,.22) 46px 56px)}
+html[data-dir] .hero-media::after{content:"";position:absolute;z-index:2;left:clamp(26px,3vw,40px);bottom:clamp(18px,3vw,36px);width:clamp(64px,8vw,104px);aspect-ratio:1;
+  background:#f8f1e2 var(--grate) center/72% no-repeat;border:3px solid var(--ink);border-radius:50%;box-shadow:4px 4px 0 var(--ink);transform:rotate(-6deg);pointer-events:none}
+html[data-dir] .hero-media{border-left-width:0;box-shadow:inset 14px 0 0 -2px var(--ink)}
+html[data-dir] .hero-media::before{content:"";position:absolute;z-index:1;left:0;top:0;bottom:0;width:16px;background:var(--bars) 0 0/16px 22px repeat-y}
+
+/* grate band under the header */
+html[data-dir] .site-head{border-bottom:0}
+html[data-dir] .menu{border-top:0;position:relative}
+html[data-dir] .menu::before{content:"";position:absolute;left:0;right:0;top:0;height:14px;
+  background:repeating-linear-gradient(90deg,var(--ink) 0 6px,var(--accent) 6px 10px,var(--ink) 10px 16px)}
+
+/* order: the grill board right after the poster */
+main > .menu{order:1} main > .gallery{order:2} main > .about{order:3} main > .qr{order:4}
+main > .book{order:5} main > .visit{order:6} main > .proposal{order:20}
+
+/* menu: price board on the grill — title with flame, prices in flame orange */
+html[data-dir] .menu .section-head h2{font-family:var(--fun-display);font-weight:900;display:flex;align-items:center;gap:.25em}
+html[data-dir] .menu .section-head h2::before{content:"";width:1.1em;height:1.1em;flex:none;background:var(--grate) center/contain no-repeat}
+html[data-dir] .dish-name{font-family:var(--fun-display);font-weight:800;letter-spacing:.04em;font-size:1.3rem}
+html[data-dir] .dishes{box-shadow:6px 6px 0 var(--ink),12px 12px 0 var(--accent)}
+html[data-dir] .dish-price{font-family:var(--fun-display);font-weight:900;color:var(--primary)}
+html[data-dir] .tab[aria-selected=true]{background:var(--ink);border-color:var(--ink);color:var(--accent)}
+
+/* about: numbered with flame-coloured numerals */
+html[data-dir] .point::before{font-family:var(--fun-display);font-weight:900;color:var(--primary);-webkit-text-stroke:0}
+html[data-dir] .qr-name,html[data-dir] .m-top h1{font-family:var(--fun-display);font-weight:900;letter-spacing:.03em}
+html[data-dir] .site-foot b{font-family:var(--fun-display);font-weight:900;font-size:1.2em;letter-spacing:.03em}
+
+@media (prefers-reduced-motion:reduce){html[data-dir] .hero-media::after{transform:none}}
+@media (max-width:860px){
+  html[data-dir] .hero-media{box-shadow:none}
+  html[data-dir] .hero-media::before{left:0;right:0;top:auto;bottom:0;width:auto;height:14px;background:repeating-linear-gradient(90deg,var(--ink) 0 6px,var(--accent) 6px 10px,var(--ink) 10px 16px)}
+  html[data-dir] .hero-media::after{width:62px;left:var(--gutter);bottom:26px}
+  html[data-dir] .hero-title{font-size:clamp(2.8rem,14vw,4.4rem);text-shadow:3px 3px 0 var(--ink)}
+  html[data-dir] .brand{font-size:1.2rem}
+  html[data-dir] .dishes{box-shadow:4px 4px 0 var(--ink),8px 8px 0 var(--accent)}
+}

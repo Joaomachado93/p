@@ -1,0 +1,61 @@
+/* Restaurante MiraCéu — hook: the name "Mira Céu" (look at the sky) on Rua Mirasol → open sky, a sun on the horizon, rays */
+@import url('https://fonts.googleapis.com/css2?family=Marcellus&display=swap');
+:root{
+  --display:'Marcellus','Optima',Georgia,serif;
+  --bg:color-mix(in srgb,var(--primary) 4%,#fbfaf6);
+  --sky:color-mix(in srgb,var(--primary) 16%,#f4fbfc);
+  --sun:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 36'%3E%3Cpath d='M14 32a18 18 0 0 1 36 0Z' fill='%23F2A541'/%3E%3Cg stroke='%23F2A541' stroke-width='2.4' stroke-linecap='round'%3E%3Cpath d='M32 4v6M12 12l4 4M52 12l-4 4M4 26h6M54 26h6'/%3E%3C/g%3E%3Cpath d='M2 33H62' stroke='%230E6E7E' stroke-width='2.4' stroke-linecap='round'/%3E%3C/svg%3E");
+}
+/* wordmark: open, airy caps with a rising sun over the name */
+html[data-dir] .brand{display:inline-flex;align-items:center;gap:10px;font:400 1.15rem/1 var(--display);letter-spacing:.16em;text-transform:uppercase;color:var(--primary)}
+html[data-dir] .brand::before{content:"";width:34px;height:19px;flex:none;background:var(--sun) center/contain no-repeat}
+html[data-dir] .hero-title{font:400 clamp(2.6rem,6vw,5.4rem)/1 var(--display);letter-spacing:.03em;color:var(--primary)}
+html[data-dir] .hero-title::before{content:"";display:block;width:96px;height:54px;margin-bottom:18px;background:var(--sun) left bottom/contain no-repeat}
+html[data-dir] h2{font-family:var(--display);font-weight:400;letter-spacing:.02em}
+html[data-dir] h2::after{background:var(--accent);height:2px}
+
+/* hero: a sky gradient behind everything; photo in a round "window to the sky" */
+html[data-dir] .hero{background:linear-gradient(180deg,var(--sky) 0%,var(--bg) 85%)}
+@media (min-width:861px){
+  html[data-dir] .hero{max-width:none;padding-inline:max(var(--gutter),calc((100vw - var(--maxw))/2 + 16px))}
+  html[data-dir] .hero-media{aspect-ratio:1;max-height:none;width:min(100%,520px);justify-self:center;border-radius:50%;padding:12px;
+    box-shadow:inset 0 0 0 11px var(--surface),0 0 0 1px var(--line),0 30px 60px -30px color-mix(in srgb,var(--primary) 60%,transparent)}
+  html[data-dir] .hero-media::after{inset:12px;border-radius:50%}
+  html[data-dir] .hero-media img{border-radius:50%}
+}
+
+/* horizon line divider (sun on the line) */
+html[data-dir] .about{border-top:0;position:relative}
+html[data-dir] .about::before,html[data-dir] .site-foot::before{content:"";display:block;height:36px;max-width:var(--maxw);margin:0 auto 40px;
+  background:var(--sun) center bottom/64px 36px no-repeat,linear-gradient(var(--line),var(--line)) center bottom/100% 1px no-repeat}
+html[data-dir] .site-foot{border-top:0}
+html[data-dir] .site-foot::before{margin-bottom:24px}
+
+/* order: menu first, then the story under the sky, photos, booking */
+html[data-dir] .hero{order:0}
+html[data-dir] .menu{order:1}
+html[data-dir] .about{order:2}
+html[data-dir] .gallery{order:3}
+html[data-dir] .book{order:4}
+html[data-dir] .visit{order:5}
+html[data-dir] .proposal{order:9}
+
+/* menu: a sky-tinted card with a sunrise heading */
+html[data-dir] .menu .wrap{background:var(--sky);border-top:3px solid var(--primary);padding-block:clamp(28px,4vw,52px)}
+html[data-dir] .menu .section-head{justify-items:center;text-align:center}
+html[data-dir] .menu .section-head h2::after{margin-inline:auto}
+html[data-dir] .menu .tabs{justify-content:center}
+html[data-dir] .dish-price{color:var(--primary)}
+html[data-dir] .book .form{border-top:3px solid var(--accent)}
+html[data-dir] .site-foot b{font:400 1.05rem var(--display);letter-spacing:.14em;text-transform:uppercase;color:var(--primary)}
+
+@media (max-width:860px){
+  html[data-dir] .hero-media{border-radius:50% 50% 0 0/42% 42% 0 0;aspect-ratio:5/4}
+  html[data-dir] .hero-media::after{border-radius:50% 50% 0 0/42% 42% 0 0}
+  html[data-dir] .hero-media img{border-radius:50% 50% 0 0/42% 42% 0 0}
+  html[data-dir] .hero-title{font-size:clamp(2.3rem,11vw,3.2rem)}
+  html[data-dir] .hero-title::before{width:72px;height:40px;margin-bottom:12px}
+  html[data-dir] .brand{font-size:.92rem;letter-spacing:.1em}
+  html[data-dir] .menu .wrap{padding-inline:16px}
+}
+html[data-dir] .m-top h1{font-family:var(--display);letter-spacing:.06em}

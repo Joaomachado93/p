@@ -1,0 +1,80 @@
+/* Restaurante Dan José — hook: the view from the top of Penha (ridge line + midday sun over the panorama) */
+@import url('https://fonts.googleapis.com/css2?family=Yeseva+One&display=swap');
+:root{
+  --dj-font:'Yeseva One',Georgia,serif;
+  --bg:#f6eedf;
+  --surface:#fffcf5;
+  /* ridge silhouette + sun, used on the hero edge, the menu head and the footer */
+  --dj-ridge:url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 240 60' preserveAspectRatio='none'><circle cx='176' cy='22' r='11' fill='%23d9a441'/><path d='M0 60V40l26-12 20 7 30-22 26 17 22-9 30 16 26-16 28 13 32-9v35z' fill='%23c58a5e' opacity='.55'/><path d='M0 60V48l34-10 24 6 34-16 30 14 24-6 30 10 30-12 34 8v18z' fill='%238a3b12'/></svg>");
+  --dj-ridge-bg:url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 240 40' preserveAspectRatio='none'><path d='M0 40V26l34-12 24 6 34-18 30 15 24-6 30 11 30-13 34 9v28z' fill='%23f6eedf'/></svg>");
+}
+html[data-dir] body{background:var(--bg)}
+
+/* wordmark: tall Didone-ish display, brand rust, a small summit glyph before the name */
+html[data-dir] .brand{font:400 1.32rem/1.05 var(--dj-font);color:var(--primary);display:inline-flex;align-items:center;gap:10px;letter-spacing:.01em}
+html[data-dir] .brand::before{content:"";width:34px;height:18px;flex:none;background:var(--dj-ridge) 0 0/100% 100% no-repeat}
+html[data-dir] .hero-title{font-family:var(--dj-font);font-weight:400;color:var(--primary);letter-spacing:0;line-height:1}
+html[data-dir] .hero .kicker{color:var(--ink)}
+html[data-dir] .tagline{font:italic 500 clamp(1.25rem,2.2vw,1.6rem)/1.3 var(--body);color:var(--ink)}
+html[data-dir] h2{font-family:var(--dj-font)}
+html[data-dir] .kicker{color:color-mix(in srgb,var(--primary) 85%,#000)}
+
+/* hero: the photo becomes a panorama whose bottom edge is the Penha skyline */
+html[data-dir] .hero{grid-template-columns:minmax(0,1fr);padding:0}
+html[data-dir] .hero-media{position:relative;grid-column:1;grid-row:1;height:min(58vh,540px);padding:0;background:var(--primary);border-radius:0;box-shadow:none}
+html[data-dir] .hero-media img{border-radius:0;box-shadow:none}
+html[data-dir] .hero-media::after{content:"";position:absolute;left:0;right:0;bottom:-1px;height:clamp(46px,8vw,110px);background:var(--dj-ridge-bg) 0 100%/100% 100% no-repeat;
+  filter:drop-shadow(0 -3px 0 var(--accent))}
+html[data-dir] .hero-media::before{content:"";position:absolute;z-index:1;top:clamp(18px,4vw,40px);right:clamp(18px,6vw,80px);width:clamp(54px,8vw,92px);aspect-ratio:1;border-radius:50%;
+  background:radial-gradient(circle,var(--accent) 0 55%,color-mix(in srgb,var(--accent) 40%,transparent) 56% 64%,transparent 65%);opacity:.92}
+html[data-dir] .hero-copy{grid-column:1;grid-row:2;margin-top:clamp(-40px,-2.5vw,-20px);position:relative;z-index:2;
+  max-width:var(--maxw);margin-inline:auto;width:100%;padding:0 var(--gutter-r) clamp(36px,5vw,64px) var(--gutter);
+  grid-template-columns:minmax(0,1.3fr) minmax(0,1fr);column-gap:clamp(24px,5vw,64px);align-items:end}
+html[data-dir] .hero-copy > *{grid-column:1}
+html[data-dir] .hero-copy .actions{grid-column:2;grid-row:2 / span 2;align-self:end;justify-content:flex-end}
+html[data-dir] .hero-copy .facts{grid-column:1 / -1;padding-top:14px;border-top:2px solid var(--primary)}
+html[data-dir] .hero-media--empty{height:220px}
+
+/* order: big shared doses first — menu right under the view */
+html[data-dir] .menu{order:1;padding-top:clamp(20px,3vw,40px)}
+html[data-dir] .about{order:2}
+html[data-dir] .gallery{order:3}
+html[data-dir] .qr{order:4}
+html[data-dir] .book{order:5}
+html[data-dir] .visit{order:6}
+html[data-dir] .proposal{order:9}
+
+/* menu board: ridge drawn in chalk-gold across the board's head */
+html[data-dir] .menu .section-head{position:relative;padding-bottom:30px}
+html[data-dir] .menu .section-head::after{content:"";position:absolute;left:0;bottom:0;width:min(260px,70%);height:24px;
+  background:url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 240 30'><path d='M2 26l32-10 24 5 34-15 30 13 24-5 30 9 30-11 32 8' fill='none' stroke='%23e8c785' stroke-width='3' stroke-linejoin='round'/><circle cx='176' cy='9' r='6' fill='%23e8c785'/></svg>") 0 0/100% 100% no-repeat}
+html[data-dir] .menu h2{font-family:var(--dj-font)}
+
+/* about: points numbered as altitude markers */
+html[data-dir] .point::before{background:var(--dj-ridge) 0 100%/100% 100% no-repeat;border:0;width:28px;height:16px;margin-top:6px}
+
+/* qr card: summit badge */
+html[data-dir] .qr{background:linear-gradient(180deg,var(--primary),color-mix(in srgb,var(--primary) 78%,#000))}
+html[data-dir] .qr-card{background:linear-gradient(#fff,#fff) padding-box,linear-gradient(var(--accent),var(--accent)) border-box;border-width:8px}
+html[data-dir] .qr-card::before{content:"";height:34px;margin:-6px -6px 0;background:var(--dj-ridge) 0 100%/100% 100% no-repeat}
+html[data-dir] .qr-name{font-family:var(--dj-font)}
+
+/* footer: the ridge closes the page */
+html[data-dir] .site-foot::before{height:46px;background:var(--dj-ridge) 0 100%/100% 100% no-repeat}
+html[data-dir] .proposal::before{height:30px;background:var(--dj-ridge) 0 100%/240px 30px repeat-x;opacity:.9}
+html[data-dir] .site-foot b{font:400 1.05rem var(--dj-font);color:var(--primary)}
+
+@media (max-width:860px){
+  html[data-dir] .hero-media{height:clamp(240px,40svh,360px)}
+  html[data-dir] .hero-copy{grid-template-columns:minmax(0,1fr);margin-top:-26px;padding-top:0}
+  html[data-dir] .hero-copy .actions{grid-column:1;grid-row:auto;justify-content:stretch}
+  html[data-dir] .hero-title{font-size:clamp(2.3rem,11vw,3.3rem)}
+  html[data-dir] .brand{font-size:1.12rem;gap:8px}
+  html[data-dir] .brand::before{width:26px;height:14px}
+  html[data-dir] .mbar{border-top:3px solid var(--primary)}
+}
+
+/* mesa / cozinha */
+html[data-dir] .m-top h1{font-family:var(--dj-font)}
+html[data-dir] .m-top::after{height:14px;bottom:-14px;background:var(--dj-ridge) 0 100%/120px 14px repeat-x}
+html[data-dir] .m-cat{font-family:var(--dj-font);color:var(--primary)}

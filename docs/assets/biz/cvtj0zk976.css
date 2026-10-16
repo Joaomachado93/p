@@ -1,0 +1,66 @@
+/* Confeitaria Aroma — hook: the name "Aroma": three curls of scent rising, an airy high-contrast wordmark, plum + caramel */
+@import url('https://fonts.googleapis.com/css2?family=Italiana&display=swap');
+:root{
+  --steam:url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 60 70'><g fill='none' stroke='%23b07a52' stroke-width='2.6' stroke-linecap='round'><path d='M14 66c-8-10 8-16 0-28s6-20 2-34'/><path d='M30 66c-8-12 9-18 0-31s7-21 3-33'/><path d='M46 66c-8-10 8-16 0-28s6-20 2-34'/></g></svg>");
+  --plum-ink:color-mix(in srgb,var(--primary) 82%,#1a0d14);
+  --bg:color-mix(in srgb,var(--primary) 4%,#fcf8f4);
+  --paper:color-mix(in srgb,var(--accent) 16%,#fdf7f0);
+  --paper-2:color-mix(in srgb,var(--accent) 28%,#fbf1e6);
+}
+/* thin plum ribbon instead of a stripy awning */
+:root .site-head::before{height:4px;-webkit-mask:none;mask:none;background:var(--primary)}
+:root .site-head-row{border-bottom:1px solid var(--line)}
+
+/* wordmark: airy letter-spaced capitals, steam curl over the A */
+:root .brand{font:400 clamp(1.25rem,2.6vw,1.6rem)/1 'Italiana',Georgia,serif;font-style:normal;text-transform:uppercase;letter-spacing:.22em;color:var(--plum-ink);
+  display:inline-flex;align-items:center;gap:10px}
+:root .brand::before{content:"";width:20px;height:24px;flex:none;background:var(--steam) center/contain no-repeat}
+:root .hero .hero-title{font:400 clamp(2.6rem,10vw,6.4rem)/1 'Italiana',Georgia,serif;text-transform:uppercase;letter-spacing:.12em;color:var(--plum-ink)}
+:root .hero .hero-title::before{content:"";display:block;width:64px;height:74px;margin:0 auto 6px;background:var(--steam) center/contain no-repeat}
+
+/* hero: centred, perfume-label composition — copy on top, wide oval-vignetted photo below */
+:root .hero{display:flex!important;flex-direction:column;width:100%}
+:root .hero-copy{order:1;justify-items:center;text-align:center;padding-block:36px 28px!important}
+:root .hero .kicker{justify-self:center}
+:root .hero .actions,:root .hero .facts{justify-content:center}
+:root .hero .facts{border-top:0}
+:root .hero-media{order:2;width:calc(100% - 32px);max-width:1080px;margin:0 auto clamp(32px,6vw,72px)!important;aspect-ratio:16/10!important;max-height:560px!important;
+  border-radius:50% / 22%!important;box-shadow:0 0 0 1px var(--accent),0 0 0 10px var(--bg),0 0 0 11px color-mix(in srgb,var(--accent) 60%,transparent)!important}
+:root .hero-media::after{background:none}
+@media (min-width:861px){:root .hero-media{aspect-ratio:21/9!important;border-radius:50% / 34%!important}}
+
+/* headings: the same airy capitals */
+:root h2{font-family:'Italiana',Georgia,serif!important;font-weight:400!important;text-transform:uppercase;letter-spacing:.08em!important}
+:root .kicker{clip-path:none;background:none;color:var(--plum-ink);border-top:1px solid var(--accent);border-bottom:1px solid var(--accent);padding:.6em .2em;letter-spacing:.26em}
+
+/* order: gallery (the cakes) right after the hero, menu next */
+:root .gallery{order:1;padding-top:0}
+:root .menu{order:2}
+:root .about{order:3}
+:root .book{order:4}
+:root .visit{order:5}
+:root .proposal{order:9}
+
+/* menu: one narrow centred card, steam curl above, caramel hairlines */
+:root .menu{background:var(--paper);border-image:none;border-top:0}
+:root .menu .section-head{justify-items:center;text-align:center}
+:root .menu .section-head::before{content:"";width:46px;height:54px;background:var(--steam) center/contain no-repeat}
+:root .menu .tabs{justify-content:center}
+:root .tab{clip-path:none;background:transparent;border-radius:0;border-bottom:1px solid transparent;letter-spacing:.12em;text-transform:uppercase;font-size:.8rem}
+:root .tab:hover{background:transparent;border-bottom-color:var(--accent)}
+:root .tab[aria-selected=true]{background:transparent;color:var(--plum-ink);border-bottom:2px solid var(--primary)}
+:root .tab:focus-visible{outline:2px solid var(--primary);background:transparent;color:var(--ink)}
+:root .dishes{grid-template-columns:minmax(0,1fr)!important;max-width:680px;margin:0 auto;border-radius:2px;box-shadow:0 0 0 1px color-mix(in srgb,var(--accent) 50%,transparent)}
+:root .dish-dots{border-bottom:1px solid color-mix(in srgb,var(--accent) 55%,transparent)}
+:root .dish-price{clip-path:none;-webkit-mask:none;mask:none;background:none;color:var(--plum-ink);padding:0;font:400 1.3rem/1 'Italiana',Georgia,serif}
+
+/* gallery: three soft ovals */
+:root .gallery .shot{-webkit-mask:none;mask:none;padding:0;border-radius:50%;aspect-ratio:4/5!important;height:auto!important;grid-row:auto!important;grid-column:auto!important;min-height:0!important}
+:root .gallery-grid{grid-template-columns:repeat(3,minmax(0,1fr))!important;grid-auto-rows:auto!important;gap:clamp(8px,2.4vw,28px)!important}
+:root .gallery .shot img{border-radius:50%}
+:root .caption{text-align:center}
+
+:root .point::before{color:var(--primary)}
+:root .site-foot .wrap{justify-items:center;text-align:center}
+:root .site-foot .wrap::before{content:"";width:40px;height:46px;background:var(--steam) center/contain no-repeat}
+:root .menu .kicker{justify-self:center}

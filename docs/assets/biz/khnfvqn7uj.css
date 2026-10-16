@@ -1,0 +1,55 @@
+/* Cajú — hook: the cashew (caju) itself, fruit and nut, for a small healthy brunch with local organic produce */
+@import url('https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&display=swap');
+:root{
+  --cj-font:'Fredoka','Figtree',system-ui,sans-serif;
+  --cj-red:#C0432A; --cj-teal:#2A9D8F; --cj-teal-ink:#1c6c62; --cj-nut:#e9cf9c;
+  --bg:#fbf6ee; --paper:#f4ebdd; --paper-2:#eadfcb;
+  --cj-caju:url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 72'><path d='M32 6c3-4 9-5 13-3-4 1-7 4-9 8z' fill='%232A9D8F'/><path d='M18 14c8-6 22-6 30 0 6 6 6 20 0 30-5 8-25 8-30 0-6-10-6-24 0-30z' fill='%23C0432A'/><path d='M24 20c3-3 8-4 12-3' stroke='%23fff' stroke-opacity='.55' stroke-width='3' stroke-linecap='round' fill='none'/><path d='M22 49c8 3 20 3 26-2 6 4 6 14-2 18-6 3-10-2-14 0-6 3-14-1-13-8 0-4 1-6 3-8z' fill='%23e9cf9c' stroke='%23a9773f' stroke-width='2.5' stroke-linejoin='round'/></svg>");
+}
+
+/* wordmark: round lowercase "cajú" with the fruit as its accent */
+html[data-dir] .brand{font:600 1.7rem/1 var(--cj-font);font-style:normal;text-transform:lowercase;color:var(--cj-red);display:inline-flex;align-items:center;gap:8px;letter-spacing:-.01em}
+html[data-dir] .brand::before{content:"";width:26px;height:30px;flex:none;background:var(--cj-caju) center/contain no-repeat}
+html[data-dir] .hero-title{font:700 clamp(4rem,12vw,9rem)/.9 var(--cj-font);padding-bottom:.14em;text-transform:lowercase;letter-spacing:-.03em;color:var(--cj-red);display:flex;align-items:flex-end;gap:.08em}
+html[data-dir] .hero-title::after{content:"";width:.62em;height:.7em;flex:none;margin-bottom:.06em;background:var(--cj-caju) center/contain no-repeat;transform:rotate(14deg)}
+html[data-dir] h2,html[data-dir] .m-top h1{font-family:var(--cj-font);font-weight:600;letter-spacing:-.015em}
+html[data-dir] .kicker{background:var(--cj-teal-ink)}
+
+/* hero: the shop-window arch becomes a soft round "fruit" crop */
+html[data-dir] .hero-media{border-radius:46% 54% 50% 50%/52% 48% 52% 48%;aspect-ratio:1;box-shadow:0 0 0 10px var(--cj-nut),0 0 0 12px #a9773f22,0 24px 50px -24px rgba(120,40,20,.5)}
+html[data-dir] .hero-media::after{display:none}
+html[data-dir] .facts{border-top-color:color-mix(in srgb,var(--cj-teal) 40%,transparent)}
+html[data-dir] .facts .i{color:var(--cj-teal-ink)}
+
+/* order: the story (local, organic, small) right after the hero, then the menu */
+html[data-dir] .about{order:1}
+html[data-dir] .menu{order:2}
+html[data-dir] .gallery{order:3}
+html[data-dir] .book{order:4}
+html[data-dir] .visit{order:5}
+html[data-dir] .proposal{order:9}
+
+/* about: services as fresh-leaf chips, cashew bullets */
+html[data-dir] .services li{background:#e3f2ef;color:#14524a;border-radius:999px 999px 999px 4px}
+html[data-dir] .services .i{color:var(--cj-teal-ink)}
+html[data-dir] .point::before{content:"";width:22px;height:26px;background:var(--cj-caju) center/contain no-repeat}
+html[data-dir] .point h3{font-family:var(--cj-font);font-weight:600}
+
+/* menu: brunch board — teal tab ribbons, round red price coins */
+html[data-dir] .menu{border-image:repeating-linear-gradient(-45deg,var(--cj-teal) 0 5px,var(--surface) 5px 10px) 6}
+html[data-dir] .menu .section-head{position:relative;padding-right:70px}
+html[data-dir] .menu .section-head::after{content:"";position:absolute;right:0;top:0;width:56px;height:64px;background:var(--cj-caju) center/contain no-repeat;transform:rotate(12deg)}
+html[data-dir] .tab[aria-selected=true]{background:var(--cj-teal-ink)}
+html[data-dir] .dish-name{font:600 1.15rem/1.25 var(--cj-font)}
+html[data-dir] .dish-price{clip-path:none;-webkit-mask:none;mask:none;border-radius:999px;padding:.45em .8em;font:600 1rem/1 var(--cj-font);background:var(--cj-red)}
+html[data-dir] .dishes{border-radius:28px}
+
+/* booking + footer */
+html[data-dir] .form{border-radius:24px}
+html[data-dir] .site-foot{border-image:repeating-linear-gradient(-45deg,var(--cj-teal) 0 5px,var(--surface) 5px 10px) 6}
+html[data-dir] .site-foot b{font-family:var(--cj-font);font-style:normal;text-transform:lowercase}
+
+@media (max-width:860px){
+  html[data-dir] .hero-media{width:min(86vw,360px);justify-self:center;margin:12px auto 0}
+  html[data-dir] .hero-title{font-size:clamp(3.8rem,20vw,5.4rem)}
+}

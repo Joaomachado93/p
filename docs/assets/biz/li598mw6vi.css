@@ -1,0 +1,61 @@
+/* Paparico's — hook: "paparicar" (to pamper) + "mesa reservada" → a silver cloche and a folded "reserved" table card */
+@import url('https://fonts.googleapis.com/css2?family=Italiana&display=swap');
+:root{
+  --bg:color-mix(in srgb,var(--primary) 3%,#fbf9f5);
+  --blush:color-mix(in srgb,var(--primary) 8%,#fff);
+  --cloche:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 40'%3E%3Cg fill='none' stroke='%23A21CAF' stroke-width='2.2' stroke-linecap='round'%3E%3Cpath d='M10 32a22 22 0 0 1 44 0Z'/%3E%3Cpath d='M4 35h56'/%3E%3Ccircle cx='32' cy='7' r='3'/%3E%3Cpath d='M18 24a15 15 0 0 1 9-10' stroke-width='1.6'/%3E%3C/g%3E%3C/svg%3E");
+  --display-x:'Italiana','Bodoni Moda',Didot,serif;
+}
+
+/* wordmark: high-contrast hairline caps, a cloche lifting over the name */
+html[data-dir] .brand{font:400 1.5rem/1 var(--display-x);letter-spacing:.14em;text-transform:uppercase;color:var(--primary);
+  display:inline-grid;justify-items:center;gap:2px}
+html[data-dir] .brand::before{content:"";width:36px;height:22px;background:var(--cloche) center/contain no-repeat}
+html[data-dir] .hero-title{font-family:var(--display-x);font-weight:400;letter-spacing:.04em;color:var(--ink)}
+html[data-dir] .hero-title::before{content:"";display:block;width:clamp(64px,8vw,96px);height:clamp(40px,5vw,60px);margin-bottom:10px;
+  background:var(--cloche) left bottom/contain no-repeat}
+html[data-dir] .tagline{color:var(--primary)}
+
+/* hero copy as the folded table card: "Reservado" printed on a blush card with a crease */
+@media (min-width:861px){
+  html[data-dir] .hero-copy{background:var(--surface);padding:44px 40px 36px;position:relative;
+    box-shadow:0 1px 0 var(--line),0 28px 50px -34px rgba(60,10,60,.45);outline:1px solid var(--line);outline-offset:-12px}
+  html[data-dir] .hero-copy::before{content:"";position:absolute;inset:0 0 auto;height:8px;
+    background:linear-gradient(var(--primary),var(--primary)) 0 0/100% 3px no-repeat,linear-gradient(rgba(0,0,0,.06),transparent)}
+}
+html[data-dir] .hero-media{background:var(--blush)}
+html[data-dir] .hero-media::after{border-color:rgba(255,255,255,.75)}
+
+/* reservations are what they announce — booking moves up, right after the intro */
+html[data-dir] main > .about{order:1}
+html[data-dir] main > .book{order:2}
+html[data-dir] main > .menu{order:3}
+html[data-dir] main > .gallery{order:4}
+html[data-dir] main > .qr{order:5}
+html[data-dir] main > .visit{order:6}
+html[data-dir] main > .proposal{order:9}
+html[data-dir] .book{background:var(--blush);border-block:1px solid var(--line)}
+html[data-dir] .book > .book-grid{background:var(--surface);padding:clamp(24px,4vw,52px);outline:1px solid var(--line);outline-offset:-10px}
+html[data-dir] .book h2::before{content:"Reservado";display:block;width:max-content;margin-bottom:14px;padding:.35em .8em;
+  font:500 .72rem/1 var(--label);letter-spacing:.3em;text-transform:uppercase;color:var(--primary);border:1px solid var(--primary)}
+html[lang=en][data-dir] .book h2::before{content:"Reserved"}
+
+/* menu: the card opens under a cloche */
+html[data-dir] .menu .section-head::before{content:"";width:72px;height:45px;background:var(--cloche) center/contain no-repeat;margin-bottom:6px}
+html[data-dir] .menu h2,html[data-dir] h2{font-family:var(--display-x);font-weight:400;letter-spacing:.02em}
+html[data-dir] .dish-price{color:var(--primary)}
+html[data-dir] h2::after{background:var(--primary)}
+
+/* QR card: a tent card for the table, magenta rule */
+html[data-dir] .qr-card{border-top:4px solid var(--primary)}
+html[data-dir] .qr-name{font-family:var(--display-x);letter-spacing:.12em;text-transform:uppercase}
+
+/* mesa / cozinha */
+html[data-dir] .m-top h1{font-family:var(--display-x);letter-spacing:.02em;min-width:0;overflow-wrap:break-word}
+
+@media (max-width:860px){
+  html[data-dir] .brand{font-size:1.2rem;justify-items:start}
+  html[data-dir] .brand::before{width:30px;height:18px}
+  html[data-dir] .hero-title{font-size:clamp(2.6rem,13vw,3.8rem)}
+  html[data-dir] .hero-title::before{width:58px;height:36px}
+}

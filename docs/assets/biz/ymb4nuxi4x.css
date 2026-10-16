@@ -1,0 +1,60 @@
+/* O Lamego (charcutaria) — hook: the charcutaria counter — hanging enchidos on a hook, butcher-paper and deli-label gold */
+@import url('https://fonts.googleapis.com/css2?family=Abril+Fatface&display=swap');
+:root{
+  --links:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 96 48'%3E%3Cpath d='M0 4h96' stroke='%23C9962F' stroke-width='3'/%3E%3Cg fill='%238E2A2A'%3E%3Crect x='10' y='10' width='12' height='34' rx='6'/%3E%3Crect x='42' y='10' width='12' height='28' rx='6'/%3E%3Crect x='74' y='10' width='12' height='34' rx='6'/%3E%3C/g%3E%3Cg stroke='%23C9962F' stroke-width='2'%3E%3Cpath d='M16 4v6M48 4v6M80 4v6'/%3E%3C/g%3E%3Cg stroke='%23f3e2c8' stroke-width='1.5' stroke-linecap='round'%3E%3Cpath d='M13 20h6M13 28h6M45 20h6M45 28h6M77 20h6M77 28h6'/%3E%3C/g%3E%3C/svg%3E");
+  --bg:#f6eedf;
+  --surface:#fffaf0;
+  --crate:#efe2c9;
+  --crate-dark:#c9962f;
+  --tag:#f3dfae;
+}
+/* wordmark: fat-face deli signage, gold rule above and below like a vintage label */
+html[data-dir] .brand,html[data-dir] .hero-title,html[data-dir] h2{font-family:'Abril Fatface',Georgia,serif;font-weight:400;font-stretch:normal;font-variation-settings:normal;letter-spacing:.005em}
+html[data-dir] .brand{color:var(--primary);font-size:1.35rem;padding-block:4px;border-block:2px solid var(--accent)}
+html[data-dir] .hero-title{color:var(--primary);font-size:clamp(2.8rem,10vw,5.6rem);line-height:.98;padding-top:56px;position:relative}
+html[data-dir] .hero-title::before{content:"";position:absolute;left:0;top:0;width:96px;height:48px;background:var(--links) 0 0/contain no-repeat}
+html[data-dir] .tagline{font-style:italic;color:#4f3a30}
+html[data-dir] .kicker{color:var(--primary);border-color:var(--accent)}
+html[data-dir] .site-head::before{background:repeating-linear-gradient(90deg,var(--primary) 0 28px,#f3e2c8 28px 56px)}
+
+/* hero: photo in a gold double-ruled deli label frame */
+@media (min-width:861px){
+  html[data-dir] .hero.hero--photo{background:var(--bg)}
+  html[data-dir] .hero--photo .hero-title{font-size:clamp(2.6rem,4.6vw,4.3rem)}
+  html[data-dir] .hero--photo .hero-copy{min-width:0}
+  html[data-dir] .hero--photo .hero-media{margin:32px max(var(--gutter-r),calc((100vw - var(--maxw))/2 + 16px)) 32px 0;height:auto;
+    outline:2px solid var(--accent);outline-offset:-14px;border:8px solid var(--primary)}
+}
+@media (max-width:860px){
+  html[data-dir] .hero-media{margin:14px var(--gutter-r) 0 var(--gutter);border:6px solid var(--primary);outline:2px solid var(--accent);outline-offset:-12px}
+}
+html[data-dir] .hero-media::after{display:none}
+
+/* the counter: dark burgundy band, products on butcher paper with gold weight-tags */
+html[data-dir] .menu{background:var(--primary);background-image:none;border-block:0;color:#fff;position:relative;padding-top:calc(var(--section) + 24px)}
+html[data-dir] .menu::before{content:"";position:absolute;left:0;right:0;top:0;height:48px;
+  background:var(--links) 0 0/96px 48px repeat-x;filter:drop-shadow(0 2px 0 rgba(0,0,0,.25))}
+html[data-dir] .menu .section-head h2{color:#fff}
+html[data-dir] .menu .kicker{color:#f3d48a;border-color:#f3d48a}
+html[data-dir] .menu .note{color:#f1dcd0}
+html[data-dir] .tab{border-color:#f3d48a;box-shadow:0 2px 0 #f3d48a}
+html[data-dir] .tab[aria-selected=true]{background:var(--accent);color:#1e1209;border-color:#f3d48a}
+html[data-dir] .dishes{color:var(--ink);border:0;outline:2px solid var(--accent);outline-offset:6px;box-shadow:none;
+  background:var(--surface) repeating-linear-gradient(0deg,transparent 0 31px,rgba(142,42,42,.05) 31px 32px)}
+html[data-dir] .dish-price{font-family:'Abril Fatface',serif;font-size:1.1rem;color:var(--primary);background:var(--tag);border:1px solid var(--accent)}
+
+/* order: counter right after the sign, then order slip, then the story */
+html main > .menu{order:1}
+html main > .book{order:2}
+html main > .gallery{order:3}
+html main > .about{order:4}
+html main > .visit{order:5}
+html main > .proposal{order:9}
+
+html[data-dir] .shot{border-color:var(--surface);outline:1px solid var(--accent)}
+html[data-dir] .point::before{color:var(--accent);font-family:'Abril Fatface',serif;font-size:1.1rem}
+html[data-dir] .points{border-top-color:var(--primary)}
+html[data-dir] .proposal-box,html[data-dir] .map{border-color:var(--primary)}
+html[data-dir] .site-foot{background:#2a1212}
+html[data-dir] .site-foot::before{background:linear-gradient(var(--accent),var(--accent)) 0 0/100% 3px no-repeat,linear-gradient(var(--accent),var(--accent)) 0 6px/100% 1px no-repeat;height:8px}
+@media (max-width:860px){html[data-dir] .brand{font-size:1.12rem}html[data-dir] .hero-title{padding-top:46px}html[data-dir] .hero-title::before{width:80px;height:40px}}

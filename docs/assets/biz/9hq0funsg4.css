@@ -1,0 +1,51 @@
+/* Supermercado Candeias — hook: the name "Candeias" (oil lamps) — a little lamp flame, warm amber glow over the shop sign */
+@import url('https://fonts.googleapis.com/css2?family=Archivo+Black&display=swap');
+:root{
+  --candeia:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Cpath d='M44 6c6 8 8 13 8 17a8 8 0 0 1-16 0c0-4 2-9 8-17z' fill='%23E8A92D'/%3E%3Cpath d='M44 14c3 4 4 7 4 9a4 4 0 0 1-8 0c0-2 1-5 4-9z' fill='%23fff3c4'/%3E%3Cpath d='M44 31v4' stroke='%231e2219' stroke-width='2.5'/%3E%3Cpath d='M6 40h44l4-4c2 6-2 14-12 16H18C10 52 6 46 6 40z' fill='%232E7D4F'/%3E%3Cpath d='M2 40c0-6 4-8 8-6' fill='none' stroke='%232E7D4F' stroke-width='3' stroke-linecap='round'/%3E%3Cpath d='M18 52v6h20v-6' fill='%23215c3a'/%3E%3C/svg%3E");
+  --bg:color-mix(in srgb,var(--accent) 6%,#f7f3e9);
+  --crate:color-mix(in srgb,var(--primary) 12%,#efe5cd);
+  --crate-dark:color-mix(in srgb,var(--primary) 30%,#d8c59e);
+}
+/* wordmark: heavy, solid supermarket sign with the candeia lamp lit at the front */
+html[data-dir] .brand,html[data-dir] .hero-title{font-family:'Archivo Black',var(--display);font-weight:400;font-stretch:normal;font-variation-settings:normal}
+html[data-dir] .brand{display:inline-flex;align-items:center;gap:8px;text-transform:uppercase;font-size:1.08rem;letter-spacing:.02em;color:var(--primary)}
+html[data-dir] .brand::before{content:"";width:34px;height:34px;flex:none;background:var(--candeia) center/contain no-repeat}
+html[data-dir] .hero-title{font-size:clamp(2.4rem,9vw,4.8rem);letter-spacing:-.02em;line-height:1;text-transform:uppercase;color:var(--primary)}
+html[data-dir] .hero-title::before{content:"";display:block;width:76px;height:76px;margin-bottom:10px;background:var(--candeia) center/contain no-repeat}
+
+/* hero: the copy glows like a lamp-lit window — amber halo behind the name */
+html[data-dir] .hero-copy{background:radial-gradient(ellipse 60% 50% at 18% 30%,color-mix(in srgb,var(--accent) 26%,transparent),transparent 70%)}
+html[data-dir] .hero-media{box-shadow:inset 0 0 0 8px var(--surface)}
+html[data-dir] .hero-media img{filter:saturate(1.05) sepia(.08)}
+@media (min-width:861px){
+  html[data-dir] .hero.hero--photo{grid-template-columns:minmax(0,1.08fr) minmax(0,1fr)}
+  html[data-dir] .hero--photo .hero-media{grid-column:1;padding:24px 0 24px max(var(--gutter),calc((100vw - var(--maxw))/2 + 16px));background:var(--surface)}
+  html[data-dir] .hero--photo .hero-copy{min-width:0}
+  html[data-dir] .hero--photo .hero-title{font-size:clamp(2.4rem,4.3vw,3.9rem)}
+  html[data-dir] .hero--photo .hero-copy{grid-column:2;padding-left:clamp(28px,4vw,56px);padding-right:max(var(--gutter-r),calc((100vw - var(--maxw))/2 + 16px))}
+  html[data-dir] .hero-media img{border-radius:4px}
+}
+@media (max-width:860px){html[data-dir] .hero-title::before{width:56px;height:56px}}
+
+/* menu: aisle sign header — green band with an amber shelf edge */
+html[data-dir] .menu .section-head{background:var(--primary);color:#fff;padding:18px 20px;border-radius:6px;border-bottom:8px solid var(--accent);
+  box-shadow:0 4px 0 rgba(0,0,0,.18)}
+html[data-dir] .menu .section-head h2{color:#fff;font-family:'Archivo Black',var(--display);font-weight:400;text-transform:uppercase;font-size:clamp(1.6rem,3.6vw,2.4rem)}
+html[data-dir] .menu .kicker{color:#fff;border-color:#fff}
+html[data-dir] .menu .note{color:#eef6ef}
+html[data-dir] .dish-price{background:#ffe08a}
+
+/* order: aisles first, then ordering, then the shop's story */
+html main > .menu{order:1}
+html main > .book{order:2}
+html main > .gallery{order:3}
+html main > .about{order:4}
+html main > .visit{order:5}
+html main > .proposal{order:9}
+html[data-dir] .book h2::before{content:"";display:inline-block;width:.9em;height:.9em;margin-right:.25em;vertical-align:-.08em;background:var(--candeia) center/contain no-repeat}
+
+html[data-dir] .point::before{color:#8a5a00}
+html[data-dir] .site-head::before{background:repeating-linear-gradient(90deg,var(--primary) 0 28px,#f6e3b0 28px 56px)}
+html[data-dir] .site-foot{background:#14301f}
+html[data-dir] .site-foot::before{background:linear-gradient(90deg,transparent,var(--accent),transparent)}
+html[data-dir] .site-foot .wrap::before{content:"";width:40px;height:40px;background:var(--candeia) center/contain no-repeat}

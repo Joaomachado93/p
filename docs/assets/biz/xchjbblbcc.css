@@ -1,0 +1,59 @@
+/* Berço dos Bifes — hook: the seared steak (grill marks) on a dark oxblood table in the Largo da Misericórdia */
+@import url('https://fonts.googleapis.com/css2?family=Rozha+One&display=swap');
+:root{
+  --bb-font:'Rozha One','Bodoni Moda',Didot,Georgia,serif;
+  --bb-blood:#7F1D1D; --bb-gold:#B8913B; --bb-gold-lt:#e3c47f; --bb-night:#1f0f0d; --bb-ivory:#f6ecdc;
+  --bb-steak:url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 80 56'><path d='M12 10c14-8 40-8 56 2 10 7 10 22 0 30-14 10-44 12-58 2C0 36 0 18 12 10z' fill='%237F1D1D' stroke='%23e3c47f' stroke-width='3'/><path d='M14 14c8 1 10 6 8 12' stroke='%23f6ecdc' stroke-width='4' fill='none' stroke-linecap='round'/><g stroke='%23e3c47f' stroke-width='4' stroke-linecap='round'><path d='M30 14l14 26M44 12l14 26M58 14l8 16'/></g></svg>");
+}
+
+/* wordmark: heavy high-contrast serif, gold */
+html[data-dir] .brand{font:400 1.35rem/1 var(--bb-font);color:var(--bb-blood);display:inline-flex;align-items:center;gap:10px}
+html[data-dir] .brand::before{content:"";width:34px;height:24px;flex:none;background:var(--bb-steak) center/contain no-repeat}
+html[data-dir] .hero-title{font:400 clamp(3.2rem,6.8vw,6.6rem)/.98 var(--bb-font);letter-spacing:-.01em;color:var(--bb-ivory)}
+html[data-dir] h1,html[data-dir] h2,html[data-dir] h3{font-family:var(--bb-font);font-weight:400}
+html[data-dir] h2::after{background:var(--bb-gold);width:64px;height:3px}
+
+/* hero: dark oxblood steakhouse, gold-mounted photo, steak seal on the corner */
+html[data-dir] .hero{background:radial-gradient(90% 70% at 80% 30%,rgba(127,29,29,.55),transparent 70%),var(--bb-night);max-width:none}
+@media (min-width:861px){html[data-dir] .hero{padding-inline:max(var(--gutter),calc((100vw - var(--maxw))/2 + 16px))}}
+html[data-dir] .hero .kicker{color:var(--bb-gold-lt)}
+html[data-dir] .tagline{color:#e4d3bd}
+html[data-dir] .facts{color:#d8c6ad;border-top-color:rgba(227,196,127,.3)}
+html[data-dir] .facts b{color:#fff}
+html[data-dir] .facts .i{color:var(--bb-gold-lt)}
+html[data-dir] .hero .btn-primary{background:var(--bb-gold-lt);border-color:var(--bb-gold-lt);color:var(--bb-night)}
+html[data-dir] .hero .btn-secondary{color:var(--bb-ivory);border-color:rgba(246,236,220,.5)}
+html[data-dir] .hero-media{background:var(--bb-gold);border:0;box-shadow:inset 0 0 0 9px var(--bb-gold);overflow:visible}
+html[data-dir] .hero-media img{position:relative;z-index:0}
+html[data-dir] .hero-media::before{content:"";position:absolute;z-index:2;right:-18px;top:-18px;width:clamp(84px,9vw,116px);aspect-ratio:1;border-radius:50%;
+  background:var(--bb-steak) center/70% no-repeat,var(--bb-night);box-shadow:0 0 0 3px var(--bb-gold)}
+
+/* order: the steaks, then where (the Largo), then the story */
+html[data-dir] .menu{order:1}
+html[data-dir] .visit{order:2}
+html[data-dir] .about{order:3}
+html[data-dir] .gallery{order:4}
+html[data-dir] .book{order:5}
+html[data-dir] .proposal{order:9}
+
+/* menu: grill-bar rule above a dark carte */
+html[data-dir] .menu{background:var(--bb-night);border:0}
+html[data-dir] .menu .wrap{box-shadow:inset 0 0 0 9px var(--surface),inset 0 0 0 10px var(--bb-gold),0 30px 60px -30px rgba(0,0,0,.6)}
+html[data-dir] .menu .section-head::before{content:"";width:80px;height:56px;background:var(--bb-steak) center/contain no-repeat}
+html[data-dir] .tab[aria-selected=true]{color:var(--bb-blood);border-bottom-color:var(--bb-gold)}
+html[data-dir] .dish-name{font:400 1.25rem/1.25 var(--bb-font)}
+html[data-dir] .dish-price{font-family:var(--bb-font);color:var(--bb-blood)}
+
+/* visit: highlighted as the second stop */
+html[data-dir] .visit{background:#f3ece0;border-top:3px solid var(--bb-gold)}
+html[data-dir] address a{font-family:var(--bb-font)}
+html[data-dir] .btn-primary{background:var(--bb-blood);border-color:var(--bb-blood)}
+html[data-dir] .point::before{color:var(--bb-blood)}
+html[data-dir] .site-foot .wrap::before{content:"";width:46px;height:32px;background:var(--bb-steak) left/contain no-repeat}
+
+@media (max-width:860px){
+  html[data-dir] .hero{padding-top:16px}
+  html[data-dir] .hero-media::before{right:6px;top:auto;bottom:-28px;width:76px}
+  html[data-dir] .hero-copy{padding-top:40px}
+  html[data-dir] .hero-title{font-size:clamp(2.8rem,12vw,4rem)}
+}

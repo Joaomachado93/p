@@ -1,0 +1,65 @@
+/* Mini Mercado Sandra — hook: the neighbourhood shop with an owner's first name → Sandra's handwritten signature, a little shopfront with awning, kraft paper-bag palette (Mesão Frio) */
+@import url('https://fonts.googleapis.com/css2?family=Kalam:wght@400;700&display=swap');
+html[data-dir]{
+  --sa-shop:url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 56'><path d='M4 4h56l4 14H0z' fill='%23b4532a'/><path d='M12 4l-2 14M24 4l-1 14M40 4l1 14M52 4l2 14' stroke='%23fbf3e4' stroke-width='5'/><path d='M0 18a5.3 5.3 0 0 0 10.7 0 5.3 5.3 0 0 0 10.6 0 5.3 5.3 0 0 0 10.7 0 5.3 5.3 0 0 0 10.7 0 5.3 5.3 0 0 0 10.6 0 5.3 5.3 0 0 0 10.7 0z' fill='%23b4532a'/><path d='M6 24v30h52V24' fill='none' stroke='%236b8f3a' stroke-width='3'/><rect x='12' y='30' width='18' height='14' fill='none' stroke='%236b8f3a' stroke-width='2.5'/><path d='M38 54V32h12v22' fill='none' stroke='%236b8f3a' stroke-width='2.5'/></svg>");
+  --sa-kraft:#e8d3b0; --sa-kraft-2:#dcc196;
+  --sa-terra:color-mix(in srgb,var(--primary) 88%,#000);
+  --sa-olive:color-mix(in srgb,var(--accent) 70%,#1e2219);
+  --bg:#f8f0e2;
+}
+
+/* wordmark: "Sandra" as a signature beneath a small-caps "Mini Mercado" */
+html[data-dir] .brand{display:inline-flex;align-items:center;gap:10px;font:700 1.45rem/1 'Kalam',cursive;color:var(--sa-terra);min-height:44px}
+html[data-dir] .brand::before{content:"";width:38px;height:33px;flex:none;background:var(--sa-shop) center/contain no-repeat}
+html[data-dir] .hero-title{font:700 clamp(3rem,10vw,6.2rem)/.95 'Kalam',cursive;letter-spacing:-.01em;color:var(--sa-terra);transform:rotate(-2deg);transform-origin:left bottom}
+html[data-dir] .hero-title::after{content:"";display:block;width:min(300px,80%);height:10px;margin-top:4px;
+  background:radial-gradient(60% 100% at 50% 0,transparent 60%,var(--sa-olive) 62% 76%,transparent 78%) 0 0/100% 100% no-repeat}
+html[data-dir] .tagline{font:400 clamp(1.25rem,2.2vw,1.6rem)/1.3 'Kalam',cursive;color:var(--ink)}
+
+/* hero: kraft-paper counter, photo pinned like a polaroid on the shop wall */
+html[data-dir] .hero{background:linear-gradient(180deg,var(--bg),var(--sa-kraft) 160%)}
+html[data-dir] .hero-media::after{display:none}
+@media (min-width:861px){
+  html[data-dir] .hero.hero--photo{align-items:center;padding-right:max(var(--gutter-r),calc((100vw - var(--maxw))/2 + 16px))}
+  html[data-dir] .hero--photo .hero-media{height:auto;aspect-ratio:4/3.4;margin-block:48px;background:#fff;padding:14px 14px 58px;transform:rotate(2.2deg);
+    box-shadow:0 26px 50px -24px rgba(60,30,10,.55)}
+}
+html[data-dir] .hero-media{position:relative}
+html[data-dir] .hero-media::before{content:"";position:absolute;z-index:2;right:22px;bottom:12px;width:56px;height:48px;background:var(--sa-shop) center/contain no-repeat}
+@media (prefers-reduced-motion:reduce){html[data-dir] .hero-title,html[data-dir] .hero--photo .hero-media{transform:none}}
+
+/* awning stripe above the header: terracotta & cream, as on the shop front */
+html[data-dir] .site-head::before{background:repeating-linear-gradient(90deg,var(--primary) 0 28px,#fbf3e4 28px 56px)}
+
+/* section order: the shelf first, order form next, about the shop after */
+html[data-dir] .menu{order:1}
+html[data-dir] .book{order:2}
+html[data-dir] .about{order:3}
+html[data-dir] .gallery{order:4}
+html[data-dir] .visit{order:5}
+html[data-dir] .proposal{order:99}
+
+/* menu: paper-bag kraft list with olive handwriting prices */
+html[data-dir] .menu{background:var(--sa-kraft) repeating-linear-gradient(0deg,transparent 0 31px,rgba(107,69,41,.08) 31px 32px)}
+html[data-dir] .menu .section-head::before{content:"";width:64px;height:56px;background:var(--sa-shop) center/contain no-repeat}
+html[data-dir] .menu h2{font:700 clamp(2.2rem,5vw,3.4rem)/1 'Kalam',cursive;color:var(--sa-terra)}
+html[data-dir] .dishes{border:2px dashed var(--sa-terra);background:#fffaf0;border-radius:4px}
+html[data-dir] .dish-price{background:var(--sa-olive);color:#fff;font-family:'Kalam',cursive;font-weight:700}
+html[data-dir] .dish-price::before{background:#fffaf0}
+html[data-dir] .tab[aria-selected=true]{background:var(--sa-terra);border-color:var(--sa-terra)}
+
+/* headings in the shopkeeper's hand */
+html[data-dir] h2{font-family:'Kalam',cursive;font-weight:700}
+html[data-dir] .point h3{font-family:'Kalam',cursive;font-size:1.45rem;color:var(--sa-terra)}
+
+/* footer */
+html[data-dir] .site-foot{background:var(--sa-kraft-2);border-top:4px solid var(--primary)}
+html[data-dir] .site-foot b{font:700 1.3rem 'Kalam',cursive;color:var(--sa-terra)}
+
+/* mesa / cozinha pages */
+html[data-dir] .m-top h1{font:700 1.6rem/1 'Kalam',cursive}
+html[data-dir] .m-cat{font-family:'Kalam',cursive;color:var(--sa-terra)}
+
+@media (max-width:860px){
+  html[data-dir] .hero-title{transform:rotate(-1.5deg)}
+}

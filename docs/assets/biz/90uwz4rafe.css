@@ -1,0 +1,59 @@
+/* Guloso Take Away — hook: "guloso" = the bitten take-away bag (two shops, one meal to take home) */
+@import url('https://fonts.googleapis.com/css2?family=Lilita+One&display=swap');
+:root{
+  --on-accent:#fff;
+  --gul-font:'Lilita One','Anton',Impact,sans-serif;
+  --gul-bag:url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'><path d='M23 20c0-11 18-11 18 0' fill='none' stroke='%231b140d' stroke-width='3.5' stroke-linecap='round'/><path d='M11 20h42l-4 38H15z' fill='%23e3c48f' stroke='%231b140d' stroke-width='3' stroke-linejoin='round'/><path d='M11 20h42l-1 7H12z' fill='%230E7490'/><circle cx='53' cy='34' r='6' fill='%23B8470B'/><circle cx='54' cy='44' r='5.5' fill='%23B8470B'/><circle cx='52' cy='53' r='5' fill='%23B8470B'/><path d='M20 38h16M20 45h11' stroke='%231b140d' stroke-width='2.5' stroke-linecap='round'/></svg>");
+}
+
+/* wordmark: chunky, happy, with a teal "second shop" shadow */
+html[data-dir] .brand{font:400 1.45rem/1 var(--gul-font);text-transform:none;letter-spacing:.01em;display:inline-flex;align-items:center;gap:10px}
+html[data-dir] .brand::before{content:"";width:30px;height:30px;flex:none;background:var(--gul-bag) center/contain no-repeat}
+html[data-dir] .hero-title{font:400 clamp(3.2rem,12vw,7rem)/.92 var(--gul-font);text-transform:none;letter-spacing:.005em;
+  text-shadow:4px 4px 0 var(--accent),8px 8px 0 #1b140d;transform:rotate(-2deg);transform-origin:left bottom}
+html[data-dir] h2{font-family:var(--gul-font);text-transform:none;letter-spacing:.005em}
+html[data-dir] .m-top h1,html[data-dir] .ticket h3,html[data-dir] .total{font-family:var(--gul-font);text-transform:none}
+
+/* hero: the bitten take-away bag sits at the foot of the poster panel */
+html[data-dir] .hero-copy::after{content:"";position:absolute;left:calc(51.2% - clamp(72px,10vw,120px) - 40px);bottom:clamp(14px,3vw,36px);width:clamp(72px,10vw,120px);aspect-ratio:1;
+  background:var(--gul-bag) center/contain no-repeat;transform:rotate(8deg);pointer-events:none;opacity:.95}
+html[data-dir] .hero .tagline{padding-right:clamp(70px,10vw,0px)}
+
+/* order: take-away = menu and order form first */
+html[data-dir] .menu{order:1}
+html[data-dir] .book{order:2}
+html[data-dir] .about{order:3}
+html[data-dir] .gallery{order:4}
+html[data-dir] .visit{order:5}
+html[data-dir] .proposal{order:9}
+
+/* menu: counter board with teal price stickers and the bag ornament on the header */
+html[data-dir] .menu{background-color:color-mix(in srgb,var(--primary) 14%,#d8c19a)}
+html[data-dir] .menu .section-head{position:relative;padding-right:90px}
+html[data-dir] .menu .section-head::after{content:"";position:absolute;right:0;top:0;width:78px;height:78px;background:var(--gul-bag) center/contain no-repeat;transform:rotate(-6deg)}
+html[data-dir] .dish-price{color:#fff;background:var(--accent);padding:.2em .4em .14em;border:2px solid #1b140d;border-radius:6px;box-shadow:3px 3px 0 #1b140d;font-size:clamp(1.4rem,3.4vw,1.75rem)}
+html[data-dir] .dish-name{font-size:1.22rem}
+html[data-dir] .tab[aria-selected=true]{color:#fff;background:var(--primary);box-shadow:3px 3px 0 #1b140d}
+html[data-dir] .dishes{border-radius:6px 6px 22px 6px}
+
+/* order form = the receipt clipped to the bag */
+html[data-dir] .book{background:var(--surface);border-top:3px solid #1b140d}
+html[data-dir] .form{box-shadow:6px 6px 0 var(--accent);border-style:solid;border-top:10px solid var(--primary)}
+html[data-dir] .book h2{color:var(--primary)}
+
+/* two shops: points become twin price tags */
+html[data-dir] .point::before{color:var(--accent)}
+html[data-dir] .about{background:color-mix(in srgb,var(--accent) 7%,var(--bg))}
+
+/* footer ornament */
+html[data-dir] .site-foot .wrap{position:relative;padding-right:64px}
+html[data-dir] .site-foot .wrap::after{content:"";position:absolute;right:var(--gutter-r);top:0;width:44px;height:44px;background:var(--gul-bag) center/contain no-repeat}
+
+@media (max-width:860px){
+  html[data-dir] .hero-title{font-size:clamp(3rem,15vw,4.6rem);text-shadow:3px 3px 0 var(--accent),6px 6px 0 #1b140d}
+  html[data-dir] .hero-copy::after{display:none}
+  html[data-dir] .hero .tagline{padding-right:0}
+  html[data-dir] .menu .section-head{padding-right:70px}
+  html[data-dir] .menu .section-head::after{width:58px;height:58px}
+}
+@media (prefers-reduced-motion:reduce){html[data-dir] .hero-title{transform:none}}

@@ -1,0 +1,48 @@
+/* Restaurante Xiquinho — hook: the affectionate nickname + Rua das Vinhas — a vine tendril and grape cluster */
+@import url('https://fonts.googleapis.com/css2?family=Yeseva+One&display=swap');
+:root{
+  --vine:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 120 40'%3E%3Cpath d='M0 14c20 0 20 12 40 12s20-12 40-12 20 12 40 12' fill='none' stroke='%237A4B2A' stroke-width='2.5'/%3E%3Cpath d='M40 26c4 6 0 10-4 8' fill='none' stroke='%237A4B2A' stroke-width='1.5'/%3E%3Cpath d='M18 18c-8-10 4-16 10-8-2 4-6 6-10 8z' fill='%235e7a33'/%3E%3Cg fill='%236b2f45'%3E%3Ccircle cx='80' cy='20' r='4'/%3E%3Ccircle cx='88' cy='20' r='4'/%3E%3Ccircle cx='84' cy='27' r='4'/%3E%3Ccircle cx='76' cy='27' r='4'/%3E%3Ccircle cx='80' cy='34' r='4'/%3E%3C/g%3E%3Cpath d='M100 12c-8-10 4-14 10-6-2 4-6 5-10 6z' fill='%235e7a33'/%3E%3C/svg%3E");
+  --bg:color-mix(in srgb,var(--accent) 8%,#f5f0e4);
+}
+/* wordmark: Yeseva — warm, a bit old-fashioned, like a painted family sign */
+html[data-dir] .brand,html[data-dir] .hero-title,html[data-dir] h2{font-family:'Yeseva One',Georgia,serif;font-weight:400}
+html[data-dir] .brand{color:var(--primary);font-size:1.4rem}
+html[data-dir] .brand::after{content:"";display:inline-block;width:14px;height:16px;margin-left:6px;vertical-align:-1px;
+  background:radial-gradient(circle 3px at 4px 4px,#6b2f45 98%,#0000),radial-gradient(circle 3px at 10px 4px,#6b2f45 98%,#0000),radial-gradient(circle 3px at 7px 9px,#6b2f45 98%,#0000),radial-gradient(circle 3px at 7px 14px,#6b2f45 98%,#0000)}
+html[data-dir] .hero-title{color:var(--primary);font-size:clamp(2.6rem,9.5vw,5.4rem);letter-spacing:-.01em;line-height:1}
+html[data-dir] .hero-title::after{content:"";display:block;width:min(300px,90%);height:40px;margin-top:10px;background:var(--vine) 0 0/120px 40px repeat-x}
+html[data-dir] .kicker{color:#6b2f45}
+
+/* vine replaces the azulejo bands */
+html[data-dir] .site-head::after,html[data-dir] .site-foot::before,html[data-dir] .proposal::before{height:28px;background:var(--vine) 0 50%/84px 28px repeat-x}
+
+/* hero: photo under a pergola — rounded top arch in warm wood, not tiles */
+html[data-dir] .hero-media{background:var(--primary);border-radius:200px 200px 6px 6px;padding:12px}
+html[data-dir] .hero-media img{border-radius:190px 190px 2px 2px;box-shadow:none}
+@media (min-width:861px){html[data-dir] .hero-title{font-size:clamp(2.6rem,5.2vw,4.6rem)}html[data-dir] .hero{background:transparent}html[data-dir] .hero-media{margin:32px 0;height:min(70vh,580px)}}
+@media (max-width:860px){
+  html[data-dir] .hero-media{margin:14px var(--gutter-r) 0 var(--gutter);padding:8px;border-radius:140px 140px 6px 6px;height:clamp(240px,40svh,340px)}
+  html[data-dir] .hero-media img{border-radius:132px 132px 2px 2px}
+}
+
+/* menu board framed in dark vine wood; prices in grape-must red-violet chalk */
+html[data-dir] .menu > .wrap{border-image:repeating-linear-gradient(92deg,#5a3a20 0 9px,#4a2f19 9px 13px,#6b4529 13px 21px,#432a16 21px 24px) 16}
+html[data-dir] .menu .dish-price{color:#e7c2d3}
+html[data-dir] .menu .kicker{color:#e3c78f}
+html[data-dir] .menu .section-head::after{content:"";height:28px;width:84px;background:var(--vine) 0 0/84px 28px no-repeat;filter:brightness(2.2) saturate(.4)}
+
+/* about points: grape bullets instead of azulejo squares */
+html[data-dir] .point::before{background:radial-gradient(circle 5px at 7px 6px,#6b2f45 98%,#0000),radial-gradient(circle 5px at 16px 6px,#6b2f45 98%,#0000),
+  radial-gradient(circle 5px at 11.5px 14px,#6b2f45 98%,#0000);border:0}
+html[data-dir] .points{border-top-color:var(--primary)}
+
+/* order: the plate first — menu, photos, then the words */
+html main > .menu{order:1}
+html main > .gallery{order:2}
+html main > .about{order:3}
+html main > .book{order:4}
+html main > .visit{order:5}
+html main > .proposal{order:9}
+html[data-dir] .menu{padding-top:var(--section)}
+html[data-dir] .shot{border-radius:999px 999px 4px 4px;overflow:hidden}
+html[data-dir] .book{background-image:linear-gradient(90deg,color-mix(in srgb,#6b2f45 14%,transparent) 50%,transparent 50%),linear-gradient(color-mix(in srgb,#6b2f45 14%,transparent) 50%,transparent 50%)}

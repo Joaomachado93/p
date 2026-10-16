@@ -1,0 +1,58 @@
+/* La Cubana — hook: "un pedaço de Cuba" — Havana colonial shutters, palm frond, retro painted-sign lettering */
+@import url('https://fonts.googleapis.com/css2?family=Shrikhand&display=swap');
+:root{
+  --teal:#13706c;
+  --palm:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Cpath d='M32 62C34 46 34 34 30 22' fill='none' stroke='%237a3a12' stroke-width='3' stroke-linecap='round'/%3E%3Cg fill='%2313706c'%3E%3Cpath d='M30 22C22 10 10 10 2 18c10-2 18 0 28 4z'/%3E%3Cpath d='M30 22C38 8 52 8 62 16c-12-2-22 0-32 6z'/%3E%3Cpath d='M30 22C24 14 26 6 32 2c0 8 0 14-2 20z'/%3E%3Cpath d='M30 22c-10 0-18 8-20 18 6-8 12-12 20-18z'/%3E%3Cpath d='M30 22c10 2 16 10 16 20-4-8-10-14-16-20z'/%3E%3C/g%3E%3C/svg%3E");
+  --shutter:repeating-linear-gradient(0deg,color-mix(in srgb,var(--teal) 88%,#000) 0 2px,var(--teal) 2px 12px);
+  --bg:color-mix(in srgb,var(--primary) 5%,#fbf4ea);
+  --linen:color-mix(in srgb,var(--teal) 10%,#f4efe4);
+}
+/* wordmark: retro Havana painted sign, warm orange with a teal drop-shadow */
+html[data-dir] .brand,html[data-dir] .hero-title{font-family:'Shrikhand',Georgia,serif;font-weight:400;font-style:normal}
+html[data-dir] .brand{color:var(--primary);font-size:1.45rem;display:inline-flex;align-items:center;gap:8px}
+html[data-dir] .brand::before{content:"";width:30px;height:30px;flex:none;background:var(--palm) center/contain no-repeat}
+html[data-dir] .hero-title{color:var(--primary);font-size:clamp(3.2rem,14vw,7.6rem);line-height:.95;letter-spacing:0;text-shadow:4px 4px 0 color-mix(in srgb,var(--teal) 35%,transparent)}
+html[data-dir] .hero-title::after{content:"";display:block;width:160px;height:8px;margin-top:16px;
+  background:linear-gradient(90deg,var(--teal) 0 33%,#f3d36b 33% 66%,var(--primary) 66%)}
+html[data-dir] h2{font-family:'Shrikhand',serif;font-weight:400;color:var(--teal);letter-spacing:0}
+html[data-dir] .kicker{color:var(--teal)}
+
+/* hero: the photo behind open teal shutters (louvres both sides) with a palm in the corner */
+html[data-dir] .hero-media{position:relative;background:var(--shutter);padding:0 22px;box-shadow:none}
+html[data-dir] .hero-media img{border-radius:999px 999px 0 0;position:relative}
+html[data-dir] .hero-media::after{content:"";position:absolute;inset:auto auto 6px 2px;width:84px;height:84px;border:0;z-index:2;
+  background:var(--palm) center/contain no-repeat}
+html[data-dir] .hero-media::before{content:"";position:absolute;inset:0;border:6px solid #f6e8c7;border-radius:999px 999px 0 0;z-index:1;pointer-events:none;margin:0 22px}
+@media (max-width:860px){
+  html[data-dir] .hero-media{padding:0 14px;margin:16px calc(var(--gutter-r) + 12px) 0 calc(var(--gutter) + 12px);aspect-ratio:4/5}
+  html[data-dir] .hero-media::before{margin:0 14px}
+  html[data-dir] .hero-media::after{width:60px;height:60px;inset:auto auto 4px 0}
+  html[data-dir] .hero-media img{border-radius:200px 200px 0 0}
+  html[data-dir] .hero-media::before{border-radius:200px 200px 0 0}
+}
+
+/* menu: on a teal colonial-tile band; the carte with an orange arched head */
+html[data-dir] .menu{background:var(--teal);
+  background-image:radial-gradient(circle at 50% 50%,rgba(255,255,255,.08) 22%,transparent 23%),linear-gradient(45deg,rgba(0,0,0,.06) 25%,transparent 25% 75%,rgba(0,0,0,.06) 75%);
+  background-size:36px 36px,36px 36px;border-block:0}
+html[data-dir] .menu .wrap{border-radius:220px 220px 4px 4px;padding-top:clamp(56px,7vw,90px)}
+html[data-dir] .menu .section-head::before{content:"";width:56px;height:56px;background:var(--palm) center/contain no-repeat}
+html[data-dir] .dish-name{color:var(--ink)}
+html[data-dir] .dish-price{color:var(--primary);font-weight:700}
+@media (max-width:860px){html[data-dir] .menu .wrap{border-radius:120px 120px 4px 4px}}
+
+/* order: photos and carte first — the colour and the plates sell Cuba */
+html main > .gallery{order:1}
+html main > .menu{order:2}
+html main > .about{order:3}
+html main > .book{order:4}
+html main > .visit{order:5}
+html main > .proposal{order:9}
+html[data-dir] .gallery{padding-top:clamp(40px,6vw,72px)}
+html[data-dir] .shot{border-radius:999px 999px 4px 4px;overflow:hidden;box-shadow:0 0 0 5px var(--surface),0 0 0 7px color-mix(in srgb,var(--teal) 50%,transparent)}
+
+html[data-dir] .point::before{color:var(--primary)}
+html[data-dir] .site-foot{background:#0f4f4c;color:#f2ebdd}
+html[data-dir] .site-foot .muted{color:#d2e3df}
+html[data-dir] .site-foot a{color:#fff}
+html[data-dir] .site-foot .wrap::before{content:"";width:36px;height:36px;background:var(--palm) center/contain no-repeat;filter:brightness(2.2)}

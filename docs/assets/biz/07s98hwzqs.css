@@ -1,0 +1,78 @@
+/* Pastelaria das Dominicas — hook: the name (the Dominican sisters) — convent doçaria: pointed cloister arch, inscribed capitals, purple + gold */
+@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600;700&display=swap');
+:root{
+  --gold:#e2c27a;
+  --arch:url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 40 56'><g fill='none' stroke='%23c9a24a' stroke-width='2'><path d='M3 55V26Q3 9 20 2Q37 9 37 26v29z'/><path d='M10 55V29Q10 18 20 12Q30 18 30 29v26z'/><path d='M20 12v43M10 36h20'/></g></svg>");
+  --ogive:url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100' preserveAspectRatio='none'><path d='M0 100V42Q0 12 50 0Q100 12 100 42V100z'/></svg>");
+  --bg:color-mix(in srgb,var(--primary) 5%,#fbf7f0);
+  --paper:color-mix(in srgb,var(--primary) 9%,#fbf5ec);
+  --paper-2:color-mix(in srgb,var(--primary) 16%,#f8f0e6);
+  --twine:repeating-linear-gradient(90deg,var(--accent) 0 3px,transparent 3px 9px);
+}
+/* header: purple cloister band instead of the awning */
+:root .site-head{background:var(--primary)}
+:root .site-head::before{height:6px;-webkit-mask:none;mask:none;background:linear-gradient(90deg,var(--accent),var(--gold),var(--accent))}
+:root .brand{font:600 clamp(1rem,2.6vw,1.3rem)/1.1 'Cinzel',Georgia,serif;font-style:normal;text-transform:uppercase;letter-spacing:.12em;color:var(--gold);
+  display:inline-flex;align-items:center;gap:10px}
+:root .brand::before{content:"";width:16px;height:22px;flex:none;background:var(--arch) center/contain no-repeat}
+:root .nav a{color:#fbf5ec}
+:root .nav a:hover{box-shadow:inset 0 -2px 0 var(--gold)}
+
+/* hero: symmetrical, like a convent façade — centred copy, photo in a pointed arch */
+:root .hero-media{-webkit-mask:var(--ogive) center/100% 100% no-repeat;mask:var(--ogive) center/100% 100% no-repeat;border-radius:0;box-shadow:none;aspect-ratio:4/5;
+  max-width:440px;margin-inline:auto;width:calc(100% - 48px)}
+:root .hero-copy{justify-items:center;text-align:center}
+:root .hero .actions,:root .hero .facts{justify-content:center}
+:root .hero .facts{border-top:0;padding-top:4px}
+:root .hero .hero-title{font:600 clamp(1.9rem,8.6vw,4.4rem)/1.08 'Cinzel',Georgia,serif;text-transform:uppercase;letter-spacing:.05em;color:var(--primary)}
+:root .hero .hero-title::before{content:"";display:block;width:34px;height:48px;margin:0 auto 14px;background:var(--arch) center/contain no-repeat}
+:root .hero .hero-title::after{content:"";display:block;width:140px;height:2px;margin:18px auto 0;background:linear-gradient(90deg,transparent,var(--accent),transparent)}
+:root .tagline{font-style:italic}
+@media (min-width:861px){
+  :root .hero{grid-template-columns:minmax(0,1fr) minmax(0,1.1fr) minmax(0,1fr)!important;max-width:1240px;width:100%}
+  :root .hero-media{grid-column:2;width:100%;max-width:none;max-height:600px}
+  :root .hero-copy{grid-column:1/-1;grid-row:2;max-width:780px!important;margin:0 auto!important;padding-top:32px!important}
+  :root .hero::before,:root .hero::after{content:"";grid-row:1;align-self:end;justify-self:center;width:90px;height:126px;opacity:.55;background:var(--arch) center/contain no-repeat}
+  :root .hero::before{grid-column:1}
+  :root .hero::after{grid-column:3}
+}
+
+/* section order: the vitrine (menu) right after the welcome */
+:root .about{order:1}
+:root .menu{order:2}
+:root .gallery{order:3}
+:root .book{order:4}
+:root .visit{order:5}
+:root .proposal{order:9}
+
+/* inscribed headings */
+:root h2{font-family:'Cinzel',Georgia,serif!important;font-weight:600!important;letter-spacing:.03em!important}
+:root .kicker{background:var(--primary);color:var(--gold)}
+
+/* menu: a purple cloister with a cream vitrine and gold arches on the head */
+:root .menu{background:var(--primary);color:#fbf5ec;border-image:none;border-top:0}
+:root .menu h2{color:#fbf5ec}
+:root .menu .note{color:#e6d8ee}
+:root .menu .kicker{background:var(--gold);color:#2d1a3a}
+:root .menu .section-head{justify-items:center;text-align:center;padding-top:70px;
+  background:var(--arch) 50% 0/40px 56px no-repeat}
+:root .menu .tabs{justify-content:center}
+:root .menu .tab{background:color-mix(in srgb,var(--primary) 70%,#fff);color:#fff}
+:root .menu .tab[aria-selected=true]{background:var(--gold);color:#2d1a3a}
+:root .dishes{border-radius:200px 200px 8px 8px / 40px 40px 8px 8px;padding-top:24px;box-shadow:0 0 0 1px var(--accent),0 0 0 6px var(--primary),0 0 0 7px var(--accent)}
+:root .dish-price{background:var(--primary)}
+
+/* gallery: cloister arcade — all shots in pointed arches */
+:root .gallery .shot{-webkit-mask:var(--ogive) center/100% 100% no-repeat;mask:var(--ogive) center/100% 100% no-repeat;padding:0;aspect-ratio:3/4;background:var(--paper-2)}
+:root .gallery .shot img{border-radius:0}
+:root .gallery-grid{grid-template-columns:repeat(3,minmax(0,1fr))!important;grid-auto-rows:auto!important;gap:clamp(8px,2vw,24px)}
+:root .gallery-grid .shot{grid-row:auto!important;grid-column:auto!important;aspect-ratio:3/4!important;height:auto!important;min-height:0!important}
+
+:root .site-foot{border-top:6px solid var(--primary)}
+:root .site-foot .wrap::before{content:"";width:28px;height:40px;background:var(--arch) center/contain no-repeat}
+:root .dishes{color:var(--ink)}
+:root .hero .kicker,:root .menu .kicker{justify-self:center}
+:root .langswitch a{color:#fbf5ec;border-color:rgba(251,245,236,.5)}
+:root .langswitch [aria-current]{background:var(--gold);color:#2d1a3a}
+@media (min-width:861px){:root .hero-media{width:min(340px,100%);justify-self:center}}
+:root .site-head .langswitch{color:#fbf5ec}

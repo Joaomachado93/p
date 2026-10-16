@@ -1,0 +1,55 @@
+/* Antigo Nora do Zé da Curva — hook: the nora (waterwheel) and "da Curva" — wheel ornament + curved frames */
+@import url('https://fonts.googleapis.com/css2?family=IM+Fell+English+SC&display=swap');
+:root{
+  --nora-display:'IM Fell English SC',Georgia,serif;
+  --bg:#f4ede1; --surface:#fffaf1;
+  --wheel:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Cg fill='none' stroke='%236e3b1c' stroke-width='2.6'%3E%3Ccircle cx='32' cy='32' r='24'/%3E%3Ccircle cx='32' cy='32' r='17'/%3E%3Ccircle cx='32' cy='32' r='4' fill='%23b9852e'/%3E%3Cpath d='M32 8V56M8 32H56M15 15L49 49M49 15L15 49'/%3E%3C/g%3E%3Cg fill='%23b9852e'%3E%3Crect x='28' y='2' width='8' height='7' rx='1'/%3E%3Crect x='28' y='55' width='8' height='7' rx='1'/%3E%3Crect x='2' y='28' width='7' height='8' rx='1'/%3E%3Crect x='55' y='28' width='7' height='8' rx='1'/%3E%3C/g%3E%3C/svg%3E");
+  --curve:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='20' viewBox='0 0 120 20'%3E%3Cpath d='M0 10C20 -2 40 -2 60 10S100 22 120 10' fill='none' stroke='%236e3b1c' stroke-width='2.4'/%3E%3Cpath d='M0 15C20 3 40 3 60 15S100 27 120 15' fill='none' stroke='%23b9852e' stroke-width='1.6'/%3E%3C/svg%3E");
+}
+
+/* wordmark: antique small caps, the wheel as a seal */
+html[data-dir] .brand{font:400 1.35rem/1 var(--nora-display);color:var(--primary);display:inline-flex;align-items:center;gap:.4em}
+html[data-dir] .brand::before{content:"";width:1.5em;height:1.5em;flex:none;background:var(--wheel) center/contain no-repeat}
+html[data-dir] .hero-title{font-family:var(--nora-display);color:var(--primary);font-size:clamp(2.7rem,6.4vw,5.6rem);line-height:.95;letter-spacing:-.01em}
+html[data-dir] .hero .kicker{color:#7b4a1c}
+html[data-dir] .hero .kicker::before{content:"";display:inline-block;width:1.1em;height:1.1em;margin-right:.35em;vertical-align:-.15em;background:var(--wheel) center/contain no-repeat}
+html[data-dir] .tagline{font-style:italic}
+
+/* the curve replaces the azulejo band */
+html[data-dir] .site-head::after,html[data-dir] .site-foot::before,html[data-dir] .proposal::before{height:20px;background:var(--curve) 0 0/120px 20px repeat-x}
+
+/* hero: photo in a curved frame — "da Curva" — with the wheel turning at the bend */
+html[data-dir] .hero-media{position:relative;background:var(--primary);padding:12px;border-radius:var(--radius) var(--radius) var(--radius) 46% / var(--radius) var(--radius) var(--radius) 40%;overflow:visible}
+html[data-dir] .hero-media img{border-radius:2px 2px 2px 44% / 2px 2px 2px 38%;box-shadow:0 0 0 2px var(--accent)}
+html[data-dir] .hero-media::before{content:"";position:absolute;z-index:2;left:-34px;bottom:-34px;width:110px;height:110px;border-radius:50%;
+  background:var(--surface) var(--wheel) center/86% no-repeat;box-shadow:0 10px 24px -10px rgba(31,28,24,.5);animation:nora-spin 40s linear infinite}
+@keyframes nora-spin{to{transform:rotate(360deg)}}
+
+/* order: the gallery (bacalhau, aletria) before the words */
+main > .gallery{order:1} main > .about{order:2} main > .menu{order:3} main > .qr{order:4}
+main > .book{order:5} main > .visit{order:6} main > .proposal{order:20}
+html[data-dir] .about{border-top:0}
+
+/* menu: wheel crest above the slate title, prices in brass */
+html[data-dir] .menu .section-head{position:relative;padding-left:64px}
+html[data-dir] .menu .section-head::before{content:"";position:absolute;left:0;top:2px;width:52px;height:52px;background:var(--wheel) center/contain no-repeat;filter:invert(1) brightness(1.6) sepia(.4)}
+html[data-dir] .menu h2{font-family:var(--nora-display)}
+html[data-dir] .menu .dish-price{color:#e2b56a}
+
+/* about: wheel markers on the points */
+html[data-dir] .point::before{background:var(--wheel) center/contain no-repeat;border:0;width:26px;height:26px}
+html[data-dir] .points{border-top-color:var(--primary)}
+html[data-dir] .gallery .shot:first-child{border-radius:var(--radius) var(--radius) var(--radius) 30%}
+
+html[data-dir] .qr-card{background:linear-gradient(#fff,#fff) padding-box,var(--primary) border-box;border-radius:6px 6px 6px 40px}
+html[data-dir] .qr-name,html[data-dir] .m-top h1{font-family:var(--nora-display)}
+html[data-dir] .site-foot b{font-family:var(--nora-display);font-weight:400;color:var(--primary);font-size:1.1em}
+
+@media (max-width:860px){
+  html[data-dir] .hero-media{margin:12px var(--gutter-r) 0 var(--gutter);height:clamp(240px,40svh,340px);padding:8px;border-radius:4px 4px 4px 34% / 4px 4px 4px 30%}
+  html[data-dir] .hero-media img{border-radius:2px 2px 2px 32% / 2px 2px 2px 28%}
+  html[data-dir] .hero-media::before{width:72px;height:72px;left:auto;right:-6px;bottom:-26px}
+  html[data-dir] .hero-copy{padding-top:30px}
+  html[data-dir] .hero-title{font-size:clamp(2.3rem,11vw,3.3rem)}
+  html[data-dir] .brand{font-size:1.1rem}
+}

@@ -1,0 +1,61 @@
+/* Piedade — hook: the name "Piedade" read as an oratório (wayside niche with a votive flame) — arched niches, candle glow */
+@import url('https://fonts.googleapis.com/css2?family=IM+Fell+English+SC&display=swap');
+:root{
+  --display:'IM Fell English SC','Iowan Old Style',Georgia,serif;
+  --bg:color-mix(in srgb,var(--primary) 5%,#f6efe3);
+  --surface:#fffaf2;
+  --niche:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 40 48'%3E%3Cpath d='M5 46V20a15 15 0 0 1 30 0v26Z' fill='none' stroke='%238A3B12' stroke-width='2.4'/%3E%3Cpath d='M10 46V21a10 10 0 0 1 20 0v25' fill='none' stroke='%238A3B12' stroke-width='1.2'/%3E%3Cpath d='M20 22c5 6 5 11 0 14c-5-3-5-8 0-14Z' fill='%23D9A441'/%3E%3Cpath d='M16 46v-8h8v8' fill='%238A3B12'/%3E%3Cpath d='M2 46H38' stroke='%238A3B12' stroke-width='2.4'/%3E%3C/svg%3E");
+}
+/* wordmark: engraved small caps with a niche emblem */
+html[data-dir] .brand{display:inline-flex;align-items:center;gap:10px;font:400 1.55rem/1 var(--display);letter-spacing:.06em;color:var(--primary)}
+html[data-dir] .brand::before{content:"";width:22px;height:27px;flex:none;background:var(--niche) center/contain no-repeat}
+html[data-dir] .hero-title{font:400 clamp(3rem,8vw,6.4rem)/.95 var(--display);letter-spacing:.04em;color:var(--primary)}
+html[data-dir] .hero-title::after{content:"";display:block;width:min(260px,70%);height:14px;margin-top:14px;
+  background:radial-gradient(circle,var(--accent) 3px,transparent 3.5px) center/14px 14px no-repeat,
+  linear-gradient(var(--primary),var(--primary)) left 50%/calc(50% - 14px) 1.5px no-repeat,
+  linear-gradient(var(--primary),var(--primary)) right 50%/calc(50% - 14px) 1.5px no-repeat}
+html[data-dir] h2{font-weight:400;letter-spacing:.02em}
+html[data-dir] .kicker{color:var(--primary)}
+
+/* hero: the photo sits inside an arched niche, warm candle glow behind the copy */
+html[data-dir] .hero{background:radial-gradient(60% 70% at 22% 55%,color-mix(in srgb,var(--accent) 22%,transparent),transparent 70%)}
+html[data-dir] .hero-media{border-radius:50% 50% 6px 6px/34% 34% 6px 6px;padding:14px;background:var(--surface);
+  box-shadow:0 0 0 2px var(--primary),inset 0 0 0 2px color-mix(in srgb,var(--accent) 70%,#fff),0 28px 50px -24px rgba(60,25,8,.55)}
+html[data-dir] .hero-media img{border-radius:50% 50% 3px 3px/33% 33% 3px 3px;box-shadow:none}
+
+/* the azulejo bands become a quiet rule of niches */
+html[data-dir] .site-head::after,html[data-dir] .site-foot::before,html[data-dir] .proposal::before{height:26px;
+  background:var(--niche) 0 100%/22px 26px repeat-x;opacity:.9;border-bottom:2px solid var(--primary)}
+html[data-dir] .point::before{background:var(--niche) center/contain no-repeat;border:0;width:22px;height:27px}
+
+/* order: the table first — menu straight after the hero, then the story */
+html[data-dir] .hero{order:0}
+html[data-dir] .menu{order:1;padding-top:var(--section)}
+html[data-dir] .about{order:2}
+html[data-dir] .gallery{order:3}
+html[data-dir] .book{order:4}
+html[data-dir] .visit{order:5}
+html[data-dir] .proposal{order:9}
+
+/* menu board: niche crest above the title */
+html[data-dir] .menu .section-head{justify-items:center;text-align:center}
+html[data-dir] .menu .section-head::before{content:"";width:40px;height:48px;
+  background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 40 48'%3E%3Cpath d='M5 46V20a15 15 0 0 1 30 0v26Z' fill='none' stroke='%23f1efe6' stroke-width='2'/%3E%3Cpath d='M20 22c5 6 5 11 0 14c-5-3-5-8 0-14Z' fill='%23D9A441'/%3E%3Cpath d='M2 46H38' stroke='%23f1efe6' stroke-width='2'/%3E%3C/svg%3E") center/contain no-repeat}
+html[data-dir] .menu .tabs{justify-content:center}
+html[data-dir] .menu h2{font-family:var(--display)}
+
+/* booking placemat: candle-tinted plaid */
+html[data-dir] .book > .book-grid{border-top:6px solid var(--primary)}
+html[data-dir] .site-foot b{font:400 1.2rem var(--display);color:var(--primary);letter-spacing:.05em}
+
+@media (max-width:860px){
+  html[data-dir] .hero-media{margin:14px var(--gutter-r) 0 var(--gutter);height:clamp(260px,44svh,380px);padding:10px;
+    border-radius:50% 50% 4px 4px/30% 30% 4px 4px;background:var(--surface)}
+  html[data-dir] .hero-media img{border-radius:50% 50% 2px 2px/29% 29% 2px 2px}
+  html[data-dir] .hero-copy{text-align:center;justify-items:center}
+  html[data-dir] .hero-title{font-size:clamp(3rem,15vw,4.4rem)}
+  html[data-dir] .hero-title::after{margin-inline:auto}
+  html[data-dir] .facts{justify-content:center}
+  html[data-dir] .site-head::after{height:22px;background-size:18px 22px}
+}
+html[data-dir] .m-top h1{font-family:var(--display);letter-spacing:.04em}

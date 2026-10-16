@@ -1,0 +1,73 @@
+/* O Forno a Lenha — hook: the name — a wood-fired brick oven: arched mouth, brick courses, ember glow */
+@import url('https://fonts.googleapis.com/css2?family=Coustard:wght@400;900&display=swap');
+:root{
+  --bg:#f4ede4; --surface:#fffaf4;
+  --brick:#9a3412; --brick-d:#7a2a0e; --mortar:#e9d8c4; --ember:#f59e0b;
+  --oven:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 52'%3E%3Cpath d='M4 50V30a28 26 0 0 1 56 0v20Z' fill='%239A3412'/%3E%3Cg stroke='%23e9d8c4' stroke-width='1.6' fill='none'%3E%3Cpath d='M6 22h52M4 34h56M4 44h56M20 10v12M44 10v12M32 22v12M14 34v10M50 34v10'/%3E%3C/g%3E%3Cpath d='M18 50V38a14 13 0 0 1 28 0v12Z' fill='%231f1c18'/%3E%3Cpath d='M26 50c-3-5 2-7 1-12 4 3 3 6 5 4 0-3 1-5 3-7 0 5 4 8 2 15Z' fill='%23CA8A04'/%3E%3C/svg%3E");
+}
+
+/* wordmark: heavy rounded slab, the oven as the badge */
+html[data-dir] .brand{font:900 1.3rem/1 'Coustard',var(--display);color:var(--brick-d);display:inline-flex;align-items:center;gap:10px}
+html[data-dir] .brand::before{content:"";width:34px;height:28px;flex:none;background:var(--oven) center/contain no-repeat}
+html[data-dir] .hero-title{font-family:'Coustard',var(--display);font-weight:900;color:var(--ink);line-height:1;letter-spacing:-.01em}
+html[data-dir] .hero-title::after{content:"";display:block;width:120px;height:6px;margin-top:18px;border-radius:3px;
+  background:linear-gradient(90deg,var(--brick),var(--accent),var(--ember))}
+html[data-dir] .hero .kicker{color:var(--brick)}
+html[data-dir] h2{font-family:'Coustard',var(--display);font-weight:900}
+
+/* hero: the photo is seen through the oven mouth — arch top, brick surround, ember light at the base */
+@media (min-width:861px){
+  html[data-dir] .hero-media{border-radius:50% 50% 6px 6px / 38% 38% 6px 6px;padding:22px 22px 0;margin-right:clamp(16px,3vw,40px);height:min(72vh,600px);
+    background:repeating-linear-gradient(0deg,var(--mortar) 0 2px,transparent 2px 22px),
+      repeating-linear-gradient(90deg,var(--brick) 0 42px,var(--brick-d) 42px 44px);
+    box-shadow:0 26px 50px -22px rgba(122,42,14,.6)}
+  html[data-dir] .hero-media img{border-radius:50% 50% 0 0 / 40% 40% 0 0;box-shadow:inset 0 0 0 2px #000}
+}
+@media (max-width:860px){
+  html[data-dir] .hero-media{border-radius:50% 50% 0 0 / 22% 22% 0 0;overflow:hidden;margin:12px var(--gutter-r) 0 var(--gutter);padding:0;
+    box-shadow:0 0 0 8px var(--brick)}
+  html[data-dir] .hero-media img{border-radius:0}
+}
+html[data-dir] .hero-media{position:relative}
+html[data-dir] .hero-media::after{content:"";position:absolute;inset:auto 0 0 0;height:30%;pointer-events:none;border:0;box-shadow:none;
+  background:linear-gradient(to top,rgba(245,158,11,.38),transparent)}
+
+/* brick course replaces the azulejo strip */
+html[data-dir] .site-head::after,html[data-dir] .proposal::before,html[data-dir] .site-foot::before{height:14px;
+  background:repeating-linear-gradient(90deg,var(--brick) 0 30px,var(--mortar) 30px 32px) 0 0/100% 6px no-repeat,
+    repeating-linear-gradient(90deg,var(--brick-d) 0 30px,var(--mortar) 30px 32px) 16px 8px/100% 6px no-repeat,var(--mortar)}
+
+/* about points marked with the oven */
+html[data-dir] .point::before{background:var(--oven) center/contain no-repeat;border:0;width:26px;height:22px}
+html[data-dir] .points{border-top-color:var(--brick)}
+
+/* section order: photos of what comes out of the oven first, then the board */
+html[data-dir] main > .gallery{order:1}
+html[data-dir] main > .about{order:2}
+html[data-dir] main > .menu{order:3}
+html[data-dir] main > .qr{order:4}
+html[data-dir] main > .book{order:5}
+html[data-dir] main > .visit{order:6}
+html[data-dir] main > .proposal{order:9}
+html[data-dir] .gallery{padding-block:var(--section)}
+html[data-dir] .menu{padding-top:var(--section)}
+
+/* menu: the slate gets a warm ember glow from below, prices in gold */
+html[data-dir] .menu > .wrap{background:
+  radial-gradient(ellipse 70% 40% at 50% 110%,rgba(245,158,11,.22),transparent 70%),
+  repeating-linear-gradient(97deg,rgba(255,255,255,.012) 0 2px,transparent 2px 7px),linear-gradient(#2d2724,#211c1a)}
+html[data-dir] .menu .dish-price{color:#f6c453}
+html[data-dir] .menu .kicker{color:#f6c453}
+
+/* QR: brick red to ember */
+html[data-dir] .qr{background:linear-gradient(160deg,var(--brick-d),var(--brick))}
+html[data-dir] .qr-name{font-family:'Coustard',var(--display);font-weight:900}
+
+/* mesa / cozinha */
+html[data-dir] .m-top h1{font-family:'Coustard',var(--display);font-weight:900}
+
+@media (max-width:860px){
+  html[data-dir] .brand{font-size:1.14rem;gap:8px}
+  html[data-dir] .brand::before{width:28px;height:23px}
+  html[data-dir] .hero-title{font-size:clamp(2.2rem,10.4vw,3.2rem)}
+}

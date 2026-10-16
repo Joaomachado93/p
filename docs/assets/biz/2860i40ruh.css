@@ -1,0 +1,46 @@
+/* O Frangão — hook: frango de churrasco — a big, chunky "Frangão" over live charcoal flames, laid out for take-away orders */
+@import url('https://fonts.googleapis.com/css2?family=Titan+One&display=swap');
+:root{
+  --frango:'Titan One','Anton',sans-serif;
+  --flames:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='36' height='20' viewBox='0 0 36 20'%3E%3Cpath d='M9 1C11 7 16 9 16 14A7 6 0 0 1 2 14C2 10 6 8 6 4 8 7 8 9 9 10 10 7 9 4 9 1Z' fill='%23FBBF24'/%3E%3Cpath d='M27 4C28 9 33 10 33 15A6 5 0 0 1 21 15C21 11 25 10 27 4Z' fill='%237F1D1D'/%3E%3C/svg%3E");
+  --flames-dark:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='36' height='20' viewBox='0 0 36 20'%3E%3Cpath d='M9 1C11 7 16 9 16 14A7 6 0 0 1 2 14C2 10 6 8 6 4 8 7 8 9 9 10 10 7 9 4 9 1Z' fill='%23B45309'/%3E%3Cpath d='M27 4C28 9 33 10 33 15A6 5 0 0 1 21 15C21 11 25 10 27 4Z' fill='%23B91C1C'/%3E%3C/svg%3E");
+  --on-accent:#fff;
+  --awning:repeating-linear-gradient(90deg,var(--accent) 0 28px,#f8f1e2 28px 56px);
+}
+
+/* wordmark: a fat rounded sign — the "big chicken" — with flames after it */
+html[data-dir] .brand{display:inline-flex;align-items:center;gap:8px;font:400 1.4rem/1 var(--frango);text-transform:none;letter-spacing:.01em}
+html[data-dir] .brand::after{content:"";width:30px;height:17px;flex:none;background:var(--flames) center/contain no-repeat}
+html[data-dir] .hero-title{font:400 clamp(3.2rem,9vw,7.2rem)/.95 var(--frango);text-transform:none;letter-spacing:0;text-shadow:5px 5px 0 var(--accent)}
+html[data-dir] h2{font-family:var(--frango);text-transform:none;letter-spacing:0}
+
+/* hero: bigger photo, a row of churrasco flames along the bottom */
+html[data-dir] .hero::after{content:"";order:3;grid-column:1/-1;height:22px;background:var(--flames) 0 100%/36px 20px repeat-x,var(--ink)}
+@media (min-width:861px){
+  html[data-dir] .hero{grid-template-columns:1fr 1.15fr;grid-template-rows:minmax(0,1fr) auto}
+}
+
+/* menu: the order board, headed by the flames, red prices */
+html[data-dir] .menu .section-head::before{content:"";width:58px;height:32px;background:var(--flames-dark) 0 50%/contain no-repeat}
+html[data-dir] .dish-price{color:var(--accent)}
+html[data-dir] .dishes{box-shadow:6px 6px 0 var(--accent)}
+html[data-dir] .tab[aria-selected=true]{box-shadow:3px 3px 0 var(--accent)}
+
+/* order: take-away first — menu, then the order form */
+html[data-dir] .menu{order:1}
+html[data-dir] .book{order:2}
+html[data-dir] .gallery{order:3;padding-top:var(--section)}
+html[data-dir] .about{order:4}
+html[data-dir] .visit{order:5}
+html[data-dir] .proposal{order:9}
+html[data-dir] .book{background:color-mix(in srgb,var(--primary) 10%,var(--bg));border-bottom:3px solid var(--ink)}
+html[data-dir] .form{box-shadow:6px 6px 0 var(--accent)}
+
+html[data-dir] .site-foot::before{background:var(--flames) 0 100%/36px 20px repeat-x,var(--ink);height:20px}
+html[data-dir] .site-foot b,html[data-dir] .m-top h1,html[data-dir] .total{font-family:var(--frango);font-weight:400;text-transform:none}
+
+@media (max-width:860px){
+  html[data-dir] .brand{font-size:1.25rem}
+  html[data-dir] .hero-title{font-size:clamp(3rem,15vw,4.6rem)}
+}
+html[data-dir] .hero .kicker{color:#fbbf24}

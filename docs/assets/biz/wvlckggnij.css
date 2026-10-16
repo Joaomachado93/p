@@ -1,0 +1,55 @@
+/* Supermercados Ribeiros — hook: "ribeiros" = brooks → running-water waves; the shop sign of Pevidém that delivers home */
+@import url('https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&display=swap');
+:root{
+  --brook:url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' width='64' height='16' viewBox='0 0 64 16'><path d='M0 5q8-6 16 0t16 0 16 0 16 0' fill='none' stroke='%232e7d32' stroke-width='3'/><path d='M0 12q8-6 16 0t16 0 16 0 16 0' fill='none' stroke='%23f2a900' stroke-width='3'/></svg>");
+  --brook-w:url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' width='64' height='16' viewBox='0 0 64 16'><path d='M0 5q8-6 16 0t16 0 16 0 16 0' fill='none' stroke='%23ffffff' stroke-width='3'/><path d='M0 12q8-6 16 0t16 0 16 0 16 0' fill='none' stroke='%23f2a900' stroke-width='3'/></svg>");
+  --sign:'Fredoka','Bricolage Grotesque',system-ui,sans-serif;
+  --bg:color-mix(in srgb,var(--primary) 5%,#f8f5ea);
+  --green-deep:color-mix(in srgb,var(--primary) 82%,#000);
+}
+/* wordmark: rounded shop-sign letters with a brook badge */
+html[data-dir] .brand{display:inline-flex;align-items:center;gap:10px;font:700 1.3rem/1 var(--sign);color:var(--primary);letter-spacing:0}
+html[data-dir] .brand::before{content:"";width:34px;height:34px;border-radius:50%;flex:none;background:var(--brook-w) center/28px 7px no-repeat,var(--primary)}
+html[data-dir] h1,html[data-dir] h2{font-family:var(--sign);font-weight:700;letter-spacing:-.01em}
+/* hero: the copy becomes the green shop sign */
+html[data-dir] .hero-copy{background:var(--primary);color:#fff}
+html[data-dir] .hero-title{font:700 clamp(2.5rem,6vw,5rem)/.95 var(--sign);color:#fff;letter-spacing:-.02em}
+html[data-dir] .hero-title::after{content:"";display:block;width:192px;max-width:100%;height:16px;margin-top:16px;background:var(--brook-w) 0 0/64px 16px repeat-x}
+html[data-dir] .hero .kicker{color:#fff;border-color:rgba(255,255,255,.75)}
+html[data-dir] .tagline{color:#fff;font:600 clamp(1.15rem,2vw,1.45rem)/1.3 var(--sign)}
+html[data-dir] .hero .facts{color:#eef6ee;border-color:rgba(255,255,255,.3)}
+html[data-dir] .hero .facts .i,html[data-dir] .hero .facts b{color:#fff}
+html[data-dir] .hero .btn-primary{background:var(--accent);color:#1e1a10;box-shadow:0 3px 0 var(--green-deep)}
+html[data-dir] .hero .btn-secondary{background:transparent;color:#fff;border-color:#fff}
+html[data-dir] .hero :focus-visible{outline-color:#fff}
+html[data-dir] .hero-media::after{background:var(--brook) 0 50%/64px 16px repeat-x,var(--surface);height:22px;border-top:0}
+/* order: shelves first, then the delivery order, then the shop story */
+main > .menu{order:1} main > .book{order:2} main > .about{order:3} main > .gallery{order:4} main > .visit{order:5} main > .proposal{order:9}
+html[data-dir] .menu{border-block:0;border-top:0}
+html[data-dir] .menu .section-head::after{content:"";display:block;height:16px;width:128px;background:var(--brook) 0 0/64px 16px repeat-x}
+html[data-dir] .menu h2,html[data-dir] .book h2{color:var(--green-deep)}
+/* price cards stay yellow; the product rows get a green shelf edge */
+html[data-dir] .dishes{border-color:var(--green-deep);box-shadow:0 4px 0 var(--primary)}
+html[data-dir] .dish-name{font:600 1.08rem/1.3 var(--sign)}
+html[data-dir] .tab[aria-selected=true]{background:var(--primary)}
+/* delivery slip: green header strip */
+html[data-dir] .book .form{box-shadow:0 0 0 2px var(--primary),0 10px 24px -14px rgba(30,34,25,.35)}
+html[data-dir] .book .form::after{content:"";position:absolute;left:16px;right:16px;top:12px;height:16px;background:var(--brook) 0 0/64px 16px repeat-x;opacity:.9}
+html[data-dir] .about{background:var(--surface)}
+html[data-dir] .point::before{color:var(--primary);font-family:var(--sign);font-size:1rem}
+/* footer: brook replaces the awning stripe */
+html[data-dir] .site-foot{background:var(--green-deep)}
+html[data-dir] .site-foot::before{height:16px;background:var(--brook-w) 0 0/64px 16px repeat-x;top:10px}
+html[data-dir] .site-foot{padding-top:44px}
+html[data-dir] .site-foot b{font:700 1.1rem var(--sign);color:#fff}
+html[data-dir] .site-foot .muted{color:#d7e6d7}
+html[data-dir] .site-head::before{background:repeating-linear-gradient(90deg,var(--primary) 0 28px,#fff 28px 56px)}
+@media (min-width:861px){
+  html[data-dir] .hero.hero--photo .hero-copy{padding-block:48px}
+}
+@media (max-width:860px){
+  html[data-dir] .hero-copy{padding-inline:var(--gutter) var(--gutter-r)}
+  html[data-dir] .hero-title{font-size:clamp(2.3rem,11vw,3.4rem)}
+  html[data-dir] .mbar{border-top-color:var(--primary)}
+}
+.m-top h1{font-family:var(--sign)}

@@ -1,0 +1,60 @@
+/* Taberna Lord — hook: the name "Lord" → a gentleman's top hat, a calling-card wordmark and an oval cameo portrait frame */
+@import url('https://fonts.googleapis.com/css2?family=Libre+Caslon+Display&display=swap');
+:root{
+  --display:'Libre Caslon Display','Bodoni 72',Georgia,serif;
+  --bg:color-mix(in srgb,var(--primary) 5%,#f4efe6);
+  --surface:#fdfaf4;
+  --hat:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 48 36'%3E%3Cpath d='M13 4h22l-2 22H15Z' fill='%235A2A27'/%3E%3Cpath d='M14 20h20v4H14z' fill='%23B88A44'/%3E%3Cpath d='M3 28c6 3 36 3 42 0c-3 4-39 4-42 0Z' fill='%235A2A27' stroke='%235A2A27' stroke-width='2.4' stroke-linejoin='round'/%3E%3C/svg%3E");
+}
+/* wordmark: engraved small caps like a calling card, top hat above */
+html[data-dir] .brand{display:inline-flex;align-items:center;gap:10px;font:400 1.4rem/1 var(--display);letter-spacing:.14em;text-transform:uppercase;color:var(--primary)}
+html[data-dir] .brand::before{content:"";width:30px;height:22px;flex:none;background:var(--hat) center/contain no-repeat}
+html[data-dir] .hero-title{font:400 clamp(2.6rem,5.4vw,4.9rem)/.95 var(--display);letter-spacing:.05em;text-transform:uppercase;color:var(--primary)}
+html[data-dir] .hero-title::before{content:"";display:block;width:76px;height:56px;margin-bottom:12px;background:var(--hat) left bottom/contain no-repeat}
+html[data-dir] h2{font-family:var(--display);letter-spacing:.01em}
+html[data-dir] .kicker{color:color-mix(in srgb,var(--accent) 60%,#3a1a10)}
+
+/* hero: the copy is a calling card (double rule); the photo is an oval cameo */
+html[data-dir] .hero-copy{position:relative}
+@media (min-width:861px){
+  html[data-dir] .hero-copy{margin-left:max(var(--gutter),calc((100vw - var(--maxw))/2 + 16px));padding:clamp(28px,3.4vw,48px);
+    background:var(--surface);border:1px solid var(--primary);outline:1px solid var(--primary);outline-offset:-8px;box-shadow:0 22px 40px -24px rgba(50,20,15,.5)}
+  html[data-dir] .hero-media{justify-self:center;width:min(100%,500px);height:min(70vh,600px);border-radius:50%;padding:12px;
+    background:linear-gradient(135deg,var(--accent),color-mix(in srgb,var(--accent) 60%,#4a2a10));box-shadow:0 26px 50px -24px rgba(50,20,15,.6)}
+  html[data-dir] .hero-media img{border-radius:50%;box-shadow:0 0 0 3px var(--surface)}
+}
+
+/* azulejo bands become a thin gold double rule (a gentleman's stationery) */
+html[data-dir] .site-head::after,html[data-dir] .site-foot::before,html[data-dir] .proposal::before{height:8px;background:none;border-block:2px solid var(--accent)}
+html[data-dir] .point::before{background:var(--hat) center/contain no-repeat;border:0;width:24px}
+
+/* order: the menu first, then the story, photos, booking */
+html[data-dir] .hero{order:0}
+html[data-dir] .menu{order:1;padding-top:var(--section)}
+html[data-dir] .about{order:2}
+html[data-dir] .gallery{order:3}
+html[data-dir] .book{order:4}
+html[data-dir] .visit{order:5}
+html[data-dir] .proposal{order:9}
+
+/* menu: board crest = top hat in chalk; dark mahogany frame */
+html[data-dir] .menu > .wrap{border-image:repeating-linear-gradient(92deg,#5a2a27 0 9px,#4a211e 9px 13px,#66322e 13px 21px,#41201c 21px 24px) 16}
+html[data-dir] .menu .section-head{justify-items:center;text-align:center}
+html[data-dir] .menu .section-head::before{content:"";width:60px;height:44px;background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 48 36'%3E%3Cpath d='M13 4h22l-2 22H15Z' fill='%23f1efe6'/%3E%3Cpath d='M14 20h20v4H14z' fill='%23B88A44'/%3E%3Cpath d='M3 28c6 3 36 3 42 0c-3 4-39 4-42 0Z' fill='%23f1efe6' stroke='%23f1efe6' stroke-width='2.4' stroke-linejoin='round'/%3E%3C/svg%3E") center/contain no-repeat}
+html[data-dir] .menu .tabs{justify-content:center}
+html[data-dir] .menu h2{font-family:var(--display)}
+html[data-dir] .gallery .shot:first-child{border-radius:50% / 40%}
+html[data-dir] .site-foot b{font:400 1.1rem var(--display);letter-spacing:.12em;text-transform:uppercase;color:var(--primary)}
+
+@media (max-width:860px){
+  html[data-dir] .hero-media{margin:16px auto 0;width:min(78vw,320px);height:auto;aspect-ratio:4/5;border-radius:50%;padding:8px;
+    background:linear-gradient(135deg,var(--accent),color-mix(in srgb,var(--accent) 60%,#4a2a10))}
+  html[data-dir] .hero-media img{border-radius:50%}
+  html[data-dir] .hero-copy{margin:18px var(--gutter-r) 34px var(--gutter);padding:24px 18px;text-align:center;justify-items:center;
+    background:var(--surface);border:1px solid var(--primary);outline:1px solid var(--primary);outline-offset:-6px}
+  html[data-dir] .hero-title{font-size:clamp(2.4rem,12vw,3.4rem)}
+  html[data-dir] .hero-title::before{margin-inline:auto;width:60px;height:44px;background-position:center bottom}
+  html[data-dir] .facts{justify-content:center}
+  html[data-dir] .brand{font-size:1.1rem}
+}
+html[data-dir] .m-top h1{font-family:var(--display);letter-spacing:.1em;text-transform:uppercase}

@@ -1,0 +1,73 @@
+/* Brink e Fabrik — hook: "Fabrik" — a small sweet factory: saw-tooth workshop roof with a chimney puffing a heart; playful "brink" lettering */
+@import url('https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&display=swap');
+:root{
+  --bf-display:'Fredoka',system-ui,sans-serif;
+  --bg:color-mix(in srgb,var(--accent) 7%,#fdf8f4);
+  --paper:color-mix(in srgb,var(--accent) 10%,#fbf5f6);
+  --paper-2:color-mix(in srgb,var(--primary) 16%,#fbf1f3);
+  --fabrik:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 80'%3E%3Cpath d='M72 24C66 18 60 24 66 30L72 36L78 30C84 24 78 18 72 24Z' fill='%23B84A72'/%3E%3Cpath d='M66 40H78V78H66Z' fill='%237A5C8E'/%3E%3Cpath d='M6 78V52L26 40V52L46 40V52L66 40V78Z' fill='%237A5C8E'/%3E%3Cg fill='%23fdf8f4'%3E%3Crect x='14' y='60' width='8' height='8' rx='1.5'/%3E%3Crect x='34' y='60' width='8' height='8' rx='1.5'/%3E%3Crect x='54' y='60' width='8' height='8' rx='1.5'/%3E%3C/g%3E%3C/svg%3E");
+  --saw:conic-gradient(from 225deg at 50% 0,var(--accent) 0 25%,transparent 0) 0 0/28px 14px repeat-x;
+}
+html[data-dir] body{background:var(--bg)}
+
+/* wordmark: rounded, chunky, a tiny factory before it */
+html[data-dir] .brand{font:700 1.55rem/1 var(--bf-display);font-style:normal;letter-spacing:-.01em;color:var(--primary);display:inline-flex;align-items:flex-end;gap:8px}
+html[data-dir] .brand::before{content:"";width:40px;height:32px;flex:none;background:var(--fabrik) center bottom/contain no-repeat}
+html[data-dir] h1,html[data-dir] h2,html[data-dir] h3{font-family:var(--bf-display);font-variation-settings:normal}
+html[data-dir] .hero-title{font:700 clamp(3rem,8.4vw,6.4rem)/.95 var(--bf-display);letter-spacing:-.02em;color:var(--accent)}
+html[data-dir] .hero-title::first-line{color:var(--primary)}
+html[data-dir] h2{font-weight:600}
+html[data-dir] .tagline{font:500 clamp(1.15rem,2vw,1.45rem)/1.35 var(--bf-display);font-style:normal}
+html[data-dir] .kicker{background:var(--accent)}
+
+/* the awning becomes the factory's saw-tooth roofline */
+html[data-dir] .site-head::before{height:22px;-webkit-mask:none;mask:none;
+  background:linear-gradient(to bottom right,transparent 50%,var(--accent) 0) 0 100%/44px 22px repeat-x,
+    linear-gradient(var(--primary),var(--primary)) 0 100%/100% 4px no-repeat}
+
+/* hero: photo under a saw-tooth roof with the chimney-heart on top */
+html[data-dir] .hero-media{border-radius:0 0 18px 18px;overflow:visible;margin-top:28px}
+html[data-dir] .hero-media img{border-radius:0 0 18px 18px}
+html[data-dir] .hero-media::after{border-radius:0 0 18px 18px}
+html[data-dir] .hero-media::before{content:"";position:absolute;z-index:2;left:0;right:0;top:-24px;height:24px;
+  background:linear-gradient(to bottom right,transparent 50%,var(--accent) 0) 0 100%/48px 24px repeat-x}
+html[data-dir] .hero-copy::before{content:"";width:72px;height:58px;background:var(--fabrik) left bottom/contain no-repeat}
+
+/* order: the sweets first */
+html[data-dir] main .menu{order:1}
+html[data-dir] main .about{order:2}
+html[data-dir] main .gallery{order:3;padding-top:var(--section)}
+html[data-dir] main .book{order:4}
+html[data-dir] main .visit{order:5}
+html[data-dir] main .proposal{order:9}
+
+/* menu: production line — dashed conveyor under each item */
+html[data-dir] .menu{background:var(--paper);border-image:repeating-linear-gradient(90deg,var(--accent) 0 12px,var(--primary) 12px 24px) 6}
+html[data-dir] .menu .section-head{grid-template-columns:auto minmax(0,1fr);column-gap:16px;align-items:end}
+html[data-dir] .menu .section-head::before{content:"";grid-row:span 3;width:80px;height:64px;background:var(--fabrik) center bottom/contain no-repeat}
+html[data-dir] .tab{clip-path:none;border-radius:12px 12px 4px 4px}
+html[data-dir] .dish{border-bottom:3px dashed color-mix(in srgb,var(--accent) 35%,transparent)}
+html[data-dir] .dish-name{font:600 1.15rem/1.25 var(--bf-display)}
+html[data-dir] .dish-price{clip-path:none;-webkit-mask:none;mask:none;border-radius:8px;background:var(--accent);font:600 1rem/1 var(--bf-display);font-style:normal;padding:.45em .7em}
+
+/* gallery: plain rounded crates instead of doilies */
+html[data-dir] .shot{-webkit-mask:none;mask:none;padding:0;border-radius:18px;border:4px solid var(--surface);box-shadow:0 10px 24px -14px rgba(60,30,60,.5)}
+html[data-dir] .shot img{border-radius:12px}
+html[data-dir] .point::before{font:700 1.15rem/1.3 var(--bf-display);font-style:normal;color:var(--accent)}
+
+/* footer: the roofline again */
+html[data-dir] .site-foot{border-top:0;position:relative;padding-top:58px}
+html[data-dir] .site-foot::before{content:"";position:absolute;left:0;right:0;top:0;height:20px;
+  background:linear-gradient(to bottom right,transparent 50%,var(--primary) 0) 0 100%/40px 20px repeat-x}
+html[data-dir] .site-foot b{font:700 1.15rem var(--bf-display);font-style:normal}
+
+@media (max-width:860px){
+  html[data-dir] .hero-media{margin-top:30px}
+  html[data-dir] .hero-media::before{background-size:36px 22px;height:22px;top:-22px}
+  html[data-dir] .menu .section-head::before{width:60px;height:48px}
+}
+
+/* mesa / cozinha */
+html[data-dir] .m-top h1,html[data-dir] .m-cat{font-family:var(--bf-display);font-weight:700;font-style:normal}
+html[data-dir] .m-item h4{font-family:var(--bf-display);font-weight:600}
+html[data-dir] .m-item .price{font-family:var(--bf-display);font-style:normal;color:var(--accent)}

@@ -1,0 +1,51 @@
+/* Tas'co Pio — hook: its street, Rua das 3 Bicas → three water spouts (bicas) dripping; loud red & yellow taberna sign */
+@import url('https://fonts.googleapis.com/css2?family=Bowlby+One+SC&display=swap');
+:root{
+  --display:'Bowlby One SC','Alfa Slab One',Impact,sans-serif;
+  --sunny:color-mix(in srgb,var(--accent) 30%,#fff8e6);
+  --bicas:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 72 34'%3E%3Cpath d='M2 4H70' stroke='%23B3261E' stroke-width='3' stroke-linecap='round'/%3E%3Cg fill='%23B3261E'%3E%3Crect x='9' y='4' width='10' height='9' rx='2'/%3E%3Crect x='31' y='4' width='10' height='9' rx='2'/%3E%3Crect x='53' y='4' width='10' height='9' rx='2'/%3E%3C/g%3E%3Cg fill='%231d4b8f'%3E%3Cpath d='M14 17c3 5 4 7 4 9a4 4 0 0 1-8 0c0-2 1-4 4-9Z'/%3E%3Cpath d='M36 17c3 5 4 7 4 9a4 4 0 0 1-8 0c0-2 1-4 4-9Z'/%3E%3Cpath d='M58 17c3 5 4 7 4 9a4 4 0 0 1-8 0c0-2 1-4 4-9Z'/%3E%3C/g%3E%3C/svg%3E");
+}
+/* wordmark: chunky sign-painter caps, red on the house yellow */
+html[data-dir] .brand{display:inline-flex;align-items:center;gap:10px;font:400 1.35rem/1 var(--display);color:var(--primary);letter-spacing:.01em}
+html[data-dir] .brand::before{content:"";width:40px;height:19px;flex:none;background:var(--bicas) center/contain no-repeat}
+html[data-dir] .hero-title{font:400 clamp(3rem,8vw,6.6rem)/.92 var(--display);color:var(--primary);letter-spacing:-.01em;
+  text-shadow:4px 4px 0 var(--accent)}
+html[data-dir] .hero-title::after{content:"";display:block;width:min(200px,60%);aspect-ratio:72/34;margin-top:16px;background:var(--bicas) left center/contain no-repeat}
+html[data-dir] h2{font-family:var(--display);font-size:clamp(1.9rem,4.2vw,3rem)}
+
+/* hero: copy on a sunny yellow wall; photo with a heavy red frame */
+html[data-dir] .hero{background:var(--sunny)}
+html[data-dir] .hero-media{padding:0;background:var(--primary);border:10px solid var(--primary);border-radius:var(--radius-lg);box-shadow:12px 12px 0 var(--accent)}
+html[data-dir] .hero-media img{box-shadow:none}
+html[data-dir] .tagline,html[data-dir] .facts{color:#3a2a14}
+html[data-dir] .site-head::after,html[data-dir] .site-foot::before,html[data-dir] .proposal::before{height:12px;
+  background:repeating-linear-gradient(90deg,var(--primary) 0 24px,var(--accent) 24px 48px)}
+
+/* order: straight to the food — menu, photos, then the rest */
+html[data-dir] .hero{order:0}
+html[data-dir] .menu{order:1;padding-top:var(--section)}
+html[data-dir] .gallery{order:2}
+html[data-dir] .about{order:3}
+html[data-dir] .book{order:4}
+html[data-dir] .visit{order:5}
+html[data-dir] .proposal{order:9}
+
+/* menu board: three bicas hang from the top of the slate */
+html[data-dir] .menu > .wrap{border-image:none;border:14px solid var(--primary);padding-top:clamp(60px,6vw,80px)}
+html[data-dir] .menu > .wrap::before{content:"";position:absolute;top:0;left:50%;width:120px;height:56px;transform:translateX(-50%);
+  background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 72 34'%3E%3Cg fill='%23F4B400'%3E%3Crect x='9' y='0' width='10' height='11' rx='2'/%3E%3Crect x='31' y='0' width='10' height='11' rx='2'/%3E%3Crect x='53' y='0' width='10' height='11' rx='2'/%3E%3C/g%3E%3Cg fill='%2399c3ff'%3E%3Cpath d='M14 16c3 5 4 7 4 9a4 4 0 0 1-8 0c0-2 1-4 4-9Z'/%3E%3Cpath d='M36 16c3 5 4 7 4 9a4 4 0 0 1-8 0c0-2 1-4 4-9Z'/%3E%3Cpath d='M58 16c3 5 4 7 4 9a4 4 0 0 1-8 0c0-2 1-4 4-9Z'/%3E%3C/g%3E%3C/svg%3E") center top/contain no-repeat}
+html[data-dir] .menu .section-head{justify-items:center;text-align:center}
+html[data-dir] .menu .tabs{justify-content:center}
+html[data-dir] .menu h2{color:var(--accent)}
+html[data-dir] .point::before{background:var(--accent);border:0;border-radius:50%}
+html[data-dir] .about{background:var(--surface)}
+html[data-dir] .site-foot b{font:400 1.2rem var(--display);color:var(--primary)}
+
+@media (max-width:860px){
+  html[data-dir] .hero-media{margin:14px var(--gutter-r) 0 var(--gutter);border-width:8px;box-shadow:8px 8px 0 var(--accent);height:clamp(220px,34svh,300px);width:auto}
+  html[data-dir] .hero-title{font-size:clamp(2.8rem,14vw,4rem);text-shadow:3px 3px 0 var(--accent)}
+  html[data-dir] .hero-title::after{width:130px;margin-top:10px}
+  html[data-dir] .menu > .wrap{border-width:10px;padding-top:62px}
+  html[data-dir] .menu > .wrap::before{width:96px;height:46px}
+}
+html[data-dir] .m-top h1{font:400 1.4rem/1 var(--display)}

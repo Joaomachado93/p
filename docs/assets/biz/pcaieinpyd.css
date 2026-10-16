@@ -1,0 +1,52 @@
+/* Chá Mate - Salão de Chá — hook: the tea leaf and the cup — a leaf sprig ornament and a teacup-shaped window */
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,600;1,500;1,600&display=swap');
+:root{
+  --cha-display:'Cormorant Garamond','Fraunces',Georgia,serif;
+  --leaf-ink:#3d5a39; --gold-ink:#7d6230;
+  --sprig:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 40'%3E%3Cpath d='M4 34C20 30 40 24 60 8' fill='none' stroke='%23557550' stroke-width='2.2' stroke-linecap='round'/%3E%3Cpath d='M22 29C18 18 24 9 34 6C36 17 32 25 22 29Z' fill='%23557550'/%3E%3Cpath d='M38 21C40 11 48 5 58 6C56 15 48 21 38 21Z' fill='%23c9a76a'/%3E%3Cpath d='M12 32C8 26 9 20 14 16C17 22 16 28 12 32Z' fill='%23557550' opacity='.7'/%3E%3C/svg%3E");
+}
+
+/* wordmark: unhurried italic serif, a sprig after the name */
+html[data-dir] .brand{font:italic 600 clamp(1.45rem,2.4vw,1.8rem)/1 var(--cha-display);color:var(--leaf-ink);display:inline-flex;align-items:center;gap:.35em}
+html[data-dir] .brand::after{content:"";width:1.6em;height:1em;flex:none;background:var(--sprig) center/contain no-repeat}
+html[data-dir] .hero-title{font-family:var(--cha-display);font-weight:600;font-style:normal;letter-spacing:-.01em;line-height:.95;font-size:clamp(2.8rem,6.4vw,5.6rem)}
+html[data-dir] .hero-title::first-line{font-style:italic;color:var(--leaf-ink)}
+html[data-dir] .tagline{font-family:var(--cha-display);font-size:clamp(1.3rem,2.2vw,1.65rem);color:var(--gold-ink)}
+html[data-dir] .kicker{background:var(--leaf-ink)}
+
+/* hero: the window is a teacup bowl sitting on a saucer line */
+html[data-dir] .hero-media{border-radius:14px 14px 50% 50% / 14px 14px 42% 42%;
+  box-shadow:0 0 0 6px var(--surface),0 0 0 8px var(--accent),0 34px 0 -14px color-mix(in srgb,var(--accent) 35%,#fff),0 34px 0 -12px var(--accent)}
+html[data-dir] .hero-copy::before{content:"";width:120px;height:75px;background:var(--sprig) 0 50%/contain no-repeat}
+
+/* order: slow down first (about), then the tea card, then photos */
+main > .about{order:1} main > .menu{order:2} main > .gallery{order:3} main > .qr{order:4}
+main > .book{order:5} main > .visit{order:6} main > .proposal{order:20}
+html[data-dir] .about{padding-top:calc(var(--section) + 20px)}
+
+/* menu: a tea card — leaf border instead of twine, sprig over the title */
+html[data-dir] .menu{border-image:repeating-linear-gradient(90deg,var(--primary) 0 14px,transparent 14px 20px,var(--accent) 20px 28px,transparent 28px 34px) 6}
+html[data-dir] .menu .section-head{justify-items:center;text-align:center}
+html[data-dir] .menu .section-head::before{content:"";width:96px;height:60px;background:var(--sprig) center/contain no-repeat}
+html[data-dir] .menu .section-head h2{font-family:var(--cha-display);font-style:italic;font-weight:600;font-size:clamp(2.4rem,5vw,3.6rem)}
+html[data-dir] .menu .tabs{justify-content:center}
+html[data-dir] .dish-name{font-family:var(--cha-display);font-weight:600;font-size:1.35rem}
+html[data-dir] .dish-price{clip-path:none;-webkit-mask:none;mask:none;background:transparent;color:var(--leaf-ink);border:1.5px solid var(--primary);border-radius:999px 999px 999px 4px;padding:.4em .75em;font-size:1.1rem}
+html[data-dir] .dishes{border-radius:24px 24px 50% 50% / 24px 24px 36px 36px;padding-bottom:30px}
+html[data-dir] .tab[aria-selected=true]{background:var(--leaf-ink)}
+
+/* about: leaves for numbers */
+html[data-dir] .point::before{content:"";width:34px;height:22px;background:var(--sprig) center/contain no-repeat}
+html[data-dir] .point h3{font-family:var(--cha-display);font-size:1.5rem}
+html[data-dir] .gallery .shot{border-radius:50%;-webkit-mask:none;mask:none;aspect-ratio:1;padding:8px;background:color-mix(in srgb,var(--accent) 30%,#fff)}
+html[data-dir] .gallery .shot img{border-radius:50%}
+html[data-dir] .qr-name,html[data-dir] .m-top h1{font-family:var(--cha-display);font-weight:600;font-size:1.4rem}
+html[data-dir] .site-foot b{font-family:var(--cha-display);font-style:italic;font-size:1.25em;color:var(--leaf-ink)}
+
+@media (min-width:861px){html[data-dir] .gallery-grid{grid-auto-rows:auto;align-items:center}html[data-dir] .gallery-grid .shot{height:auto;aspect-ratio:1}}
+@media (max-width:860px){
+  html[data-dir] .hero-media{aspect-ratio:1/1;margin-inline:calc(var(--gutter) + 18px);margin-bottom:22px}
+  html[data-dir] .hero-copy::before{width:84px;height:52px}
+  html[data-dir] .hero-title{font-size:clamp(2.4rem,11vw,3.4rem)}
+  html[data-dir] .gallery .shot:first-child{aspect-ratio:1;width:min(100%,320px);justify-self:center;border-radius:50%}
+}

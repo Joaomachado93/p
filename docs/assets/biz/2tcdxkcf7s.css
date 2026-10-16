@@ -1,0 +1,59 @@
+/* Restaurante Bom Amigo — hook: three salas (three arched doorways) for groups, a friendly table in Creixomil */
+@import url('https://fonts.googleapis.com/css2?family=Bree+Serif&display=swap');
+:root{
+  --ba-font:'Bree Serif',Rockwell,Georgia,serif;
+  --ba-wine:#9A3412; --ba-olive:#4D7C0F;
+  --ba-doors:url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 120 48'><g fill='%23fffdf8' stroke='%239A3412' stroke-width='3'><path d='M6 46V22a14 14 0 0 1 28 0v24z'/><path d='M46 46V18a14 14 0 0 1 28 0v28z'/><path d='M86 46V22a14 14 0 0 1 28 0v24z'/></g><g fill='%234D7C0F'><circle cx='29' cy='34' r='2'/><circle cx='69' cy='32' r='2'/><circle cx='109' cy='34' r='2'/></g><path d='M2 46.5h116' stroke='%239A3412' stroke-width='3'/></svg>");
+}
+
+/* wordmark: a warm slab with the three doors under the name */
+html[data-dir] .brand{font:400 1.35rem/1.05 var(--ba-font);color:var(--ba-wine)}
+html[data-dir] .hero-title{font:400 clamp(2.7rem,6.4vw,5.6rem)/.98 var(--ba-font);letter-spacing:-.015em;color:#2a1a12}
+html[data-dir] .hero-title::after{content:"";display:block;width:clamp(110px,14vw,170px);aspect-ratio:120/48;margin-top:18px;background:var(--ba-doors) left/contain no-repeat}
+html[data-dir] h2,html[data-dir] .m-top h1,html[data-dir] .qr-name{font-family:var(--ba-font)}
+html[data-dir] .kicker{color:var(--ba-olive)}
+
+/* hero: the photo sits inside an arched doorway (one of the three salas) */
+html[data-dir] .hero-media{border-radius:999px 999px var(--radius) var(--radius)/clamp(160px,22vw,300px) clamp(160px,22vw,300px) var(--radius) var(--radius);padding:14px}
+html[data-dir] .hero-media img{border-radius:inherit}
+
+/* services as three arched door plaques (grupos, eventos, autocarros) */
+html[data-dir] .services{gap:10px}
+html[data-dir] .services li{background:var(--surface);border:2px solid var(--ba-wine);border-radius:22px 22px 4px 4px;padding:.55em 1em .45em;font-weight:700;min-height:44px}
+html[data-dir] .services .i{color:var(--ba-olive)}
+html[data-dir] .about{position:relative}
+html[data-dir] .about::before{content:"";position:absolute;left:50%;top:-24px;width:120px;height:48px;transform:translateX(-50%);background:var(--ba-doors) center/contain no-repeat}
+html[data-dir] .point::before{background:var(--ba-wine);border:0;border-radius:11px 11px 2px 2px}
+
+/* order: menu right after the hero, then the friends' table (about), QR, booking */
+html[data-dir] .menu{order:1;padding-top:var(--section)}
+html[data-dir] .about{order:2}
+html[data-dir] .qr{order:3}
+html[data-dir] .book{order:4}
+html[data-dir] .gallery{order:5}
+html[data-dir] .visit{order:6}
+html[data-dir] .proposal{order:9}
+
+/* menu: slate keeps the tasca feel, header gets the doors in chalk */
+html[data-dir] .menu .section-head{position:relative;padding-right:130px}
+html[data-dir] .menu .section-head::after{content:"";position:absolute;right:0;top:4px;width:120px;height:48px;opacity:.85;
+  background:url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 120 48'><g fill='none' stroke='%23f1efe6' stroke-width='2.5'><path d='M6 46V22a14 14 0 0 1 28 0v24z'/><path d='M46 46V18a14 14 0 0 1 28 0v28z'/><path d='M86 46V22a14 14 0 0 1 28 0v24z'/><path d='M2 46.5h116'/></g></svg>") center/contain no-repeat}
+html[data-dir] .menu .dish-name{font:400 1.15rem/1.25 var(--ba-font)}
+
+/* QR + booking: friendlier, olive greeting */
+html[data-dir] .qr{background:linear-gradient(135deg,var(--ba-wine),#6f230b)}
+html[data-dir] .qr-card{border-radius:60px 60px 8px 8px}
+html[data-dir] .book{background-size:28px 28px}
+html[data-dir] .book > .book-grid{border-top:8px solid var(--ba-olive)}
+
+/* footer: the doors close the page */
+html[data-dir] .site-foot .wrap::before{content:"";width:96px;height:38px;background:var(--ba-doors) left/contain no-repeat;margin-bottom:6px}
+
+@media (max-width:860px){
+  html[data-dir] .hero-media{border-radius:0;padding:0 0 14px}
+  html[data-dir] .hero-media img{border-radius:0 0 0 0}
+  html[data-dir] .hero-copy{position:relative}
+  html[data-dir] .hero-title{font-size:clamp(2.4rem,11vw,3.4rem)}
+  html[data-dir] .menu .section-head{padding-right:0;padding-top:52px}
+  html[data-dir] .menu .section-head::after{left:0;right:auto;top:0;width:100px;height:40px}
+}

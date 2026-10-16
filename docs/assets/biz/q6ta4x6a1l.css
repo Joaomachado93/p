@@ -1,0 +1,58 @@
+/* Taberna das Taipas — hook: the thermal waters of Caldas das Taipas (spa-town poster type + warm-water waves and steam) */
+@import url('https://fonts.googleapis.com/css2?family=Abril+Fatface&display=swap');
+:root{
+  --bg:#f4eee4; --surface:#fffcf6; --line:rgba(60,30,25,.15);
+  --slate:#2a1f1e; --slate-2:#352726;
+  --tt-wm:'Abril Fatface','Didot',Georgia,serif;
+  --tt-wave:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='40' height='14' viewBox='0 0 40 14'%3E%3Cpath d='M0 5q5-5 10 0t10 0t10 0t10 0' fill='none' stroke='%23B88A3A' stroke-width='2'/%3E%3Cpath d='M0 11q5-5 10 0t10 0t10 0t10 0' fill='none' stroke='%237B2E2B' stroke-width='1.6'/%3E%3C/svg%3E");
+  --tt-steam:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='48' height='56' viewBox='0 0 48 56'%3E%3Cg fill='none' stroke='%23B88A3A' stroke-width='2.4' stroke-linecap='round'%3E%3Cpath d='M12 34q-6-7 0-14t0-14'/%3E%3Cpath d='M24 30q-6-7 0-14t0-14'/%3E%3Cpath d='M36 34q-6-7 0-14t0-14'/%3E%3C/g%3E%3Cpath d='M2 44q5.5-5 11 0t11 0t11 0t11 0' fill='none' stroke='%237B2E2B' stroke-width='2.4'/%3E%3Cpath d='M2 52q5.5-5 11 0t11 0t11 0t11 0' fill='none' stroke='%237B2E2B' stroke-width='2.4'/%3E%3C/svg%3E");
+}
+/* wordmark: 19th-century spa-poster fat face, steam signet */
+.brand{font:400 1.4rem/1 var(--tt-wm);letter-spacing:.01em;display:inline-flex;align-items:flex-end;gap:8px;color:var(--primary)}
+.brand::before{content:"";width:22px;height:26px;flex:none;background:var(--tt-steam) 50%/contain no-repeat}
+.hero-title{font:400 clamp(2.8rem,6.4vw,5.8rem)/.95 var(--tt-wm);letter-spacing:0;color:var(--primary)}
+.hero-title::after{content:"";display:block;width:160px;height:14px;margin-top:18px;background:var(--tt-wave) 0 0/40px 14px repeat-x}
+h2{font-family:var(--tt-wm);letter-spacing:.005em}
+.kicker{color:#8a5f1c}
+
+/* waves instead of azulejo bands */
+.site-head::after,.site-foot::before,.proposal::before{height:14px;background:var(--tt-wave) 0 0/40px 14px repeat-x}
+
+/* hero: photo in a gilt bathhouse frame, rounded like the old buvette windows, steam rising from the corner */
+.hero-media{background:var(--tt-wave) 0 0/40px 14px,color-mix(in srgb,var(--accent) 22%,#fffaf0);border-radius:180px 180px 6px 6px;padding:18px;position:relative}
+.hero-media img{border-radius:164px 164px 2px 2px;box-shadow:0 0 0 3px var(--accent)}
+.hero-media::before{content:"";position:absolute;left:-18px;bottom:-18px;width:76px;height:76px;z-index:1;border-radius:50%;border:3px solid var(--accent);background:var(--tt-steam) 50% 45%/40px 46px no-repeat,var(--surface)}
+
+/* order: petiscos first, then the room, the story and the booking */
+.menu{order:1;padding-top:var(--section)}
+.menu > .wrap{border-image:none;border:clamp(8px,1.2vw,12px) solid var(--primary);box-shadow:0 0 0 3px var(--accent),0 22px 44px -20px rgba(31,28,24,.6)}
+.menu .section-head{text-align:center;justify-items:center}
+.menu .section-head::after{content:"";width:120px;height:14px;background:var(--tt-wave) 0 0/40px 14px repeat-x;filter:brightness(1.6)}
+.menu .tabs{justify-content:safe center}
+.menu .kicker{color:#e3c27f}
+.menu .dish-price{color:#e3c27f}
+.gallery{order:2}
+.about{order:3}
+.book{order:4}
+.qr{order:5}
+.visit{order:6}
+.proposal{order:9}
+
+.point::before{background:var(--tt-steam) 50%/contain no-repeat;border:0}
+.points{border-top-color:var(--primary)}
+.shot{border-radius:90px 90px 4px 4px;border-color:var(--surface)}
+.gallery-grid .shot img{border-radius:84px 84px 0 0}
+.qr-card{background:linear-gradient(#fff,#fff) padding-box,var(--tt-wave) 0 0/40px 14px border-box,#fff border-box}
+.qr-name,.site-foot b{font-family:var(--tt-wm);font-weight:400}
+.mbar{border-top-color:var(--accent)}
+.m-top h1,.m-cat{font-family:var(--tt-wm);font-weight:400}
+
+@media (max-width:860px){
+  .hero-media{margin:14px var(--gutter-r) 0 var(--gutter);padding:12px;border-radius:120px 120px 6px 6px;background:var(--tt-wave) 0 0/40px 14px,color-mix(in srgb,var(--accent) 22%,#fffaf0)}
+  .hero-media img{border-radius:108px 108px 2px 2px}
+  .hero-media::before{left:-8px;bottom:-12px;width:58px;height:58px;background-size:30px 35px,auto}
+  .hero-title{font-size:clamp(2.4rem,12vw,3.4rem)}
+  .site-head::after{height:14px;background-size:40px 14px}
+  .shot{border-radius:60px 60px 4px 4px}
+  .gallery-grid .shot img{border-radius:56px 56px 0 0}
+}

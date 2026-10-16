@@ -1,0 +1,67 @@
+/* Supermercados Vieira — hook: "vieira" is the scallop shell → shell mark, scalloped edges, São Lourenço green-and-amber */
+@import url('https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&display=swap');
+html[data-dir]{
+  --vi-shell:url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 60'><path d='M32 56L6 26C6 12 18 4 32 4s26 8 26 22z' fill='%23f0a500'/><path d='M32 56L10 16M32 56L20 8M32 56V4M32 56L44 8M32 56L54 16' stroke='%232f7d32' stroke-width='2.4' stroke-linecap='round'/><path d='M24 52h16l-3 6H27z' fill='%232f7d32'/></svg>");
+  --vi-edge:radial-gradient(circle at 50% 0,transparent 11px,var(--primary) 11.5px) 0 0/28px 14px repeat-x;
+  --display:'Fredoka','Bricolage Grotesque',system-ui,sans-serif;
+  --vi-green:color-mix(in srgb,var(--primary) 86%,#000);
+  --bg:color-mix(in srgb,var(--primary) 5%,#fbf8ee);
+}
+
+/* wordmark: rounded friendly caps with the shell as the "logo" */
+html[data-dir] .brand{display:inline-flex;align-items:center;gap:10px;font:700 1.4rem/1 var(--display);letter-spacing:0;color:var(--vi-green);min-height:44px}
+html[data-dir] .brand::before{content:"";width:34px;height:32px;flex:none;background:var(--vi-shell) center/contain no-repeat}
+html[data-dir] .hero-title{font:700 clamp(2.8rem,9vw,5.6rem)/.92 var(--display);letter-spacing:-.02em;color:var(--vi-green);font-stretch:normal}
+html[data-dir] .hero-title::first-line{color:var(--ink)}
+html[data-dir] .hero .kicker{border-radius:999px;transform:none}
+
+/* hero: photo sits in a shell-shaped fan (rounded top), green scalloped awning below the copy */
+html[data-dir] .hero{background:var(--bg)}
+html[data-dir] .hero-media{border-radius:0 0 50% 50% / 0 0 18% 18%;overflow:hidden}
+html[data-dir] .hero-media::after{display:none}
+@media (min-width:861px){
+  html[data-dir] .hero--photo .hero-title{font-size:clamp(2.8rem,5vw,4.3rem)}
+  html[data-dir] .hero.hero--photo{padding:28px max(var(--gutter-r),calc((100vw - var(--maxw))/2 + 16px)) 40px 0}
+  html[data-dir] .hero--photo .hero-media{border-radius:50% 50% 24px 24px / 30% 30% 24px 24px;box-shadow:0 0 0 8px var(--surface),0 0 0 11px var(--accent),0 30px 60px -30px rgba(0,0,0,.45)}
+}
+html[data-dir] .hero-media::before{content:"";position:absolute;z-index:2;left:50%;bottom:16px;translate:-50% 0;width:72px;height:68px;border-radius:50%;
+  background:#fffdf8 var(--vi-shell) center/58% no-repeat;box-shadow:0 8px 20px rgba(0,0,0,.25)}
+html[data-dir] .hero-media{position:relative}
+
+/* section order: products first, then the order form */
+html[data-dir] .menu{order:1}
+html[data-dir] .book{order:2}
+html[data-dir] .gallery{order:3}
+html[data-dir] .about{order:4}
+html[data-dir] .visit{order:5}
+html[data-dir] .proposal{order:99}
+
+/* menu: green shelf with scalloped top edge, amber price tags kept, shell in the header */
+html[data-dir] .menu{position:relative;background:color-mix(in srgb,var(--primary) 12%,#f5efdc);padding-top:calc(var(--section) + 10px)}
+html[data-dir] .menu::before{content:"";position:absolute;left:0;right:0;top:0;height:14px;background:var(--vi-edge)}
+html[data-dir] .menu .section-head{grid-template-columns:auto minmax(0,1fr);column-gap:16px;align-items:center}
+html[data-dir] .menu .section-head > *{grid-column:2}
+html[data-dir] .menu .section-head::before{content:"";grid-column:1;grid-row:1 / span 3;width:62px;height:58px;background:var(--vi-shell) center/contain no-repeat}
+html[data-dir] .dishes{border-color:var(--vi-green);border-radius:18px}
+html[data-dir] .dish-name{font-family:var(--display);font-weight:600;font-size:1.1rem}
+html[data-dir] .tab{border-radius:999px}
+
+/* headings */
+html[data-dir] h2{font-family:var(--display);font-weight:700;letter-spacing:-.01em}
+html[data-dir] .book .form{border-radius:22px;border:2px solid var(--vi-green)}
+html[data-dir] .btn{border-radius:999px}
+
+/* footer: scalloped green band */
+html[data-dir] .site-foot{position:relative;background:var(--vi-green);color:#fff;border-top:0;padding-top:52px}
+html[data-dir] .site-foot::before{content:"";position:absolute;left:0;right:0;top:-1px;height:14px;background:radial-gradient(circle at 50% 0,var(--bg) 11px,transparent 11.5px) 0 0/28px 14px repeat-x}
+html[data-dir] .site-foot .muted{color:rgba(255,255,255,.86)}
+html[data-dir] .site-foot a{color:#fff}
+
+/* mesa / cozinha pages */
+html[data-dir] .m-top h1{font:700 1.45rem/1 var(--display)}
+html[data-dir] .m-cat{font-family:var(--display);color:var(--vi-green)}
+
+@media (max-width:860px){
+  html[data-dir] .brand{font-size:1.2rem}
+  html[data-dir] .hero-media::before{width:58px;height:54px}
+}

@@ -1,0 +1,62 @@
+/* Quinta do Loureiro Velho — hook: the old bay laurel (loureiro) of the quinta, Rua do Loureiro */
+@import url('https://fonts.googleapis.com/css2?family=IM+Fell+English+SC&display=swap');
+:root{
+  --bg:color-mix(in srgb,var(--primary) 6%,#f7f4ea); --surface:#fffdf6; --line:rgba(40,52,28,.16);
+  --slate:#1f2a1a; --slate-2:#283522;
+  --ql-wm:'IM Fell English SC','Iowan Old Style',Georgia,serif;
+  --ql-leaf:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='28' viewBox='0 0 120 28'%3E%3Cpath d='M4 16Q60 10 116 16' fill='none' stroke='%234B6B2F' stroke-width='1.6'/%3E%3Cg fill='%234B6B2F'%3E%3Cellipse cx='22' cy='9' rx='8' ry='3' transform='rotate(-22 22 9)'/%3E%3Cellipse cx='26' cy='21' rx='8' ry='3' transform='rotate(20 26 21)'/%3E%3Cellipse cx='44' cy='7' rx='8' ry='3' transform='rotate(-22 44 7)'/%3E%3Cellipse cx='48' cy='19' rx='8' ry='3' transform='rotate(20 48 19)'/%3E%3Cellipse cx='72' cy='19' rx='8' ry='3' transform='rotate(-20 72 19)'/%3E%3Cellipse cx='76' cy='7' rx='8' ry='3' transform='rotate(22 76 7)'/%3E%3Cellipse cx='94' cy='19' rx='8' ry='3' transform='rotate(-20 94 19)'/%3E%3Cellipse cx='98' cy='7' rx='8' ry='3' transform='rotate(22 98 7)'/%3E%3C/g%3E%3Ccircle cx='60' cy='13' r='3.4' fill='%23C2762B'/%3E%3C/svg%3E");
+}
+/* wordmark: old-print small caps, as on a quinta's wine label */
+.brand{font:400 1.3rem/1.05 var(--ql-wm);letter-spacing:.04em;color:var(--primary)}
+.hero-title{font:400 clamp(2.5rem,5.4vw,4.9rem)/1 var(--ql-wm);letter-spacing:.01em;color:#2f441c;text-align:center}
+.hero-title::after{content:"";display:block;width:min(240px,70%);height:56px;margin:14px auto 0;background:var(--ql-leaf) 50%/contain no-repeat}
+h2{font-family:var(--ql-wm);letter-spacing:.01em}
+.hero-copy{text-align:center;justify-items:center}
+.hero .kicker{justify-self:center}
+.hero .actions,.facts{justify-content:center}
+.tagline{font-style:italic;margin-inline:auto}
+
+/* hero: a label frame — laurel green with a copper rule — instead of the azulejo */
+.hero-media{background:var(--primary);padding:14px;border-radius:2px}
+.hero-media img{box-shadow:0 0 0 2px var(--accent),0 0 0 7px var(--primary),0 0 0 8px #e9dfc4}
+
+/* header/footer/proposal bands: a laurel garland */
+.site-head::after,.site-foot::before,.proposal::before{height:22px;background:var(--ql-leaf) 0 50%/94px 22px repeat-x}
+
+/* order: the quinta first (gallery), then the story, then the table */
+.gallery{order:1;padding-top:calc(var(--section)*.6)}
+.about{order:2}
+.menu{order:3;padding-top:var(--section)}
+.book{order:4}
+.qr{order:5}
+.visit{order:6}
+.proposal{order:9}
+.shot{border-color:#fffdf6;box-shadow:0 0 0 1px var(--line),0 12px 24px -14px rgba(31,42,20,.55)}
+.caption{text-align:center}
+
+/* about: leaves for bullets */
+.points{border-top-color:var(--primary)}
+.point::before{background:var(--ql-leaf) 26% 50%/88px 22px no-repeat;border:0;width:24px;height:22px}
+
+/* menu board: laurel-dark slate with garland header and copper frame */
+.menu > .wrap{border-image:none;border:clamp(8px,1.2vw,12px) solid #5d3d22;outline:2px solid var(--accent);outline-offset:-18px}
+.menu .section-head{text-align:center;justify-items:center}
+.menu .section-head::after{content:"";width:200px;height:40px;background:var(--ql-leaf) 50%/contain no-repeat;filter:brightness(0) invert(.9) sepia(.4)}
+.menu .tabs{justify-content:safe center}
+.menu .kicker{color:#e7b77e}
+.menu .dish-price{color:#e7b77e}
+.qr{background:var(--primary)}
+.qr-name{font-family:var(--ql-wm)}
+.book{background-image:linear-gradient(90deg,color-mix(in srgb,var(--primary) 15%,transparent) 50%,transparent 50%),
+    linear-gradient(color-mix(in srgb,var(--primary) 15%,transparent) 50%,transparent 50%)}
+.site-foot b{font-family:var(--ql-wm);font-weight:400}
+.mbar{border-top-color:var(--primary)}
+.m-top h1,.m-cat{font-family:var(--ql-wm)}
+
+@media (max-width:860px){
+  .hero-media{padding:0 0 12px;background:var(--ql-leaf) 0 100%/60px 14px repeat-x,var(--bg)}
+  .hero-media img{box-shadow:none}
+  .hero-title{font-size:clamp(2.1rem,10vw,3rem)}
+  .hero-title::after{height:44px}
+  .site-head::after{height:16px;background-size:68px 16px}
+}

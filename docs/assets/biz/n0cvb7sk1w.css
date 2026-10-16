@@ -1,0 +1,43 @@
+/* Restaurante Albino (Sande) — hook: Sande S. Martinho, the rural parish → rolling furrowed fields under the Largo do Assento */
+@import url('https://fonts.googleapis.com/css2?family=Alegreya+SC:wght@700;800&display=swap');
+:root{
+  --fields:url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' width='160' height='36' viewBox='0 0 160 36'><path d='M0 36V18Q40 2 80 16T160 14V36Z' fill='%232f5d3a'/><path d='M0 36V26Q50 12 100 24T160 22V36Z' fill='%23d08a2e'/><g fill='none' stroke='%23f3f0e8' stroke-width='1.4' opacity='.55'><path d='M10 31Q50 20 96 29M30 35Q70 26 120 32'/><path d='M20 21Q50 11 84 19'/></g></svg>");
+  --village:'Alegreya SC',Georgia,serif;
+  --bg:color-mix(in srgb,var(--primary) 6%,#f3f0e8);
+  --slate:#1d2a21; --slate-2:#26362b; --wood:#5d4126;
+}
+/* wordmark: village signboard small caps */
+html[data-dir] .brand{font:800 1.3rem/1 var(--village);color:var(--primary);letter-spacing:.02em}
+html[data-dir] .hero-title{font:800 clamp(2.5rem,5.6vw,4.8rem)/.98 var(--village);color:var(--primary);letter-spacing:.005em}
+html[data-dir] .hero-title::after{content:"";display:block;width:min(240px,75%);height:36px;margin-top:12px;background:var(--fields) 0 100%/160px 36px repeat-x;border-radius:2px}
+html[data-dir] h2{font-family:var(--village);font-weight:800}
+/* hero: photo on the left with the fields across its foot; copy on the right */
+html[data-dir] .hero-media{position:relative;background:var(--primary)}
+html[data-dir] .hero-media::after{content:"";position:absolute;left:16px;right:16px;bottom:16px;height:36px;background:var(--fields) 0 100%/160px 36px repeat-x}
+@media (min-width:861px){
+  html[data-dir] .hero{grid-template-columns:minmax(0,1.12fr) minmax(0,1fr);padding-right:0;padding-left:var(--gutter)}
+  html[data-dir] .hero-media{grid-column:1}
+  html[data-dir] .hero-copy{grid-column:2;padding-left:clamp(28px,4vw,56px);padding-right:max(var(--gutter-r),calc((100vw - var(--maxw))/2 + 16px))}
+}
+/* order: board, then QR, then the photos */
+main > .about{order:1} main > .menu{order:2} main > .qr{order:3} main > .gallery{order:4} main > .book{order:5} main > .visit{order:6} main > .proposal{order:9}
+html[data-dir] .menu{padding-top:var(--section)}
+/* menu: green lousa instead of grey slate, fields along the frame foot */
+html[data-dir] .menu > .wrap::after{content:"";position:absolute;left:0;right:0;bottom:0;height:30px;background:var(--fields) 0 100%/134px 30px repeat-x;opacity:.9}
+html[data-dir] .menu > .wrap{padding-bottom:clamp(54px,6vw,76px)}
+html[data-dir] .menu h2{font-family:var(--village)}
+/* QR: green */
+html[data-dir] .qr{background:var(--primary)}
+html[data-dir] .qr h2{font-family:var(--village)}
+/* booking tablecloth turns green */
+html[data-dir] .book{background-image:linear-gradient(90deg,color-mix(in srgb,var(--primary) 16%,transparent) 50%,transparent 50%),linear-gradient(color-mix(in srgb,var(--primary) 16%,transparent) 50%,transparent 50%)}
+/* azulejo band swapped for fields in the footer */
+html[data-dir] .site-foot::before{height:36px;background:var(--fields) 0 100%/160px 36px repeat-x}
+html[data-dir] .site-foot b{font:800 1.1rem var(--village);color:var(--primary)}
+html[data-dir] .point::before{background:var(--primary);border-color:var(--primary);border-radius:50% 50% 2px 2px}
+@media (max-width:860px){
+  html[data-dir] .hero-media{padding:0;background:var(--primary)}
+  html[data-dir] .hero-media::after{left:0;right:0;bottom:0}
+  html[data-dir] .hero-title{font-size:clamp(2.2rem,10.5vw,3.2rem)}
+}
+.m-top h1{font-family:var(--village);font-weight:800}

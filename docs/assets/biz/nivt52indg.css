@@ -1,0 +1,63 @@
+/* Restaurante Café Rio — hook: the "Rio" of the name, a river drawn as three flowing lines; the photo's edge runs like water */
+@import url('https://fonts.googleapis.com/css2?family=Young+Serif&display=swap');
+:root{
+  --olive-ink:color-mix(in srgb,var(--primary) 80%,#132016);
+  --copper-ink:#8f5418;
+  --display:'Young Serif','Fraunces',Georgia,serif;
+  --rio:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Ccircle cx='46' cy='16' r='8' fill='%23c47a2c'/%3E%3Cg fill='none' stroke-width='4' stroke-linecap='round'%3E%3Cpath d='M4 32q7-8 14 0t14 0 14 0 14 0' stroke='%23476a4e'/%3E%3Cpath d='M4 44q7-8 14 0t14 0 14 0 14 0' stroke='%236f9476'/%3E%3Cpath d='M4 56q7-8 14 0t14 0 14 0 14 0' stroke='%23476a4e'/%3E%3C/g%3E%3C/svg%3E");
+  --corrente:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 56 12'%3E%3Cpath d='M0 6q7-6 14 0t14 0 14 0 14 0' fill='none' stroke='%23476a4e' stroke-width='2'/%3E%3C/svg%3E");
+  --margem:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100' preserveAspectRatio='none'%3E%3Cpath d='M0 0H100V91Q87.5 83 75 91T50 91T25 91T0 91Z'/%3E%3C/svg%3E");
+}
+
+/* wordmark: Young Serif, olive ink, the river mark */
+html[data-dir] .brand{display:inline-flex;align-items:center;gap:10px;font:400 clamp(1.2rem,2.2vw,1.5rem)/1.05 var(--display);font-style:normal;color:var(--olive-ink)}
+html[data-dir] .brand::before{content:"";width:32px;height:32px;flex:none;background:var(--rio) center/contain no-repeat}
+html[data-dir] .hero-title{font:400 clamp(2.5rem,7.4vw,5rem)/1.02 var(--display);letter-spacing:-.015em;color:var(--olive-ink)}
+html[data-dir] .hero-title::after{content:"";display:block;height:12px;width:min(224px,70%);margin-top:16px;background:var(--corrente) 0 0/56px 12px repeat-x}
+html[data-dir] h1,html[data-dir] h2,html[data-dir] h3{font-family:var(--display);font-weight:400;font-variation-settings:normal}
+html[data-dir] .tagline{font-family:var(--display);font-style:normal;color:#55584f}
+html[data-dir] .kicker{background:var(--olive-ink)}
+
+/* hero: wide photo whose bottom edge flows like the river, copy below on phone / beside on desktop */
+html[data-dir] .hero-media{border-radius:18px 18px 0 0;box-shadow:none;-webkit-mask:var(--margem) 0 0/100% 100% no-repeat;mask:var(--margem) 0 0/100% 100% no-repeat}
+html[data-dir] .hero-media::after{content:none}
+@media (min-width:861px){
+  html[data-dir] .hero{grid-template-columns:minmax(0,.9fr) minmax(0,1.1fr)}
+  html[data-dir] .hero-media{aspect-ratio:5/4}
+}
+@media (max-width:860px){html[data-dir] .hero-media{aspect-ratio:4/3;margin-inline:0;border-radius:0}}
+
+/* section order: lunch (menu) first, then the story, then photos */
+html[data-dir] main>.hero{order:0}
+html[data-dir] main>.menu{order:1}
+html[data-dir] main>.about{order:2}
+html[data-dir] main>.gallery{order:3;padding-top:var(--section)}
+html[data-dir] main>.book{order:4}
+html[data-dir] main>.visit{order:5}
+html[data-dir] main>.proposal{order:99}
+
+/* menu: water lines instead of twine; dishes separated by a current; copper price tags */
+html[data-dir] .menu{border-top:0;background:color-mix(in srgb,var(--primary) 9%,#f7f3ea)}
+html[data-dir] .menu::before{content:"";position:absolute;left:0;right:0;top:-6px;height:12px;background:var(--corrente) 0 0/56px 12px repeat-x}
+html[data-dir] .menu .section-head::before{content:"";width:56px;height:56px;background:var(--rio) center/contain no-repeat}
+html[data-dir] .tab{clip-path:none;border-radius:999px 999px 999px 999px/60% 60% 40% 40%;font-family:var(--body)}
+html[data-dir] .tab[aria-selected=true]{background:var(--olive-ink)}
+html[data-dir] .dish{border-bottom:0;background:var(--corrente) 0 100%/28px 6px repeat-x;padding-bottom:22px}
+html[data-dir] .dish-name{font-family:var(--display);font-weight:400;font-variation-settings:normal}
+html[data-dir] .dish-price{background:var(--copper-ink);font-family:var(--body);font-style:normal;font-weight:700}
+
+/* about: river marks as bullets */
+html[data-dir] .point::before{content:"";width:28px;height:28px;background:var(--rio) center/contain no-repeat}
+html[data-dir] .lede{font-family:var(--display);font-variation-settings:normal}
+
+/* footer */
+html[data-dir] .site-foot{border-top:0;position:relative}
+html[data-dir] .site-foot::before{content:"";position:absolute;left:0;right:0;top:-6px;height:12px;background:var(--corrente) 0 0/56px 12px repeat-x}
+html[data-dir] .site-foot b{font:400 1.1rem var(--display);font-style:normal;color:var(--olive-ink)}
+
+/* mesa / cozinha */
+html[data-dir] .m-top{background:var(--olive-ink)}
+html[data-dir] .m-top h1{font:400 1.3rem/1.1 var(--display);font-style:normal}
+html[data-dir] .m-cat{font-family:var(--display);font-weight:400;color:var(--olive-ink)}
+html[data-dir] .m-item h4{font-family:var(--display);font-weight:400}
+html[data-dir] .m-item .price{color:var(--copper-ink);font-style:normal}

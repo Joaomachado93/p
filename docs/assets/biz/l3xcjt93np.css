@@ -1,0 +1,51 @@
+/* Marco Bellini è que sabe! — hook: the name is a spoken boast — a speech bubble "!" and Marco's own signature, Italian crimson + basil */
+@import url('https://fonts.googleapis.com/css2?family=Caveat+Brush&display=swap');
+:root{
+  --on-accent:#fff; --mb-crimson:#9b2335; --mb-crimson-d:#6e1524; --mb-basil:#2f5d3a; --mb-cream:#fbf5ea;
+  --mb-bubble:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='96' height='84' viewBox='0 0 96 84'%3E%3Cpath d='M48 4C24 4 6 18 6 36c0 10 6 19 15 25l-5 19 21-13c4 1 7 1 11 1 24 0 42-14 42-32S72 4 48 4z' fill='%23fbf5ea' stroke='%231b140d' stroke-width='4' stroke-linejoin='round'/%3E%3Cpath d='M48 16v24' stroke='%239b2335' stroke-width='9' stroke-linecap='round'/%3E%3Ccircle cx='48' cy='54' r='5.5' fill='%239b2335'/%3E%3C/svg%3E");
+  --mb-basil-leaf:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='40' height='24' viewBox='0 0 40 24'%3E%3Cpath d='M2 12C10 0 30 0 38 12 30 24 10 24 2 12z' fill='%232f5d3a'/%3E%3Cpath d='M4 12h30' stroke='%23fbf5ea' stroke-width='1.6'/%3E%3C/svg%3E");
+}
+/* wordmark: Marco's handwriting — brush signature, the exclamation in crimson */
+html[data-dir] .brand{font:400 1.7rem/1 'Caveat Brush',cursive;text-transform:none;letter-spacing:0;display:inline-flex;align-items:center;gap:8px}
+html[data-dir] .brand::after{content:"";width:28px;height:25px;flex:none;background:var(--mb-bubble) 0 0/100% 100% no-repeat}
+html[data-dir] .hero-title{font-family:'Caveat Brush',cursive;font-weight:400;text-transform:none;letter-spacing:0;line-height:.95;font-size:clamp(3.2rem,13vw,7rem);transform:rotate(-2deg);transform-origin:left center}
+
+/* hero: the title spoken from a big bubble */
+html[data-dir] .hero-copy{position:relative}
+html[data-dir] .hero-copy::before{content:"";position:absolute;right:clamp(10px,3vw,36px);bottom:clamp(20px,3vw,40px);width:clamp(76px,10vw,120px);aspect-ratio:96/84;background:var(--mb-bubble) 0 0/100% 100% no-repeat;transform:rotate(8deg);filter:drop-shadow(4px 4px 0 rgba(0,0,0,.35));z-index:3;pointer-events:none}
+html[data-dir] .hero .kicker,html[data-dir] .mbar .i,html[data-dir] .nav a:hover{color:#a9dcb3}
+html[data-dir] .tab[aria-selected=true]{color:#fff}
+html[data-dir] .hero .tagline{font-family:'Caveat Brush',cursive;font-size:1.55rem;text-transform:none}
+
+/* order: talk first — about leads, gallery, then menu */
+html[data-dir] .hero{order:-10}
+html[data-dir] .about{order:1}
+html[data-dir] .gallery{order:2}
+html[data-dir] .menu{order:3}
+html[data-dir] .qr{order:4}
+html[data-dir] .book{order:5}
+html[data-dir] .visit{order:6}
+html[data-dir] .proposal{order:99}
+
+/* about: the lede as a speech bubble */
+html[data-dir] .about .lede{position:relative;background:var(--mb-cream);border:3px solid var(--ink);border-radius:28px;padding:22px 26px;box-shadow:5px 5px 0 var(--mb-crimson);font-family:'Caveat Brush',cursive;font-size:clamp(1.45rem,2.6vw,1.9rem);line-height:1.25;color:var(--ink)}
+html[data-dir] .about .lede::after{content:"";position:absolute;left:38px;bottom:-19px;width:26px;height:20px;background:var(--mb-cream);border:3px solid var(--ink);border-top:0;border-right:0;transform:skewX(-34deg);clip-path:polygon(0 0,100% 0,0 100%)}
+
+/* menu: basil leaves bracket the heading, prices in crimson */
+html[data-dir] .menu .section-head h2{font-family:'Caveat Brush',cursive;text-transform:none;font-weight:400;letter-spacing:0;font-size:clamp(2.6rem,6vw,4rem);display:flex;align-items:center;gap:12px}
+html[data-dir] .menu .section-head h2::after{content:"";width:40px;height:24px;flex:none;background:var(--mb-basil-leaf) 0 0/100% 100% no-repeat}
+html[data-dir] .dish-price{color:var(--mb-crimson-d)}
+html[data-dir] .tab[aria-selected=true]{background:var(--mb-basil);color:#fff;border-color:var(--mb-basil)}
+html[data-dir] .qr{background:var(--mb-basil)}
+html[data-dir] .qr-card{position:relative}
+html[data-dir] .qr-card::after{content:"";position:absolute;right:-18px;top:-22px;width:56px;height:49px;background:var(--mb-bubble) 0 0/100% 100% no-repeat}
+html[data-dir] .site-foot b{font-family:'Caveat Brush',cursive;font-weight:400;font-size:1.5rem;text-transform:none}
+
+/* mesa / cozinha pages */
+html[data-dir] .m-top{background:var(--mb-crimson);box-shadow:inset 0 -5px 0 var(--mb-basil)}
+html[data-dir] .m-top h1{font-family:'Caveat Brush',cursive;font-weight:400;text-transform:none;font-size:1.9rem}
+
+@media (max-width:860px){
+  html[data-dir] .hero-copy::before{top:auto;bottom:22px;right:14px;width:52px}
+  html[data-dir] .qr-card::after{right:-6px;top:-18px;width:44px;height:38px}
+}

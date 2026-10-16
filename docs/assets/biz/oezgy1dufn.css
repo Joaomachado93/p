@@ -1,0 +1,68 @@
+/* Dona Maria — hook: the granite arcades of the UNESCO historic centre (R. João Lopes de Faria) meeting a contemporary room */
+@import url('https://fonts.googleapis.com/css2?family=Gloock&display=swap');
+:root{
+  --bg:#f5f0ea; --surface:#fffcf8; --line:rgba(31,28,24,.14);
+  --slate:#22302b; --slate-2:#2c3d36;
+  --dm-wm:'Gloock','DM Serif Display',Georgia,serif;
+  --dm-arch:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='60' height='36' viewBox='0 0 60 36'%3E%3Cpath d='M3 36V20a27 27 0 0 1 54 0v16' fill='none' stroke='%23B5483A' stroke-width='2'/%3E%3Cpath d='M12 36V22a18 18 0 0 1 36 0v14' fill='none' stroke='%234F7B6B' stroke-width='1.4'/%3E%3Cpath d='M0 35H60' stroke='%23B5483A' stroke-width='2'/%3E%3C/svg%3E");
+}
+/* wordmark: high-contrast serif, terracotta initial, a single arch as signet */
+.brand{font:400 1.45rem/1 var(--dm-wm);letter-spacing:.01em;display:inline-flex;align-items:center;gap:10px}
+.brand::before{content:"";width:26px;height:16px;flex:none;background:var(--dm-arch) 50% 100%/26px 16px no-repeat}
+.hero-title{font:400 clamp(2.8rem,7vw,6rem)/.95 var(--dm-wm);letter-spacing:-.02em}
+.hero-title::first-letter{color:var(--primary)}
+.hero-title::after{content:"";display:block;width:120px;height:24px;margin-top:18px;background:var(--dm-arch) 0 100%/40px 24px repeat-x}
+h2{font-family:var(--dm-wm);letter-spacing:-.01em}
+.kicker{font:700 .78rem/1.2 var(--label);letter-spacing:.2em;text-transform:uppercase}
+
+/* arcade instead of azulejo band on the header / footer / proposal */
+.site-head::after,.site-foot::before,.proposal::before{height:22px;background:var(--dm-arch) 0 100%/36px 22px repeat-x;opacity:.9}
+
+/* hero: contemporary offset block instead of the tiled frame */
+.hero-media{padding:0;background:var(--accent);border-radius:0;box-shadow:none;position:relative}
+.hero-media img{border-radius:0 0 0 0;box-shadow:none;transform:translate(-18px,-18px)}
+.hero-copy{gap:18px}
+.tagline{font-style:italic;color:#4d4740}
+.facts .i{color:var(--accent)}
+
+/* about: sage hairlines, terracotta numerals */
+.about{background:var(--surface)}
+.points{border-top:2px solid var(--primary)}
+.point::before{content:"";background:var(--dm-arch) 50% 100%/22px 14px no-repeat;border:0;height:16px;margin-top:4px}
+
+/* menu first: the slate board turns sage-dark, in a terracotta frame */
+.menu{order:1;padding-top:var(--section)}
+.menu > .wrap{border-image:none;border:clamp(8px,1.2vw,12px) solid var(--primary);border-radius:2px;
+  background:radial-gradient(ellipse 60% 40% at 18% 12%,rgba(255,255,255,.06),transparent 70%),linear-gradient(var(--slate-2),var(--slate))}
+.menu > .wrap::before{content:"";position:absolute;left:50%;top:-1px;transform:translateX(-50%);width:96px;height:22px;background:var(--dm-arch) 50% 0/36px 22px repeat-x;
+  filter:brightness(0) invert(1);opacity:.55;rotate:180deg}
+.menu .section-head{text-align:center;justify-items:center}
+.menu .tabs{justify-content:safe center}
+.menu .kicker{color:#e9b3a8}
+.menu .dish-price{font:400 1.45rem/1 var(--dm-wm);transform:none;color:#f3c9bd}
+.about{order:2}
+.gallery{order:3}
+.qr{order:4;background:var(--accent)}
+.qr .kicker{color:#fff}
+.qr .btn-primary{background:var(--primary);color:#fff}
+.steps li::before{background:#fff;color:var(--accent);font-family:var(--dm-wm)}
+.qr-card{border:2px solid var(--primary);background:#fff;outline:1px solid var(--primary);outline-offset:-8px}
+.qr-name{font-family:var(--dm-wm)}
+.book{order:5;background-image:none;background-color:color-mix(in srgb,var(--accent) 12%,#f5f0ea)}
+.visit{order:6}
+.proposal{order:9}
+.shot{border-radius:0;border-width:0;box-shadow:8px 8px 0 color-mix(in srgb,var(--accent) 35%,transparent)}
+.mbar{border-top-color:var(--primary)}
+.m-top h1,.m-cat{font-family:var(--dm-wm)}
+
+@media (max-width:860px){
+  .hero-media{margin:0 calc(var(--gutter-r) + 2px) 0 calc(var(--gutter) + 18px);padding:0;background:var(--accent);height:clamp(230px,36svh,320px);margin-top:28px}
+  .hero-media img{transform:translate(-14px,-14px)}
+  .hero-title{font-size:clamp(2.5rem,13vw,3.6rem)}
+  .hero-title::after{margin-top:12px}
+  .site-head::after{height:16px;background-size:26px 16px}
+}
+@media (min-width:861px){
+  .hero{padding-top:clamp(44px,5vw,72px)}
+  .hero-media{margin:18px 0 0 18px}
+}

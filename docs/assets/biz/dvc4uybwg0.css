@@ -1,0 +1,61 @@
+/* Ekos Taberna Petisqueira — hook: the name "Ekos" = echo (concentric sound arcs; the wordmark repeats itself in fading layers) */
+@import url('https://fonts.googleapis.com/css2?family=Syne:wght@600;700;800&display=swap');
+:root{
+  --ek-font:'Syne','Hanken Grotesk',system-ui,sans-serif;
+  /* echo arcs radiating from a dot */
+  --ek-echo:url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 80 80'><circle cx='10' cy='70' r='5' fill='%23efbd5e'/><g fill='none' stroke='%23efbd5e' stroke-width='3' stroke-linecap='round'><path d='M10 52a18 18 0 0 1 18 18'/><path d='M10 36a34 34 0 0 1 34 34' opacity='.7'/><path d='M10 20a50 50 0 0 1 50 50' opacity='.45'/><path d='M10 4a66 66 0 0 1 66 66' opacity='.25'/></g></svg>");
+}
+
+/* wordmark: wide grotesque caps; the brand echoes itself in fading candle-gold offsets */
+html[data-dir] .brand{font:800 1.12rem/1 var(--ek-font);font-style:normal;text-transform:uppercase;letter-spacing:.08em;color:var(--ink);display:inline-flex;align-items:center;gap:10px}
+html[data-dir] .brand::before{content:"";width:26px;height:26px;flex:none;background:var(--ek-echo) 0 0/100% 100% no-repeat}
+html[data-dir] .hero-title{font:800 clamp(2.2rem,5.6vw,5rem)/.98 var(--ek-font);font-style:normal;text-transform:uppercase;letter-spacing:-.02em;max-width:none;overflow-wrap:normal;
+  text-shadow:6px -6px 0 color-mix(in oklab,var(--candle) 45%,transparent),12px -12px 0 color-mix(in oklab,var(--candle) 22%,transparent),18px -18px 0 color-mix(in oklab,var(--candle) 10%,transparent)}
+html[data-dir] h2{font-family:var(--ek-font);font-weight:700;letter-spacing:-.02em}
+html[data-dir] .kicker::before{width:22px;height:22px;background:var(--ek-echo) 0 0/100% 100% no-repeat}
+
+/* hero: echo rings radiate from the top-right over the night photo */
+html[data-dir] .hero::before{content:"";grid-area:1/1;justify-self:end;align-self:start;width:clamp(260px,42vw,560px);aspect-ratio:1;margin:-12% -12% 0 0;pointer-events:none;
+  background:repeating-radial-gradient(circle at 100% 0,transparent 0 38px,color-mix(in oklab,var(--candle) 34%,transparent) 38px 40px);
+  -webkit-mask:radial-gradient(circle at 100% 0,#000 20%,transparent 70%);mask:radial-gradient(circle at 100% 0,#000 20%,transparent 70%)}
+html[data-dir] .hero-media::after{background:
+  radial-gradient(70% 55% at 78% 30%,color-mix(in oklab,var(--primary) 30%,transparent),transparent 70%),
+  linear-gradient(180deg,rgba(13,9,7,.25) 0%,rgba(13,9,7,0) 22%,color-mix(in oklab,var(--wine) 55%,rgba(13,9,7,.66)) 50%,#120d0b 92%)}
+
+/* order: petiscos first, then the house */
+html[data-dir] .menu{order:1}
+html[data-dir] .about{order:2}
+html[data-dir] .gallery{order:3}
+html[data-dir] .qr{order:4}
+html[data-dir] .book{order:5}
+html[data-dir] .visit{order:6}
+html[data-dir] .proposal{order:9}
+
+/* menu: the board carries the echo mark in its corner; plum glow behind */
+html[data-dir] .menu{background:radial-gradient(60% 50% at 10% 0%,color-mix(in oklab,var(--primary) 40%,transparent),transparent 70%),linear-gradient(180deg,var(--surface),var(--bg))}
+html[data-dir] .dishes{background:var(--ek-echo) calc(100% - 14px) calc(100% - 14px)/70px 70px no-repeat,linear-gradient(180deg,rgba(242,231,213,.035),rgba(242,231,213,.01)),#120d0b}
+html[data-dir] .dish-name{font:700 1.08rem/1.25 var(--ek-font)}
+html[data-dir] .dish-price{font:700 1.1rem/1 var(--ek-font);font-style:normal}
+html[data-dir] .tab{font-family:var(--ek-font);letter-spacing:.12em}
+
+/* about: numbers echo too */
+html[data-dir] .lede{font:600 clamp(1.3rem,2.4vw,1.8rem)/1.35 var(--ek-font);font-style:normal;letter-spacing:-.01em}
+html[data-dir] .point::before{font:800 1.5rem/1 var(--ek-font);font-style:normal;text-shadow:4px -4px 0 color-mix(in oklab,var(--candle) 30%,transparent)}
+html[data-dir] .point h3{font-family:var(--ek-font)}
+
+/* qr + footer: echo stamp */
+html[data-dir] .qr-card::before{content:"";height:40px;background:url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 80 80'><circle cx='10' cy='70' r='5' fill='%235b1e3d'/><g fill='none' stroke='%235b1e3d' stroke-width='3' stroke-linecap='round'><path d='M10 52a18 18 0 0 1 18 18'/><path d='M10 36a34 34 0 0 1 34 34' opacity='.7'/><path d='M10 20a50 50 0 0 1 50 50' opacity='.45'/></g></svg>") 50% 50%/auto 100% no-repeat}
+html[data-dir] .qr-name{font-family:var(--ek-font);font-weight:800;text-transform:uppercase;letter-spacing:.04em;font-size:.95rem}
+html[data-dir] .site-foot b{font-family:var(--ek-font);text-transform:uppercase;letter-spacing:.06em}
+html[data-dir] .site-foot .wrap{padding-left:calc(var(--gutter) + 46px);background:var(--ek-echo) var(--gutter) 2px/34px 34px no-repeat}
+
+@media (max-width:860px){
+  html[data-dir] .hero-title{font-size:clamp(1.7rem,8vw,2.8rem);text-shadow:4px -4px 0 color-mix(in oklab,var(--candle) 45%,transparent),8px -8px 0 color-mix(in oklab,var(--candle) 22%,transparent)}
+  html[data-dir] .hero::before{width:300px;margin:-80px -80px 0 0}
+  html[data-dir] .brand{font-size:.98rem;letter-spacing:.06em}
+  html[data-dir] .dishes{background-size:50px 50px,auto,auto}
+}
+
+/* mesa / cozinha */
+html[data-dir] .m-top h1{font:800 1.1rem/1.1 var(--ek-font);font-style:normal;text-transform:uppercase;letter-spacing:.05em}
+html[data-dir] .m-cat,html[data-dir] .m-item h4{font-family:var(--ek-font)}

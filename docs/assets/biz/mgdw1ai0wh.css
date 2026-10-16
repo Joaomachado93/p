@@ -1,0 +1,60 @@
+/* Taskinha Fonte Santa — hook: the fonte (stone fountain spout and its water) of Fonte Santa, a small cosy taskinha */
+@import url('https://fonts.googleapis.com/css2?family=Patua+One&display=swap');
+:root{
+  --fs-display:'Patua One','Alfa Slab One',Georgia,serif;
+  --stone:#d9d1c2; --stone-dk:#a99e8a; --water:#2f6f8f;
+  --bg:#f3eee5;
+  --fonte:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 80 80'%3E%3Cpath d='M14 76V30A26 26 0 0 1 66 30V76Z' fill='%23d9d1c2' stroke='%23B23A2B' stroke-width='3'/%3E%3Cpath d='M24 76V34A16 16 0 0 1 56 34V76' fill='none' stroke='%23B23A2B' stroke-width='2'/%3E%3Cpath d='M34 34H46V40H42V44H38V40H34Z' fill='%23B23A2B'/%3E%3Cpath d='M40 46C37 52 37 55 40 57C43 55 43 52 40 46Z' fill='%232f6f8f'/%3E%3Cpath d='M8 76H72V66H8Z' fill='%23B23A2B'/%3E%3Cpath d='M18 64Q24 60 30 64T42 64T54 64T66 64' fill='none' stroke='%232f6f8f' stroke-width='2.5'/%3E%3C/svg%3E");
+  --ripple:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 40 12'%3E%3Cpath d='M0 6Q5 1 10 6T20 6T30 6T40 6' fill='none' stroke='%232f6f8f' stroke-width='2.4'/%3E%3C/svg%3E");
+}
+html[data-dir] body{background:var(--bg)}
+
+/* wordmark: friendly slab, a small fountain niche as the logo */
+html[data-dir] .brand{font:400 1.32rem/1 var(--fs-display);color:var(--primary);display:inline-flex;align-items:center;gap:10px}
+html[data-dir] .brand::before{content:"";width:34px;height:34px;flex:none;background:var(--fonte) center/contain no-repeat}
+html[data-dir] .hero-title{font-family:var(--fs-display);color:var(--ink);line-height:1;letter-spacing:0}
+html[data-dir] .hero-title::after{content:"";display:block;width:150px;height:14px;margin-top:16px;background:var(--ripple) 0 50%/40px 12px repeat-x}
+html[data-dir] h2{font-family:var(--fs-display)}
+
+/* bands: water ripples instead of azulejo */
+html[data-dir] .site-head::after,html[data-dir] .site-foot::before,html[data-dir] .proposal::before{height:14px;background:var(--ripple) 0 50%/40px 12px repeat-x}
+
+/* hero: photo set inside an arched stone niche, like the fountain itself */
+html[data-dir] .hero-media{position:relative;overflow:hidden;background:var(--stone);padding:14px;border-radius:999px 999px 6px 6px / 46% 46% 6px 6px;
+  box-shadow:inset 0 0 0 3px var(--stone-dk),0 18px 40px -18px rgba(31,28,24,.45)}
+html[data-dir] .hero-media img{border-radius:999px 999px 2px 2px / 44% 44% 2px 2px;box-shadow:none}
+html[data-dir] .hero-copy{position:relative}
+
+/* order: menu first, then the photos, then the story */
+html[data-dir] main .menu{order:1;padding-top:var(--section)}
+html[data-dir] main .gallery{order:2}
+html[data-dir] main .about{order:3}
+html[data-dir] main .book{order:4}
+html[data-dir] main .visit{order:5}
+html[data-dir] main .proposal{order:9}
+
+/* menu: slate board on a stone frame, fountain crest */
+html[data-dir] .menu > .wrap{border-image:repeating-linear-gradient(92deg,#cfc6b5 0 12px,#bdb29e 12px 15px,#d9d1c2 15px 26px,#b1a690 26px 28px) 16}
+html[data-dir] .menu .section-head{grid-template-columns:auto minmax(0,1fr);column-gap:18px;align-items:center}
+html[data-dir] .menu .section-head::before{content:"";grid-row:span 3;width:64px;height:64px;background:var(--fonte) center/contain no-repeat}
+html[data-dir] .menu .dish-price{color:#ffd88a}
+html[data-dir] .menu .kicker{color:#ffd88a}
+
+/* about: water drops instead of tiles */
+html[data-dir] .point::before{width:18px;height:18px;border:0;margin:6px 0 0 4px;background:var(--water);border-radius:50% 0 50% 50%;transform:rotate(-45deg)}
+html[data-dir] .about{background:var(--surface)}
+
+html[data-dir] .book{background-image:linear-gradient(90deg,color-mix(in srgb,var(--primary) 15%,transparent) 50%,transparent 50%),linear-gradient(color-mix(in srgb,var(--primary) 15%,transparent) 50%,transparent 50%)}
+html[data-dir] .site-foot b{font-family:var(--fs-display);font-weight:400;color:var(--primary)}
+html[data-dir] .mbar{border-top-color:var(--water)}
+html[data-dir] :focus-visible{outline-color:var(--water)}
+
+@media (max-width:860px){
+  html[data-dir] .hero-media{margin:14px var(--gutter-r) 0 var(--gutter);padding:10px;height:clamp(260px,40svh,360px);background:var(--stone)}
+  html[data-dir] .menu .section-head::before{width:52px;height:52px}
+}
+
+/* mesa / cozinha */
+html[data-dir] .m-top::after{background:var(--ripple) 0 50%/30px 9px repeat-x,var(--bg);height:10px;bottom:-10px}
+html[data-dir] .m-top h1,html[data-dir] .m-cat{font-family:var(--fs-display)}
+html[data-dir] .ticket{border-top-color:var(--water)}

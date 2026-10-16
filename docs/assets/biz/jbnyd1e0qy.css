@@ -1,0 +1,58 @@
+/* Pastelaria Afonsina — hook: the name "Afonsina" read as heraldry → a shield with five quinas (shop seal, crest, window) */
+@import url('https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@700;900&display=swap');
+:root{
+  --shield:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 48 56'%3E%3Cpath d='M4 3h40v23c0 14-9 22-20 27C13 48 4 40 4 26Z' fill='%23fffdf9' stroke='%230F766E' stroke-width='3'/%3E%3Cg fill='%230F766E'%3E%3Ccircle cx='24' cy='16' r='4'/%3E%3Ccircle cx='14' cy='26' r='4'/%3E%3Ccircle cx='24' cy='26' r='4'/%3E%3Ccircle cx='34' cy='26' r='4'/%3E%3Ccircle cx='24' cy='36' r='4'/%3E%3C/g%3E%3C/svg%3E");
+  --royal:'Cinzel Decorative','Cinzel',Georgia,serif;
+}
+
+/* wordmark: carved-inscription capitals, small shield as the shop's seal */
+html[data-dir] .brand{font:700 clamp(1.05rem,2vw,1.35rem)/1 var(--royal);font-style:normal;letter-spacing:.04em;color:var(--primary);
+  display:inline-flex;align-items:center;gap:10px}
+html[data-dir] .brand::before{content:"";width:24px;height:28px;flex:none;background:var(--shield) center/contain no-repeat}
+html[data-dir] .hero-title{font:900 clamp(2.3rem,6vw,4.6rem)/1.02 var(--royal);letter-spacing:.01em;color:var(--ink)}
+html[data-dir] .hero-title::after{content:"";display:block;width:min(260px,70%);height:10px;margin-top:16px;
+  background:linear-gradient(var(--accent),var(--accent)) 0 50%/100% 2px no-repeat,
+    radial-gradient(circle,var(--accent) 3.5px,transparent 4px) 50% 50%/22px 10px no-repeat}
+html[data-dir] .hero .kicker{background:var(--primary)}
+
+/* hero window: the arch becomes a shield, the coat of arms the place is named for */
+html[data-dir] .hero-media{border-radius:10px 10px 50% 50% / 10px 10px 34% 34%;
+  box-shadow:0 0 0 6px var(--surface),0 0 0 9px var(--primary),0 22px 44px -18px rgba(15,60,55,.5)}
+html[data-dir] .hero-media::before{content:"";position:absolute;z-index:2;left:50%;top:14px;width:44px;height:52px;transform:translateX(-50%);
+  background:var(--shield) center/contain no-repeat;filter:drop-shadow(0 3px 6px rgba(0,0,0,.25))}
+
+/* palette nuance: teal tiles with a warm orange (doce de ovos) highlight */
+html[data-dir] .dish-price{background:var(--accent)}
+html[data-dir] .tab[aria-selected=true]{background:var(--primary);color:#fff}
+
+/* section order: the vitrine first, photos after, then the story */
+html[data-dir] main > .menu{order:1}
+html[data-dir] main > .gallery{order:2}
+html[data-dir] main > .about{order:3}
+html[data-dir] main > .book{order:4}
+html[data-dir] main > .visit{order:5}
+html[data-dir] main > .proposal{order:9}
+html[data-dir] .gallery{padding-block:var(--section)}
+
+/* menu header carries the shield like a shop's crest over the vitrine */
+html[data-dir] .menu .section-head{position:relative;padding-top:66px;justify-items:center;text-align:center}
+html[data-dir] .menu .section-head::before{content:"";position:absolute;top:0;left:50%;width:46px;height:54px;transform:translateX(-50%);
+  background:var(--shield) center/contain no-repeat}
+html[data-dir] .menu h2{font-family:var(--royal);font-weight:700;letter-spacing:.01em}
+
+/* about: the lede set as an inscription between rules */
+html[data-dir] .lede{border-block:2px solid var(--primary);padding-block:18px}
+html[data-dir] h2{font-family:var(--royal);font-weight:700}
+
+/* footer seal */
+html[data-dir] .site-foot{position:relative}
+html[data-dir] .site-foot::after{content:"";display:block;width:34px;height:40px;margin:18px auto 0;background:var(--shield) center/contain no-repeat;opacity:.9}
+
+@media (max-width:860px){
+  html[data-dir] .brand{font-size:1rem;gap:8px}
+  html[data-dir] .brand::before{width:20px;height:24px}
+  html[data-dir] .hero-media{aspect-ratio:4/4.2}
+  html[data-dir] .hero-media::before{width:36px;height:42px;top:10px}
+  html[data-dir] .hero-title{font-size:clamp(2rem,9.6vw,2.8rem)}
+  html[data-dir] h2{font-size:clamp(1.6rem,7.4vw,2.2rem)}
+}

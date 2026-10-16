@@ -1,0 +1,67 @@
+/* Padaria e Pastelaria Emilinha — hook: the affectionate first name "Emilinha" signed by hand on a neighbourhood bakery's kraft paper bag, with a wheat ear */
+@import url('https://fonts.googleapis.com/css2?family=Caveat:wght@600;700&display=swap');
+:root{
+  --wheat:url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 64'><g fill='%239a5416'><path d='M15 62V14' stroke='%239a5416' stroke-width='2' fill='none' stroke-linecap='round'/><ellipse cx='15' cy='8' rx='3.2' ry='6'/><ellipse cx='9.5' cy='18' rx='3' ry='6' transform='rotate(-30 9.5 18)'/><ellipse cx='20.5' cy='18' rx='3' ry='6' transform='rotate(30 20.5 18)'/><ellipse cx='9.5' cy='29' rx='3' ry='6' transform='rotate(-30 9.5 29)'/><ellipse cx='20.5' cy='29' rx='3' ry='6' transform='rotate(30 20.5 29)'/><ellipse cx='9.5' cy='40' rx='3' ry='6' transform='rotate(-30 9.5 40)'/><ellipse cx='20.5' cy='40' rx='3' ry='6' transform='rotate(30 20.5 40)'/></g></svg>");
+  --kraft:#e7d3b3; --kraft-2:#dcc39b; --kraft-ink:#3a2412;
+  --bg:#faf5ec; --paper:#f3e7d3; --paper-2:#ecdcc0;
+  --hand:'Caveat','Comic Sans MS',cursive;
+}
+/* the bag's serrated top edge replaces the awning */
+:root .site-head::before{height:14px;background:var(--kraft-2);
+  -webkit-mask:conic-gradient(from 135deg at 50% 0,#000 90deg,#0000 0) 0 0/14px 100% repeat-x;mask:conic-gradient(from 135deg at 50% 0,#000 90deg,#0000 0) 0 0/14px 100% repeat-x}
+:root .site-head{background:var(--kraft)}
+
+/* wordmark: Emilinha's signature, with a wheat ear */
+:root .brand{font:700 clamp(1.5rem,3.4vw,2rem)/1 var(--hand);font-style:normal;color:var(--kraft-ink);display:inline-flex;align-items:center;gap:8px;max-width:64vw}
+:root .brand::before{content:"";width:14px;height:30px;flex:none;background:var(--wheat) center/contain no-repeat}
+:root .hero .hero-title{font:700 clamp(3rem,13vw,6.4rem)/.9 var(--hand);letter-spacing:0;color:var(--primary);transform:rotate(-2deg);transform-origin:left}
+:root .hero .hero-title::after{content:"";display:block;width:min(300px,80%);height:14px;margin-top:2px;
+  background:url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 14' preserveAspectRatio='none'><path d='M2 10C50 3 120 2 198 7' fill='none' stroke='%23e8a33d' stroke-width='4' stroke-linecap='round'/></svg>") 0 0/100% 100% no-repeat}
+:root .tagline{font-family:var(--hand);font-style:normal;font-weight:600;font-size:clamp(1.5rem,3vw,1.9rem);color:var(--kraft-ink)}
+
+/* hero: wide photo on top like the shop counter, the copy sits on a kraft bag with a serrated edge */
+:root .hero-media{border-radius:0;box-shadow:none;margin:0;aspect-ratio:16/10}
+:root .hero-media::after{background:none}
+:root .hero-copy{background:var(--kraft);color:var(--kraft-ink);position:relative;margin-top:0;padding:30px 22px 34px!important;
+  background-image:repeating-linear-gradient(0deg,rgba(90,60,20,.05) 0 1px,transparent 1px 5px)}
+:root .hero-copy::before{content:"";position:absolute;left:0;right:0;top:-12px;height:13px;background:var(--kraft);
+  -webkit-mask:conic-gradient(from -45deg at 50% 100%,#000 90deg,#0000 0) 0 0/16px 100% repeat-x;mask:conic-gradient(from -45deg at 50% 100%,#000 90deg,#0000 0) 0 0/16px 100% repeat-x}
+:root .hero-copy::after{content:"";position:absolute;right:22px;top:26px;width:30px;height:64px;background:var(--wheat) center/contain no-repeat;opacity:.85}
+:root .hero .facts{color:var(--kraft-ink);border-top-color:rgba(58,36,18,.3)}
+:root .hero .facts .i{color:var(--kraft-ink)}
+:root .hero .btn-secondary{background:#fff8ec}
+:root .kicker{background:var(--kraft-ink);color:#fff3df}
+@media (min-width:861px){
+  :root .hero{width:100%;grid-template-columns:minmax(0,1.15fr) minmax(0,1fr)!important;align-items:stretch!important;gap:0!important}
+  :root .hero-media{grid-column:1!important;aspect-ratio:auto;height:100%;min-height:520px;max-height:none}
+  :root .hero-copy{grid-column:2!important;align-content:center;padding:56px 48px!important}
+  :root .hero-copy::before{left:-12px;right:auto;top:0;bottom:0;width:13px;height:auto;
+    -webkit-mask:conic-gradient(from 45deg at 100% 50%,#000 90deg,#0000 0) 0 0/100% 16px repeat-y;mask:conic-gradient(from 45deg at 100% 50%,#000 90deg,#0000 0) 0 0/100% 16px repeat-y}
+}
+
+/* order: bread board (menu) first, then the bakery story */
+:root .menu{order:1}
+:root .about{order:2}
+:root .gallery{order:3}
+:root .book{order:4}
+:root .visit{order:5}
+:root .proposal{order:9}
+
+/* menu: a white bag label stamped on kraft, handwritten prices */
+:root .menu{background:var(--kraft) repeating-linear-gradient(0deg,rgba(90,60,20,.05) 0 1px,transparent 1px 5px);border-image:none;border-top:0}
+:root .menu .section-head{position:relative;padding-left:44px}
+:root .menu .section-head::before{content:"";position:absolute;left:0;top:2px;width:28px;height:60px;background:var(--wheat) center/contain no-repeat}
+:root .menu h2{font:700 clamp(2.6rem,6vw,3.8rem)/1 var(--hand)!important;color:var(--kraft-ink)}
+:root .menu .note{color:var(--kraft-ink)}
+:root .tab{clip-path:none;border-radius:4px;background:#f6ead6;border:1.5px dashed rgba(58,36,18,.4)}
+:root .tab[aria-selected=true]{background:var(--kraft-ink);color:#fff3df;border-style:solid}
+:root .dishes{border-radius:4px;box-shadow:0 2px 0 rgba(58,36,18,.25),0 12px 24px -16px rgba(58,36,18,.6);outline:2px dashed rgba(154,84,22,.35);outline-offset:-10px}
+:root .dish-price{clip-path:none;-webkit-mask:none;mask:none;background:none;color:var(--primary);font:700 1.6rem/1 var(--hand);padding:0}
+
+/* about: signed note */
+:root .lede::after{content:"";display:block;margin-top:14px;width:120px;height:14px;background:url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 14' preserveAspectRatio='none'><path d='M2 10C50 3 120 2 198 7' fill='none' stroke='%23e8a33d' stroke-width='4' stroke-linecap='round'/></svg>") 0 0/100% 100% no-repeat}
+:root .gallery .shot{-webkit-mask:none;mask:none;padding:8px 8px 28px;background:#fff;box-shadow:0 8px 20px -12px rgba(58,36,18,.5);border-radius:2px}
+:root .gallery .shot:nth-child(2){transform:rotate(1.2deg)}
+:root .gallery .shot:nth-child(3){transform:rotate(-1deg)}
+:root .site-foot{background:var(--kraft)}
+:root .site-foot .wrap::before{content:"";width:22px;height:46px;background:var(--wheat) center/contain no-repeat}

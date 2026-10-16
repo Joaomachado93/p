@@ -1,0 +1,75 @@
+/* Doce Refúgio - Food, Cakes & Drinks — hook: "refúgio" = a little shelter: a cosy house outline with a heart in the window; three-part Food · Cakes · Drinks */
+@import url('https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&display=swap');
+:root{
+  --house:url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 48 44'><path d='M4 21 24 4l20 17' fill='none' stroke='%2300796b' stroke-width='3.2' stroke-linecap='round' stroke-linejoin='round'/><path d='M9 18v22h30V18' fill='none' stroke='%2300796b' stroke-width='3.2' stroke-linejoin='round'/><path d='M24 34s-7-4.3-7-8.6c0-2.3 1.8-3.9 3.7-3.9 1.5 0 2.6.8 3.3 2 .7-1.2 1.8-2 3.3-2 1.9 0 3.7 1.6 3.7 3.9 0 4.3-7 8.6-7 8.6z' fill='%23ff8a65'/></svg>");
+  --bg:color-mix(in srgb,var(--primary) 6%,#fbf8f2);
+  --paper:color-mix(in srgb,var(--primary) 10%,#fbf6ef);
+  --paper-2:color-mix(in srgb,var(--accent) 22%,#fff4ee);
+  --coral-deep:#b4472a;
+}
+:root h1,:root h2,:root h3{font-family:'Fredoka',system-ui,sans-serif!important;font-variation-settings:normal!important}
+:root h2{font-weight:600!important;letter-spacing:-.01em}
+
+/* wordmark: rounded, warm, the house as the logo mark */
+:root .brand{font:600 clamp(1.05rem,2.4vw,1.4rem)/1.05 'Fredoka',system-ui,sans-serif;font-style:normal;color:var(--primary);
+  display:inline-flex;align-items:center;gap:10px;max-width:62vw}
+:root .brand::before{content:"";width:34px;height:31px;flex:none;background:var(--house) center/contain no-repeat}
+:root .hero .hero-title{font:600 clamp(2.2rem,8.6vw,4.6rem)/1.02 'Fredoka',system-ui,sans-serif;letter-spacing:-.02em;color:var(--primary)}
+:root .hero .hero-title::first-line{color:var(--ink)}
+:root .tagline{font-family:'Fredoka',system-ui,sans-serif;font-style:normal;font-weight:500;color:var(--coral-deep)}
+
+/* awning becomes a soft roof edge: teal scallops */
+:root .site-head::before{height:22px;background:var(--primary);
+  -webkit-mask:radial-gradient(circle 11px at 50% 0,#000 97%,#0000) 0 0/22px 22px repeat-x;mask:radial-gradient(circle 11px at 50% 0,#000 97%,#0000) 0 0/22px 22px repeat-x}
+
+/* hero: photo framed as a little house (gable roof), copy on the left with a house-shaped coral backdrop */
+:root .hero-media{clip-path:polygon(50% 0,100% 24%,100% 100%,0 100%,0 24%);border-radius:0;box-shadow:none;aspect-ratio:1/1}
+:root .hero-media::after{background:none}
+:root .hero-media::before{content:"";position:absolute;z-index:1;left:50%;top:14%;width:56px;height:52px;margin-left:-28px;border-radius:50%;
+  background:#fffdf9 var(--house) center/36px 33px no-repeat;box-shadow:0 4px 14px rgba(0,0,0,.18)}
+:root .hero-copy{position:relative}
+@media (min-width:861px){
+  :root .hero{width:100%}
+  :root .hero-media{aspect-ratio:1/1;max-height:560px}
+}
+
+/* order: menu right after hero (Food, Cakes & Drinks first), then the story */
+:root .menu{order:1}
+:root .about{order:2}
+:root .gallery{order:3}
+:root .book{order:4}
+:root .visit{order:5}
+:root .proposal{order:9}
+
+/* menu: teal room with white rounded cards, coral price bubbles */
+:root .menu{background:var(--primary);border-image:none;border-top:0;color:#fff}
+:root .menu h2{color:#fff}
+:root .menu .note{color:#d9f1ec}
+:root .menu .kicker{background:#fff;color:var(--primary)}
+:root .menu .section-head{position:relative;padding-left:64px}
+:root .menu .section-head::before{content:"";position:absolute;left:0;top:0;width:50px;height:50px;border-radius:14px;background:#fff var(--house) center/34px 31px no-repeat}
+:root .tab{clip-path:none;border-radius:999px;background:rgba(255,255,255,.16);color:#fff;font-family:'Fredoka',system-ui,sans-serif;font-weight:600}
+:root .tab:hover{background:rgba(255,255,255,.28)}
+:root .tab[aria-selected=true]{background:var(--accent);color:#2a1a14}
+:root .tab:focus-visible{outline:3px solid #fff;outline-offset:2px;background:var(--accent);color:#2a1a14}
+:root .dishes{color:var(--ink);border-radius:26px;box-shadow:0 18px 0 -10px rgba(0,0,0,.18)}
+:root .dish-name{font-family:'Fredoka',system-ui,sans-serif;font-weight:600;font-variation-settings:normal}
+:root .dish-price{clip-path:none;-webkit-mask:none;mask:none;border-radius:999px;background:var(--accent);color:#2a1a14;font:600 1rem/1 'Fredoka',system-ui,sans-serif;padding:.5em .8em}
+:root .dish-dots{border-bottom-color:color-mix(in srgb,var(--accent) 60%,transparent)}
+
+/* gallery: soft rounded tiles instead of doilies */
+:root .gallery .shot{-webkit-mask:none;mask:none;padding:0;border-radius:24px;background:var(--paper)}
+:root .gallery .shot img{border-radius:24px}
+
+/* about: points as little coral-roof cards */
+:root .point{background:var(--surface);border:0;border-radius:18px;padding:16px 18px;margin-bottom:10px;box-shadow:0 2px 0 var(--line)}
+:root .points{border-top:0}
+:root .point::before{color:var(--coral-deep)}
+
+:root .kicker{clip-path:none;border-radius:999px;padding:.6em 1.1em}
+:root .site-foot .wrap::before{content:"";width:40px;height:37px;background:var(--house) center/contain no-repeat}
+:root .shot img{transition:transform .5s}
+@media (prefers-reduced-motion:reduce){:root .shot img{transition:none}}
+/* teal roof outline around the photo */
+:root .hero-media{background:var(--primary)}
+:root .hero-media img{inset:9px 9px 0 9px;width:calc(100% - 18px);height:calc(100% - 9px);clip-path:polygon(50% 0,100% 24%,100% 100%,0 100%,0 24%)}

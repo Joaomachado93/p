@@ -1,0 +1,79 @@
+/* Pastelaria Doce Pão — hook: "pão" — a wheat ear and the brown-paper bread bag; bread and cakes baked fresh in Ronfe */
+@import url('https://fonts.googleapis.com/css2?family=Young+Serif&display=swap');
+:root{
+  --dp:'Young Serif','Fraunces',Georgia,serif;
+  --bg:#f6eedf; --surface:#fffaf2;
+  --kraft:#e4cfa9; --kraft-2:#d8bd8f; --crust:#6a4a2f;
+  --paper:color-mix(in srgb,var(--primary) 8%,#fbf1e2);
+  --wheat:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 40 56'%3E%3Cpath d='M20 54V10' stroke='%236a4a2f' stroke-width='2.2' stroke-linecap='round'/%3E%3Cg fill='%23a85a14'%3E%3Cellipse cx='20' cy='7' rx='3.6' ry='6.5'/%3E%3Cellipse cx='14.5' cy='16' rx='3.6' ry='7' transform='rotate(-32 14.5 16)'/%3E%3Cellipse cx='25.5' cy='16' rx='3.6' ry='7' transform='rotate(32 25.5 16)'/%3E%3Cellipse cx='14.5' cy='26' rx='3.6' ry='7' transform='rotate(-32 14.5 26)'/%3E%3Cellipse cx='25.5' cy='26' rx='3.6' ry='7' transform='rotate(32 25.5 26)'/%3E%3Cellipse cx='14.5' cy='36' rx='3.6' ry='7' transform='rotate(-32 14.5 36)'/%3E%3Cellipse cx='25.5' cy='36' rx='3.6' ry='7' transform='rotate(32 25.5 36)'/%3E%3C/g%3E%3C/svg%3E");
+}
+html body{background:var(--bg)}
+
+/* wordmark: a soft bakery serif, wheat ear as the stamp */
+html .brand{display:inline-flex;align-items:center;gap:8px;font:400 clamp(1.3rem,2.3vw,1.6rem)/1 var(--dp);font-style:normal;color:var(--crust)}
+html .brand::before{content:"";width:20px;height:28px;flex:none;background:var(--wheat) center/contain no-repeat}
+html .hero-title{font:400 clamp(2.6rem,6.6vw,5.4rem)/1 var(--dp);letter-spacing:-.01em;color:var(--crust)}
+html .hero-title::after{content:"";display:block;width:135px;height:38px;margin-top:14px;
+  background:var(--wheat) 0 0/27px 38px repeat-x;transform:rotate(0)}
+html .tagline{color:var(--crust)}
+
+/* awning in crust and kraft */
+html .site-head::before{background:linear-gradient(rgba(0,0,0,.1),rgba(0,0,0,0) 45%),repeating-linear-gradient(90deg,var(--primary) 0 24px,var(--kraft) 24px 48px)}
+
+/* hero: the photo is a round loaf — domed top, crust-brown rim */
+html .hero-media{border-radius:50% 50% 22px 22px / 42% 42% 22px 22px;background:var(--kraft);
+  box-shadow:0 0 0 8px var(--kraft),0 0 0 10px var(--crust),0 22px 44px -18px rgba(60,30,15,.45)}
+html .hero-media::after{background:linear-gradient(180deg,rgba(255,240,215,.18),transparent 30%)}
+html .hero .kicker{background:var(--crust)}
+
+/* menu: the paper bread bag — kraft paper, zigzag cut top, stamped label */
+html .menu{background:var(--paper);border-image:repeating-linear-gradient(-45deg,var(--crust) 0 5px,var(--kraft) 5px 10px) 6}
+html .menu .section-head::before{content:"";width:28px;height:40px;background:var(--wheat) center/contain no-repeat}
+html .menu h2{color:var(--crust);font-family:var(--dp);font-weight:400}
+html .dishes{background:var(--kraft);border-radius:0 0 6px 6px;padding-top:22px;
+  -webkit-mask:conic-gradient(from -45deg at bottom,#0000,#000 1deg 89deg,#0000 90deg) 50% 0/18px 12px repeat-x,linear-gradient(#000 0 0) 0 12px/100% calc(100% - 12px) no-repeat;
+          mask:conic-gradient(from -45deg at bottom,#0000,#000 1deg 89deg,#0000 90deg) 50% 0/18px 12px repeat-x,linear-gradient(#000 0 0) 0 12px/100% calc(100% - 12px) no-repeat;
+  box-shadow:none}
+html .dish{border-bottom:1px dashed rgba(74,42,26,.35)}
+html .dish-name{font-family:var(--dp);font-weight:400;color:#2e211c}
+html .dish-desc{color:#4f3b2b}
+html .dish-price{background:var(--crust);color:#fff}
+html .tab{background:var(--kraft);color:#2e211c}
+html .tab[aria-selected=true]{background:var(--crust);color:#fff}
+
+/* about: "Pão fresco" stamped like the bag label */
+html .point:first-child{background:var(--kraft);border-radius:6px;padding:18px 16px;border:2px dashed var(--crust)}
+html .point:first-child::before{content:"";width:22px;height:30px;background:var(--wheat) center/contain no-repeat}
+html .point:first-child h3{color:var(--crust)}
+html .point:first-child p{color:#3d2b1d}
+
+/* QR: crust brown */
+html .qr{background-color:var(--crust)}
+html .qr .kicker,html .qr .btn-primary,html .steps li::before{color:var(--crust)}
+html .qr-name{font-family:var(--dp);font-style:normal;color:var(--crust)}
+html .qr-card figcaption::before{content:"";width:18px;height:26px;flex:none;background:var(--wheat) center/contain no-repeat}
+
+/* order: the bread photos first, then the bag (menu) */
+html main > .gallery{order:1;padding-top:var(--section)}
+html main > .menu{order:2}
+html main > .about{order:3}
+html main > .qr{order:4}
+html main > .book{order:5}
+html main > .visit{order:6}
+html main > .proposal{order:9}
+
+html .site-foot{border-image:repeating-linear-gradient(-45deg,var(--crust) 0 5px,var(--kraft) 5px 10px) 6}
+html .site-foot b{font-family:var(--dp);font-style:normal;color:var(--crust)}
+
+@media (max-width:860px){
+  html .hero-media{box-shadow:0 0 0 6px var(--kraft),0 0 0 8px var(--crust),0 18px 36px -18px rgba(60,30,15,.45)}
+  html .hero-title{font-size:clamp(2.3rem,10.5vw,3.3rem)}
+  html .hero-title::after{width:110px;height:30px;background-size:22px 30px}
+}
+
+/* mesa / cozinha */
+html .m-top{background:var(--crust)}
+html .m-top .tab[aria-selected=true],html .m-table{color:var(--crust)}
+html .m-top h1{font-family:var(--dp);font-style:normal;font-weight:400}
+html .m-cat{font-family:var(--dp);color:var(--crust)}
+html .m-item .price{color:var(--crust)}

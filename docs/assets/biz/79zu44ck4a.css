@@ -1,0 +1,47 @@
+/* Pastelarias Gil (Gil Vicente e Gil Doce) — hook: two shops, one name — two interlocking rings and a double-framed window */
+@import url('https://fonts.googleapis.com/css2?family=Abril+Fatface&display=swap');
+:root{
+  --gil-display:'Abril Fatface','Fraunces',Georgia,serif;
+  --gold-ink:#7a5a1c;
+  --rings:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 72 44'%3E%3Ccircle cx='26' cy='22' r='16' fill='none' stroke='%239c4a5a' stroke-width='5'/%3E%3Ccircle cx='46' cy='22' r='16' fill='none' stroke='%23c6a15b' stroke-width='5'/%3E%3Cpath d='M38.6 8.3A16 16 0 0 1 42 30' fill='none' stroke='%239c4a5a' stroke-width='5'/%3E%3C/svg%3E");
+}
+
+/* wordmark: high-contrast fat face, "Gil" the star; the two rings as the seal */
+html[data-dir] .brand{font:400 clamp(1.3rem,2.3vw,1.65rem)/1 var(--gil-display);font-style:normal;color:var(--primary);display:inline-flex;align-items:center;gap:.45em;letter-spacing:.005em}
+html[data-dir] .brand::before{content:"";width:2.1em;height:1.3em;flex:none;background:var(--rings) center/contain no-repeat}
+html[data-dir] .hero-title{font-family:var(--gil-display);font-weight:400;letter-spacing:0;line-height:1.02;font-size:clamp(2.4rem,5.2vw,4.4rem)}
+html[data-dir] .hero-title::first-line{color:var(--primary);font-size:1.2em}
+html[data-dir] .tagline{color:var(--gold-ink)}
+html[data-dir] .tagline::before{content:"";display:block;width:84px;height:52px;margin-bottom:10px;background:var(--rings) 0 50%/contain no-repeat}
+
+/* hero: two windows, one behind the other — rose in front, gold behind */
+html[data-dir] .hero-media{border-radius:var(--radius-lg);
+  box-shadow:0 0 0 6px var(--surface),-22px 22px 0 6px var(--accent),-22px 22px 0 8px var(--gold-ink),0 22px 40px -18px rgba(60,30,15,.4)}
+html[data-dir] .hero-media::after{background:none}
+
+/* order: vitrine first, then photos, then the two shops' story */
+main > .menu{order:1} main > .gallery{order:2} main > .about{order:3} main > .qr{order:4}
+main > .book{order:5} main > .visit{order:6} main > .proposal{order:20}
+html[data-dir] .menu{border-image:repeating-linear-gradient(-45deg,var(--primary) 0 5px,var(--accent) 5px 10px) 6}
+html[data-dir] .menu .section-head h2{font-family:var(--gil-display);font-weight:400}
+html[data-dir] .menu .section-head::after{content:"";width:72px;height:44px;background:var(--rings) center/contain no-repeat}
+html[data-dir] .dish-name{font-family:var(--gil-display);font-weight:400;letter-spacing:.005em}
+html[data-dir] .dish:nth-child(even) .dish-price{background:var(--gold-ink)}
+html[data-dir] .dishes{box-shadow:inset 0 0 0 1px rgba(255,255,255,.9),0 1px 0 var(--line),-10px 10px 0 -2px color-mix(in srgb,var(--accent) 45%,#fff)}
+
+/* about: two-tone point numbers (rose / gold) */
+html[data-dir] .point:nth-child(even)::before{color:var(--gold-ink)}
+html[data-dir] .point::before{font-family:var(--gil-display);font-style:normal;font-size:1.4rem}
+html[data-dir] .gallery .shot:nth-child(even){background:radial-gradient(circle,color-mix(in srgb,var(--accent) 40%,#fff) 1.6px,transparent 2px) 0 0/9px 9px,#fff}
+
+/* qr card + footer */
+html[data-dir] .qr-name,html[data-dir] .m-top h1{font-family:var(--gil-display);font-style:normal;font-weight:400}
+html[data-dir] .qr-card figcaption::after{content:"";width:46px;height:28px;background:var(--rings) center/contain no-repeat;order:-1;flex:none}
+html[data-dir] .site-foot b{font-family:var(--gil-display);font-weight:400;color:var(--primary)}
+
+@media (max-width:860px){
+  html[data-dir] .hero-media{margin-left:calc(var(--gutter) + 14px);box-shadow:0 0 0 5px var(--surface),-14px 14px 0 5px var(--accent),-14px 14px 0 7px var(--gold-ink)}
+  html[data-dir] .hero-copy{padding-top:36px}
+  html[data-dir] .hero-title{font-size:clamp(2rem,9vw,2.8rem)}
+  html[data-dir] .brand{font-size:1.15rem}
+}

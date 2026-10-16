@@ -1,0 +1,67 @@
+/* Konforto 99 — hook: "konforto" = a steaming cup in a soft, cushioned corner; the 99 worn as a round café badge */
+@import url('https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&display=swap');
+:root{
+  --kf-display:'Bricolage Grotesque',system-ui,sans-serif;
+  --bg:color-mix(in srgb,var(--accent) 7%,#fbf7f1);
+  --paper:color-mix(in srgb,var(--primary) 8%,#f8f4ee);
+  --paper-2:color-mix(in srgb,var(--primary) 16%,#f3efe9);
+  --cup:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 80 80'%3E%3Cg fill='none' stroke='%23F29E4C' stroke-width='4' stroke-linecap='round'%3E%3Cpath d='M30 10C24 16 36 20 30 28M42 8C36 14 48 18 42 26'/%3E%3C/g%3E%3Cpath d='M12 34H58V48A20 20 0 0 1 38 68H32A20 20 0 0 1 12 48Z' fill='%232D5D7B'/%3E%3Cpath d='M58 38H64A8 8 0 0 1 64 54H56' fill='none' stroke='%232D5D7B' stroke-width='5'/%3E%3Cpath d='M6 72H68' stroke='%232D5D7B' stroke-width='5' stroke-linecap='round'/%3E%3Cpath d='M20 42H50' stroke='%23fbf7f1' stroke-width='3' stroke-linecap='round' opacity='.5'/%3E%3C/svg%3E");
+}
+html[data-dir] body{background:var(--bg)}
+
+/* wordmark: plump grotesk, a cup and an orange dot */
+html[data-dir] .brand{font:800 1.5rem/1 var(--kf-display);font-style:normal;letter-spacing:-.03em;color:var(--primary);display:inline-flex;align-items:center;gap:8px}
+html[data-dir] .brand::before{content:"";width:32px;height:32px;flex:none;background:var(--cup) center/contain no-repeat}
+html[data-dir] .brand::after{content:"";width:9px;height:9px;border-radius:50%;background:var(--accent);align-self:flex-end;margin-bottom:4px}
+html[data-dir] h1,html[data-dir] h2,html[data-dir] h3{font-family:var(--kf-display);font-variation-settings:normal}
+html[data-dir] .hero-title{font:800 clamp(3rem,9vw,6.6rem)/.9 var(--kf-display);letter-spacing:-.045em;color:var(--primary)}
+html[data-dir] h2{font-weight:800;letter-spacing:-.03em}
+html[data-dir] .tagline{font:500 clamp(1.15rem,2vw,1.4rem)/1.35 var(--kf-display);font-style:normal}
+html[data-dir] .kicker{background:var(--primary);clip-path:none;border-radius:999px;padding:.6em 1.1em}
+
+/* awning: blue & cream with an orange stitch */
+html[data-dir] .site-head::before{background:linear-gradient(rgba(0,0,0,.12),rgba(0,0,0,0) 45%),repeating-linear-gradient(90deg,var(--primary) 0 22px,var(--accent) 22px 26px,#fbf7f1 26px 48px)}
+
+/* hero: a cushion, not a shop window — soft rounded square, big cup badge */
+html[data-dir] .hero-media{border-radius:42px;overflow:visible;box-shadow:0 0 0 8px var(--surface),0 22px 0 -6px var(--paper-2),0 30px 50px -24px rgba(20,40,60,.5)}
+html[data-dir] .hero-media img{border-radius:42px}
+html[data-dir] .hero-media::after{border-radius:42px}
+html[data-dir] .hero-media::before{content:"";position:absolute;z-index:2;right:-10px;top:-18px;width:clamp(84px,11vw,124px);aspect-ratio:1;border-radius:50%;
+  background:var(--cup) 50% 40%/62% no-repeat,var(--surface);box-shadow:0 0 0 4px var(--accent),0 12px 24px -10px rgba(20,40,60,.45)}
+
+/* order: photos of the space first, then the cups, then the story */
+html[data-dir] main .gallery{order:1;padding-top:var(--section)}
+html[data-dir] main .menu{order:2}
+html[data-dir] main .about{order:3}
+html[data-dir] main .book{order:4}
+html[data-dir] main .visit{order:5}
+html[data-dir] main .proposal{order:9}
+
+/* gallery: cushions instead of doilies */
+html[data-dir] .shot{-webkit-mask:none;mask:none;padding:0;border-radius:28px;background:var(--paper-2)}
+html[data-dir] .shot img{border-radius:28px}
+
+/* menu: café counter — blue band, cards with round price coins */
+html[data-dir] .menu{background:var(--paper);border-image:repeating-linear-gradient(90deg,var(--primary) 0 22px,var(--accent) 22px 26px) 6}
+html[data-dir] .menu .section-head{grid-template-columns:auto minmax(0,1fr);column-gap:16px;align-items:center}
+html[data-dir] .menu .section-head::before{content:"";grid-row:span 3;width:68px;height:68px;background:var(--cup) center/contain no-repeat}
+html[data-dir] .tab{clip-path:none;border-radius:999px}
+html[data-dir] .dishes{border-radius:28px}
+html[data-dir] .dish-name{font:700 1.15rem/1.25 var(--kf-display)}
+html[data-dir] .dish-price{clip-path:none;-webkit-mask:none;mask:none;border-radius:999px;padding:.45em .8em;font:700 1rem/1 var(--kf-display);font-style:normal}
+html[data-dir] .point::before{font:800 1.2rem/1.3 var(--kf-display);font-style:normal}
+
+/* footer */
+html[data-dir] .site-foot{border-image:repeating-linear-gradient(90deg,var(--primary) 0 22px,var(--accent) 22px 26px) 6}
+html[data-dir] .site-foot b{font:800 1.1rem var(--kf-display);font-style:normal}
+
+@media (max-width:860px){
+  html[data-dir] .hero-media{border-radius:32px;aspect-ratio:4/3}
+  html[data-dir] .hero-media img,html[data-dir] .hero-media::after{border-radius:32px}
+  html[data-dir] .hero-media::before{right:6px;top:-14px;width:78px}
+  html[data-dir] .menu .section-head::before{width:52px;height:52px}
+}
+
+/* mesa / cozinha */
+html[data-dir] .m-top h1,html[data-dir] .m-cat{font-family:var(--kf-display);font-weight:800;font-style:normal;letter-spacing:-.02em}
+html[data-dir] .m-item h4{font-family:var(--kf-display);font-weight:700}

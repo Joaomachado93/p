@@ -1,0 +1,77 @@
+/* O Pinguim — hook: the name — a penguin in its tuxedo, black and white with an amber beak; fish and bacalhau, doses for two */
+@import url('https://fonts.googleapis.com/css2?family=Lilita+One&display=swap');
+:root{
+  --pg:'Lilita One','Alfa Slab One',system-ui,sans-serif;
+  --tux:#1b2230; --ice:#eef3f8;
+  --bg:#f2f4f2; --surface:#ffffff;
+  --penguin:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 40 48'%3E%3Cellipse cx='20' cy='27' rx='14' ry='19' fill='%231b2230'/%3E%3Cellipse cx='20' cy='31' rx='9' ry='14' fill='%23fff'/%3E%3Ccircle cx='15.5' cy='15' r='2' fill='%23fff'/%3E%3Ccircle cx='24.5' cy='15' r='2' fill='%23fff'/%3E%3Cpath d='M16.5 19h7L20 24z' fill='%23e0a030'/%3E%3Cpath d='M12 46h7M21 46h7' stroke='%23e0a030' stroke-width='3.2' stroke-linecap='round'/%3E%3C/svg%3E");
+  --wave:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='40' height='12' viewBox='0 0 40 12'%3E%3Cpath d='M0 6q10-8 20 0t20 0v6H0z' fill='%23274c77'/%3E%3C/svg%3E");
+}
+html body{background:var(--bg)}
+
+/* wordmark: round friendly caps, the penguin signs it */
+html .brand{display:inline-flex;align-items:center;gap:8px;font:400 1.4rem/1 var(--pg);color:var(--tux);letter-spacing:.01em}
+html .brand::before{content:"";width:24px;height:29px;flex:none;background:var(--penguin) center/contain no-repeat}
+html .hero-title{font:400 clamp(2.8rem,6.4vw,5.6rem)/.98 var(--pg);color:var(--tux);letter-spacing:0}
+html .hero .kicker{color:var(--primary)}
+
+/* hero: the photo floats on blue water, a penguin standing on its edge */
+html .hero-media{position:relative;overflow:visible;background:var(--primary);padding:14px 14px 26px;border-radius:6px;
+  box-shadow:0 22px 40px -18px rgba(27,34,48,.5)}
+html .hero-media img{border-radius:3px;box-shadow:none}
+html .hero-media::after{content:"";position:absolute;left:-6px;right:-6px;bottom:-1px;height:16px;background:var(--wave) 0 100%/40px 12px repeat-x;
+  filter:brightness(1.35)}
+html .hero-media::before{content:"";position:absolute;z-index:2;right:28px;top:-56px;width:58px;height:70px;background:var(--penguin) center/contain no-repeat;
+  filter:drop-shadow(0 6px 8px rgba(0,0,0,.25))}
+
+/* about: "doses para dois" gets two penguins */
+html .point::before{background:var(--penguin) center/18px 22px no-repeat;border:0;height:24px}
+html .point:nth-child(2){background:var(--tux);color:#fff;padding:18px 16px;border-radius:6px;border:0;margin-block:6px}
+html .point:nth-child(2)::before{width:40px;background:var(--penguin) 0 50%/18px 22px no-repeat,var(--penguin) 100% 50%/18px 22px no-repeat;
+  background-color:#fff;border-radius:6px;height:30px;padding:0}
+html .point:nth-child(2){grid-template-columns:46px 1fr}
+html .point:nth-child(2) h3{font:400 1.35rem/1.1 var(--pg);color:#ffd27a}
+html .point:nth-child(2) p{color:#dfe5ee}
+
+/* menu: slate in a navy frame, waves along its bottom */
+html .menu{padding-top:var(--section)}
+html .menu > .wrap{border-image:linear-gradient(var(--primary),var(--primary)) 16}
+html .menu > .wrap::after{content:"";position:absolute;left:0;right:0;bottom:0;height:12px;background:var(--wave) 0 0/40px 12px repeat-x;opacity:.9}
+html .menu h2{font-family:var(--pg)}
+html .menu .section-head::before{content:"";width:40px;height:48px;background:var(--penguin) center/contain no-repeat;filter:drop-shadow(0 0 0 #fff)}
+
+/* QR: navy sea, a penguin on the table card */
+html .qr{background:var(--primary)}
+html .qr-card{background:linear-gradient(#fff,#fff) padding-box,var(--tux) border-box;padding-top:72px;position:relative}
+html .qr-card::before{content:"";position:absolute;top:16px;left:50%;width:40px;height:48px;margin-left:-20px;background:var(--penguin) center/contain no-repeat}
+html .qr-name{font-family:var(--pg);color:var(--tux)}
+
+/* footer: a waddle of penguins replaces the tile band */
+html .site-foot::before{height:34px;background:var(--penguin) 0 100%/28px 34px repeat-x;opacity:.9}
+
+/* order: the fish first */
+html main > .menu{order:1}
+html main > .about{order:2}
+html main > .gallery{order:3}
+html main > .qr{order:4}
+html main > .book{order:5}
+html main > .visit{order:6}
+html main > .proposal{order:9}
+
+html .site-foot b{font:400 1.1rem var(--pg);color:var(--tux)}
+
+@media (max-width:860px){
+  html .hero-media{padding:0 0 22px;border-radius:0;background:var(--primary)}
+  html .hero-media::before{top:auto;bottom:-30px;right:var(--gutter-r);width:46px;height:56px}
+  html .hero-copy{padding-top:30px}
+  html .hero-media::after{left:0;right:0}
+  html .hero-title{font-size:clamp(2.6rem,12vw,3.6rem)}
+  html .brand{font-size:1.25rem}
+}
+
+/* mesa / cozinha */
+html .m-top{background:var(--primary)}
+html .m-top h1{font:400 1.45rem/1 var(--pg);display:flex;gap:8px;align-items:center}
+html .m-top h1::before{content:"";width:22px;height:27px;flex:none;background:var(--penguin) center/contain no-repeat;filter:drop-shadow(0 0 1px #fff)}
+html .m-top::after{background:var(--wave) 0 0/20px 10px repeat-x;filter:brightness(1.35)}
+html .m-cat{font-family:var(--pg);color:var(--primary)}

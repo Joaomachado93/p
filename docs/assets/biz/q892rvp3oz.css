@@ -1,0 +1,57 @@
+/* Villa Fiori — hook: the name — "villa" (Roman capitals, a garden medallion) and "fiori" (five-petal flowers) */
+@import url('https://fonts.googleapis.com/css2?family=Marcellus&display=swap');
+html[data-dir]{
+  --vf-mark:'Marcellus','Trajan Pro',Georgia,serif;
+  --vf-rose:color-mix(in oklab, var(--primary) 92%, #3b0614);
+  --vf-olive:color-mix(in oklab, var(--accent) 90%, #1a2a06);
+  --bg:color-mix(in oklab, var(--primary) 4%, #fdf9f4); --linen:#f6ece9; --ivory:#f8f1ee;
+  --vf-flower:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='40' height='40' viewBox='0 0 40 40'%3E%3Cg fill='%23BE123C'%3E%3Cellipse cx='20' cy='10' rx='5.5' ry='8'/%3E%3Cellipse cx='20' cy='10' rx='5.5' ry='8' transform='rotate(72 20 20)'/%3E%3Cellipse cx='20' cy='10' rx='5.5' ry='8' transform='rotate(144 20 20)'/%3E%3Cellipse cx='20' cy='10' rx='5.5' ry='8' transform='rotate(216 20 20)'/%3E%3Cellipse cx='20' cy='10' rx='5.5' ry='8' transform='rotate(288 20 20)'/%3E%3C/g%3E%3Ccircle cx='20' cy='20' r='4.5' fill='%23facc15' stroke='%234D7C0F' stroke-width='1.5'/%3E%3C/svg%3E");
+  --vf-vine:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='96' height='20' viewBox='0 0 96 20'%3E%3Cpath d='M0 10c12-8 24 8 48 0s36 8 48 0' fill='none' stroke='%234D7C0F' stroke-width='1.6'/%3E%3Cg fill='%234D7C0F'%3E%3Cpath d='M22 6c3-5 8-5 10-3-3 3-6 4-10 3z'/%3E%3Cpath d='M70 14c3 5 8 5 10 3-3-3-6-4-10-3z'/%3E%3C/g%3E%3Ccircle cx='48' cy='10' r='3.5' fill='%23BE123C'/%3E%3C/svg%3E");
+}
+
+/* wordmark: carved Roman capitals, a flower set between the two words' feeling */
+html[data-dir] .brand{font:400 1.35rem/1 var(--vf-mark);text-transform:uppercase;letter-spacing:.2em;color:var(--vf-rose);display:inline-flex;align-items:center;gap:10px}
+html[data-dir] .brand::before{content:"";width:22px;height:22px;background:var(--vf-flower) center/contain no-repeat;flex:none}
+html[data-dir] .hero-title{font:400 clamp(2.8rem,9vw,6.4rem)/1 var(--vf-mark);text-transform:uppercase;letter-spacing:.08em;color:#2b1418}
+html[data-dir] .hero-title::after{content:"";display:block;width:192px;max-width:70%;height:40px;margin-top:14px;background:var(--vf-vine) left center/96px 20px repeat-x}
+html[data-dir] .m-top h1,html[data-dir] .site-foot b,html[data-dir] .qr-name{font-family:var(--vf-mark);text-transform:uppercase;letter-spacing:.14em;font-weight:400}
+html[data-dir] h2{font-family:var(--vf-mark);font-weight:400;letter-spacing:.02em}
+
+/* hero: the photo as a garden medallion — oval portrait with a ring and flowers at its foot */
+html[data-dir] .hero-media{border-radius:50%;aspect-ratio:4/5;width:min(86%,520px);justify-self:center;margin-inline:auto;border:0;padding:10px;overflow:visible;
+  background:var(--surface);box-shadow:0 0 0 1px var(--vf-olive),0 0 0 7px var(--surface),0 0 0 8px color-mix(in oklab, var(--primary) 40%, transparent),0 30px 60px -30px rgba(59,6,20,.45)}
+html[data-dir] .hero-media img{border-radius:50%}
+html[data-dir] .hero-media::after{inset:auto;left:50%;bottom:-18px;width:120px;height:40px;transform:translateX(-50%);border:0;
+  background:var(--vf-flower) 0 50%/36px 36px no-repeat,var(--vf-flower) 50% 0/40px 40px no-repeat,var(--vf-flower) 100% 50%/36px 36px no-repeat}
+@media (min-width:861px){
+  html[data-dir] .hero-media{padding:12px;max-height:72vh;width:auto;height:min(72vh,620px);box-shadow:0 0 0 1px var(--vf-olive),0 0 0 9px var(--surface),0 0 0 10px color-mix(in oklab, var(--primary) 40%, transparent),0 30px 60px -30px rgba(59,6,20,.45)}
+  html[data-dir] .hero-media::after{inset:auto;left:50%;bottom:-20px}
+}
+
+/* order: menu, then the story (traditional Italian, parking), photos, visit */
+html[data-dir] .menu{order:1}
+html[data-dir] .about{order:2}
+html[data-dir] .gallery{order:3;padding-top:var(--section)}
+html[data-dir] .visit{order:4}
+html[data-dir] .qr{order:5}
+html[data-dir] .book{order:6}
+html[data-dir] .proposal{order:99}
+
+/* menu: a garden-party carte — vine above, a flower before each dish */
+html[data-dir] .menu .section-head{text-align:center}
+html[data-dir] .menu .section-head::before{content:"";display:block;width:192px;height:20px;margin:0 auto 16px;background:var(--vf-vine) center/96px 20px repeat-x}
+html[data-dir] .dishes{background:#fffdfb;border:1px solid color-mix(in oklab, var(--primary) 20%, #fff);padding:10px clamp(16px,4vw,48px);border-radius:120px 120px 4px 4px / 40px 40px 4px 4px}
+html[data-dir] .dish-name{font-family:var(--vf-mark);font-weight:400;letter-spacing:.02em}
+html[data-dir] .dish-name::before{content:"";display:inline-block;width:14px;height:14px;margin-right:8px;vertical-align:-1px;background:var(--vf-flower) center/contain no-repeat}
+html[data-dir] .dish-price{color:var(--vf-rose)}
+html[data-dir] .tab[aria-selected=true]{background:var(--vf-rose);border-color:var(--vf-rose);color:#fff}
+html[data-dir] h2::after{background:var(--vf-olive)}
+
+/* gallery: arched garden windows */
+html[data-dir] .shot{border-radius:999px 999px 6px 6px}
+
+@media (max-width:860px){
+  html[data-dir] .hero-media{width:min(76vw,330px);margin:22px auto 10px}
+  html[data-dir] .hero-title{font-size:clamp(2.4rem,12.5vw,3.6rem);letter-spacing:.06em}
+  html[data-dir] .brand{font-size:1.1rem;letter-spacing:.14em}
+}

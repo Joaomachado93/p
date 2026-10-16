@@ -1,0 +1,51 @@
+/* Casa do Tó - Restaurante & Bar — hook: a brasa — grill-grate bars over live embers, under a fat, friendly signboard name */
+@import url('https://fonts.googleapis.com/css2?family=Abril+Fatface&display=swap');
+:root{
+  --to:'Abril Fatface','Bodoni Moda',Georgia,serif;
+  --grelha:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='22' viewBox='0 0 16 22'%3E%3Crect x='5' y='1' width='6' height='16' rx='3' fill='%23D9A441'/%3E%3Ccircle cx='8' cy='20.5' r='1.5' fill='%23e8742c'/%3E%3C/svg%3E");
+  --flame:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='40' height='40' viewBox='0 0 40 40'%3E%3Cpath d='M20 3C22 12 31 15 31 25A11 11 0 0 1 9 25C9 18 14 16 15 9 18 13 17 17 20 19 22 14 20 8 20 3Z' fill='%23D9A441'/%3E%3Cpath d='M20 21C22 25 25 26 25 30A5 5 0 0 1 15 30C15 27 18 25 20 21Z' fill='%23ffd27a'/%3E%3C/svg%3E");
+  --ember:#e8742c;
+  --wine:color-mix(in oklab,var(--primary) 70%,#1a0904);
+}
+
+/* wordmark: a heavy, warm fat-face with a flame as its mark */
+html[data-dir] .brand{display:inline-flex;align-items:center;gap:8px;font:400 1.5rem/1 var(--to);font-style:normal;letter-spacing:.01em}
+html[data-dir] .brand::before{content:"";width:22px;height:24px;flex:none;background:var(--flame) center/contain no-repeat}
+html[data-dir] .hero-title{font:400 clamp(3rem,6vw,5.4rem)/.98 var(--to);font-style:normal;letter-spacing:.005em;max-width:14ch}
+html[data-dir] .hero .kicker{text-shadow:0 1px 3px #000,0 0 14px rgba(0,0,0,.9)}
+
+/* hero: the night gradient turns to ember glow, the grill bars close it */
+html[data-dir] .hero-media::after{background:
+  radial-gradient(80% 45% at 50% 100%,rgba(232,116,44,.42),transparent 70%),
+  linear-gradient(180deg,rgba(13,9,7,.15) 0%,rgba(13,9,7,.05) 14%,rgba(26,11,6,.66) 34%,rgba(21,12,8,.88) 58%,#150c08 92%)}
+html[data-dir] .hero::after{content:"";grid-area:1/1;align-self:end;height:22px;background:var(--grelha) 0 0/16px 22px repeat-x;opacity:.85}
+html[data-dir] .facts{border-top-color:rgba(217,164,65,.35)}
+
+/* about: the many services (esplanada, bar, música ao vivo…) as ember chips */
+html[data-dir] .services li{border-color:color-mix(in oklab,var(--accent) 45%,transparent);background:rgba(217,164,65,.08)}
+html[data-dir] .services .i{color:var(--ember)}
+html[data-dir] .point::before{content:"";width:22px;height:24px;margin-top:2px;background:var(--flame) center/contain no-repeat}
+html[data-dir] .point h3{font-family:var(--to);font-weight:400}
+
+/* menu: the board is edged with grill bars and headed by the flame */
+html[data-dir] .menu .section-head::before{content:"";width:40px;height:40px;background:var(--flame) center/contain no-repeat}
+html[data-dir] .menu h2{font-family:var(--to);font-weight:400}
+html[data-dir] .dishes{border-top:0;padding-top:clamp(30px,4vw,52px);background:var(--grelha) 0 0/16px 22px repeat-x,linear-gradient(180deg,rgba(232,116,44,.08),rgba(242,231,213,.01) 40%),#120d0b}
+html[data-dir] .dish-price{font:400 1.3rem/1 var(--to);font-style:normal}
+
+/* order: food from the brasa first, then the house */
+html[data-dir] .menu{order:1}
+html[data-dir] .about{order:2}
+html[data-dir] .gallery{order:3}
+html[data-dir] .qr{order:4}
+html[data-dir] .book{order:5}
+html[data-dir] .visit{order:6}
+html[data-dir] .proposal{order:9}
+
+html[data-dir] .site-foot{background:var(--grelha) 0 0/16px 22px repeat-x,#0f0b09;padding-top:60px}
+html[data-dir] .qr-name,html[data-dir] .site-foot b,html[data-dir] .m-top h1{font-family:var(--to);font-style:normal;font-weight:400}
+
+@media (max-width:860px){
+  html[data-dir] .brand{font-size:1.25rem}
+  html[data-dir] .hero-title{font-size:clamp(2.8rem,13vw,4.2rem)}
+}

@@ -1,0 +1,41 @@
+/* Padaria Pastelaria Villa — hook: "Pão, bolos e café na Costa" → the wheat ear and a loaf-shaped window, "Villa" cut like a stone inscription */
+@import url('https://fonts.googleapis.com/css2?family=Marcellus+SC&display=swap');
+:root{
+  --wheat:url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 64'><path d='M16 62V10' stroke='%238b5a2b' stroke-width='2' stroke-linecap='round'/><g fill='%23d9a441' stroke='%238b5a2b' stroke-width='1'><ellipse cx='16' cy='7' rx='3.2' ry='6'/><ellipse cx='10' cy='17' rx='3.2' ry='6' transform='rotate(-30 10 17)'/><ellipse cx='22' cy='17' rx='3.2' ry='6' transform='rotate(30 22 17)'/><ellipse cx='10' cy='29' rx='3.2' ry='6' transform='rotate(-30 10 29)'/><ellipse cx='22' cy='29' rx='3.2' ry='6' transform='rotate(30 22 29)'/><ellipse cx='10' cy='41' rx='3.2' ry='6' transform='rotate(-30 10 41)'/><ellipse cx='22' cy='41' rx='3.2' ry='6' transform='rotate(30 22 41)'/></g></svg>");
+  --carved:'Marcellus SC','Fraunces',Georgia,serif;
+  --bg:color-mix(in srgb,var(--accent) 9%,#fbf6ec);
+  --paper:color-mix(in srgb,var(--accent) 16%,#fbf3e6); --paper-2:color-mix(in srgb,var(--accent) 26%,#f7ecd9);
+  --crust:color-mix(in srgb,var(--primary) 82%,#2a1608);
+}
+/* wordmark: Roman-cut capitals, flanked by wheat ears */
+html[data-dir] .brand{display:inline-flex;align-items:center;gap:8px;font:400 1.25rem/1 var(--carved);font-style:normal;letter-spacing:.1em;color:var(--crust)}
+html[data-dir] .brand::before{content:"";width:14px;height:28px;flex:none;background:var(--wheat) center/contain no-repeat}
+html[data-dir] .hero-title{font:400 clamp(2.5rem,5.8vw,4.8rem)/1.02 var(--carved);letter-spacing:.06em;color:var(--crust);font-variation-settings:normal}
+html[data-dir] .hero-title::before{content:"";display:block;width:26px;height:52px;margin-bottom:12px;background:var(--wheat) center/contain no-repeat}
+html[data-dir] .tagline{color:var(--ink);font-style:normal;font-family:var(--carved);letter-spacing:.06em}
+/* hero: the window becomes a loaf — wide low dome with scoring lines */
+html[data-dir] .hero-media{border-radius:46% 46% 12px 12% / 34% 34% 12px 12px;box-shadow:0 0 0 7px var(--paper),0 0 0 9px var(--primary),0 20px 40px -20px rgba(70,40,10,.55)}
+html[data-dir] .hero-media::after{background:repeating-linear-gradient(115deg,transparent 0 22%,rgba(255,240,210,.18) 22% 23.2%,transparent 23.2% 34%)}
+@media (min-width:861px){html[data-dir] .hero-media{aspect-ratio:5/4}}
+html[data-dir] .kicker{background:var(--crust);color:#fff}
+html[data-dir] h2{font-family:var(--carved);font-weight:400;letter-spacing:.04em}
+/* order: the bread on display first (gallery), then the vitrine, then the story */
+main > .gallery{order:1} main > .menu{order:2} main > .about{order:3} main > .book{order:4} main > .visit{order:5} main > .proposal{order:9}
+html[data-dir] .gallery{padding-top:var(--section)}
+/* menu: flour-dusted board with a wheat crest */
+html[data-dir] .menu{border-image:repeating-linear-gradient(-45deg,var(--accent) 0 5px,var(--primary) 5px 10px) 6;
+  background:radial-gradient(circle,rgba(255,255,255,.75) 1px,transparent 1.6px) 0 0/14px 14px,var(--paper)}
+html[data-dir] .menu .section-head{grid-template-columns:auto 1fr;column-gap:16px;align-items:center}
+html[data-dir] .menu .section-head::before{content:"";grid-row:span 3;width:30px;height:60px;background:var(--wheat) center/contain no-repeat}
+html[data-dir] .dish-name{font:400 1.12rem/1.25 var(--carved);letter-spacing:.04em}
+html[data-dir] .dish-price{background:var(--crust)}
+html[data-dir] .point::before{content:"";width:12px;height:24px;background:var(--wheat) center/contain no-repeat;margin-top:4px}
+html[data-dir] .point h3{font-family:var(--carved);font-weight:400;letter-spacing:.04em}
+/* footer */
+html[data-dir] .site-foot{border-image:repeating-linear-gradient(-45deg,var(--accent) 0 5px,var(--primary) 5px 10px) 6}
+html[data-dir] .site-foot b{font:400 1.1rem var(--carved);font-style:normal;letter-spacing:.08em;color:var(--crust)}
+html[data-dir] .site-head::before{background:linear-gradient(rgba(0,0,0,.14),rgba(0,0,0,0) 45%),repeating-linear-gradient(90deg,var(--primary) 0 24px,var(--paper) 24px 48px)}
+@media (max-width:860px){
+  html[data-dir] .hero-title{font-size:clamp(2.1rem,10vw,3rem)}
+  html[data-dir] .hero-title::before{width:20px;height:40px}
+}

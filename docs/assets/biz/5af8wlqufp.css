@@ -1,0 +1,67 @@
+/* Restaurante Carreira — hook: the house speciality, cabrito assado → the kid's curled horns, a roasting-tray (assadeira) frame */
+@import url('https://fonts.googleapis.com/css2?family=Holtwood+One+SC&display=swap');
+:root{
+  --bg:#f5efe5; --surface:#fffbf4;
+  --horns:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 48'%3E%3Cg fill='none' stroke='%23B45309' stroke-width='3.4' stroke-linecap='round'%3E%3Cpath d='M29 44C27 30 22 18 10 10c-4-2-8 2-4 6'/%3E%3Cpath d='M35 44c2-14 7-26 19-34 4-2 8 2 4 6'/%3E%3C/g%3E%3Cg stroke='%231D4ED8' stroke-width='1.6' stroke-linecap='round'%3E%3Cpath d='M23 32l5-2M19 22l5-3M41 32l-5-2M45 22l-5-3'/%3E%3C/g%3E%3C/svg%3E");
+}
+
+/* wordmark: wide woodtype small caps — a roadside casa de pasto sign; horns crown the name */
+html[data-dir] .brand{font:400 1.05rem/1 'Holtwood One SC',var(--display);letter-spacing:.02em;color:var(--primary);display:inline-flex;align-items:center;gap:10px}
+html[data-dir] .brand::before{content:"";width:34px;height:26px;flex:none;background:var(--horns) center/contain no-repeat}
+html[data-dir] .hero-title{font-family:'Holtwood One SC',var(--display);font-size:clamp(2rem,4.6vw,3.9rem);line-height:1.08;color:var(--ink);letter-spacing:0}
+html[data-dir] .hero-title::before{content:"";display:block;width:clamp(72px,8vw,100px);aspect-ratio:4/3;margin-bottom:10px;background:var(--horns) left bottom/contain no-repeat}
+html[data-dir] .tagline{color:var(--primary);font-weight:700}
+html[data-dir] h2{font-family:'Holtwood One SC',var(--display);font-size:clamp(1.6rem,3.4vw,2.5rem);line-height:1.12}
+
+/* hero: the photo in a roasting tray — dark enamel rim, rounded corners, azulejo stays as the wall behind */
+@media (min-width:861px){
+  html[data-dir] .hero-media{padding:12px;border-radius:26px;background:#2a2420;margin-right:clamp(16px,3vw,40px);
+    box-shadow:0 0 0 6px var(--primary),0 26px 44px -20px rgba(60,30,10,.6),inset 0 2px 0 rgba(255,255,255,.12)}
+  html[data-dir] .hero-media img{border-radius:16px;box-shadow:none}
+  html[data-dir] .hero{background:linear-gradient(90deg,var(--bg) 58%,transparent 58%),var(--azulejo) 0 0/40px 40px}
+}
+@media (max-width:860px){
+  html[data-dir] .hero-media{border-bottom:8px solid var(--primary);padding:0;background:#2a2420}
+}
+
+/* section order: the dishes they're known for first (bolinhos, cabrito, crème brûlée) */
+html[data-dir] main > .menu{order:1}
+html[data-dir] main > .gallery{order:2}
+html[data-dir] main > .about{order:3}
+html[data-dir] main > .qr{order:4}
+html[data-dir] main > .book{order:5}
+html[data-dir] main > .visit{order:6}
+html[data-dir] main > .proposal{order:9}
+html[data-dir] .menu{padding-top:var(--section)}
+html[data-dir] .gallery{padding-bottom:var(--section)}
+html[data-dir] .about{border-top:0}
+
+/* menu board: horns chalked beside the heading, prices in amber chalk */
+html[data-dir] .menu .section-head{position:relative;padding-right:84px}
+html[data-dir] .menu .section-head::after{content:"";position:absolute;top:0;right:0;width:72px;height:54px;opacity:.9;
+  background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 48'%3E%3Cg fill='none' stroke='%23f1efe6' stroke-width='3' stroke-linecap='round' stroke-opacity='.75'%3E%3Cpath d='M29 44C27 30 22 18 10 10c-4-2-8 2-4 6'/%3E%3Cpath d='M35 44c2-14 7-26 19-34 4-2 8 2 4 6'/%3E%3C/g%3E%3C/svg%3E") center/contain no-repeat}
+html[data-dir] .menu h2{font-size:clamp(1.6rem,3.4vw,2.5rem)}
+html[data-dir] .menu .dish-price{color:#f3b46b}
+html[data-dir] .menu .kicker{color:#f3b46b}
+
+/* about: the two-colour brand (amber + azulejo blue) on the point markers */
+html[data-dir] .point::before{border-color:var(--accent)}
+html[data-dir] .points{border-top-color:var(--primary)}
+
+/* QR: amber, darker for contrast */
+html[data-dir] .qr{background:color-mix(in srgb,var(--primary) 78%,#2a1505)}
+html[data-dir] .qr .btn-primary{background:var(--accent);color:#fff}
+html[data-dir] .steps li::before{background:var(--accent);color:#fff}
+html[data-dir] .qr-name{font-family:'Holtwood One SC',var(--display);font-size:.9rem}
+
+/* mesa / cozinha */
+html[data-dir] .m-top h1{font-family:'Holtwood One SC',var(--display);font-size:clamp(.78rem,3.2vw,1.1rem);min-width:0;overflow-wrap:break-word}
+
+@media (max-width:860px){
+  html[data-dir] .brand{font-size:.9rem;gap:8px}
+  html[data-dir] .brand::before{width:28px;height:21px}
+  html[data-dir] .hero-title{font-size:clamp(1.7rem,8.4vw,2.5rem)}
+  html[data-dir] .hero-title::before{width:64px}
+  html[data-dir] .menu .section-head{padding-right:60px}
+  html[data-dir] .menu .section-head::after{width:52px;height:40px}
+}

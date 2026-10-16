@@ -1,0 +1,70 @@
+/* Gardénia Coffee & Brunch — hook: the gardénia flower itself (six soft petals, leaf green) for a calm brunch & tea house */
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500;1,600&display=swap');
+:root{
+  --gd-serif:'Cormorant Garamond',Georgia,serif;
+  --gd-leaf:color-mix(in srgb,var(--accent) 55%,#24452a);
+  --bg:color-mix(in srgb,var(--accent) 7%,#fffaf6);
+  --paper:color-mix(in srgb,var(--primary) 7%,#fff8f4);
+  --paper-2:color-mix(in srgb,var(--primary) 14%,#fff5f0);
+  --flower:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Cpath d='M58 66C74 70 88 84 92 96C78 96 62 86 58 66Z' fill='%237FB77E' stroke='%233f6e40' stroke-width='1.5'/%3E%3Cpath d='M58 66L86 92' stroke='%233f6e40' stroke-width='1.2'/%3E%3Cg transform='translate(46 46)' fill='%23fffaf6' stroke='%23B04468' stroke-width='2'%3E%3Cellipse cy='-19' rx='12' ry='21'/%3E%3Cellipse cy='-19' rx='12' ry='21' transform='rotate(60)'/%3E%3Cellipse cy='-19' rx='12' ry='21' transform='rotate(120)'/%3E%3Cellipse cy='-19' rx='12' ry='21' transform='rotate(180)'/%3E%3Cellipse cy='-19' rx='12' ry='21' transform='rotate(240)'/%3E%3Cellipse cy='-19' rx='12' ry='21' transform='rotate(300)'/%3E%3Cellipse cy='-11' rx='7' ry='12' transform='rotate(30)' fill='%23fbe3ea'/%3E%3Cellipse cy='-11' rx='7' ry='12' transform='rotate(150)' fill='%23fbe3ea'/%3E%3Cellipse cy='-11' rx='7' ry='12' transform='rotate(270)' fill='%23fbe3ea'/%3E%3Ccircle r='6' fill='%23E9C46A' stroke='none'/%3E%3C/g%3E%3C/svg%3E");
+}
+html[data-dir] body{background:var(--bg)}
+
+/* wordmark: a soft italic serif with a bloom before it */
+html[data-dir] .brand{display:inline-flex;align-items:center;gap:10px;font:italic 600 clamp(1.5rem,2.6vw,1.9rem)/1 var(--gd-serif);color:var(--primary);letter-spacing:0}
+html[data-dir] .brand::before{content:"";width:34px;height:34px;flex:none;background:var(--flower) center/contain no-repeat}
+html[data-dir] .hero-title{font:italic 600 clamp(3rem,8vw,6.2rem)/.92 var(--gd-serif);letter-spacing:-.015em;color:var(--ink)}
+html[data-dir] .hero-title::after{content:"";display:block;width:88px;height:3px;margin-top:18px;border-radius:3px;background:linear-gradient(90deg,var(--primary) 0 60%,var(--accent) 60%)}
+html[data-dir] h2{font-family:var(--gd-serif);font-weight:600}
+html[data-dir] .tagline,html[data-dir] .lede{font-family:var(--gd-serif)}
+html[data-dir] .tagline{font-size:clamp(1.3rem,2.3vw,1.7rem)}
+html[data-dir] .kicker{background:var(--gd-leaf);color:#fff}
+
+/* awning in rose & leaf instead of rose & white */
+html[data-dir] .site-head::before{background:linear-gradient(rgba(0,0,0,.12),rgba(0,0,0,0) 45%),
+  repeating-linear-gradient(90deg,var(--primary) 0 24px,#fff6f2 24px 36px,var(--accent) 36px 42px,#fff6f2 42px 48px)}
+
+/* hero: the window becomes a round bloom with a flower pinned to it */
+html[data-dir] .hero-media{overflow:visible}
+html[data-dir] .hero-media img{border-radius:inherit}
+html[data-dir] .hero-media::before{content:"";position:absolute;z-index:2;width:clamp(86px,14vw,140px);aspect-ratio:1;left:-14px;bottom:-22px;
+  background:var(--flower) center/contain no-repeat;filter:drop-shadow(0 8px 10px rgba(80,30,45,.25))}
+@media (min-width:861px){
+  html[data-dir] .hero-media{aspect-ratio:1;border-radius:50%;max-height:560px;
+    box-shadow:0 0 0 10px var(--surface),0 0 0 12px color-mix(in srgb,var(--accent) 60%,#fff),0 30px 60px -30px rgba(80,30,45,.45)}
+  html[data-dir] .hero-media::after{border-radius:50%}
+  html[data-dir] .hero-media::before{left:2%;bottom:4%}
+}
+
+/* order: brunch menu right after the welcome, photos after */
+html[data-dir] main .about{order:1}
+html[data-dir] main .menu{order:2}
+html[data-dir] main .gallery{order:3;padding-top:var(--section)}
+html[data-dir] main .book{order:4}
+html[data-dir] main .visit{order:5}
+html[data-dir] main .proposal{order:9}
+
+/* menu: a garden tea table — leaf-green twine, a flower over the heading */
+html[data-dir] .menu{background:color-mix(in srgb,var(--accent) 16%,#fbfaf4);border-image:repeating-linear-gradient(-45deg,var(--gd-leaf) 0 5px,#fff 5px 10px) 6}
+html[data-dir] .menu .section-head{justify-items:center;text-align:center}
+html[data-dir] .menu .section-head::before{content:"";width:64px;height:64px;background:var(--flower) center/contain no-repeat}
+html[data-dir] .menu .tabs{justify-content:safe center}
+html[data-dir] .dish-name{font-family:var(--gd-serif);font-size:1.3rem}
+html[data-dir] .dish-price{background:var(--gd-leaf)}
+html[data-dir] .point::before{font-family:var(--gd-serif);font-size:1.3rem}
+
+/* visit + footer: a quiet bloom signs off */
+html[data-dir] .site-foot .wrap{padding-left:calc(var(--gutter) + 46px);position:relative}
+html[data-dir] .site-foot .wrap::before{content:"";position:absolute;left:var(--gutter);top:0;width:36px;height:36px;background:var(--flower) center/contain no-repeat}
+html[data-dir] .site-foot b{font-family:var(--gd-serif);font-size:1.15rem}
+
+@media (max-width:860px){
+  html[data-dir] .hero-media{border-radius:50% 50% 18px 18px / 34% 34% 18px 18px}
+  html[data-dir] .hero-media::before{left:6px;bottom:-26px;width:84px}
+  html[data-dir] .hero-copy{padding-top:38px}
+}
+
+/* mesa / cozinha */
+html[data-dir] .m-top h1{font:italic 600 1.6rem/1 var(--gd-serif)}
+html[data-dir] .m-cat{font-family:var(--gd-serif);font-style:italic}
+html[data-dir] .m-item h4{font-family:var(--gd-serif);font-size:1.2rem}

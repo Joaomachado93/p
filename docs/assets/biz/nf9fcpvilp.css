@@ -1,0 +1,45 @@
+/* Pastelaria Doce Pisca — hook: "Pisca" = a wink → a winking eye with sparkle, and sugar sprinkles everywhere */
+@import url('https://fonts.googleapis.com/css2?family=Baloo+2:wght@600;800&display=swap');
+:root{
+  --wink:url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 40'><path d='M6 18q20 18 40 0' fill='none' stroke='%23c2185b' stroke-width='5' stroke-linecap='round'/><path d='M12 25 8 32M22 29l-1 8M32 29l2 8M41 25l5 6' stroke='%23c2185b' stroke-width='3.5' stroke-linecap='round'/><path d='M55 3l2 6 6 2-6 2-2 6-2-6-6-2 6-2Z' fill='%23f4b942'/></svg>");
+  --sprinkles:url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' width='90' height='90' viewBox='0 0 90 90'><g stroke-width='4' stroke-linecap='round'><path d='M10 12l8 4' stroke='%23c2185b'/><path d='M60 8l3 8' stroke='%23f4b942'/><path d='M36 40l8-3' stroke='%2364b5c6'/><path d='M74 52l6 6' stroke='%23c2185b'/><path d='M14 66l2 8' stroke='%23f4b942'/><path d='M48 78l8 1' stroke='%2364b5c6'/></g></svg>");
+  --round:'Baloo 2','Figtree',system-ui,sans-serif;
+  --bg:color-mix(in srgb,var(--primary) 6%,#fff7f4);
+}
+/* wordmark: round, bouncy, winking */
+html[data-dir] .brand{display:inline-flex;align-items:center;gap:6px;font:800 1.55rem/1 var(--round);font-style:normal;letter-spacing:-.01em;color:var(--primary)}
+html[data-dir] .brand::after{content:"";width:34px;height:22px;flex:none;background:var(--wink) center/contain no-repeat;transform-origin:50% 40%;animation:dp-blink 4s ease-in-out 1.5s infinite}
+@keyframes dp-blink{0%,88%,100%{transform:scaleY(1)}92%{transform:scaleY(.4)}}
+@media (prefers-reduced-motion:reduce){html[data-dir] .brand::after{animation:none}}
+html[data-dir] .hero-title{font:800 clamp(2.8rem,7vw,5.8rem)/.92 var(--round);letter-spacing:-.025em;color:var(--primary);font-variation-settings:normal}
+html[data-dir] .hero-title::after{content:"";display:block;width:clamp(70px,8vw,96px);aspect-ratio:64/40;margin-top:10px;background:var(--wink) left center/contain no-repeat}
+html[data-dir] .tagline{font:600 clamp(1.2rem,2vw,1.5rem)/1.3 var(--round);font-style:normal;color:var(--ink)}
+/* hero: the window is a soft bubble on a sprinkled ground */
+html[data-dir] .hero{background:linear-gradient(color-mix(in srgb,var(--bg) 62%,transparent),color-mix(in srgb,var(--bg) 62%,transparent)),var(--sprinkles) 0 0/90px 90px}
+html[data-dir] .hero-media{border-radius:42% 58% 46% 54% / 48% 44% 56% 52%;box-shadow:0 0 0 8px #fff,0 0 0 11px var(--accent),0 24px 40px -20px rgba(120,10,60,.45)}
+html[data-dir] .hero-media::after{background:none}
+@media (min-width:861px){html[data-dir] .hero-media{aspect-ratio:1}}
+@media (max-width:860px){html[data-dir] .hero-media{aspect-ratio:1;margin-top:10px}}
+html[data-dir] .kicker{clip-path:none;border-radius:999px;padding:.6em 1.1em;background:var(--primary)}
+html[data-dir] h2{font-family:var(--round);font-weight:800;letter-spacing:-.015em}
+/* order: sweets first, then photos, story last */
+main > .menu{order:1} main > .gallery{order:2} main > .about{order:3} main > .book{order:4} main > .visit{order:5} main > .proposal{order:9}
+html[data-dir] .gallery{padding-top:var(--section)}
+/* menu: candy box — rounded pill tabs, sprinkled ground */
+html[data-dir] .menu{border-image:none;border-top:0;background:linear-gradient(rgba(255,244,246,.55),rgba(255,244,246,.55)),var(--sprinkles) 0 0/90px 90px,color-mix(in srgb,var(--primary) 9%,#fff4f6)}
+html[data-dir] .menu .section-head::after{content:"";width:72px;aspect-ratio:64/40;background:var(--wink) left center/contain no-repeat}
+html[data-dir] .tab{clip-path:none;border-radius:999px;background:#fff;box-shadow:inset 0 0 0 2px color-mix(in srgb,var(--primary) 30%,#fff)}
+html[data-dir] .tab[aria-selected=true]{background:var(--primary);box-shadow:none}
+html[data-dir] .tab:focus-visible{outline:3px solid var(--ink);outline-offset:2px;background:var(--primary);color:#fff}
+html[data-dir] .dishes{border-radius:28px;box-shadow:0 0 0 3px #fff,0 14px 0 -6px color-mix(in srgb,var(--accent) 70%,#fff)}
+html[data-dir] .dish-name{font:800 1.15rem/1.2 var(--round)}
+html[data-dir] .dish-price{clip-path:none;-webkit-mask:none;mask:none;border-radius:999px;padding:.45em .8em;font:800 1rem/1 var(--round);font-style:normal}
+html[data-dir] .point::before{font:800 1.1rem/1.4 var(--round);font-style:normal;color:var(--primary)}
+html[data-dir] .point h3{font-family:var(--round);font-weight:800}
+/* footer */
+html[data-dir] .site-foot{border-image:none;border-top:0;background:linear-gradient(rgba(255,255,255,.6),rgba(255,255,255,.6)),var(--sprinkles) 0 0/90px 90px,#fff}
+html[data-dir] .site-foot b{font:800 1.15rem var(--round);font-style:normal}
+html[data-dir] .site-head::before{background:linear-gradient(rgba(0,0,0,.12),rgba(0,0,0,0) 45%),repeating-linear-gradient(90deg,var(--primary) 0 24px,#fff 24px 48px,var(--accent) 48px 72px,#fff 72px 96px)}
+@media (max-width:860px){
+  html[data-dir] .hero-title{font-size:clamp(2.6rem,12vw,3.6rem)}
+}

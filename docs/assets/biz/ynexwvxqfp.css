@@ -1,0 +1,59 @@
+/* Tasco Nicolino — hook: the Nicolino drum (caixa/bombo of the Nicolinas) — zigzag tension ropes + drum face */
+@import url('https://fonts.googleapis.com/css2?family=Bowlby+One+SC&display=swap');
+:root{
+  --nic-display:'Bowlby One SC','Alfa Slab One',Impact,sans-serif;
+  --bg:#f5eee2; --surface:#fffaf2;
+  --rope:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='40' height='24' viewBox='0 0 40 24'%3E%3Crect width='40' height='24' fill='%23f5eee2'/%3E%3Cpath d='M0 2.5H40M0 21.5H40' stroke='%235a2a1f' stroke-width='3'/%3E%3Cpath d='M0 4L10 20L20 4L30 20L40 4' fill='none' stroke='%23c8892f' stroke-width='2.4' stroke-linejoin='round'/%3E%3C/svg%3E");
+  --drum:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Cg fill='none' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M10 4L30 18M54 4L34 18' stroke='%235a2a1f' stroke-width='3'/%3E%3Cellipse cx='32' cy='24' rx='24' ry='7' fill='%23fffaf2' stroke='%235a2a1f' stroke-width='3'/%3E%3Cpath d='M8 24V52Q32 62 56 52V24' stroke='%235a2a1f' stroke-width='3'/%3E%3Cpath d='M8 31L18 51L28 33L38 54L48 33L56 49' stroke='%23c8892f' stroke-width='2.6'/%3E%3C/g%3E%3C/svg%3E");
+}
+
+/* wordmark: heavy small caps, the drum as a seal */
+html[data-dir] .brand{font:400 1.3rem/1 var(--nic-display);color:var(--primary);display:inline-flex;align-items:center;gap:.45em;letter-spacing:.01em}
+html[data-dir] .brand::before{content:"";width:1.6em;height:1.6em;flex:none;background:var(--drum) center/contain no-repeat}
+html[data-dir] .hero-title{font-family:var(--nic-display);color:var(--primary);line-height:.92;letter-spacing:0;
+  text-shadow:3px 3px 0 color-mix(in srgb,var(--accent) 55%,transparent)}
+html[data-dir] .hero .kicker{color:#7a4a12}
+html[data-dir] .tagline{color:var(--ink);font-weight:500}
+html[data-dir] .tagline::after{content:"";display:block;width:120px;height:14px;margin-top:14px;background:var(--rope) 0 50%/23px 14px repeat-x}
+
+/* rope band replaces the azulejo band under the header and above the footer */
+html[data-dir] .site-head::after,html[data-dir] .site-foot::before,html[data-dir] .proposal::before{height:22px;background:var(--rope) 0 0/37px 22px repeat-x}
+
+/* hero (no photo): the drum skin — a big drum face on a rope ground */
+html[data-dir] .hero-media--empty{background:linear-gradient(rgba(245,238,226,.62),rgba(245,238,226,.62)),var(--rope) 0 0/40px 24px;position:relative;overflow:hidden}
+html[data-dir] .hero-media--empty::after{inset:auto;left:50%;top:50%;width:min(76%,440px);aspect-ratio:1;transform:translate(-50%,-50%);border:0;box-shadow:none;border-radius:50%;
+  background:radial-gradient(circle,#fffaf2 0 58%,var(--primary) 58.5% 61%,#fffaf2 61.5% 64%,var(--accent) 64.5% 70%,var(--primary) 70.5%);
+  box-shadow:0 18px 40px -16px rgba(31,28,24,.55)}
+html[data-dir] .hero-media--empty::before{content:"";position:absolute;z-index:1;left:50%;top:50%;width:min(36%,210px);aspect-ratio:1;transform:translate(-50%,-50%);
+  background:var(--drum) center/contain no-repeat}
+
+/* order: menu right after the welcome — the porcalhada is why you come */
+main > .about{order:1} main > .menu{order:2} main > .gallery{order:3} main > .qr{order:4}
+main > .book{order:5} main > .visit{order:6} main > .proposal{order:20}
+html[data-dir] .menu{padding-top:var(--section)}
+
+/* menu board: rope band across the top of the slate, prices in brass */
+html[data-dir] .menu > .wrap{border-top-width:0;padding-top:clamp(40px,5vw,64px)}
+html[data-dir] .menu > .wrap::before{content:"";position:absolute;left:0;right:0;top:0;height:22px;background:var(--rope) 0 0/37px 22px repeat-x}
+html[data-dir] .menu h2{font-family:var(--nic-display)}
+html[data-dir] .menu .dish-price{color:#e8b56a}
+html[data-dir] .menu .dish:has(.tag) .dish-name::before{content:"";display:inline-block;width:1em;height:1em;margin-right:.35em;vertical-align:-.12em;
+  background:var(--drum) center/contain no-repeat;filter:brightness(1.9) saturate(.6)}
+
+/* about: points ticked with tiny drums */
+html[data-dir] .point::before{background:var(--drum) center/contain no-repeat;border:0;width:26px;height:26px}
+html[data-dir] .points{border-top-color:var(--primary)}
+
+/* QR + proposal + footer */
+html[data-dir] .qr-card{background:linear-gradient(#fff,#fff) padding-box,var(--rope) 0 0/30px 18px border-box}
+html[data-dir] .qr-name,html[data-dir] .m-top h1{font-family:var(--nic-display)}
+html[data-dir] .site-foot b{font-family:var(--nic-display);font-weight:400;color:var(--primary)}
+
+@media (max-width:860px){
+  html[data-dir] .hero-media--empty{height:210px;background-size:auto,30px 18px}
+  html[data-dir] .hero-media--empty::after{width:170px}
+  html[data-dir] .hero-media--empty::before{width:84px}
+  html[data-dir] .hero-title{text-shadow:2px 2px 0 color-mix(in srgb,var(--accent) 55%,transparent)}
+  html[data-dir] .brand{font-size:1.1rem}
+  html[data-dir] .site-head::after{height:16px;background-size:27px 16px}
+}

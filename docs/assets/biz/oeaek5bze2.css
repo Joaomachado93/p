@@ -1,0 +1,85 @@
+/* Panda Wok — hook: the name — a round panda face and the round wok; red and gold of the brand */
+@import url('https://fonts.googleapis.com/css2?family=Baloo+2:wght@600;800&display=swap');
+:root{
+  --pw:'Baloo 2','Jost',system-ui,sans-serif;
+  --red:#b4161b; --gold:#f2b705; --char:#161616;
+  --bg:#fbf8f2; --linen:#f6efe2;
+  --panda:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 48 44'%3E%3Ccircle cx='9' cy='9' r='7.5' fill='%23161616'/%3E%3Ccircle cx='39' cy='9' r='7.5' fill='%23161616'/%3E%3Ccircle cx='24' cy='25' r='18' fill='%23fff' stroke='%23161616' stroke-width='2.4'/%3E%3Cellipse cx='16.5' cy='23' rx='4.6' ry='6.2' fill='%23161616' transform='rotate(30 16.5 23)'/%3E%3Cellipse cx='31.5' cy='23' rx='4.6' ry='6.2' fill='%23161616' transform='rotate(-30 31.5 23)'/%3E%3Ccircle cx='17.5' cy='22.5' r='1.6' fill='%23fff'/%3E%3Ccircle cx='30.5' cy='22.5' r='1.6' fill='%23fff'/%3E%3Cellipse cx='24' cy='31' rx='3.2' ry='2.2' fill='%23161616'/%3E%3Cpath d='M20.5 35q3.5 2.6 7 0' fill='none' stroke='%23161616' stroke-width='1.6' stroke-linecap='round'/%3E%3C/svg%3E");
+  --steam:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='48' height='24' viewBox='0 0 48 24'%3E%3Cg fill='none' stroke='%23b4161b' stroke-width='2' stroke-linecap='round'%3E%3Cpath d='M12 22q-5-5 0-10t0-10M24 22q-5-5 0-10t0-10M36 22q-5-5 0-10t0-10'/%3E%3C/g%3E%3C/svg%3E");
+}
+[data-dir] body{background:var(--bg)}
+
+/* wordmark: round heavy letters; the panda is the logo */
+[data-dir] .brand{display:inline-flex;align-items:center;gap:10px;font:800 1.45rem/1 var(--pw);letter-spacing:0;color:var(--char)}
+[data-dir] .brand::before{content:"";width:34px;height:31px;flex:none;background:var(--panda) center/contain no-repeat}
+[data-dir] .hero-title{font:800 clamp(3rem,8vw,6.6rem)/.9 var(--pw);letter-spacing:-.02em;color:var(--red)}
+[data-dir] .hero-title::after{content:"";display:block;width:96px;height:48px;margin-top:6px;background:var(--steam) left center/contain no-repeat}
+[data-dir] h2{font-family:var(--pw);font-weight:800;letter-spacing:-.01em}
+[data-dir] h2::after{background:var(--gold);height:4px;border-radius:2px}
+
+/* hero: the photo is the wok — a round pan with a dark rim and a handle */
+[data-dir] .hero-media{position:relative;overflow:visible;aspect-ratio:1/1;border-radius:50%;padding:0;border:0;
+  background:var(--char);box-shadow:0 0 0 14px var(--char),0 0 0 18px var(--gold),0 30px 60px -20px rgba(0,0,0,.45)}
+[data-dir] .hero-media img{border-radius:50%}
+[data-dir] .hero-media::after{content:"";position:absolute;inset:auto auto 16% -27%;width:30%;height:7%;border:0;border-radius:6px 0 0 6px;background:var(--char);transform:rotate(-14deg);transform-origin:right center}
+[data-dir] .hero-media::before{content:"";position:absolute;z-index:2;right:-4%;top:-6%;width:24%;aspect-ratio:48/44;background:var(--panda) center/contain no-repeat;
+  filter:drop-shadow(0 6px 10px rgba(0,0,0,.25))}
+@media (min-width:861px){
+  [data-dir] .hero-media{aspect-ratio:1/1;max-height:none;margin:30px 30px 30px 60px;box-shadow:0 0 0 18px var(--char),0 0 0 22px var(--gold),0 30px 60px -20px rgba(0,0,0,.45)}
+  [data-dir] .hero-media img{border-radius:50%}
+}
+[data-dir] .hero .btn-primary{background:var(--red);border-color:var(--red);border-radius:999px}
+[data-dir] .hero .btn-secondary{border-radius:999px}
+[data-dir] .facts .i{color:var(--red)}
+
+/* about: sharing point in gold */
+[data-dir] .point::before{color:var(--red);font-family:var(--pw);font-style:normal;font-weight:800}
+[data-dir] .point:nth-child(2){background:var(--gold);color:var(--char);padding:20px;border-radius:18px;border-bottom:0}
+[data-dir] .point:nth-child(2) p{color:#3a2c00}
+[data-dir] .point:nth-child(2)::before{color:var(--char)}
+[data-dir] .point h3{font-family:var(--pw);font-weight:800}
+
+/* menu: red lacquer tray, steam rising over the heading, round tabs */
+[data-dir] .menu{background:var(--red);border:0}
+[data-dir] .menu .wrap{border-radius:28px;box-shadow:0 30px 60px -30px rgba(0,0,0,.5)}
+[data-dir] .menu .section-head::before{content:"";width:72px;height:36px;background:var(--panda) center/contain no-repeat}
+[data-dir] .menu h2::after{margin-inline:auto}
+[data-dir] .tabs{border-bottom:0;gap:8px}
+[data-dir] .tab{border-radius:999px;border:2px solid var(--line);padding:10px 18px;letter-spacing:.08em}
+[data-dir] .tab[aria-selected=true]{background:var(--red);border-color:var(--red);color:#fff}
+[data-dir] .dish-name{font:800 1.18rem/1.2 var(--pw)}
+[data-dir] .dish-price{font:800 1.1rem/1 var(--pw);color:var(--red)}
+[data-dir] .dish-dots{border-bottom:2px dotted var(--gold)}
+
+/* QR card: the panda presents it */
+[data-dir] .qr{background:var(--char)}
+[data-dir] .qr-card{border-radius:24px;outline:3px solid var(--gold);outline-offset:-12px;padding-top:80px;background:#fff var(--panda) 50% 20px/52px 48px no-repeat}
+[data-dir] .qr-name{font-family:var(--pw);font-weight:800}
+
+/* order: the wok menu first, then photos */
+[data-dir] main > .menu{order:1}
+[data-dir] main > .gallery{order:2;padding-top:var(--section)}
+[data-dir] main > .about{order:3}
+[data-dir] main > .qr{order:4}
+[data-dir] main > .book{order:5}
+[data-dir] main > .visit{order:6}
+[data-dir] main > .proposal{order:9}
+
+[data-dir] .site-foot{border-top:6px solid var(--red)}
+[data-dir] .site-foot b{font:800 1.15rem var(--pw)}
+
+@media (max-width:860px){
+  [data-dir] .hero-media{margin:34px auto 10px;width:min(78%,340px);box-shadow:0 0 0 10px var(--char),0 0 0 14px var(--gold),0 24px 50px -20px rgba(0,0,0,.45)}
+  [data-dir] .hero-media::after{left:-22%}
+  [data-dir] .hero-copy{text-align:left}
+  [data-dir] .hero-title{font-size:clamp(3rem,15vw,4.4rem)}
+  [data-dir] .menu .wrap{border-radius:20px}
+}
+
+/* mesa / cozinha */
+[data-dir] .m-top{background:var(--red)}
+[data-dir] .m-top h1{font:800 1.5rem/1 var(--pw);display:flex;gap:8px;align-items:center}
+[data-dir] .m-top h1::before{content:"";width:30px;height:28px;flex:none;background:var(--panda) center/contain no-repeat}
+[data-dir] .m-cat{font-family:var(--pw);font-weight:800;color:var(--red)}
+[data-dir] .qty button{border-radius:50%;background:var(--red)}
+[data-dir] .m-table{background:var(--gold);color:var(--char)}

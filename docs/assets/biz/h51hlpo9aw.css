@@ -1,0 +1,55 @@
+/* Restaurante Transmontano — hook: Trás-os-Montes, "beyond the mountains" — layered ridge line over the plate */
+@import url('https://fonts.googleapis.com/css2?family=Vollkorn+SC:wght@600;900&display=swap');
+:root{
+  --tm-display:'Vollkorn SC',Georgia,serif;
+  --bg:#f3ece4; --surface:#fffaf4;
+  --ridge:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='28' viewBox='0 0 160 28' preserveAspectRatio='none'%3E%3Cpath d='M0 28V18L18 8L30 14L50 2L70 16L84 9L104 20L122 6L140 15L160 18V28Z' fill='%23b8862d'/%3E%3Cpath d='M0 28V22L22 14L40 21L60 11L82 22L100 16L120 23L142 13L160 22V28Z' fill='%234a2a2f'/%3E%3C/svg%3E");
+  --peak:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 48 32'%3E%3Cpath d='M2 30L18 8L26 18L32 11L46 30Z' fill='%234a2a2f'/%3E%3Cpath d='M18 8L22 14L18 13L15 15Z' fill='%23fffaf4'/%3E%3Ccircle cx='38' cy='7' r='4' fill='%23b8862d'/%3E%3C/svg%3E");
+}
+
+/* wordmark: sturdy book small-caps with a peak above */
+html[data-dir] .brand{font:900 1.35rem/1 var(--tm-display);color:var(--primary);display:inline-flex;align-items:flex-end;gap:.4em;letter-spacing:.02em}
+html[data-dir] .brand::before{content:"";width:1.6em;height:1.1em;flex:none;background:var(--peak) center/contain no-repeat}
+html[data-dir] .hero-title{font-family:var(--tm-display);font-weight:900;color:var(--primary);letter-spacing:.005em;line-height:.95;font-size:clamp(2.2rem,4.5vw,4rem)}
+html[data-dir] .hero .kicker{color:var(--primary)}
+html[data-dir] .tagline{color:var(--ink);font-style:italic}
+
+/* the ridge replaces the azulejo band */
+html[data-dir] .site-head::after,html[data-dir] .site-foot::before,html[data-dir] .proposal::before{height:28px;background:var(--ridge) 0 100%/320px 28px repeat-x}
+
+/* hero: the photo as a landscape — mountains cut into its top edge */
+html[data-dir] .hero-media{background:var(--primary);padding:0;border-radius:0;
+  clip-path:polygon(0 12%,12% 4%,20% 9%,33% 0,47% 10%,56% 5%,68% 13%,80% 3%,90% 9%,100% 6%,100% 100%,0 100%)}
+html[data-dir] .hero-media img{border-radius:0;box-shadow:none}
+html[data-dir] .hero-media::after{content:"";position:absolute;left:0;right:0;bottom:0;height:10px;background:var(--accent)}
+html[data-dir] .hero-media{position:relative}
+
+/* order: about (home cooking) → menu → gallery */
+main > .about{order:1} main > .menu{order:2} main > .gallery{order:3} main > .qr{order:4}
+main > .book{order:5} main > .visit{order:6} main > .proposal{order:20}
+html[data-dir] .menu{padding-top:var(--section)}
+html[data-dir] .gallery{padding-top:var(--section)}
+
+/* menu: ridge silhouette along the bottom of the slate board */
+html[data-dir] .menu > .wrap{padding-bottom:clamp(54px,6vw,76px)}
+html[data-dir] .menu > .wrap::after{content:"";position:absolute;left:0;right:0;bottom:0;height:30px;background:var(--ridge) 0 100%/320px 30px repeat-x;opacity:.85}
+html[data-dir] .menu h2{font-family:var(--tm-display);font-weight:900}
+html[data-dir] .menu .dish-price{color:#e0b465}
+
+/* about: peaks as markers, warm wine tint behind */
+html[data-dir] .about{background:color-mix(in srgb,var(--primary) 6%,var(--surface))}
+html[data-dir] .point::before{background:var(--peak) center/contain no-repeat;border:0;width:28px;height:20px;margin-top:4px}
+html[data-dir] .points{border-top-color:var(--primary)}
+
+html[data-dir] .qr-card{background:linear-gradient(#fff,#fff) padding-box,linear-gradient(var(--accent),var(--primary)) border-box}
+html[data-dir] .qr-name,html[data-dir] .m-top h1{font-family:var(--tm-display);font-weight:900}
+html[data-dir] .site-foot b{font-family:var(--tm-display);font-weight:900;color:var(--primary)}
+
+@media (max-width:860px){
+  html[data-dir] .hero-media{height:clamp(240px,38svh,330px);padding:0;
+    clip-path:polygon(0 14%,14% 5%,26% 11%,40% 0,55% 12%,68% 4%,82% 13%,100% 5%,100% 100%,0 100%)}
+  html[data-dir] .hero-media::after{height:8px}
+  html[data-dir] .brand{font-size:1.15rem}
+  html[data-dir] .hero-title{font-size:clamp(1.9rem,8.6vw,2.8rem)}
+  html[data-dir] .site-head::after{height:20px;background-size:220px 20px}
+}

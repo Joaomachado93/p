@@ -1,0 +1,69 @@
+/* Moscada Restaurante & Bar — hook: "moscada" = nutmeg → the oval nutmeg seed wrapped in its lacy red mace; deep teal + spice orange */
+@import url('https://fonts.googleapis.com/css2?family=Gloock&display=swap');
+html[data-dir]{
+  --mo-nut:url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 48 60'><ellipse cx='24' cy='30' rx='20' ry='26' fill='%238a5a33'/><path d='M24 4c-6 10 6 16 0 26s6 16 0 26M12 10c4 8-4 14 2 22s-2 14 4 20M36 10c-4 8 4 14-2 22s2 14-4 20' fill='none' stroke='%23e4572e' stroke-width='3' stroke-linecap='round'/><ellipse cx='24' cy='30' rx='20' ry='26' fill='none' stroke='%23f2e3cf' stroke-width='1.2'/></svg>");
+  --mo-seed:url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'><ellipse cx='12' cy='12' rx='4' ry='5.5' fill='none' stroke='%23e4572e' stroke-width='1'/></svg>");
+  --mo-spice:color-mix(in oklab,var(--accent) 78%,#fff);
+  --bg:color-mix(in oklab,var(--primary) 40%,#0a1312);
+  --surface:color-mix(in oklab,var(--primary) 55%,#0c1716);
+  --candle:var(--mo-spice);
+  --wine:color-mix(in oklab,var(--primary) 70%,#060c0b);
+}
+
+/* wordmark: sharp high-contrast serif, the nutmeg as the dot before it */
+html[data-dir] .brand{display:inline-flex;align-items:center;gap:10px;font:400 1.55rem/1 'Gloock',serif;font-style:normal;letter-spacing:.01em;min-height:44px}
+html[data-dir] .brand::before{content:"";width:22px;height:28px;flex:none;background:var(--mo-nut) center/contain no-repeat}
+html[data-dir] .hero-title{font:400 clamp(3rem,9vw,6.8rem)/.95 'Gloock',serif;font-style:normal;letter-spacing:-.01em;max-width:11ch}
+
+/* hero: split — copy left on teal, photo cropped into a nutmeg oval on the right */
+@media (min-width:861px){
+  html[data-dir] .hero{grid-template-columns:minmax(0,1.1fr) minmax(0,.9fr);align-items:center;min-height:min(86vh,800px);background:var(--bg);
+    padding:48px max(var(--gutter-r),calc((100vw - var(--maxw))/2 + 16px)) 48px 0;gap:clamp(24px,4vw,56px)}
+  html[data-dir] .hero-title{font-size:clamp(3rem,5.6vw,5.4rem);max-width:none}
+  html[data-dir] .hero-media{grid-area:1/2;z-index:0;align-self:center;aspect-ratio:4/5;border-radius:50%;
+    box-shadow:0 0 0 10px var(--bg),0 0 0 12px var(--mo-spice)}
+  html[data-dir] .hero-copy{grid-area:1/1;align-self:center;padding:0 0 0 max(var(--gutter),calc((100vw - var(--maxw))/2 + 16px))}
+}
+html[data-dir] .hero-media{position:relative;overflow:hidden}
+html[data-dir] .hero-media::after{background:linear-gradient(180deg,transparent 50%,color-mix(in oklab,var(--primary) 40%,rgba(0,0,0,.35)))}
+html[data-dir] .hero::before{content:"";position:absolute;pointer-events:none;inset:0;background:var(--mo-seed) 0 0/64px 64px;opacity:.12}
+html[data-dir] .hero{position:relative}
+@media (max-width:860px){
+  html[data-dir] .hero{min-height:0;background:var(--bg)}
+  html[data-dir] .hero-media{grid-area:auto;aspect-ratio:1;width:min(80vw,340px);justify-self:center;margin-top:24px;border-radius:50%;box-shadow:0 0 0 8px var(--bg),0 0 0 10px var(--mo-spice)}
+  html[data-dir] .hero-copy{grid-area:auto;padding-top:28px}
+}
+
+/* section order: about the place, then the menu, then photos */
+html[data-dir] .about{order:1}
+html[data-dir] .menu{order:2}
+html[data-dir] .gallery{order:3}
+html[data-dir] .qr{order:4}
+html[data-dir] .book{order:5}
+html[data-dir] .visit{order:6}
+html[data-dir] .proposal{order:99}
+
+/* menu: spice-rack card — teal board, mace-orange prices, nutmeg in header */
+html[data-dir] .menu{background:linear-gradient(180deg,var(--surface),var(--bg))}
+html[data-dir] .menu .section-head{justify-items:center;text-align:center}
+html[data-dir] .menu .section-head::before{content:"";width:40px;height:50px;background:var(--mo-nut) center/contain no-repeat}
+html[data-dir] .tabs{justify-content:safe center}
+html[data-dir] .dishes{background:color-mix(in oklab,var(--primary) 30%,#071010);border-radius:28px;border-color:color-mix(in oklab,var(--accent) 45%,transparent);outline:0}
+html[data-dir] .dish-name{font:400 1.2rem/1.25 'Gloock',serif}
+html[data-dir] .dish-price{color:var(--mo-spice);font-style:normal}
+html[data-dir] .tab[aria-selected=true]{background:var(--mo-spice);border-color:var(--mo-spice)}
+
+/* headings */
+html[data-dir] h2{font-family:'Gloock',serif;font-weight:400}
+html[data-dir] .lede{font-family:'Gloock',serif;font-style:normal}
+html[data-dir] .point::before{font-family:'Gloock',serif;font-style:normal;color:var(--mo-spice)}
+html[data-dir] .shot{border-radius:24px;overflow:hidden}
+
+/* footer */
+html[data-dir] .site-foot{background:#081110}
+html[data-dir] .site-foot .wrap::before{content:"";width:26px;height:32px;margin-bottom:6px;background:var(--mo-nut) left/contain no-repeat}
+html[data-dir] .site-foot b{font:400 1.15rem 'Gloock',serif}
+
+/* mesa / cozinha pages */
+html[data-dir] .m-top h1{font:400 1.45rem/1 'Gloock',serif}
+html[data-dir] .m-cat{font-family:'Gloock',serif;font-weight:400;color:var(--mo-spice)}

@@ -1,0 +1,73 @@
+/* Villas - Pastelaria & Salão de Chá — hook: the "salão de chá": a teacup with steam, an oval gilt mirror, bottle-green salon walls with gold mouldings */
+@import url('https://fonts.googleapis.com/css2?family=Tenor+Sans&display=swap');
+:root{
+  --cup:url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 52'><g fill='none' stroke='%23c9a227' stroke-width='2.4' stroke-linecap='round' stroke-linejoin='round'><path d='M24 12c-3-3 3-5 0-9M32 12c-3-3 3-5 0-9'/><path d='M10 20h34v6c0 10-7 17-17 17S10 36 10 26z'/><path d='M44 23h4a6 6 0 0 1 0 12h-6'/><path d='M4 47h50'/></g></svg>");
+  --salon:color-mix(in srgb,var(--primary) 92%,#0e1a12);
+  --gold-lt:#e3c86a;
+  --bg:color-mix(in srgb,var(--primary) 5%,#faf7ef);
+  --paper:color-mix(in srgb,var(--primary) 9%,#f7f3e8);
+  --paper-2:color-mix(in srgb,var(--primary) 16%,#f2eee2);
+}
+/* header: green salon with a gold moulding instead of the awning */
+:root .site-head{background:var(--salon)}
+:root .site-head::before{height:8px;-webkit-mask:none;mask:none;background:linear-gradient(var(--accent),var(--accent)) 0 0/100% 2px no-repeat,linear-gradient(var(--accent),var(--accent)) 0 100%/100% 2px no-repeat}
+:root .site-head .langswitch{color:#f7f3e8}
+:root .langswitch [aria-current]{background:var(--gold-lt);color:#1d2a20}
+:root .nav a{color:#f7f3e8}
+:root .nav a:hover{box-shadow:inset 0 -2px 0 var(--gold-lt)}
+
+/* wordmark: tall spaced capitals, cup as the crest */
+:root .brand{font:400 clamp(1rem,2.4vw,1.3rem)/1 'Tenor Sans',Georgia,sans-serif;font-style:normal;text-transform:uppercase;letter-spacing:.2em;color:var(--gold-lt);
+  display:inline-flex;align-items:center;gap:10px;max-width:62vw}
+:root .brand::before{content:"";width:30px;height:24px;flex:none;background:var(--cup) center/contain no-repeat}
+:root .hero .hero-title{font:400 clamp(1.9rem,6.6vw,3.4rem)/1.08 'Tenor Sans',Georgia,sans-serif;text-transform:uppercase;letter-spacing:.08em;color:var(--primary)}
+:root .hero .hero-title::after{content:"";display:block;width:84px;height:68px;margin-top:16px;background:var(--cup) left center/contain no-repeat}
+:root h2{font-family:'Tenor Sans',Georgia,sans-serif!important;font-weight:400!important;text-transform:uppercase;letter-spacing:.06em!important}
+
+/* hero: the photo hangs in an oval gilt mirror on a green salon wall */
+:root .hero{background:var(--salon);width:100%;max-width:none!important}
+:root .hero-media{border-radius:50%!important;aspect-ratio:4/5!important;width:min(78vw,440px);margin:28px auto 0!important;max-height:none!important;
+  box-shadow:0 0 0 4px var(--accent),0 0 0 12px var(--salon),0 0 0 14px var(--accent),0 30px 50px -24px rgba(0,0,0,.7)!important}
+:root .hero-media::after{background:radial-gradient(ellipse at 35% 25%,rgba(255,255,255,.22),transparent 45%)}
+:root .hero-copy{background:var(--bg);border:1px solid var(--accent);outline:6px solid var(--bg);margin:34px 16px 30px!important;padding:28px 22px!important;width:auto}
+@media (min-width:861px){
+  :root .hero{padding:64px max(32px,calc((100vw - var(--maxw))/2 + 16px))!important}
+  :root .hero-media{width:min(100%,440px);justify-self:center;margin:0!important}
+  :root .hero-copy{margin:0!important;padding:44px 40px!important}
+}
+
+/* order: tea menu right after the salon, gallery after it */
+:root .menu{order:1}
+:root .gallery{order:2;padding-top:var(--section)}
+:root .about{order:3}
+:root .book{order:4}
+:root .visit{order:5}
+:root .proposal{order:9}
+
+/* menu: printed tea card with gold double rule, centred */
+:root .menu{background:var(--paper);border-image:none;border-top:0}
+:root .menu .section-head{justify-items:center;text-align:center}
+:root .menu .section-head::before{content:"";width:64px;height:52px;background:var(--cup) center/contain no-repeat}
+:root .menu .kicker{justify-self:center}
+:root .menu .tabs{justify-content:center}
+:root .tab{clip-path:none;border-radius:0;background:transparent;text-transform:uppercase;letter-spacing:.14em;font-size:.8rem;border:1px solid transparent}
+:root .tab:hover{background:transparent;border-color:var(--accent)}
+:root .tab[aria-selected=true]{background:var(--primary);color:#f7f3e8}
+:root .tab:focus-visible{outline:2px solid var(--primary);background:transparent;color:var(--ink)}
+:root .dishes{border-radius:0;box-shadow:0 0 0 1px var(--accent),0 0 0 6px var(--surface),0 0 0 7px var(--accent)}
+:root .dish-dots{border-bottom:1px dotted var(--accent)}
+:root .dish-price{clip-path:none;-webkit-mask:none;mask:none;background:none;color:var(--primary);padding:0;font-style:normal;font-family:'Tenor Sans',Georgia,sans-serif;font-size:1.05rem}
+
+/* gallery: small oval portraits on the wall */
+:root .gallery .shot{-webkit-mask:none;mask:none;padding:0;border-radius:50%!important;aspect-ratio:4/5!important;height:auto!important;grid-row:auto!important;grid-column:auto!important;min-height:0!important;
+  box-shadow:0 0 0 3px var(--accent),0 0 0 8px var(--bg),0 0 0 9px var(--accent)}
+:root .gallery-grid{grid-template-columns:repeat(3,minmax(0,1fr))!important;grid-auto-rows:auto!important;gap:clamp(18px,4vw,56px)!important;padding:10px}
+:root .gallery .shot img{border-radius:50%}
+
+:root .kicker{background:var(--primary);color:#f7f3e8}
+:root .point::before{color:var(--primary)}
+:root .site-foot{background:var(--salon);color:#e8e3d4}
+:root .site-foot a{color:var(--gold-lt)}
+:root .site-foot .muted{color:#cfc9b8}
+:root .site-foot b{color:#f7f3e8}
+:root .site-foot .wrap::before{content:"";width:44px;height:36px;background:var(--cup) center/contain no-repeat}

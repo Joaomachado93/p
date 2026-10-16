@@ -1,0 +1,66 @@
+/* Midouro (padarias / pastelarias) — hook: pão quente, a golden-crust loaf with its scored top + the wheat ear */
+@import url('https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&display=swap');
+:root{
+  --md-font:'DM Serif Display',Georgia,serif;
+  --md-crust:color-mix(in srgb,var(--accent) 55%,var(--primary));
+  --bg:#fbf4e8; --paper:#f7e9d3; --paper-2:#f1dcbc;
+  /* wheat ear (espiga) */
+  --md-wheat:url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 64'><path d='M16 62V14' stroke='%23a84f1f' stroke-width='2.4' stroke-linecap='round'/><g fill='%23f2b84b' stroke='%23a84f1f' stroke-width='1.4'><ellipse cx='16' cy='9' rx='4' ry='7'/><ellipse cx='10' cy='20' rx='4' ry='7' transform='rotate(-30 10 20)'/><ellipse cx='22' cy='20' rx='4' ry='7' transform='rotate(30 22 20)'/><ellipse cx='10' cy='31' rx='4' ry='7' transform='rotate(-30 10 31)'/><ellipse cx='22' cy='31' rx='4' ry='7' transform='rotate(30 22 31)'/><ellipse cx='10' cy='42' rx='4' ry='7' transform='rotate(-30 10 42)'/><ellipse cx='22' cy='42' rx='4' ry='7' transform='rotate(30 22 42)'/></g></svg>");
+  /* scored crust: three diagonal cuts */
+  --md-score:url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 60'><g fill='none' stroke='%23fff3dc' stroke-width='5' stroke-linecap='round' opacity='.85'><path d='M30 46Q50 20 74 12'/><path d='M84 48Q104 22 128 14'/><path d='M138 50Q158 24 182 16'/></g></svg>");
+}
+
+/* wordmark: one warm serif word, the wheat ear as its initial ornament */
+html[data-dir] .brand{font:400 clamp(1.4rem,2.4vw,1.8rem)/1 var(--md-font);font-style:normal;color:var(--primary);display:inline-flex;align-items:center;gap:8px;letter-spacing:0}
+html[data-dir] .brand::before{content:"";width:16px;height:32px;flex:none;background:var(--md-wheat) 0 0/100% 100% no-repeat}
+html[data-dir] h1,html[data-dir] h2,html[data-dir] h3{font-family:var(--md-font);font-weight:400;font-variation-settings:normal}
+html[data-dir] .hero-title{font:400 clamp(2.4rem,5.2vw,4.4rem)/1 var(--md-font);color:var(--primary);letter-spacing:-.01em}
+html[data-dir] .tagline{font:italic 400 clamp(1.2rem,2vw,1.5rem)/1.35 var(--md-font);color:var(--ink)}
+
+/* hero: the shop-window arch becomes a loaf — wide domed top, golden crust rim, scored cuts across */
+html[data-dir] .hero-media{border-radius:50% 50% 22px 22px / 42% 42% 22px 22px;
+  box-shadow:0 0 0 8px var(--md-crust),0 0 0 11px color-mix(in srgb,var(--primary) 70%,#000),0 22px 40px -16px rgba(80,40,10,.55)}
+html[data-dir] .hero-media::after{background:var(--md-score) 50% 6%/78% auto no-repeat;opacity:.9}
+html[data-dir] .hero-copy::before{content:"";width:26px;height:52px;background:var(--md-wheat) 0 0/100% 100% no-repeat}
+html[data-dir] .hero{background:radial-gradient(60% 50% at 75% 45%,color-mix(in srgb,var(--accent) 22%,transparent),transparent 70%)}
+
+/* order: the bread counter first — menu right after the window */
+html[data-dir] .menu{order:1}
+html[data-dir] .gallery{order:2}
+html[data-dir] .about{order:3}
+html[data-dir] .book{order:4}
+html[data-dir] .visit{order:5}
+html[data-dir] .proposal{order:9}
+
+/* menu: wooden bread shelf — crust-coloured tray edge, wheat in the header */
+html[data-dir] .menu{background:linear-gradient(180deg,var(--paper),var(--bg));border-image:none;border-top:0}
+html[data-dir] .menu .section-head{grid-template-columns:auto minmax(0,1fr);column-gap:14px;align-items:end}
+html[data-dir] .menu .section-head::before{content:"";grid-row:span 3;width:28px;height:56px;background:var(--md-wheat) 0 0/100% 100% no-repeat}
+html[data-dir] .menu .section-head > *{grid-column:2}
+html[data-dir] .dishes{border-radius:14px;box-shadow:0 0 0 1px var(--line),0 12px 0 -4px var(--md-crust),0 12px 0 -1px color-mix(in srgb,var(--primary) 70%,#000)}
+html[data-dir] .dish-name{font-family:var(--md-font);font-weight:400;font-size:1.2rem}
+html[data-dir] .dish-price{font-family:var(--md-font);font-style:normal;background:var(--primary)}
+html[data-dir] .tab[aria-selected=true]{background:var(--primary)}
+
+/* about: points numbered in crust gold */
+html[data-dir] .point::before{font-family:var(--md-font);font-style:normal;color:var(--primary);font-size:1.4rem}
+html[data-dir] .lede{font-family:var(--md-font);font-variation-settings:normal}
+
+/* gallery: photos on baking paper with a crust edge */
+html[data-dir] .gallery-grid .shot:first-child{border-radius:50% 50% 14px 14px / 26% 26% 14px 14px}
+
+/* dividers + footer: a row of wheat */
+html[data-dir] .site-foot{border-image:none;border-top:0}
+html[data-dir] .site-foot::before{content:"";display:block;height:34px;margin:-36px 0 26px;background:var(--md-wheat) 0 0/17px 34px repeat-x}
+html[data-dir] .site-foot b{font:400 1.1rem var(--md-font);font-style:normal}
+html[data-dir] .site-head::before{background:linear-gradient(rgba(0,0,0,.14),rgba(0,0,0,0) 45%),repeating-linear-gradient(90deg,var(--primary) 0 24px,var(--accent) 24px 48px)}
+
+@media (max-width:860px){
+  html[data-dir] .hero-media{margin-top:16px;box-shadow:0 0 0 6px var(--md-crust),0 0 0 8px color-mix(in srgb,var(--primary) 70%,#000),0 16px 30px -14px rgba(80,40,10,.5)}
+  html[data-dir] .hero-copy::before{width:20px;height:40px}
+  html[data-dir] .hero-title{font-size:clamp(2.2rem,10.5vw,3rem)}
+}
+
+/* mesa / cozinha */
+html[data-dir] .m-top h1{font:400 1.4rem/1 var(--md-font);font-style:normal}
+html[data-dir] .m-cat{font-family:var(--md-font);color:var(--primary)}

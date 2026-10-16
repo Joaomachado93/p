@@ -1,0 +1,55 @@
+/* Porta Larga — hook: the name itself, a wide open door ("cozinha portuguesa de porta aberta") in Creixomil */
+@import url('https://fonts.googleapis.com/css2?family=Anybody:wdth,wght@50..150,500..900&display=swap');
+html[data-dir]{
+  --pl-mark:'Anybody','Arial Black',system-ui,sans-serif;
+  --pl-wood:color-mix(in oklab, var(--primary) 85%, #2a120a);
+  --pl-gold:color-mix(in oklab, var(--accent) 80%, #f3d9a0);
+  --bg:color-mix(in oklab, var(--accent) 6%, #f5f0e6);
+  --pl-door:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='56' height='50' viewBox='0 0 56 50'%3E%3Cpath d='M14 48V6h28v42z' fill='%23f2c46b'/%3E%3Cg fill='none' stroke='%237C2D12' stroke-width='2.5' stroke-linejoin='round'%3E%3Cpath d='M12 48V4h32v44'/%3E%3Cpath d='M12 4 3 9v37l9 2M44 4l9 5v37l-9 2'/%3E%3Cpath d='M2 48h52'/%3E%3C/g%3E%3Ccircle cx='9' cy='27' r='1.6' fill='%237C2D12'/%3E%3Ccircle cx='47' cy='27' r='1.6' fill='%237C2D12'/%3E%3C/svg%3E");
+}
+
+/* wordmark: extra-wide letters — the name is literally "larga" */
+html[data-dir] .brand{font:850 1.2rem/1 var(--pl-mark);font-stretch:150%;text-transform:uppercase;letter-spacing:.02em;color:var(--pl-wood);display:inline-flex;align-items:center;gap:10px}
+html[data-dir] .brand::before{content:"";width:30px;height:27px;background:var(--pl-door) center/contain no-repeat;flex:none}
+html[data-dir] .hero-title{font:900 clamp(2.4rem,5.4vw,5rem)/.92 var(--pl-mark);font-stretch:150%;text-transform:uppercase;letter-spacing:-.01em;color:var(--pl-wood)}
+html[data-dir] .m-top h1,html[data-dir] .site-foot b{font-family:var(--pl-mark);font-stretch:140%;font-weight:850;text-transform:uppercase}
+html[data-dir] h2{font-family:var(--pl-mark);font-stretch:125%;font-weight:800;letter-spacing:-.01em}
+
+/* hero: the photo is seen through a wide open doorway — wooden jambs, a lintel, two door leaves swung open */
+html[data-dir] .hero-media{position:relative;background:var(--pl-wood);padding:18px 18px 0;border-radius:4px 4px 0 0;overflow:visible;
+  box-shadow:inset 0 14px 0 color-mix(in oklab, var(--pl-wood) 70%, #000),0 26px 40px -24px rgba(42,18,10,.6)}
+html[data-dir] .hero-media img{border-radius:0;box-shadow:none;border:3px solid var(--pl-gold);border-bottom:0}
+html[data-dir] .hero-media::before,html[data-dir] .hero-media::after{content:"";position:absolute;top:14px;bottom:0;width:22px;
+  background:repeating-linear-gradient(180deg, var(--pl-wood) 0 46px, color-mix(in oklab, var(--pl-wood) 70%, #000) 46px 48px);pointer-events:none}
+html[data-dir] .hero-media::before{left:-20px;transform:perspective(200px) rotateY(38deg);transform-origin:right center}
+html[data-dir] .hero-media::after{right:-20px;transform:perspective(200px) rotateY(-38deg);transform-origin:left center;inset:14px -20px 0 auto;border:0;box-shadow:none}
+html[data-dir] .hero-title::after{content:"";display:block;width:64px;height:58px;margin-top:16px;background:var(--pl-door) left center/contain no-repeat}
+@media (min-width:861px){
+  html[data-dir] .hero{padding-right:max(48px,var(--gutter-r))}
+}
+
+/* order: the menu right behind the open door, then the house */
+html[data-dir] .menu{order:1}
+html[data-dir] .about{order:2}
+html[data-dir] .gallery{order:3;padding-top:var(--section)}
+html[data-dir] .qr{order:4}
+html[data-dir] .book{order:5}
+html[data-dir] .visit{order:6}
+html[data-dir] .proposal{order:99}
+
+/* threshold divider: a doorstep line with the door mark */
+html[data-dir] .menu .section-head::before,html[data-dir] .visit .wrap::before{content:"";display:block;height:50px;margin-bottom:16px;
+  background:var(--pl-door) left center/56px 50px no-repeat,linear-gradient(var(--pl-gold),var(--pl-gold)) 0 49px/100% 2px no-repeat}
+html[data-dir] .visit .wrap::before{grid-column:1/-1}
+html[data-dir] .about .lede{font-family:var(--pl-mark);font-stretch:112%;font-weight:600;font-size:clamp(1.3rem,2.4vw,1.8rem);line-height:1.3}
+html[data-dir] .dish-name{font-weight:800}
+html[data-dir] .qr-name{font-family:var(--pl-mark);font-stretch:140%;font-weight:850;text-transform:uppercase}
+
+@media (max-width:860px){
+  html[data-dir] .hero-media{margin:12px 34px 0;padding:14px 14px 0}
+  html[data-dir] .hero-media::before{left:-26px;width:24px}
+  html[data-dir] .hero-media::after{right:-26px;width:24px;inset:14px -26px 0 auto}
+  html[data-dir] .hero-title{font-size:clamp(2rem,10.5vw,3rem);font-stretch:135%}
+  html[data-dir] .hero-title::after{width:48px;height:44px}
+  html[data-dir] .brand{font-size:1.05rem;font-stretch:130%}
+}

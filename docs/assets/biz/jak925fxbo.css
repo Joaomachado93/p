@@ -1,0 +1,54 @@
+/* Restaurante Tomaz — hook: Pinheiro (its parish = pine tree) and the "mesa de família" — a row of pines around a family table */
+@import url('https://fonts.googleapis.com/css2?family=Young+Serif&display=swap');
+html[data-dir]{
+  --tz-mark:'Young Serif',Georgia,serif;
+  --tz-pine:color-mix(in oklab, var(--accent) 85%, #142006);
+  --tz-bark:var(--primary);
+  --bg:color-mix(in oklab, var(--accent) 6%, #f6f1e6);
+  --tz-tree:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='34' viewBox='0 0 24 34'%3E%3Cg fill='%233F6212'%3E%3Cpath d='M12 0l7 10h-4l6 8h-4l6 9H1l6-9H3l6-8H5z'/%3E%3C/g%3E%3Crect x='10' y='27' width='4' height='7' fill='%2392400E'/%3E%3C/svg%3E");
+  --tz-row:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='72' height='30' viewBox='0 0 72 30'%3E%3Cg fill='%233F6212'%3E%3Cpath d='M12 2l6 9h-3l5 7h-3l5 8H2l5-8H4l5-7H6z'/%3E%3Cpath d='M42 8l5 7h-3l4 6h-3l4 5H31l4-5h-3l4-6h-3z'/%3E%3Cpath d='M62 4l5 8h-3l5 6h-3l5 8H50l5-8h-3l5-6h-3z'/%3E%3C/g%3E%3Cpath d='M0 29h72' stroke='%2392400E' stroke-width='2'/%3E%3C/svg%3E");
+}
+
+/* wordmark: a sturdy, friendly family serif under a pine */
+html[data-dir] .brand{font:400 1.35rem/1 var(--tz-mark);color:var(--tz-bark);display:inline-flex;align-items:center;gap:8px}
+html[data-dir] .brand::before{content:"";width:18px;height:26px;background:var(--tz-tree) center/contain no-repeat;flex:none}
+html[data-dir] .hero-title{font:400 clamp(2.6rem,4.8vw,4.6rem)/1 var(--tz-mark);letter-spacing:-.015em;color:#2a1a0c}
+html[data-dir] .hero-title::after{content:"";display:block;width:216px;max-width:80%;height:30px;margin-top:14px;background:var(--tz-row) left bottom/72px 30px repeat-x}
+html[data-dir] .m-top h1,html[data-dir] .site-foot b,html[data-dir] h2,html[data-dir] .qr-name{font-family:var(--tz-mark);font-weight:400}
+
+/* hero: pine-green frame instead of tiles, with the pine row standing along the bottom of the photo */
+html[data-dir] .hero-media{position:relative;background:var(--tz-pine);padding:14px;border-radius:6px}
+html[data-dir] .hero-media img{box-shadow:0 0 0 2px #f6f1e6}
+html[data-dir] .hero-media::after{content:"";position:absolute;left:14px;right:14px;bottom:14px;height:44px;border:0;inset:auto 14px 14px 14px;
+  background:var(--tz-row) left bottom/88px 37px repeat-x,linear-gradient(transparent 30%, rgba(246,241,230,.9) 100%);pointer-events:none}
+@media (max-width:860px){
+  html[data-dir] .hero-media{padding:0 0 10px;border-radius:0;background:var(--tz-pine)}
+  html[data-dir] .hero-media::after{inset:auto 0 10px 0;height:36px;background-size:72px 30px,auto}
+}
+
+/* order: the family first — about (lede) right after the hero, then the menu board */
+html[data-dir] .about{order:1}
+html[data-dir] .menu{order:2}
+html[data-dir] .gallery{order:3;padding-top:var(--section)}
+html[data-dir] .qr{order:4}
+html[data-dir] .book{order:5}
+html[data-dir] .visit{order:6}
+html[data-dir] .proposal{order:99}
+
+/* about: the lede as a family welcome, set large with a pine initial */
+html[data-dir] .about .lede{font:400 clamp(1.4rem,2.6vw,2rem)/1.35 var(--tz-mark);color:#2a1a0c;padding-left:46px;position:relative}
+html[data-dir] .about .lede::before{content:"";position:absolute;left:0;top:4px;width:30px;height:42px;background:var(--tz-tree) center/contain no-repeat}
+
+/* menu: a pine row standing above the slate board */
+html[data-dir] .menu .section-head::after{content:"";display:block;height:30px;margin-top:16px;background:var(--tz-row) left bottom/72px 30px repeat-x}
+html[data-dir] .tab[aria-selected=true]{background:var(--tz-pine);border-color:var(--tz-pine);color:#fff}
+
+/* footer: the pines close the page */
+html[data-dir] .site-foot{position:relative;padding-top:52px}
+html[data-dir] .site-foot::before{content:"";position:absolute;top:10px;left:0;right:0;height:30px;background:var(--tz-row) left bottom/72px 30px repeat-x;opacity:.9}
+
+@media (max-width:860px){
+  html[data-dir] .hero-title{font-size:clamp(2.3rem,11vw,3.4rem)}
+  html[data-dir] .about .lede{padding-left:38px}
+  html[data-dir] .about .lede::before{width:24px;height:34px}
+}

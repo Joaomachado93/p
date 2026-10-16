@@ -1,0 +1,69 @@
+/* Templo da Gula — hook: the "templo" of the name, a classical temple front (pediment + columns) with Roman inscription lettering */
+@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@500;700;800&display=swap');
+:root{
+  --bg:#f8f6f1; --linen:#eeeae2; --night:#1f2c39;
+  --display:'Cinzel','Bodoni Moda',Georgia,serif;
+  --temple:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Cg fill='none' stroke='%232c3e50' stroke-width='3' stroke-linejoin='round' stroke-linecap='round'%3E%3Cpath d='M6 22L32 8l26 14z'/%3E%3Cpath d='M8 26h48M8 54h48M4 59h56'/%3E%3Cpath d='M14 29v22M25 29v22M39 29v22M50 29v22' stroke-width='4'/%3E%3C/g%3E%3Ccircle cx='32' cy='17' r='3' fill='%23e76f51'/%3E%3C/svg%3E");
+  --temple-light:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Cg fill='none' stroke='%23f6f1e8' stroke-width='3' stroke-linejoin='round' stroke-linecap='round'%3E%3Cpath d='M6 22L32 8l26 14z'/%3E%3Cpath d='M8 26h48M8 54h48M4 59h56'/%3E%3Cpath d='M14 29v22M25 29v22M39 29v22M50 29v22' stroke-width='4'/%3E%3C/g%3E%3Ccircle cx='32' cy='17' r='3' fill='%23e76f51'/%3E%3C/svg%3E");
+  --flute:repeating-linear-gradient(90deg,transparent 0 10px,rgba(44,62,80,.18) 10px 11px,transparent 11px 14px,rgba(44,62,80,.18) 14px 15px);
+}
+
+/* wordmark: carved capitals, wide tracking, temple glyph */
+html[data-dir] .brand{display:inline-flex;align-items:center;gap:10px;font:700 1.15rem/1 var(--display);letter-spacing:.14em;text-transform:uppercase;color:var(--primary)}
+html[data-dir] .brand::before{content:"";width:30px;height:30px;flex:none;background:var(--temple) center/contain no-repeat}
+html[data-dir] .hero-title{font:700 clamp(2.5rem,8.6vw,5.4rem)/1 var(--display);letter-spacing:.04em;text-transform:uppercase;color:var(--primary)}
+html[data-dir] .hero-title::after{content:"";display:block;height:10px;max-width:9.5em;margin-top:18px;border-block:2px solid var(--primary);background:var(--flute)}
+html[data-dir] .tagline,html[data-dir] .lede,html[data-dir] .note,html[data-dir] .caption,html[data-dir] .m-demo{font-family:'Bodoni Moda',Georgia,serif}
+html[data-dir] h2{font-family:var(--display);font-weight:700;letter-spacing:.02em}
+html[data-dir] h2::after{width:64px;height:3px;background:var(--accent)}
+html[data-dir] .kicker{color:var(--primary)}
+
+/* hero: the photo inside a temple front, the pediment cut as its top */
+html[data-dir] .hero-media{--ped:16%;background:var(--primary);padding:12px;box-shadow:none;border:0;
+  clip-path:polygon(50% 0,100% var(--ped),100% 100%,0 100%,0 var(--ped))}
+html[data-dir] .hero-media::after{content:none}
+html[data-dir] .hero-media{padding-top:calc(17% + 14px)}
+html[data-dir] .hero-media img{box-shadow:0 -6px 0 -2px var(--accent)}
+html[data-dir] .hero-media::before{content:"";position:absolute;left:50%;top:7.5%;width:24px;height:24px;margin-left:-12px;border-radius:50%;background:var(--accent);z-index:2;box-shadow:0 0 0 5px var(--primary)}
+@media (min-width:861px){
+  html[data-dir] .hero-media{--ped:13%;padding:calc(17% + 16px) 16px 16px;box-shadow:none}
+  html[data-dir] .hero-title{font-size:clamp(2.6rem,5.2vw,4.8rem)}
+}
+@media (max-width:860px){html[data-dir] .hero-media{aspect-ratio:1}}
+
+/* section order: the offerings (photos) right after the temple, then the menu, then the story */
+html[data-dir] main>.hero{order:0}
+html[data-dir] main>.gallery{order:1;padding-top:var(--section)}
+html[data-dir] main>.menu{order:2}
+html[data-dir] main>.about{order:3}
+html[data-dir] main>.book{order:4}
+html[data-dir] main>.visit{order:5}
+html[data-dir] main>.proposal{order:99}
+
+/* gallery: photos as columns between a fluted base and lintel */
+html[data-dir] .gallery .wrap{border-block:10px solid transparent;border-image:var(--flute) 10;padding-block:22px}
+
+/* menu: a stone tablet with an inscription header */
+html[data-dir] .menu{background:var(--night);border:0}
+html[data-dir] .menu .wrap{border-top:0;box-shadow:inset 0 0 0 9px var(--surface),inset 0 0 0 10px var(--hair)}
+html[data-dir] .menu .section-head::before{content:"";width:64px;height:64px;justify-self:center;background:var(--temple) center/contain no-repeat}
+html[data-dir] .menu .kicker{letter-spacing:.32em}
+html[data-dir] .tab{font-family:var(--display);font-weight:700;letter-spacing:.14em}
+html[data-dir] .tab[aria-selected=true]{border-bottom-color:var(--accent)}
+html[data-dir] .dish-name{font:700 1.08rem/1.3 var(--display);letter-spacing:.03em}
+html[data-dir] .dish-price{font:700 1.05rem/1 var(--display);color:var(--primary)}
+
+/* about: Roman numerals in Cinzel, accent coloured */
+html[data-dir] .point::before{font:700 1.2rem/1.2 var(--display);font-style:normal;color:#b34a2f}
+
+/* footer: the temple as a seal */
+html[data-dir] .site-foot{background:var(--night);color:#f1ede6;border-top:0}
+html[data-dir] .site-foot .muted{color:#c9cfd6}
+html[data-dir] .site-foot .wrap::before{content:"";width:40px;height:40px;margin-bottom:8px;background:var(--temple-light) center/contain no-repeat}
+html[data-dir] .site-foot b{font:700 1rem var(--display);letter-spacing:.12em;text-transform:uppercase;color:#fff}
+
+/* mesa / cozinha */
+html[data-dir] .m-top h1{font:700 1.2rem/1.1 var(--display);letter-spacing:.1em;text-transform:uppercase}
+html[data-dir] .m-cat{font:700 1.45rem/1.1 var(--display);letter-spacing:.06em;color:var(--primary)}
+html[data-dir] .m-item h4{font:700 1rem/1.3 var(--display);letter-spacing:.03em}
+html[data-dir] .ticket{border-top-color:var(--accent)}

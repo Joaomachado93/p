@@ -1,0 +1,52 @@
+/* Restaurante Rampinha — hook: the little ramp (rampinha) in São Torcato: a rising slope runs through the page */
+@import url('https://fonts.googleapis.com/css2?family=Patua+One&display=swap');
+:root{
+  --rp-font:'Patua One',Rockwell,Georgia,serif;
+  --rp-brown:#5B3A1E; --rp-olive:#8A9A3B; --rp-olive-ink:#55601f;
+  --bg:#f2efe3; --surface:#fcfbf4;
+  --rp-ramp:url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 120 40'><path d='M2 38L118 6v32z' fill='%238A9A3B'/><path d='M2 38L118 6' stroke='%235B3A1E' stroke-width='3' stroke-linecap='round'/><g fill='%235B3A1E'><rect x='30' y='26' width='8' height='12'/><rect x='58' y='19' width='8' height='19'/><rect x='86' y='11' width='8' height='27'/></g></svg>");
+}
+
+/* wordmark: sturdy slab that climbs, like walking up the rampinha */
+html[data-dir] .brand{font:400 1.4rem/1 var(--rp-font);color:var(--rp-brown);display:inline-block;transform:rotate(-3deg)}
+html[data-dir] .hero-title{font:400 clamp(2.8rem,6.4vw,5.6rem)/.98 var(--rp-font);color:var(--rp-brown);letter-spacing:-.005em;transform:rotate(-3deg);transform-origin:left bottom;margin-bottom:10px}
+html[data-dir] .hero-title::after{content:"";display:block;width:clamp(140px,22vw,260px);aspect-ratio:3/1;margin-top:12px;background:var(--rp-ramp) left bottom/contain no-repeat}
+html[data-dir] h2,html[data-dir] .m-top h1{font-family:var(--rp-font)}
+html[data-dir] .kicker{color:var(--rp-olive-ink)}
+
+/* hero: the frame is cut on a slope (the ramp) */
+html[data-dir] .hero-media{clip-path:polygon(0 10%,100% 0,100% 100%,0 100%);background:var(--rp-olive);padding:14px}
+html[data-dir] .hero-media img{clip-path:polygon(0 9%,100% 0,100% 100%,0 100%)}
+
+/* sections meet on a slant */
+html[data-dir] .about{clip-path:polygon(0 36px,100% 0,100% 100%,0 100%);padding-top:calc(var(--section) + 20px);background:var(--surface);border:0}
+html[data-dir] .point::before{background:var(--rp-ramp) center/contain no-repeat;border:0;width:26px;height:22px}
+
+/* order: lunch menu first, then the house */
+html[data-dir] .menu{order:1;padding-top:var(--section)}
+html[data-dir] .about{order:2}
+html[data-dir] .gallery{order:3}
+html[data-dir] .book{order:4}
+html[data-dir] .visit{order:5}
+html[data-dir] .proposal{order:9}
+
+/* menu: slate tilted a touch, ramp in chalk on its header */
+html[data-dir] .menu > .wrap{transform:rotate(-.6deg)}
+html[data-dir] .menu .section-head::after{content:"";width:120px;height:40px;margin-top:6px;
+  background:url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 120 40'><path d='M2 38L118 6v32z' fill='none' stroke='%23d6e08f' stroke-width='2.5'/><path d='M30 30v8M60 22v16M90 14v24' stroke='%23d6e08f' stroke-width='2.5'/></svg>") left/contain no-repeat}
+html[data-dir] .menu .dish-price{color:#d6e08f}
+html[data-dir] .menu .kicker{color:#d6e08f}
+
+/* booking cloth in olive checks */
+html[data-dir] .book{background-image:linear-gradient(90deg,rgba(138,154,59,.22) 50%,transparent 50%),linear-gradient(rgba(138,154,59,.22) 50%,transparent 50%)}
+html[data-dir] .btn-primary{background:var(--rp-brown)}
+html[data-dir] .site-foot .wrap::before{content:"";width:90px;height:30px;background:var(--rp-ramp) left/contain no-repeat}
+
+@media (max-width:860px){
+  html[data-dir] .hero-media{clip-path:polygon(0 14%,100% 0,100% 100%,0 100%);padding:0}
+  html[data-dir] .hero-media img{clip-path:none}
+  html[data-dir] .hero-title{font-size:clamp(2.4rem,11vw,3.4rem)}
+  html[data-dir] .about{clip-path:polygon(0 22px,100% 0,100% 100%,0 100%)}
+  html[data-dir] .menu > .wrap{transform:none}
+}
+@media (prefers-reduced-motion:reduce){html[data-dir] .menu > .wrap{transform:none}}

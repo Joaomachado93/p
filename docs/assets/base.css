@@ -241,3 +241,19 @@ body.mesa{padding-bottom:110px}
 .m-top .langswitch [aria-current]{background:var(--on-primary);color:var(--primary)}
 html .m-top .langswitch a{background:transparent;color:inherit}
 html .m-top .langswitch [aria-current]{background:var(--on-primary);color:var(--primary)}
+
+/* sections can be re-ordered per business with CSS `order` */
+main{display:flex;flex-direction:column}
+main > section{order:0}
+/* hero always first, proposal always last, whatever a bespoke layer reorders */
+main > section.hero{order:-1000!important}
+main > section.proposal{order:1000!important}
+/* long names in the table/kitchen top bar must wrap instead of widening the page */
+.m-top-row{flex-wrap:wrap;min-width:0}
+.m-top h1{min-width:0;flex:1 1 12ch;overflow-wrap:anywhere}
+/* the header row must never widen the page: the brand shrinks/wraps, the PT/EN switch stays put */
+html .site-head-row{max-width:100%}
+html .site-head-row > .brand{min-width:0;flex:1 1 auto;overflow-wrap:anywhere}
+html .site-head-row > .langswitch{flex:none}
+/* safety net: decorative pseudo-elements in bespoke layers can never cause sideways scrolling */
+html,body{overflow-x:clip}

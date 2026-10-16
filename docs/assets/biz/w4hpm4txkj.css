@@ -1,0 +1,56 @@
+/* Retiro das Oliveiras — hook: the olive grove of the name ("oliveiras") → olive branch, olive-green calm, a quiet retreat */
+@import url('https://fonts.googleapis.com/css2?family=Young+Serif&display=swap');
+:root{
+  --display:'Young Serif','Iowan Old Style',Georgia,serif;
+  --bg:color-mix(in srgb,var(--primary) 7%,#f5f2e8);
+  --surface:#fdfcf6;
+  --branch:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 120 28'%3E%3Cpath d='M4 16C30 14 70 13 116 12' fill='none' stroke='%234F5B27' stroke-width='1.6' stroke-linecap='round'/%3E%3Cg fill='%234F5B27'%3E%3Cellipse cx='20' cy='9' rx='8' ry='2.6' transform='rotate(-24 20 9)'/%3E%3Cellipse cx='30' cy='21' rx='8' ry='2.6' transform='rotate(24 30 21)'/%3E%3Cellipse cx='46' cy='8' rx='8' ry='2.6' transform='rotate(-22 46 8)'/%3E%3Cellipse cx='58' cy='20' rx='8' ry='2.6' transform='rotate(22 58 20)'/%3E%3Cellipse cx='74' cy='7' rx='8' ry='2.6' transform='rotate(-20 74 7)'/%3E%3Cellipse cx='88' cy='19' rx='8' ry='2.6' transform='rotate(20 88 19)'/%3E%3Cellipse cx='104' cy='7' rx='7' ry='2.4' transform='rotate(-16 104 7)'/%3E%3C/g%3E%3Cg fill='%23B5651D'%3E%3Cellipse cx='38' cy='17' rx='3.2' ry='4'/%3E%3Cellipse cx='80' cy='16' rx='3.2' ry='4'/%3E%3C/g%3E%3C/svg%3E");
+}
+/* wordmark: soft serif, "Retiro" small above the grove name feel via tracking, an olive sprig before */
+html[data-dir] .brand{display:inline-flex;align-items:center;gap:10px;font:400 1.3rem/1.05 var(--display);color:var(--primary)}
+html[data-dir] .brand::before{content:"";width:46px;height:12px;flex:none;background:var(--branch) left center/contain no-repeat}
+html[data-dir] .hero-title{font:400 clamp(2.6rem,6vw,5rem)/1.02 var(--display);color:var(--primary);letter-spacing:-.01em}
+html[data-dir] .hero-title::after{content:"";display:block;width:min(170px,50%);aspect-ratio:120/28;margin-top:14px;background:var(--branch) left center/contain no-repeat}
+html[data-dir] h2{font-weight:400;color:var(--primary)}
+html[data-dir] .kicker{color:var(--accent);color:color-mix(in srgb,var(--accent) 80%,#000)}
+
+/* hero: calm — wide landscape photo on top, copy in a centred band below (no azulejo frame) */
+html[data-dir] .hero{grid-template-columns:minmax(0,1fr);padding:clamp(18px,3vw,36px) var(--gutter-r) 0 var(--gutter);max-width:var(--maxw);margin:0 auto}
+html[data-dir] .hero-media{grid-column:1;grid-row:1;height:min(46vh,420px);padding:0;background:var(--primary);border-radius:200px 200px 6px 6px/120px 120px 6px 6px;
+  box-shadow:0 22px 44px -24px rgba(40,45,15,.6)}
+html[data-dir] .hero-media img{border-radius:inherit;box-shadow:none;filter:saturate(.92)}
+html[data-dir] .hero-copy{grid-column:1;grid-row:2;justify-items:center;text-align:center;padding:30px 0 clamp(40px,6vw,72px)}
+html[data-dir] .hero-title::after{margin-inline:auto;background-position:center}
+html[data-dir] .tagline{max-width:40ch}
+html[data-dir] .facts{justify-content:center}
+html[data-dir] .hero .actions{justify-content:center}
+
+/* azulejo bands become olive branches */
+html[data-dir] .site-head::after,html[data-dir] .site-foot::before,html[data-dir] .proposal::before{height:26px;background:var(--branch) center/auto 22px repeat-x;opacity:.75}
+html[data-dir] .point::before{background:var(--branch) 8% 50%/auto 18px no-repeat;border:0;width:24px}
+
+/* order: the story of the retreat first, then the photos, then the menu */
+html[data-dir] .hero{order:0}
+html[data-dir] .about{order:1}
+html[data-dir] .gallery{order:2}
+html[data-dir] .menu{order:3;padding-top:var(--section)}
+html[data-dir] .book{order:4}
+html[data-dir] .visit{order:5}
+html[data-dir] .proposal{order:9}
+html[data-dir] .about{background:var(--surface)}
+
+/* menu board: olive-wood frame instead of dark wood, branch over the heading */
+html[data-dir] .menu > .wrap{border-image:repeating-linear-gradient(92deg,#5b5a2e 0 9px,#4b4a24 9px 13px,#6a6836 13px 21px,#43421f 21px 24px) 16}
+html[data-dir] .menu .section-head::before{content:"";width:150px;height:30px;background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 120 28'%3E%3Cpath d='M4 16C30 14 70 13 116 12' fill='none' stroke='%23e4e6c8' stroke-width='1.6'/%3E%3Cg fill='%23c9cf9a'%3E%3Cellipse cx='20' cy='9' rx='8' ry='2.6' transform='rotate(-24 20 9)'/%3E%3Cellipse cx='30' cy='21' rx='8' ry='2.6' transform='rotate(24 30 21)'/%3E%3Cellipse cx='46' cy='8' rx='8' ry='2.6' transform='rotate(-22 46 8)'/%3E%3Cellipse cx='58' cy='20' rx='8' ry='2.6' transform='rotate(22 58 20)'/%3E%3Cellipse cx='74' cy='7' rx='8' ry='2.6' transform='rotate(-20 74 7)'/%3E%3Cellipse cx='88' cy='19' rx='8' ry='2.6' transform='rotate(20 88 19)'/%3E%3C/g%3E%3C/svg%3E") left center/contain no-repeat}
+html[data-dir] .book{background-image:linear-gradient(90deg,color-mix(in srgb,var(--primary) 14%,transparent) 50%,transparent 50%),linear-gradient(color-mix(in srgb,var(--primary) 14%,transparent) 50%,transparent 50%)}
+html[data-dir] .site-foot b{font:400 1.15rem var(--display);color:var(--primary)}
+
+@media (max-width:860px){
+  html[data-dir] .hero{padding:12px var(--gutter-r) 0 var(--gutter)}
+  html[data-dir] .hero-media{height:clamp(220px,34svh,300px);border-radius:120px 120px 4px 4px/80px 80px 4px 4px;background:var(--primary)}
+  html[data-dir] .hero-copy{padding:22px 0 34px}
+  html[data-dir] .hero-title{font-size:clamp(2.3rem,11vw,3.2rem)}
+  html[data-dir] .brand{font-size:1.05rem}
+  html[data-dir] .brand::before{width:30px}
+}
+html[data-dir] .m-top h1{font-family:var(--display)}

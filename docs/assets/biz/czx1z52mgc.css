@@ -1,0 +1,75 @@
+/* Casa Boémio — hook: the boémia (a night out) — crescent moon and stars over a plum cabaret table, in Caldas das Taipas */
+@import url('https://fonts.googleapis.com/css2?family=Limelight&display=swap');
+html[data-dir]{
+  --cb-mark:'Limelight','Broadway',Georgia,serif;
+  --cb-night:color-mix(in oklab, var(--primary) 45%, #0e0816);
+  --cb-glow:color-mix(in oklab, var(--accent) 55%, #ffd7b0);     /* lamp orange, light enough for the dark ground */
+  --bg:color-mix(in oklab, var(--primary) 5%, #fbf7f1);
+  --cb-moon:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='64' height='64' viewBox='0 0 64 64'%3E%3Cpath d='M40 8a24 24 0 1 0 16 38A20 20 0 1 1 40 8z' fill='%23f4b98a'/%3E%3Cg fill='%23f6efe6'%3E%3Cpath d='M50 10l1.6 4.4L56 16l-4.4 1.6L50 22l-1.6-4.4L44 16l4.4-1.6z'/%3E%3Ccircle cx='58' cy='30' r='1.6'/%3E%3Ccircle cx='44' cy='28' r='1.1'/%3E%3C/g%3E%3C/svg%3E");
+}
+
+/* wordmark: cabaret marquee letters with a moon */
+html[data-dir] .brand{font:400 1.4rem/1 var(--cb-mark);letter-spacing:.04em;display:inline-flex;align-items:center;gap:10px}
+html[data-dir] .brand::before{content:"";width:26px;height:26px;background:var(--cb-moon) center/contain no-repeat;flex:none;filter:drop-shadow(0 0 1px rgba(0,0,0,.35))}
+html[data-dir] .hero-title{font:400 clamp(3rem,11vw,6.6rem)/.98 var(--cb-mark);letter-spacing:.01em;color:#fbf3ea;
+  text-shadow:0 0 28px color-mix(in oklab, var(--accent) 45%, transparent)}
+html[data-dir] .m-top h1,html[data-dir] .site-foot b{font-family:var(--cb-mark);font-weight:400;letter-spacing:.03em}
+
+/* hero: night-plum stage, the photo as a full moon (round on desktop, porthole on phone) */
+html[data-dir] .hero{background:radial-gradient(60% 70% at 80% 30%, color-mix(in oklab, var(--primary) 40%, transparent), transparent 70%), var(--cb-night);color:#f2e9f6;position:relative;overflow:hidden}
+html[data-dir] .hero::before{content:"";position:absolute;top:18px;left:max(16px,calc((100vw - var(--maxw))/2 + 16px));width:56px;height:56px;background:var(--cb-moon) center/contain no-repeat;opacity:.95}
+html[data-dir] .hero .kicker{color:var(--cb-glow)}
+html[data-dir] .hero .tagline{color:#e6d9ee}
+html[data-dir] .hero .facts,html[data-dir] .hero .facts a{color:#e6d9ee}
+html[data-dir] .hero .facts .i{color:var(--cb-glow)}
+html[data-dir] .hero .facts b{color:#fff}
+html[data-dir] .hero .btn-primary{background:var(--cb-glow);color:#24121a;border-color:var(--cb-glow)}
+html[data-dir] .hero .btn-secondary{color:#fbf3ea;border-color:rgba(251,243,234,.6)}
+html[data-dir] .hero-media{border-radius:50%;aspect-ratio:1/1;padding:10px;background:conic-gradient(from 200deg, var(--cb-glow), var(--primary), var(--cb-glow));border:0;
+  box-shadow:0 0 0 1px rgba(255,255,255,.12),0 0 90px -10px color-mix(in oklab, var(--accent) 55%, transparent)}
+html[data-dir] .hero-media img{border-radius:50%}
+html[data-dir] .hero-media::after{inset:10px;border-radius:50%;border:1px solid rgba(255,255,255,.4)}
+html[data-dir] .hero-copy{padding-top:56px}
+@media (min-width:861px){
+  html[data-dir] .hero{max-width:none;padding-inline:max(var(--gutter),calc((100vw - var(--maxw))/2 + 16px))}
+  html[data-dir] .hero-media{max-height:none;width:min(100%,520px);justify-self:center;padding:12px;box-shadow:0 0 0 1px rgba(255,255,255,.12),0 0 120px -10px color-mix(in oklab, var(--accent) 55%, transparent)}
+  html[data-dir] .hero-media::after{inset:12px}
+  html[data-dir] .hero::before{top:28px}
+}
+
+/* order: gallery right after the hero — the scene first, then the table */
+html[data-dir] .gallery{order:1;padding-top:var(--section)}
+html[data-dir] .menu{order:2}
+html[data-dir] .about{order:3}
+html[data-dir] .qr{order:4}
+html[data-dir] .book{order:5}
+html[data-dir] .visit{order:6}
+html[data-dir] .proposal{order:99}
+html[data-dir] .shot{border-radius:999px 999px 4px 4px}
+html[data-dir] .shot::after{border-radius:999px 999px 2px 2px}
+
+/* menu: a dark plum programme with lamp-lit prices */
+html[data-dir] .menu{background:var(--cb-night);color:#f2e9f6}
+html[data-dir] .menu .kicker{color:var(--cb-glow)}
+html[data-dir] .menu .note{color:#cdbfd8}
+html[data-dir] .menu h2{font-family:var(--cb-mark);font-weight:400;color:#fbf3ea}
+html[data-dir] .menu h2::after{background:var(--cb-glow)}
+html[data-dir] .menu .section-head::before{content:"";display:block;width:44px;height:44px;margin:0 auto 12px;background:var(--cb-moon) center/contain no-repeat}
+html[data-dir] .dishes{background:rgba(255,255,255,.04);border:1px solid rgba(244,185,138,.35);padding:8px clamp(16px,3.5vw,44px)}
+html[data-dir] .dish{border-color:rgba(242,233,246,.16)}
+html[data-dir] .dish-name{color:#fbf3ea}
+html[data-dir] .dish-desc{color:#cdbfd8}
+html[data-dir] .dish-price{color:var(--cb-glow)}
+html[data-dir] .dish-dots{border-color:rgba(244,185,138,.4)}
+html[data-dir] .tab{color:#f2e9f6;border-color:rgba(242,233,246,.35)}
+html[data-dir] .tab[aria-selected=true]{background:var(--cb-glow);border-color:var(--cb-glow);color:#24121a}
+
+/* qr card: a cabaret ticket */
+html[data-dir] .qr-name{font-family:var(--cb-mark);font-weight:400}
+html[data-dir] .qr-card{border-radius:14px;outline-style:dashed}
+
+@media (max-width:860px){
+  html[data-dir] .hero-media{width:min(78vw,340px);justify-self:center;margin:64px auto 0}
+  html[data-dir] .hero-copy{padding-top:24px}
+  html[data-dir] .hero::before{width:44px;height:44px}
+}

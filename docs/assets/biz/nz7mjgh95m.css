@@ -1,0 +1,68 @@
+/* Poncha's Bar — hook: the poncha itself — a lemon wheel on the glass and a neon bar sign over the Praça de São Tiago */
+@import url('https://fonts.googleapis.com/css2?family=Shrikhand&display=swap');
+:root{
+  --pb-font:'Shrikhand','Cooper Black',Georgia,serif;
+  --bg:color-mix(in oklab,var(--accent) 30%,#0d080e);
+  --surface:color-mix(in oklab,var(--accent) 40%,#140c15);
+  --surface-2:color-mix(in oklab,var(--accent) 48%,#190f1a);
+  --candle:color-mix(in oklab,var(--primary) 22%,#f7cf4a);
+  --candle-soft:color-mix(in oklab,var(--candle) 32%,transparent);
+  --lemon-ink:#fbe9a6;
+  --lemon:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Ccircle cx='32' cy='32' r='30' fill='%23e9b81f'/%3E%3Ccircle cx='32' cy='32' r='25' fill='%23fbe9a6'/%3E%3Cpath d='M32 7v50M7 32h50M14.3 14.3l35.4 35.4M49.7 14.3L14.3 49.7' stroke='%23e9b81f' stroke-width='2.6'/%3E%3Ccircle cx='32' cy='32' r='3.4' fill='%23e9b81f'/%3E%3C/svg%3E");
+  --neon:0 0 2px #fff3d6,0 0 10px color-mix(in oklab,var(--primary) 70%,#ff9a3c),0 0 28px color-mix(in oklab,var(--primary) 80%,#ff7a1c),0 0 60px color-mix(in oklab,var(--accent) 80%,#c04bd0);
+}
+/* wordmark: hand-painted bar sign that glows */
+[data-dir=petisco] .brand{font:400 1.45rem/1 var(--pb-font);font-style:normal;color:#ffe7c2;display:inline-flex;align-items:center;gap:10px}
+[data-dir=petisco] .brand::before{content:"";width:28px;height:28px;background:var(--lemon) center/contain no-repeat;flex:none}
+[data-dir=petisco] .hero-title{font:400 clamp(3.4rem,13vw,8rem)/.95 var(--pb-font);font-style:normal;letter-spacing:0;color:#fff4e0;
+  text-shadow:var(--neon);transform:rotate(-4deg);transform-origin:0 100%;max-width:12ch;margin-block:.15em .1em}
+[data-dir=petisco] .hero .kicker{font-size:.82rem}
+[data-dir=petisco] .tagline{font:400 clamp(1.3rem,2.6vw,1.8rem)/1.3 var(--pb-font);color:var(--candle);letter-spacing:.01em}
+/* hero: lemon wheel in the corner, purple dusk over the square */
+[data-dir=petisco] .hero{position:relative}
+[data-dir=petisco] .hero::after{content:"";position:absolute;right:clamp(-70px,-5vw,-40px);top:clamp(24px,6vw,70px);width:clamp(140px,22vw,300px);aspect-ratio:1;
+  background:var(--lemon) center/contain no-repeat;transform:rotate(18deg);opacity:.92;pointer-events:none;filter:drop-shadow(0 12px 30px rgba(0,0,0,.5))}
+[data-dir=petisco] .hero-media::after{background:
+  radial-gradient(60% 50% at 80% 25%,color-mix(in oklab,var(--primary) 30%,transparent),transparent 70%),
+  linear-gradient(180deg,rgba(13,8,14,.2) 0%,rgba(13,8,14,0) 20%,color-mix(in oklab,var(--accent) 55%,rgba(13,8,14,.6)) 55%,var(--bg) 94%)}
+[data-dir=petisco] h2{font:400 clamp(2rem,4.6vw,3.2rem)/1.05 var(--pb-font);letter-spacing:0}
+[data-dir=petisco] .btn-primary{border-radius:999px}
+[data-dir=petisco] .btn-secondary{border-radius:999px}
+/* order: the esplanada photos right after the sign, then the drinks */
+.gallery{order:1}.menu{order:2}.about{order:3}.qr{order:4}.book{order:5}.visit{order:6}.proposal{order:9}
+[data-dir=petisco] .gallery{padding-top:clamp(36px,6vw,64px)}
+[data-dir=petisco] .shot{border-radius:22px;overflow:hidden}
+[data-dir=petisco] .shot::after{border-radius:16px;border-color:var(--candle-soft)}
+/* menu: the poncha list — lemon wheel on the head, round tabs, prices on a twist of peel */
+[data-dir=petisco] .menu .section-head{position:relative;padding-top:78px}
+[data-dir=petisco] .menu .section-head::before{content:"";position:absolute;left:0;top:0;width:62px;height:62px;background:var(--lemon) center/contain no-repeat;transform:rotate(-12deg)}
+[data-dir=petisco] .tab{border-radius:999px}
+[data-dir=petisco] .dishes{border-radius:28px;outline:0;border:2px solid var(--candle-soft);
+  background:radial-gradient(90% 60% at 100% 0%,color-mix(in oklab,var(--primary) 16%,transparent),transparent 70%),color-mix(in oklab,var(--accent) 22%,#0a060b)}
+[data-dir=petisco] .dish-name{font:400 1.25rem/1.2 var(--pb-font);letter-spacing:.005em}
+[data-dir=petisco] .dish-dots{border-bottom:2px dotted color-mix(in oklab,var(--candle) 50%,transparent)}
+[data-dir=petisco] .dish-price{font:700 1.08rem/1 var(--body);font-style:normal;color:#1a0f05;background:var(--candle);padding:.4em .75em;border-radius:999px 999px 999px 4px}
+/* about: brinde numbers */
+[data-dir=petisco] .lede{font:400 clamp(1.35rem,2.6vw,1.9rem)/1.35 var(--pb-font);font-style:normal}
+[data-dir=petisco] .point::before{font:400 1.7rem/1 var(--pb-font);font-style:normal;color:var(--candle)}
+[data-dir=petisco] .point h3{font:400 1.3rem/1.2 var(--pb-font)}
+/* QR card: lemon wheel on the rim of the glass */
+[data-dir=petisco] .qr-card{border-radius:24px;position:relative}
+[data-dir=petisco] .qr-card::after{content:"";position:absolute;right:-18px;top:-22px;width:64px;height:64px;background:var(--lemon) center/contain no-repeat;transform:rotate(22deg)}
+[data-dir=petisco] .qr-name{font:400 1.15rem/1 var(--pb-font)}
+[data-dir=petisco] .proposal-box{border-radius:28px;outline:0}
+[data-dir=petisco] .site-foot b{font:400 1.2rem var(--pb-font);font-style:normal}
+@media (max-width:860px){
+  [data-dir=petisco] .hero::after{width:120px;right:-34px;top:16px}
+  [data-dir=petisco] .hero-title{font-size:clamp(3rem,15vw,4.4rem)}
+  [data-dir=petisco] .qr-card::after{right:6px;top:-26px;width:48px;height:48px}
+  [data-dir=petisco] .dish-name{font-size:1.1rem}
+}
+@media (prefers-reduced-motion:no-preference) and (min-width:861px){
+  [data-dir=petisco] .hero-title{animation:pb-flick 5s steps(1) 1}
+  @keyframes pb-flick{0%,6%,12%{opacity:1}3%,9%{opacity:.55}}
+}
+/* mesa / cozinha */
+[data-dir=petisco] .m-top{background:linear-gradient(180deg,color-mix(in oklab,var(--accent) 70%,#0d080e),var(--bg))}
+[data-dir=petisco] .m-top h1,[data-dir=petisco] .m-cat{font-family:var(--pb-font);font-style:normal;font-weight:400}
+[data-dir=petisco] .m-item h4{font:400 1.1rem/1.2 var(--pb-font)}

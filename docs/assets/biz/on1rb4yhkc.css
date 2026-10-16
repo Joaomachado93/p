@@ -1,0 +1,57 @@
+/* Pastelarias Lugarinho (Casa Mãe / Sto. Amaro) — hook: "lugarinho", a little place of the bairro: two little houses, the Casa Mãe and its sister shop */
+@import url('https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&display=swap');
+:root{
+  --teal-ink:color-mix(in srgb,var(--primary) 78%,#0b2a30);
+  --display:'Fredoka','Fraunces',system-ui,sans-serif;
+  --casas:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Cpath d='M4 33L22 17l18 16v25H4z' fill='%232a7f8e'/%3E%3Cpath d='M1 34L22 15l21 19' fill='none' stroke='%231d5a65' stroke-width='3.5' stroke-linejoin='round' stroke-linecap='round'/%3E%3Crect x='17' y='42' width='10' height='16' rx='5' fill='%23fff7ee'/%3E%3Crect x='9' y='31' width='7' height='7' fill='%23fff7ee'/%3E%3Crect x='28' y='31' width='7' height='7' fill='%23fff7ee'/%3E%3Cpath d='M38 43l11-10 11 10v15H38z' fill='%23f08a5d'/%3E%3Cpath d='M36 44l13-12 13 12' fill='none' stroke='%23c4623a' stroke-width='3' stroke-linejoin='round' stroke-linecap='round'/%3E%3Crect x='45' y='47' width='8' height='11' rx='4' fill='%23fff7ee'/%3E%3C/svg%3E");
+  --rooftops:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 96 22'%3E%3Cpath d='M0 22V12l12-10 12 10v10h6V15l9-7 9 7v7h6V10l14-8 14 8v12h6V14l8-6v14z' fill='%232a7f8e'/%3E%3Cg fill='%23fff7ee'%3E%3Crect x='9' y='14' width='6' height='8' rx='3'/%3E%3Crect x='36' y='15' width='5' height='7'/%3E%3Crect x='64' y='13' width='6' height='9' rx='3'/%3E%3C/g%3E%3C/svg%3E");
+}
+
+/* wordmark: round Fredoka, teal ink, the two houses as the sign */
+html[data-dir] .brand{display:inline-flex;align-items:center;gap:10px;font:700 clamp(1.15rem,2.2vw,1.45rem)/1.05 var(--display);font-style:normal;color:var(--teal-ink);letter-spacing:-.005em}
+html[data-dir] .brand::before{content:"";width:36px;height:36px;flex:none;background:var(--casas) center/contain no-repeat}
+html[data-dir] .hero-title{font:700 clamp(2.4rem,7vw,4.6rem)/1 var(--display);letter-spacing:-.02em;color:var(--teal-ink)}
+html[data-dir] h1,html[data-dir] h2,html[data-dir] h3{font-family:var(--display);font-variation-settings:normal}
+html[data-dir] h2{font-weight:600}
+html[data-dir] .tagline{font-family:var(--display);font-style:normal;font-weight:500;color:#4f5d5f}
+
+/* hero: the shop window becomes a little house with a gable roof */
+html[data-dir] .hero-media{border-radius:0;box-shadow:none;clip-path:polygon(50% 0,100% 26%,100% 100%,0 100%,0 26%);
+  filter:drop-shadow(0 14px 22px rgba(20,60,66,.3))}
+html[data-dir] .hero-media::after{content:none}
+html[data-dir] .hero-copy::after{content:"";height:22px;width:min(288px,80%);background:var(--rooftops) 0 100%/96px 22px repeat-x}
+@media (min-width:861px){html[data-dir] .hero-media{aspect-ratio:5/6}}
+@media (max-width:860px){html[data-dir] .hero-media{aspect-ratio:1;margin-top:12px}}
+
+/* section order: the vitrine first, then the bairro photos, then the story */
+html[data-dir] main>.hero{order:0}
+html[data-dir] main>.menu{order:1}
+html[data-dir] main>.gallery{order:2;padding-top:var(--section)}
+html[data-dir] main>.about{order:3}
+html[data-dir] main>.book{order:4}
+html[data-dir] main>.visit{order:5}
+html[data-dir] main>.proposal{order:99}
+
+/* menu: rooftops of the street instead of twine; tabs are little gabled doors */
+html[data-dir] .menu{border-top:0;padding-top:calc(var(--section) + 10px)}
+html[data-dir] .menu::before{content:"";position:absolute;left:0;right:0;top:-21px;height:22px;background:var(--rooftops) 0 100%/96px 22px repeat-x}
+html[data-dir] .menu .section-head::before{content:"";width:58px;height:58px;background:var(--casas) center/contain no-repeat}
+html[data-dir] .tab{clip-path:polygon(50% 0,100% 12px,100% 100%,0 100%,0 12px);padding:1.15em 1.4em .75em;border-radius:0 0 8px 8px;font-family:var(--display);font-weight:600}
+html[data-dir] .dish-name{font-family:var(--display);font-weight:600;font-variation-settings:normal}
+html[data-dir] .dish-price{background:var(--teal-ink);font-family:var(--display);font-style:normal;font-weight:600}
+
+/* about: the two shops as the bullet */
+html[data-dir] .point::before{content:"";width:30px;height:30px;background:var(--casas) center/contain no-repeat}
+html[data-dir] .lede{font-family:var(--display);font-weight:500;font-variation-settings:normal}
+
+/* footer: rooftops line */
+html[data-dir] .site-foot{border-top:0;position:relative}
+html[data-dir] .site-foot::before{content:"";position:absolute;left:0;right:0;top:-21px;height:22px;background:var(--rooftops) 0 100%/96px 22px repeat-x}
+html[data-dir] .site-foot b{font:700 1.05rem var(--display);font-style:normal;color:var(--teal-ink)}
+
+/* mesa / cozinha */
+html[data-dir] .m-top{background:var(--teal-ink)}
+html[data-dir] .m-top h1{font:700 1.3rem/1.1 var(--display);font-style:normal}
+html[data-dir] .m-cat{font-family:var(--display);font-weight:600;color:var(--teal-ink)}
+html[data-dir] .m-item h4{font-family:var(--display);font-weight:600}
+html[data-dir] .m-item .price{font-family:var(--display);font-style:normal;color:var(--teal-ink)}

@@ -1,0 +1,81 @@
+/* Restaurante Virtudes — hook: the name "Virtudes" cut like a stone inscription on Praça de São Tiago, a V-crest seal; comfort food to share */
+@import url('https://fonts.googleapis.com/css2?family=Marcellus&display=swap');
+:root{
+  --insc:'Marcellus','Bodoni Moda',Georgia,serif;
+  --bg:#f8f4ec; --linen:#efe7da;
+  --navy:#1f3b4d; --cinnamon:#8a5a22;
+  --crest:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 60 60'%3E%3Ccircle cx='30' cy='30' r='27.5' fill='none' stroke='%23c08a3e' stroke-width='1.6'/%3E%3Ccircle cx='30' cy='30' r='23' fill='none' stroke='%23c08a3e' stroke-width='.8'/%3E%3Cpath d='M19 18l11 25 11-25' fill='none' stroke='%231f3b4d' stroke-width='3.6' stroke-linejoin='miter'/%3E%3Cpath d='M15 18h9M36 18h9' stroke='%231f3b4d' stroke-width='1.6'/%3E%3Ccircle cx='30' cy='9.5' r='1.6' fill='%23c08a3e'/%3E%3Ccircle cx='30' cy='50.5' r='1.6' fill='%23c08a3e'/%3E%3C/svg%3E");
+  --crest-light:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 60 60'%3E%3Ccircle cx='30' cy='30' r='27.5' fill='none' stroke='%23c08a3e' stroke-width='1.6'/%3E%3Ccircle cx='30' cy='30' r='23' fill='none' stroke='%23c08a3e' stroke-width='.8'/%3E%3Cpath d='M19 18l11 25 11-25' fill='none' stroke='%23f6f1e8' stroke-width='3.6'/%3E%3Cpath d='M15 18h9M36 18h9' stroke='%23f6f1e8' stroke-width='1.6'/%3E%3C/svg%3E");
+}
+[data-dir] body{background:var(--bg)}
+
+/* wordmark: inscriptional caps, crest as the seal */
+[data-dir] .brand{display:inline-flex;align-items:center;gap:12px;font:400 1.15rem/1 var(--insc);letter-spacing:.2em;text-transform:uppercase;color:var(--navy)}
+[data-dir] .brand::before{content:"";width:34px;height:34px;flex:none;background:var(--crest) center/contain no-repeat}
+[data-dir] .hero-title{font:400 clamp(2.4rem,5.6vw,4.8rem)/1.04 var(--insc);letter-spacing:.08em;text-transform:uppercase;color:var(--navy)}
+[data-dir] .hero-title::before{content:"";display:block;width:64px;height:64px;margin-bottom:18px;background:var(--crest) center/contain no-repeat}
+[data-dir] .tagline{color:var(--cinnamon)}
+
+/* hero: photo moves to the left, under a navy lintel; copy on the right */
+@media (min-width:861px){
+  [data-dir] .hero{grid-template-columns:minmax(0,1.1fr) minmax(0,1fr)}
+  [data-dir] .hero-media{order:1;aspect-ratio:1/1;border-top:14px solid var(--navy)}
+  [data-dir] .hero-copy{order:2}
+}
+[data-dir] .hero-media{background:var(--linen)}
+[data-dir] .facts .i{color:var(--cinnamon)}
+
+/* about: sharing plates is the signature point */
+[data-dir] .point::before{color:var(--cinnamon)}
+[data-dir] .point:nth-child(2){background:var(--navy);color:#f6f1e8;padding:22px 20px;border-bottom:0}
+[data-dir] .point:nth-child(2)::before{color:#e3c08a}
+[data-dir] .point:nth-child(2) p{color:#d9dfe4}
+[data-dir] .point h3{font-family:var(--insc);letter-spacing:.04em}
+
+/* menu: comfort card — navy board, crest at the head, cinnamon prices */
+[data-dir] .menu{background:var(--linen)}
+[data-dir] .menu .wrap{background:var(--navy);color:#f6f1e8;box-shadow:inset 0 0 0 9px var(--navy),inset 0 0 0 10px rgba(192,138,62,.7),0 30px 60px -40px rgba(0,0,0,.5)}
+[data-dir] .menu .section-head::before{content:"";width:58px;height:58px;background:var(--crest-light) center/contain no-repeat}
+[data-dir] .menu .kicker{color:#e3c08a}
+[data-dir] .menu h2{font-family:var(--insc);letter-spacing:.06em;text-transform:uppercase;color:#f6f1e8;font-size:clamp(1.9rem,4.4vw,3rem)}
+[data-dir] .menu .note{color:#c9d2d9}
+[data-dir] .menu .tabs{border-bottom-color:rgba(246,241,232,.2)}
+[data-dir] .menu .tab{color:#c9d2d9}
+[data-dir] .menu .tab:hover{color:#fff}
+[data-dir] .menu .tab[aria-selected=true]{color:#e3c08a;border-bottom-color:#e3c08a}
+[data-dir] .menu .dish-name{color:#f6f1e8}
+[data-dir] .menu .dish-dots{border-bottom-color:rgba(227,192,138,.45)}
+[data-dir] .menu .dish-price{color:#e3c08a}
+[data-dir] .menu .dish-desc{color:#c9d2d9}
+[data-dir] .menu .tag{color:#f6f1e8;border-color:rgba(246,241,232,.45)}
+[data-dir] .menu .tag-veg{color:#bfe5b5;border-color:#9cd08f}
+
+/* QR card sealed with the crest */
+[data-dir] .qr{background:#14232e}
+[data-dir] .qr-card{padding-top:76px;background:#fffdf9 var(--crest) 50% 18px/44px 44px no-repeat}
+[data-dir] .qr-name{font-family:var(--insc);letter-spacing:.08em;text-transform:uppercase;font-size:1rem}
+
+/* order: story, menu, photos, then booking before the QR demo */
+[data-dir] main > .about{order:1}
+[data-dir] main > .menu{order:2}
+[data-dir] main > .gallery{order:3;padding-top:var(--section)}
+[data-dir] main > .book{order:4}
+[data-dir] main > .qr{order:5}
+[data-dir] main > .visit{order:6}
+[data-dir] main > .proposal{order:9}
+
+[data-dir] .site-foot b{font-family:var(--insc);letter-spacing:.12em;text-transform:uppercase}
+
+@media (max-width:860px){
+  [data-dir] .brand{font-size:.92rem;letter-spacing:.1em;line-height:1.2;min-width:0}
+  [data-dir] .brand::before{width:30px;height:30px}
+  [data-dir] .hero-media{border-top:10px solid var(--navy)}
+  [data-dir] .hero-title{font-size:clamp(2rem,10vw,3rem);letter-spacing:.05em}
+  [data-dir] .hero-title::before{width:48px;height:48px;margin-bottom:12px}
+}
+
+/* mesa / cozinha */
+[data-dir] .m-top{background:var(--navy)}
+[data-dir] .m-top h1{font-family:var(--insc);letter-spacing:.1em;text-transform:uppercase;font-size:1.2rem}
+[data-dir] .m-cat{font-family:var(--insc);letter-spacing:.06em;color:var(--navy)}
+[data-dir] .m-item .price{color:var(--cinnamon)}

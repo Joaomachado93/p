@@ -1,0 +1,62 @@
+/* Restaurante O Verde Minho — hook: the name — Minho green: a vine leaf with its tendril, rows of green fields */
+@import url('https://fonts.googleapis.com/css2?family=Marcellus&display=swap');
+:root{
+  --bg:color-mix(in srgb,var(--primary) 5%,#fbfaf5);
+  --linen:color-mix(in srgb,var(--primary) 9%,#f7f5ee);
+  --leaf:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Cpath d='M32 46C26 50 14 48 10 40L4 30h10L8 16l12 4L32 4l12 16 12-4-6 14h10l-6 10c-4 8-16 10-22 6Z' fill='%2315803D'/%3E%3Cpath d='M32 46V12M32 36L15 25M32 36l17-11' stroke='%23e9f3e9' stroke-width='1.8' fill='none' stroke-linecap='round'/%3E%3Cpath d='M32 46v8c0 6 9 6 9 1s-6-4-5 0' stroke='%2315803D' stroke-width='2' fill='none' stroke-linecap='round'/%3E%3C/svg%3E");
+  --rows:repeating-linear-gradient(-12deg,color-mix(in srgb,var(--primary) 18%,transparent) 0 2px,transparent 2px 12px);
+}
+
+/* wordmark: classical inscription caps — "Verde Minho" carved, a leaf as the full stop */
+html[data-dir] .brand{font:400 1.25rem/1 'Marcellus',var(--display);letter-spacing:.12em;text-transform:uppercase;color:var(--primary);
+  display:inline-flex;align-items:center;gap:10px}
+html[data-dir] .brand::after{content:"";width:22px;height:22px;flex:none;background:var(--leaf) center/contain no-repeat}
+html[data-dir] .hero-title{font-family:'Marcellus',var(--display);font-weight:400;letter-spacing:.02em;color:var(--primary);line-height:1}
+html[data-dir] h2,html[data-dir] .menu h2{font-family:'Marcellus',var(--display);font-weight:400}
+html[data-dir] h2::after{background:var(--accent)}
+
+/* hero: framed photo with green field rows behind it and a vine leaf caught on the frame corner */
+html[data-dir] .hero-media{background:var(--rows),var(--linen);position:relative}
+html[data-dir] .hero-media::before{content:"";position:absolute;z-index:2;top:-22px;right:-18px;width:clamp(64px,8vw,96px);aspect-ratio:1;
+  background:var(--leaf) center/contain no-repeat;transform:rotate(18deg);filter:drop-shadow(0 6px 8px rgba(0,0,0,.18))}
+@media (min-width:861px){
+  html[data-dir] .hero-media{box-shadow:inset 0 0 0 13px var(--surface),0 0 0 1px var(--line);padding:26px}
+  html[data-dir] .hero{background:linear-gradient(90deg,transparent 55%,var(--linen) 55%)}
+}
+@media (max-width:860px){
+  html[data-dir] .hero-media::before{top:-12px;right:-6px;width:56px}
+}
+
+/* section order: the food photographs before the story, menu after */
+html[data-dir] main > .gallery{order:1}
+html[data-dir] main > .about{order:2}
+html[data-dir] main > .menu{order:3}
+html[data-dir] main > .qr{order:4}
+html[data-dir] main > .book{order:5}
+html[data-dir] main > .visit{order:6}
+html[data-dir] main > .proposal{order:9}
+html[data-dir] .gallery{padding-block:var(--section)}
+html[data-dir] .about{background:var(--surface)}
+
+/* menu: a leaf heads the carte; field rows frame the card */
+html[data-dir] .menu{background:var(--rows),var(--linen)}
+html[data-dir] .menu .section-head::before{content:"";width:52px;height:52px;background:var(--leaf) center/contain no-repeat}
+html[data-dir] .dish-price{color:var(--primary)}
+html[data-dir] .tab[aria-selected=true]{border-color:var(--primary);color:var(--primary)}
+
+/* QR + booking: deep vine green with the red of the accent as highlight */
+html[data-dir] .qr{background:color-mix(in srgb,var(--primary) 70%,#0b2a16)}
+html[data-dir] .qr-name{font-family:'Marcellus',var(--display);letter-spacing:.1em;text-transform:uppercase}
+html[data-dir] .book .kicker,html[data-dir] .visit .kicker{color:var(--accent)}
+
+/* footer: one leaf to sign off */
+html[data-dir] .site-foot::before{content:"";display:block;width:34px;height:34px;margin:0 auto 18px;background:var(--leaf) center/contain no-repeat}
+
+/* mesa / cozinha */
+html[data-dir] .m-top h1{font-family:'Marcellus',var(--display);min-width:0;overflow-wrap:break-word}
+
+@media (max-width:860px){
+  html[data-dir] .brand{font-size:1rem;letter-spacing:.01em;text-transform:none;gap:6px;white-space:nowrap}
+  html[data-dir] .hero-title{font-size:clamp(2.4rem,11vw,3.5rem)}
+}
+@media (max-width:359px){html[data-dir] .brand{white-space:normal}}

@@ -1,0 +1,55 @@
+/* Paco's Kitchen — hook: papel picado (cut-paper bunting) and serape stripes, Mexico at a Guimarães table */
+@import url('https://fonts.googleapis.com/css2?family=Sancreek&display=swap');
+:root{
+  --pk-font:'Sancreek','Alfa Slab One',Georgia,serif;
+  --pk-red:#B91C1C; --pk-green:#15803D; --pk-gold:#E8A317; --pk-pink:#D9467A;
+  --bg:#f7f1e6;
+  --pk-picado:url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 120 30'><path d='M0 2h120' stroke='%231f1c18' stroke-width='1.5'/><path d='M3 2h24v20l-4 4-4-4-4 4-4-4-4 4-4-4z' fill='%23B91C1C'/><path d='M33 2h24v20l-4 4-4-4-4 4-4-4-4 4-4-4z' fill='%23E8A317'/><path d='M63 2h24v20l-4 4-4-4-4 4-4-4-4 4-4-4z' fill='%2315803D'/><path d='M93 2h24v20l-4 4-4-4-4 4-4-4-4 4-4-4z' fill='%23D9467A'/><g fill='%23f7f1e6'><circle cx='15' cy='11' r='3'/><path d='M45 7l3 4-3 4-3-4z'/><circle cx='75' cy='11' r='3'/><path d='M105 7l3 4-3 4-3-4z'/></g></svg>");
+  --pk-serape:repeating-linear-gradient(90deg,var(--pk-red) 0 18px,#f7f1e6 18px 22px,var(--pk-gold) 22px 32px,#f7f1e6 32px 36px,var(--pk-green) 36px 54px,#1f1c18 54px 58px,var(--pk-pink) 58px 70px,#f7f1e6 70px 74px);
+}
+
+/* wordmark: carved-wood western face, red with a gold edge */
+html[data-dir] .brand{font:400 1.4rem/1 var(--pk-font);color:var(--pk-red);letter-spacing:.02em}
+html[data-dir] .hero-title{font:400 clamp(3rem,7vw,6.4rem)/1 var(--pk-font);color:var(--pk-red);letter-spacing:.01em;text-shadow:3px 3px 0 var(--pk-gold)}
+html[data-dir] h2,html[data-dir] .m-top h1{font-family:var(--pk-font);letter-spacing:.01em}
+html[data-dir] .kicker{color:var(--pk-green)}
+
+/* papel picado replaces the azulejo bands */
+html[data-dir] .site-head::after,html[data-dir] .site-foot::before,html[data-dir] .proposal::before{height:30px;background:var(--pk-picado) 0 0/120px 30px repeat-x}
+html[data-dir] .m-top::after{height:15px;bottom:-15px;background:var(--pk-picado) 0 0/60px 15px repeat-x}
+
+/* hero: serape-striped frame around the photo, bunting hung across the copy */
+html[data-dir] .hero-media{background:var(--pk-serape);border-radius:4px;padding:14px}
+html[data-dir] .hero-copy{position:relative}
+html[data-dir] .hero .tagline{color:#4a4237}
+
+/* order: tacos first */
+html[data-dir] .menu{order:1;padding-top:var(--section)}
+html[data-dir] .about{order:2}
+html[data-dir] .gallery{order:3}
+html[data-dir] .book{order:4}
+html[data-dir] .visit{order:5}
+html[data-dir] .proposal{order:9}
+
+/* menu: slate board with serape trim instead of plain wood, gold chalk prices */
+html[data-dir] .menu > .wrap{border-image:var(--pk-serape) 16}
+html[data-dir] .menu .section-head::before{content:"";height:24px;margin:-6px 0 8px;background:var(--pk-picado) 0 0/96px 24px repeat-x}
+html[data-dir] .menu .dish-price{color:#f6c453}
+html[data-dir] .menu .kicker{color:#86d6a1}
+html[data-dir] .menu .tab[aria-selected=true]{background:#f6c453;border-color:#f6c453;color:#1f1c18}
+
+/* about: veg + kids services as bright paper chips */
+html[data-dir] .services li{background:#fff;border:2px solid var(--pk-green);border-radius:999px;padding:.4em .9em;min-height:44px}
+html[data-dir] .services li:nth-child(2n){border-color:var(--pk-red)}
+html[data-dir] .services .i{color:var(--pk-green)}
+html[data-dir] .point::before{background:var(--pk-serape);background-size:74px 22px;border:0;border-radius:50%}
+
+/* booking cloth: green checks */
+html[data-dir] .book{background-image:linear-gradient(90deg,rgba(21,128,61,.16) 50%,transparent 50%),linear-gradient(rgba(21,128,61,.16) 50%,transparent 50%)}
+html[data-dir] .book > .book-grid{border-top:8px solid var(--pk-red)}
+
+@media (max-width:860px){
+  html[data-dir] .hero-media{padding:0 0 14px;border-radius:0;background:var(--pk-serape)}
+  html[data-dir] .hero-title{font-size:clamp(2.6rem,12vw,3.6rem)}
+  html[data-dir] .site-head::after{height:22px;background-size:88px 22px}
+}

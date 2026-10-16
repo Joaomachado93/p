@@ -1,0 +1,56 @@
+/* Renascimento — hook: the Renaissance (and its "nota máxima") — Garamond with an illuminated initial, a laurel wreath, a round-arched window */
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500&display=swap');
+:root{
+  --ren:'Cormorant Garamond','Bodoni Moda',Garamond,serif;
+  --laurel:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='60' height='56' viewBox='0 0 60 56'%3E%3Cg fill='%23C08A3E'%3E%3Cellipse cx='15.9' cy='45.9' rx='2.3' ry='5.2' transform='rotate(-190 15.9 45.9)'/%3E%3Cellipse cx='10.8' cy='39.7' rx='2.3' ry='5.2' transform='rotate(-169 10.8 39.7)'/%3E%3Cellipse cx='8.2' cy='32.1' rx='2.3' ry='5.2' transform='rotate(-148 8.2 32.1)'/%3E%3Cellipse cx='8.6' cy='24.1' rx='2.3' ry='5.2' transform='rotate(-127 8.6 24.1)'/%3E%3Cellipse cx='11.8' cy='16.7' rx='2.3' ry='5.2' transform='rotate(-106 11.8 16.7)'/%3E%3Cellipse cx='17.4' cy='11.0' rx='2.3' ry='5.2' transform='rotate(-85 17.4 11.0)'/%3E%3Cellipse cx='44.1' cy='45.9' rx='2.3' ry='5.2' transform='rotate(-170 44.1 45.9)'/%3E%3Cellipse cx='49.2' cy='39.7' rx='2.3' ry='5.2' transform='rotate(-191 49.2 39.7)'/%3E%3Cellipse cx='51.8' cy='32.1' rx='2.3' ry='5.2' transform='rotate(-212 51.8 32.1)'/%3E%3Cellipse cx='51.4' cy='24.1' rx='2.3' ry='5.2' transform='rotate(-233 51.4 24.1)'/%3E%3Cellipse cx='48.2' cy='16.7' rx='2.3' ry='5.2' transform='rotate(-254 48.2 16.7)'/%3E%3Cellipse cx='42.6' cy='11.0' rx='2.3' ry='5.2' transform='rotate(-275 42.6 11.0)'/%3E%3C/g%3E%3Cpath d='M19.7 43.7A18 18 0 0 1 17.3 16.3M40.3 43.7A18 18 0 0 0 42.7 16.3' fill='none' stroke='%23C08A3E' stroke-width='1.5'/%3E%3C/svg%3E");
+  --laurel-ink:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='60' height='56' viewBox='0 0 60 56'%3E%3Cg fill='%232F4858'%3E%3Cellipse cx='15.9' cy='45.9' rx='2.3' ry='5.2' transform='rotate(-190 15.9 45.9)'/%3E%3Cellipse cx='10.8' cy='39.7' rx='2.3' ry='5.2' transform='rotate(-169 10.8 39.7)'/%3E%3Cellipse cx='8.2' cy='32.1' rx='2.3' ry='5.2' transform='rotate(-148 8.2 32.1)'/%3E%3Cellipse cx='8.6' cy='24.1' rx='2.3' ry='5.2' transform='rotate(-127 8.6 24.1)'/%3E%3Cellipse cx='11.8' cy='16.7' rx='2.3' ry='5.2' transform='rotate(-106 11.8 16.7)'/%3E%3Cellipse cx='17.4' cy='11.0' rx='2.3' ry='5.2' transform='rotate(-85 17.4 11.0)'/%3E%3Cellipse cx='44.1' cy='45.9' rx='2.3' ry='5.2' transform='rotate(-170 44.1 45.9)'/%3E%3Cellipse cx='49.2' cy='39.7' rx='2.3' ry='5.2' transform='rotate(-191 49.2 39.7)'/%3E%3Cellipse cx='51.8' cy='32.1' rx='2.3' ry='5.2' transform='rotate(-212 51.8 32.1)'/%3E%3Cellipse cx='51.4' cy='24.1' rx='2.3' ry='5.2' transform='rotate(-233 51.4 24.1)'/%3E%3Cellipse cx='48.2' cy='16.7' rx='2.3' ry='5.2' transform='rotate(-254 48.2 16.7)'/%3E%3Cellipse cx='42.6' cy='11.0' rx='2.3' ry='5.2' transform='rotate(-275 42.6 11.0)'/%3E%3C/g%3E%3Cpath d='M19.7 43.7A18 18 0 0 1 17.3 16.3M40.3 43.7A18 18 0 0 0 42.7 16.3' fill='none' stroke='%232F4858' stroke-width='1.5'/%3E%3C/svg%3E");
+  --gilt:color-mix(in srgb,var(--accent) 75%,#000);
+  --bg:color-mix(in srgb,var(--primary) 4%,#fbf8f2);
+  --linen:color-mix(in srgb,var(--primary) 7%,#f3eee6);
+}
+
+/* wordmark: Garamond in spaced small capitals */
+html[data-dir] .brand{font:600 1.5rem/1 var(--ren);font-variant-caps:all-small-caps;letter-spacing:.14em;color:var(--primary)}
+html[data-dir] .hero-title{font:500 clamp(3.2rem,7vw,6.8rem)/.95 var(--ren);letter-spacing:-.005em}
+html[data-dir] .hero-title::first-letter{color:var(--gilt);font-style:italic;font-size:1.18em}
+html[data-dir] h2,html[data-dir] h3,html[data-dir] .tagline,html[data-dir] .lede{font-family:var(--ren)}
+html[data-dir] .tagline{font-size:clamp(1.3rem,2.4vw,1.75rem)}
+
+/* hero: the photograph in a round-arched Renaissance window */
+html[data-dir] .hero-media{border-radius:999px 999px 0 0}
+html[data-dir] .hero-media::after{border-radius:999px 999px 0 0}
+html[data-dir] .hero-media img{border-radius:999px 999px 0 0}
+
+/* the 5.0 rating, crowned with laurel */
+html[data-dir] .facts li:first-child a{align-items:center}
+html[data-dir] .facts li:first-child .i{display:none}
+html[data-dir] .facts li:first-child a::before{content:"";width:40px;height:37px;flex:none;background:var(--laurel) center/contain no-repeat}
+html[data-dir] .facts b{font:600 1.6rem/1 var(--ren);color:var(--primary)}
+
+/* menu: the carte headed by the laurel */
+html[data-dir] .menu .section-head::before{content:"";width:60px;height:56px;background:var(--laurel-ink) center/contain no-repeat}
+html[data-dir] .dish-name,html[data-dir] .dish-price{font-family:var(--ren);font-size:1.3rem;font-weight:600}
+html[data-dir] .point::before{font-family:var(--ren);color:var(--gilt)}
+
+/* order: the carte first, then the photographs */
+html[data-dir] .menu{order:1}
+html[data-dir] .gallery{order:2;padding-top:var(--section)}
+html[data-dir] .about{order:3}
+html[data-dir] .qr{order:4}
+html[data-dir] .book{order:5}
+html[data-dir] .visit{order:6}
+html[data-dir] .proposal{order:9}
+
+html[data-dir] .qr{background:var(--primary)}
+html[data-dir] .qr-card{border-radius:160px 160px 0 0;padding-top:84px}
+html[data-dir] .qr-name{font-family:var(--ren);font-weight:600;font-size:1.3rem}
+html[data-dir] .proposal-box{background:var(--laurel) right 28px top 24px/60px 56px no-repeat,var(--surface)}
+html[data-dir] .site-foot b,html[data-dir] .m-top h1{font-family:var(--ren);font-weight:600}
+
+@media (max-width:860px){
+  html[data-dir] .brand{font-size:1.35rem}
+  html[data-dir] .hero-media{margin-top:22px}
+  html[data-dir] .hero-title{font-size:clamp(3rem,15vw,4.4rem)}
+  html[data-dir] .qr-card{border-radius:140px 140px 0 0}
+  html[data-dir] .proposal-box{background-size:44px 41px;background-position:right 16px top 16px}
+}

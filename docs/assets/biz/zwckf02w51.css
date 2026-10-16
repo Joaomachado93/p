@@ -1,0 +1,69 @@
+/* Lacartun — hook: pizza no forno (the domed wood-oven mouth: brick arch, fire inside) + its own red/green brand pair as a tricolore band */
+@import url('https://fonts.googleapis.com/css2?family=Shrikhand&display=swap');
+:root{
+  --lc-font:'Shrikhand','Cooper Black',Georgia,serif;
+  --lc-brick:#8a3a22;
+  --lc-tri:linear-gradient(90deg,var(--accent) 0 33.3%,#f8f1e2 33.3% 66.6%,var(--primary) 66.6%);
+  /* oven: dome, arched mouth, fire, chimney */
+  --lc-oven:url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 56'><rect x='40' y='4' width='8' height='14' fill='%231b140d'/><path d='M4 50a28 28 0 0 1 56 0z' fill='%23c8102e' stroke='%231b140d' stroke-width='3'/><path d='M18 50a14 13 0 0 1 28 0z' fill='%231b140d'/><path d='M32 49c-6 0-8-4-6-8 1 2 3 2 3 0 0-3 2-5 4-7-1 4 3 5 3 9 1-1 2-2 2-4 2 3 2 10-6 10z' fill='%23ffb703'/><rect x='2' y='49' width='60' height='5' rx='1' fill='%232a9d5c' stroke='%231b140d' stroke-width='2'/></svg>");
+}
+
+/* wordmark: one fat italic word, oven as logo */
+html[data-dir] .brand{font:400 1.5rem/1 var(--lc-font);text-transform:none;letter-spacing:.01em;color:#f8f1e2;display:inline-flex;align-items:center;gap:10px}
+html[data-dir] .brand::before{content:"";width:40px;height:35px;flex:none;background:var(--lc-oven) 0 0/100% 100% no-repeat;filter:drop-shadow(0 0 0 #f8f1e2)}
+html[data-dir] .hero-title{font:400 clamp(3.2rem,12vw,7.6rem)/1 var(--lc-font);text-transform:none;letter-spacing:0;color:#fff;text-shadow:5px 5px 0 var(--ink)}
+html[data-dir] h2{font-family:var(--lc-font);text-transform:none;font-size:clamp(2rem,4.6vw,3.2rem);line-height:1.08}
+html[data-dir] .hero-title::after{content:"";display:block;width:min(220px,60%);height:10px;margin-top:14px;background:var(--lc-tri);border:2px solid var(--ink)}
+
+/* hero: the photo is seen through the oven mouth — brick arch of voussoirs around a rounded opening */
+html[data-dir] .hero-media{padding:clamp(14px,2.4vw,26px) clamp(14px,2.4vw,26px) 0;
+  background:repeating-conic-gradient(from -90deg at 50% 100%,var(--lc-brick) 0 9deg,#5e2414 9deg 10deg),var(--lc-brick)}
+html[data-dir] .hero-media img{border-radius:50% 50% 0 0 / 38% 38% 0 0;box-shadow:inset 0 0 0 1px #000;border:4px solid var(--ink);border-bottom:0}
+html[data-dir] .hero-media::after{content:"";position:absolute;left:0;right:0;bottom:0;height:12px;background:var(--lc-tri);border-top:3px solid var(--ink)}
+
+/* order: pizza first */
+html[data-dir] .menu{order:1}
+html[data-dir] .gallery{order:2}
+html[data-dir] .about{order:3}
+html[data-dir] .qr{order:4}
+html[data-dir] .book{order:5}
+html[data-dir] .visit{order:6}
+html[data-dir] .proposal{order:9}
+
+/* menu: the price board gets the oven badge and a tricolore top edge */
+html[data-dir] .menu .section-head{grid-template-columns:auto minmax(0,1fr);column-gap:16px;align-items:center}
+html[data-dir] .menu .section-head::before{content:"";grid-row:span 3;width:76px;height:66px;background:var(--lc-oven) 0 0/100% 100% no-repeat}
+html[data-dir] .menu .section-head > *{grid-column:2}
+html[data-dir] .dishes{background:var(--lc-tri) 0 0/100% 10px no-repeat,var(--surface);padding-top:16px}
+html[data-dir] .dish-name{font:400 1.2rem/1.15 var(--lc-font);text-transform:none;letter-spacing:.01em}
+html[data-dir] .dish-price{color:var(--primary)}
+html[data-dir] .tab[aria-selected=true]{color:#fff;box-shadow:3px 3px 0 var(--accent)}
+
+/* about + gallery: green as the second voice */
+html[data-dir] .point::before{color:var(--accent);font-family:var(--lc-font)}
+html[data-dir] .point h3{font-family:var(--lc-font);text-transform:none;font-size:1.25rem}
+html[data-dir] .shot:first-child{border-radius:50% 50% 4px 4px / 22% 22% 4px 4px}
+
+/* qr: oven on the card */
+html[data-dir] .qr-card::before{content:"";height:48px;background:var(--lc-oven) 50% 50%/auto 100% no-repeat}
+html[data-dir] .qr-name{font-family:var(--lc-font);text-transform:none}
+
+/* awning stripes become the tricolore under the header and above the footer */
+html[data-dir] .site-head::after{height:10px;background:var(--lc-tri);-webkit-mask:none;mask:none}
+html[data-dir] .site-foot::before{background:var(--lc-tri)}
+html[data-dir] .site-foot b{font:400 1.15rem var(--lc-font);color:#f8f1e2}
+
+@media (min-width:861px){
+  html[data-dir] .hero-media{padding:34px 34px 0}
+}
+@media (max-width:860px){
+  html[data-dir] .hero-title{font-size:clamp(3rem,16vw,4.4rem)}
+  html[data-dir] .menu .section-head::before{width:56px;height:49px}
+  html[data-dir] .brand{font-size:1.3rem}
+}
+
+/* mesa / cozinha */
+html[data-dir] .m-top{border-bottom:0;box-shadow:0 4px 0 #1b140d}
+html[data-dir] .m-top::after{content:"";position:absolute;left:0;right:0;bottom:-10px;height:6px;background:var(--lc-tri)}
+html[data-dir] .m-top h1{font:400 1.5rem/1 var(--lc-font);text-transform:none}
+html[data-dir] .m-cat,html[data-dir] .m-item h4{font-family:var(--lc-font);text-transform:none;font-weight:400}

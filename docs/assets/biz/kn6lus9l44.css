@@ -1,0 +1,72 @@
+/* Cancelas Restaurante — hook: the name — a wooden farm gate (cancela) with its diagonal brace; Bar e Adega Regional in Aldão */
+@import url('https://fonts.googleapis.com/css2?family=Zilla+Slab:wght@600;700&display=swap');
+:root{
+  --cz:'Zilla Slab','Alfa Slab One',Georgia,serif;
+  --bg:#f1efe4; --surface:#fdfcf6;
+  --field:color-mix(in srgb,var(--primary) 10%,#f4f2e8);
+  --gate:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 80 40'%3E%3Cg fill='none' stroke-linecap='round'%3E%3Cpath d='M5 3v35M75 3v35' stroke='%233f5e3a' stroke-width='5'/%3E%3Cpath d='M5 9h70M5 20h70M5 31h70' stroke='%23c77d2e' stroke-width='3.4'/%3E%3Cpath d='M7 31L73 9' stroke='%23c77d2e' stroke-width='3.4'/%3E%3C/g%3E%3C/svg%3E");
+  --gate-light:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 80 40'%3E%3Cg fill='none' stroke-linecap='round'%3E%3Cpath d='M5 3v35M75 3v35' stroke='%23f1efe6' stroke-width='5'/%3E%3Cpath d='M5 9h70M5 20h70M5 31h70M7 31L73 9' stroke='%23e2a35c' stroke-width='3.4'/%3E%3C/g%3E%3C/svg%3E");
+}
+html body{background:var(--bg)}
+
+/* wordmark: carved slab caps, gate as the sign */
+html .brand{display:inline-flex;align-items:center;gap:10px;font:700 1.3rem/1 var(--cz);letter-spacing:.08em;text-transform:uppercase;color:var(--primary)}
+html .brand::before{content:"";width:44px;height:22px;flex:none;background:var(--gate) center/contain no-repeat}
+html .hero-title{font:700 clamp(2.3rem,4.4vw,4rem)/.98 var(--cz);overflow-wrap:anywhere;text-transform:uppercase;letter-spacing:.03em;color:var(--primary)}
+html .hero-title::after{content:"";display:block;width:120px;height:60px;margin-top:16px;background:var(--gate) left center/contain no-repeat}
+html .hero .kicker{color:#7a4614}
+
+/* hero: the photo is seen through an open gate — posts each side, top rail over it */
+html .hero-media{position:relative;background:var(--primary);padding:22px 18px 18px;border-radius:2px;
+  box-shadow:inset 6px 0 0 #2c4428,inset -6px 0 0 #2c4428,0 20px 40px -20px rgba(31,40,24,.6)}
+html .hero-media::before{content:"";position:absolute;left:0;right:0;top:6px;height:6px;background:var(--accent);border-radius:3px}
+html .hero-media img{border-radius:0;box-shadow:0 0 0 2px #2c4428}
+
+/* about: the address point (Rua 24 de Junho) as the gate sign */
+html .point::before{width:30px;height:16px;margin-top:6px;background:var(--gate) center/contain no-repeat;border:0}
+html .point:nth-child(2){background:var(--field);padding-inline:12px;border-left:5px solid var(--primary)}
+
+/* menu: slate inside green gate wood, gate at the corner */
+html .menu{padding-top:var(--section)}
+html .menu > .wrap{border-image:repeating-linear-gradient(92deg,#3f5e3a 0 9px,#34502f 9px 13px,#486a42 13px 21px,#2c4428 21px 24px) 16}
+html .menu > .wrap::after{content:"";position:absolute;top:clamp(20px,3vw,36px);right:clamp(18px,3vw,40px);width:clamp(70px,10vw,110px);height:clamp(35px,5vw,55px);
+  background:var(--gate-light) center/contain no-repeat;opacity:.6;pointer-events:none}
+html .menu h2{font:700 clamp(2rem,4.4vw,3rem)/1 var(--cz);text-transform:uppercase;letter-spacing:.03em;padding-right:90px}
+html .menu .dish-price{color:#f0b979}
+
+/* QR: field green */
+html .qr{background:var(--primary)}
+html .qr-name{font:700 1.1rem/1 var(--cz);text-transform:uppercase;letter-spacing:.06em;color:var(--primary)}
+html .qr-card{background:linear-gradient(#fff,#fff) padding-box,repeating-linear-gradient(45deg,#3f5e3a 0 8px,#c77d2e 8px 16px) border-box}
+
+/* booking tablecloth in green check instead of red */
+html .book{background-image:linear-gradient(90deg,color-mix(in srgb,var(--primary) 15%,transparent) 50%,transparent 50%),
+  linear-gradient(color-mix(in srgb,var(--primary) 15%,transparent) 50%,transparent 50%)}
+
+/* order: menu first, the house after */
+html main > .menu{order:1}
+html main > .about{order:2}
+html main > .gallery{order:3}
+html main > .book{order:4}
+html main > .qr{order:5}
+html main > .visit{order:6}
+html main > .proposal{order:9}
+
+html .site-foot b{font:700 1rem var(--cz);text-transform:uppercase;letter-spacing:.08em;color:var(--primary)}
+
+@media (max-width:860px){
+  html .hero-media{padding:16px 12px 12px;box-shadow:inset 5px 0 0 #2c4428,inset -5px 0 0 #2c4428}
+  html .hero-media::before{top:5px;height:5px}
+  html .hero-copy{padding-top:26px}
+  html .hero-title{font-size:clamp(2.1rem,10vw,3.1rem)}
+  html .hero-title::after{width:90px;height:45px}
+  html .brand{font-size:1.1rem}
+  html .brand::before{width:36px;height:18px}
+  html .menu h2{padding-right:70px}
+}
+
+/* mesa / cozinha */
+html .m-top{background:var(--primary)}
+html .m-top h1{font:700 1.35rem/1 var(--cz);text-transform:uppercase;letter-spacing:.06em}
+html .m-top::after{height:14px;bottom:-14px;background:var(--gate) 0 0/28px 14px repeat-x}
+html .m-cat{font-family:var(--cz);font-weight:700;color:var(--primary)}

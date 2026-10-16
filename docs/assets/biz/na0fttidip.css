@@ -1,0 +1,56 @@
+/* Leana Kebab — hook: the döner spit (a stacked, turning meat cone on its skewer) — kebab "pronto para matar a fome" */
+@import url('https://fonts.googleapis.com/css2?family=Bungee&display=swap');
+html[data-dir]{
+  --lk-mark:'Bungee','Anton',Impact,sans-serif;
+  --on-accent:#fff;                                   /* white on the brand green reads better than ink */
+  --lk-green:var(--accent);
+  --lk-spit:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='28' height='72' viewBox='0 0 28 72'%3E%3Cpath d='M14 0v72' stroke='%231b140d' stroke-width='2.5'/%3E%3Cg stroke='%231b140d' stroke-width='1.5'%3E%3Cpath d='M4 10h20l-1 9H5z' fill='%23C2410C'/%3E%3Cpath d='M5 19h18l-1 9H6z' fill='%23e07a3f'/%3E%3Cpath d='M6 28h16l-1 9H7z' fill='%23C2410C'/%3E%3Cpath d='M7 37h14l-1 9H8z' fill='%23e07a3f'/%3E%3Cpath d='M8 46h12l-1 8H9z' fill='%23C2410C'/%3E%3C/g%3E%3Ccircle cx='14' cy='6' r='3' fill='%2315803D'/%3E%3Cpath d='M6 66h16' stroke='%231b140d' stroke-width='3'/%3E%3C/svg%3E");
+  --lk-cuts:repeating-linear-gradient(-12deg, transparent 0 9px, rgba(27,20,13,.18) 9px 11px);
+}
+
+/* wordmark: chunky signage letters, a little spit before the name */
+html[data-dir] .brand{font:400 1.25rem/1 var(--lk-mark);letter-spacing:.01em;display:inline-flex;align-items:center;gap:8px}
+html[data-dir] .brand::before{content:"";width:12px;height:30px;background:var(--lk-spit) center/contain no-repeat;flex:none;filter:invert(1) hue-rotate(180deg)}
+html[data-dir] .hero-title{font:400 clamp(2.8rem,10vw,6rem)/.95 var(--lk-mark);letter-spacing:-.01em;text-transform:uppercase;
+  text-shadow:4px 4px 0 var(--lk-green),8px 8px 0 #1b140d}
+html[data-dir] .m-top h1,html[data-dir] .site-foot b,html[data-dir] .qr-name{font-family:var(--lk-mark);font-weight:400}
+html[data-dir] h2{font-family:var(--lk-mark);font-size:clamp(2rem,5vw,3.4rem)}
+
+/* hero: photo moves to the left; the copy panel carries a tall spit down its edge and a sliced-meat texture */
+html[data-dir] .hero{background:var(--primary) var(--lk-cuts)}
+html[data-dir] .hero .kicker{background:var(--lk-green);color:#fff}
+@media (min-width:861px){
+  html[data-dir] .hero{grid-template-columns:1fr 1.05fr}
+  html[data-dir] .hero-media{order:0;border-left:0;border-right:4px solid #1b140d}
+  html[data-dir] .hero-copy{position:relative;order:1;padding:72px max(32px,calc((100vw - var(--maxw))/2 + 16px)) 72px 124px}
+  html[data-dir] .hero-copy::before{content:"";position:absolute;left:34px;top:48px;bottom:48px;width:64px;background:var(--lk-spit) center/contain no-repeat}
+  html[data-dir] .hero--photo .facts li:first-child{left:auto;right:34px;top:34px}
+}
+
+/* order: the board straight after the poster */
+html[data-dir] .menu{order:1}
+html[data-dir] .gallery{order:2;padding-top:var(--section)}
+html[data-dir] .about{order:3}
+html[data-dir] .qr{order:4}
+html[data-dir] .book{order:5}
+html[data-dir] .visit{order:6}
+html[data-dir] .proposal{order:99}
+
+/* menu: price board with a spit as the header icon and green price stickers */
+html[data-dir] .menu .section-head{grid-template-columns:auto 1fr;column-gap:18px}
+html[data-dir] .menu .section-head::before{content:"";grid-row:span 3;width:40px;height:100%;min-height:96px;background:var(--lk-spit) center top/40px auto no-repeat}
+html[data-dir] .dish-price{background:var(--lk-green);color:#fff;padding:.12em .3em .06em;border:2px solid #1b140d;box-shadow:3px 3px 0 #1b140d;transform:rotate(-2deg);font-size:clamp(1.4rem,3.4vw,1.8rem)}
+html[data-dir] .tab[aria-selected=true]{color:#fff;background:var(--lk-green);box-shadow:3px 3px 0 #1b140d}
+
+/* qr: green order ticket */
+html[data-dir] .qr-card{box-shadow:8px 8px 0 var(--lk-green);transform:rotate(-2deg)}
+html[data-dir] .qr-table{background:var(--lk-green);color:#fff}
+
+/* footer: closing spit */
+html[data-dir] .site-foot .wrap{position:relative;padding-left:max(var(--gutter),48px)}
+html[data-dir] .site-foot .wrap::before{content:"";position:absolute;left:var(--gutter);top:0;width:20px;height:52px;background:var(--lk-spit) center/contain no-repeat;filter:invert(1) hue-rotate(180deg)}
+
+@media (max-width:860px){
+  html[data-dir] .hero-title{font-size:clamp(2.4rem,12vw,3.6rem);text-shadow:3px 3px 0 var(--lk-green),6px 6px 0 #1b140d}
+  html[data-dir] .menu .section-head::before{min-height:72px;width:30px;background-size:30px auto}
+}

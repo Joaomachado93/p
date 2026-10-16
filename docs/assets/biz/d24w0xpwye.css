@@ -1,0 +1,68 @@
+/* Paparikos Brunch & Salão de Chá — hook: the salão de chá, a steaming teacup on its saucer; brunch "sem pressa" */
+@import url('https://fonts.googleapis.com/css2?family=Gilda+Display&display=swap');
+:root{
+  --leaf:color-mix(in srgb,var(--primary) 82%,#0d2a20);
+  --apricot:var(--accent);
+  --display:'Gilda Display','Fraunces',Georgia,serif;
+  --chavena:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Cg fill='none' stroke='%23f2a65a' stroke-width='2.6' stroke-linecap='round'%3E%3Cpath d='M23 4q-5 5 0 10t0 10'/%3E%3Cpath d='M32 2q-5 5 0 10t0 10'/%3E%3Cpath d='M41 4q-5 5 0 10t0 10'/%3E%3C/g%3E%3Cpath d='M48 34q10-1 8 8q-2 7-11 4' fill='none' stroke='%23277a5c' stroke-width='3.6'/%3E%3Cpath d='M10 29h40v6q0 17-20 17T10 35z' fill='%23277a5c'/%3E%3Cpath d='M14 33h32' stroke='%23f2a65a' stroke-width='2'/%3E%3Cellipse cx='30' cy='56' rx='25' ry='4.5' fill='%231d5c45'/%3E%3C/svg%3E");
+  --steam:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 40 16'%3E%3Cpath d='M0 8q5-7 10 0t10 0 10 0 10 0' fill='none' stroke='%23f2a65a' stroke-width='2.2' stroke-linecap='round'/%3E%3C/svg%3E");
+}
+
+/* wordmark: tea-room serif, a teacup as the sign */
+html[data-dir] .brand{display:inline-flex;align-items:center;gap:10px;font:400 clamp(1.2rem,2.2vw,1.5rem)/1.05 var(--display);font-style:normal;color:var(--leaf);letter-spacing:.01em}
+html[data-dir] .brand::before{content:"";width:34px;height:34px;flex:none;background:var(--chavena) center/contain no-repeat}
+html[data-dir] .hero-title{font:400 clamp(2.5rem,7vw,5rem)/1.02 var(--display);letter-spacing:-.005em;color:var(--leaf)}
+html[data-dir] .hero-title::before{content:"";display:block;width:clamp(56px,7vw,74px);aspect-ratio:1;margin-bottom:10px;background:var(--chavena) center/contain no-repeat}
+html[data-dir] h1,html[data-dir] h2,html[data-dir] h3{font-family:var(--display);font-weight:400;font-variation-settings:normal}
+html[data-dir] .tagline{font-family:var(--display);font-style:normal;color:#4d5a54}
+html[data-dir] .tagline::after{content:"";display:block;width:120px;height:16px;margin-top:12px;background:var(--steam) 0 0/40px 16px repeat-x}
+html[data-dir] .kicker{background:var(--leaf)}
+
+/* hero: photo left, words right; the window becomes the bowl of a teacup sitting on a saucer line */
+html[data-dir] .hero-media{border-radius:14px 14px 50% 50%/14px 14px 34% 34%;box-shadow:0 0 0 6px var(--surface),0 0 0 7px var(--line),0 22px 0 -6px color-mix(in srgb,var(--primary) 30%,#efe6da),0 30px 40px -20px rgba(20,60,40,.45)}
+@media (min-width:861px){
+  html[data-dir] .hero{grid-template-columns:minmax(0,1fr) minmax(0,1fr)}
+  html[data-dir] .hero-media{grid-column:1;aspect-ratio:1;max-height:560px}
+  html[data-dir] .hero-copy{grid-column:2}
+}
+@media (max-width:860px){html[data-dir] .hero-media{aspect-ratio:5/4;margin-bottom:18px}}
+
+/* section order: brunch photos first, then the menu, then the story */
+html[data-dir] main>.hero{order:0}
+html[data-dir] main>.gallery{order:1;padding-top:var(--section)}
+html[data-dir] main>.menu{order:2}
+html[data-dir] main>.about{order:3}
+html[data-dir] main>.book{order:4}
+html[data-dir] main>.visit{order:5}
+html[data-dir] main>.proposal{order:99}
+
+/* gallery: rounded "cups" instead of doilies */
+html[data-dir] .shot{-webkit-mask:none;mask:none;padding:0;border-radius:18px 18px 40% 40%/18px 18px 22% 22%;background:var(--paper)}
+html[data-dir] .shot img{border-radius:0}
+
+/* menu: a tea-room card, steam line on top, pill tabs in apricot */
+html[data-dir] .menu{border-top:0}
+html[data-dir] .menu::before{content:"";position:absolute;left:0;right:0;top:-8px;height:16px;background:var(--steam) 0 0/40px 16px repeat-x}
+html[data-dir] .menu .section-head{justify-items:center;text-align:center}
+html[data-dir] .menu .section-head::before{content:"";width:60px;height:60px;background:var(--chavena) center/contain no-repeat}
+html[data-dir] .tabs{justify-content:safe center}
+html[data-dir] .tab{clip-path:none;border-radius:999px;font-family:var(--body);font-weight:600}
+html[data-dir] .tab[aria-selected=true]{background:var(--leaf)}
+html[data-dir] .dish-name{font-family:var(--display);font-weight:400;font-variation-settings:normal}
+html[data-dir] .dish-price{background:var(--leaf);font-family:var(--body);font-style:normal;font-weight:700}
+
+/* about: cups as bullets */
+html[data-dir] .point::before{content:"";width:28px;height:28px;background:var(--chavena) center/contain no-repeat}
+html[data-dir] .lede{font-family:var(--display);font-variation-settings:normal}
+
+/* footer */
+html[data-dir] .site-foot{border-top:0;position:relative}
+html[data-dir] .site-foot::before{content:"";position:absolute;left:0;right:0;top:-8px;height:16px;background:var(--steam) 0 0/40px 16px repeat-x}
+html[data-dir] .site-foot b{font:400 1.1rem var(--display);font-style:normal;color:var(--leaf)}
+
+/* mesa / cozinha */
+html[data-dir] .m-top{background:var(--leaf)}
+html[data-dir] .m-top h1{font:400 1.35rem/1.1 var(--display);font-style:normal}
+html[data-dir] .m-cat{font-family:var(--display);font-weight:400;color:var(--leaf)}
+html[data-dir] .m-item h4{font-family:var(--display);font-weight:400}
+html[data-dir] .m-item .price{color:var(--leaf);font-style:normal}

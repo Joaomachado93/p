@@ -1,0 +1,68 @@
+/* Gulas - Pizza, Burger & Coffee — hook: "com gula" — a bite taken out of everything (bitten bun mark, bitten photo corner) */
+@import url('https://fonts.googleapis.com/css2?family=Lilita+One&display=swap');
+:root{
+  --gl-font:'Lilita One','Arial Black',sans-serif;
+  /* round bun with a bite out of its top-right */
+  --gl-bite:url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'><path d='M32 4a28 28 0 0 1 10 2a8 8 0 0 0 8 10a8 8 0 0 0 9 9a8 8 0 0 0 1 3A28 28 0 1 1 32 4z' fill='%23ffb703' stroke='%231b140d' stroke-width='3.5'/><path d='M14 34h36' stroke='%23d62828' stroke-width='5' stroke-linecap='round'/><path d='M16 42h32' stroke='%231b140d' stroke-width='3.5' stroke-linecap='round'/><g fill='%231b140d'><circle cx='24' cy='20' r='1.8'/><circle cx='33' cy='15' r='1.8'/><circle cx='30' cy='24' r='1.8'/></g></svg>");
+  /* bite mask: three tooth-arcs out of a corner */
+  --gl-bitemask:radial-gradient(circle 46px at 0 70px,#0000 97%,#000),radial-gradient(circle 46px at 58px 34px,#0000 97%,#000),radial-gradient(circle 46px at 100px 0,#0000 97%,#000);
+}
+
+/* wordmark: chunky rounded caps, the bitten bun as logo */
+html[data-dir] .brand{font:400 1.45rem/1 var(--gl-font);text-transform:none;letter-spacing:.01em;color:#fff;display:inline-flex;align-items:center;gap:10px}
+html[data-dir] .brand::before{content:"";width:34px;height:34px;flex:none;background:var(--gl-bite) 0 0/100% 100% no-repeat}
+html[data-dir] h1,html[data-dir] h2,html[data-dir] h3{font-family:var(--gl-font);text-transform:none;letter-spacing:0}
+html[data-dir] .hero-title{font:400 clamp(2.6rem,10.5vw,5.6rem)/.95 var(--gl-font);text-transform:none;letter-spacing:-.005em;
+  text-shadow:4px 4px 0 var(--ink);color:#fff}
+html[data-dir] .hero .kicker{background:var(--accent);color:var(--ink)}
+
+/* hero: someone already took a bite of the photo */
+html[data-dir] .hero-media{-webkit-mask:var(--gl-bitemask);-webkit-mask-composite:source-in;mask:var(--gl-bitemask);mask-composite:intersect}
+html[data-dir] .hero::after{content:"";position:absolute;width:120px;height:120px;left:-30px;bottom:-30px;background:var(--gl-bite) 0 0/100% 100% no-repeat;opacity:.2;transform:rotate(-14deg);pointer-events:none}
+
+/* order: hunger first — the menu leads */
+html[data-dir] .menu{order:1}
+html[data-dir] .gallery{order:2}
+html[data-dir] .about{order:3}
+html[data-dir] .qr{order:4}
+html[data-dir] .book{order:5}
+html[data-dir] .visit{order:6}
+html[data-dir] .proposal{order:9}
+
+/* menu: the price board is bitten too, bun logo sticker on its corner */
+html[data-dir] .menu .wrap{position:relative}
+html[data-dir] .menu .section-head{grid-template-columns:auto minmax(0,1fr);column-gap:16px;align-items:center}
+html[data-dir] .menu .section-head::before{content:"";grid-row:span 3;width:64px;height:64px;background:var(--gl-bite) 0 0/100% 100% no-repeat;transform:rotate(-8deg)}
+html[data-dir] .menu .section-head > *{grid-column:2}
+html[data-dir] .menu h2{color:var(--primary);text-shadow:3px 3px 0 var(--ink)}
+html[data-dir] .menu .kicker{justify-self:start}
+html[data-dir] .dish-name{font:400 1.25rem/1.1 var(--gl-font);text-transform:none;letter-spacing:.01em}
+html[data-dir] .dish-price{font-family:var(--gl-font)}
+html[data-dir] .dish:hover .dish-name{color:var(--primary)}
+
+/* about: numbers as mustard dots */
+html[data-dir] .point::before{font-family:var(--gl-font)}
+html[data-dir] .lede{font-weight:600}
+
+/* gallery: every snapshot with a small nibble */
+html[data-dir] .shot{-webkit-mask:radial-gradient(circle 22px at 100% 18px,#0000 97%,#000),radial-gradient(circle 22px at calc(100% - 30px) 0,#0000 97%,#000);
+  -webkit-mask-composite:source-in;mask:radial-gradient(circle 22px at 100% 18px,#0000 97%,#000),radial-gradient(circle 22px at calc(100% - 30px) 0,#0000 97%,#000);mask-composite:intersect}
+
+/* qr card + footer use the bun */
+html[data-dir] .qr-card::before{content:"";width:52px;height:52px;justify-self:center;background:var(--gl-bite) 0 0/100% 100% no-repeat}
+html[data-dir] .qr-name{font-family:var(--gl-font);text-transform:none}
+html[data-dir] .site-foot b{font:400 1.1rem var(--gl-font);color:var(--accent)}
+html[data-dir] .site-foot .wrap{padding-left:calc(var(--gutter) + 52px);background:var(--gl-bite) var(--gutter) 4px/40px 40px no-repeat}
+
+@media (max-width:860px){
+  html[data-dir] .hero-media{--gl-bitemask:radial-gradient(circle 34px at 0 52px,#0000 97%,#000),radial-gradient(circle 34px at 42px 24px,#0000 97%,#000),radial-gradient(circle 34px at 74px 0,#0000 97%,#000)}
+  html[data-dir] .hero::after{width:90px;height:90px;left:auto;right:-16px;bottom:-16px}
+  html[data-dir] .menu .section-head::before{width:48px;height:48px}
+  html[data-dir] .brand{font-size:1.2rem}
+  html[data-dir] .brand::before{width:28px;height:28px}
+}
+
+/* mesa / cozinha */
+html[data-dir] .m-top h1{font:400 1.45rem/1 var(--gl-font);text-transform:none;display:flex;gap:8px;align-items:center}
+html[data-dir] .m-top h1::before{content:"";width:28px;height:28px;flex:none;background:var(--gl-bite) 0 0/100% 100% no-repeat}
+html[data-dir] .m-cat,html[data-dir] .m-item h4{font-family:var(--gl-font);text-transform:none}

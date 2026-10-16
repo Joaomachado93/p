@@ -1,0 +1,62 @@
+/* Com Requinte Guimarães — hook: the name — "requinte", refinement — a scallop shell (marisco e peixe) as a gold crest, aubergine + gold */
+@import url('https://fonts.googleapis.com/css2?family=Italiana&display=swap');
+:root{
+  --cr-plum:#3b2a4d; --cr-plum-d:#24182f; --cr-gold:#c8a15a; --cr-gold-ink:#7d5e22; --cr-pearl:#f7f3ec;
+  --bg:#f8f5f0; --linen:#efe9e1; --night:#24182f;
+  --cr-shell:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='80' height='76' viewBox='0 0 80 76'%3E%3Cpath d='M40 70 6 30C8 14 22 4 40 4s32 10 34 26z' fill='none' stroke='%23c8a15a' stroke-width='3' stroke-linejoin='round'/%3E%3Cg stroke='%23c8a15a' stroke-width='2.2' fill='none'%3E%3Cpath d='M40 70V5M40 70 17 10M40 70 63 10M40 70 8 22M40 70 72 22M40 70 28 6M40 70 52 6'/%3E%3C/g%3E%3Cpath d='M30 70h20l-4 5h-12z' fill='%23c8a15a'/%3E%3C/svg%3E");
+}
+/* wordmark: hairline Italiana capitals, airy tracking, shell crest above */
+html[data-dir] .brand{font:400 1.35rem/1 'Italiana',var(--display);letter-spacing:.14em;text-transform:uppercase;color:var(--cr-plum-d);display:inline-flex;align-items:center;gap:10px}
+html[data-dir] .brand::before{content:"";width:24px;height:23px;flex:none;background:var(--cr-shell) 0 0/100% 100% no-repeat}
+html[data-dir] .hero-title{font-family:'Italiana',var(--display);font-weight:400;letter-spacing:.04em;color:var(--cr-plum-d);line-height:1}
+html[data-dir] .hero-title::before{content:"";display:block;width:56px;height:53px;margin-bottom:18px;background:var(--cr-shell) 0 0/100% 100% no-repeat}
+html[data-dir] h2{font-family:'Italiana',var(--display);font-weight:400;letter-spacing:.02em}
+html[data-dir] .kicker{color:var(--cr-gold-ink)}
+
+/* hero: plum velvet ground, gold double-rule mat around the photo */
+html[data-dir] .hero{background:var(--cr-plum-d);color:var(--cr-pearl);box-shadow:0 0 0 100vmax var(--cr-plum-d);clip-path:inset(0 -100vmax)}
+html[data-dir] .hero .hero-title{color:#fff}
+html[data-dir] .hero .kicker{color:var(--cr-gold)}
+html[data-dir] .hero .tagline,html[data-dir] .hero .facts,html[data-dir] .hero .facts a{color:#e6dcef}
+html[data-dir] .hero .facts{border-top-color:rgba(200,161,90,.4)}
+html[data-dir] .hero .facts b{color:#fff}
+html[data-dir] .hero-media{background:var(--cr-plum);border-color:var(--cr-gold);box-shadow:inset 0 0 0 9px var(--cr-plum)}
+html[data-dir] .hero-media::after{border-color:rgba(200,161,90,.75)}
+html[data-dir] .hero .btn-primary{background:var(--cr-gold);border-color:var(--cr-gold);color:var(--cr-plum-d)}
+html[data-dir] .hero .btn-primary:hover{background:#dcb874;border-color:#dcb874}
+html[data-dir] .hero .btn-secondary{color:var(--cr-pearl);border-color:rgba(247,243,236,.5)}
+html[data-dir] .hero :focus-visible{outline-color:var(--cr-gold)}
+
+/* order: story first (since 2007, 110 seats), then menu, gallery later */
+html[data-dir] .hero{order:-10}
+html[data-dir] .about{order:1}
+html[data-dir] .menu{order:2}
+html[data-dir] .book{order:3}
+html[data-dir] .gallery{order:4}
+html[data-dir] .qr{order:5}
+html[data-dir] .visit{order:6}
+html[data-dir] .proposal{order:99}
+
+/* menu: carte crowned by the shell, gold leaders */
+html[data-dir] .menu .section-head::before{content:"";width:48px;height:46px;background:var(--cr-shell) 0 0/100% 100% no-repeat}
+html[data-dir] .menu h2::after,html[data-dir] h2::after{background:var(--cr-gold)}
+html[data-dir] .dish-dots{border-bottom-color:rgba(200,161,90,.7)}
+html[data-dir] .dish-price{color:var(--cr-gold-ink)}
+html[data-dir] .tab[aria-selected=true]{color:var(--cr-plum);border-bottom-color:var(--cr-gold)}
+html[data-dir] .point::before{color:var(--cr-gold-ink)}
+html[data-dir] .services .i{color:var(--cr-gold-ink)}
+html[data-dir] .qr{background:var(--cr-plum)}
+html[data-dir] .site-foot{background:var(--cr-plum-d);color:var(--cr-pearl)}
+html[data-dir] .site-foot .muted,html[data-dir] .site-foot a{color:#d6cbe0}
+html[data-dir] .site-foot b{font-family:'Italiana',var(--display);font-weight:400;letter-spacing:.12em;text-transform:uppercase}
+html[data-dir] .site-foot .wrap::before{content:"";width:32px;height:30px;background:var(--cr-shell) 0 0/100% 100% no-repeat;margin-bottom:6px}
+
+/* mesa / cozinha pages */
+html[data-dir] .m-top{background:var(--cr-plum-d);border-bottom:2px solid var(--cr-gold)}
+html[data-dir] .m-top h1{font-family:'Italiana',var(--display);font-weight:400;letter-spacing:.1em;text-transform:uppercase}
+html[data-dir] .ticket{border-top-color:var(--cr-gold)}
+
+@media (max-width:860px){
+  html[data-dir] .hero-title::before{width:42px;height:40px;margin-bottom:12px}
+  html[data-dir] .brand{font-size:1.1rem;letter-spacing:.1em}
+}

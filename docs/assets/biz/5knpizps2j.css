@@ -1,0 +1,68 @@
+/* Tasquinha das Canecas — hook: the canecas — two tankards clinking, a shelf of mugs, a tavern sign hung over the door */
+@import url('https://fonts.googleapis.com/css2?family=Ultra&display=swap');
+:root{
+  --tc-font:'Ultra','Rockwell Extra Bold','Rockwell',Georgia,serif;
+  --bg:color-mix(in oklab,var(--primary) 26%,#0e0907);
+  --surface:color-mix(in oklab,var(--primary) 34%,#140c09);
+  --surface-2:color-mix(in oklab,var(--primary) 40%,#18100c);
+  --candle:color-mix(in oklab,var(--accent) 70%,#f3c766);
+  --candle-soft:color-mix(in oklab,var(--candle) 32%,transparent);
+  --wood:repeating-linear-gradient(90deg,rgba(0,0,0,.18) 0 2px,transparent 2px 9px,rgba(255,220,170,.035) 9px 13px,transparent 13px 22px);
+  --clink:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 72 48'%3E%3Cg fill='none' stroke='%23e8ad45' stroke-width='3' stroke-linejoin='round'%3E%3Cg transform='rotate(-14 22 28)'%3E%3Cpath d='M12 16h20v24a3 3 0 0 1-3 3H15a3 3 0 0 1-3-3z'/%3E%3Cpath d='M12 22H7a2 2 0 0 0-2 2v8a2 2 0 0 0 2 2h5'/%3E%3Cpath d='M18 23v14M26 23v14'/%3E%3C/g%3E%3Cg transform='rotate(14 50 28)'%3E%3Cpath d='M40 16h20v24a3 3 0 0 1-3 3H43a3 3 0 0 1-3-3z'/%3E%3Cpath d='M60 22h5a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2h-5'/%3E%3Cpath d='M46 23v14M54 23v14'/%3E%3C/g%3E%3C/g%3E%3Cpath d='M30 7l3 4M42 7l-3 4M36 3v6' stroke='%23f6e6c6' stroke-width='2.2' fill='none' stroke-linecap='round'/%3E%3C/svg%3E");
+  --mug:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M5 6h10v12a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2zM15 9h2a2 2 0 0 1 2 2v3a2 2 0 0 1-2 2h-2M8 9v8M12 9v8' fill='none' stroke='%23e8ad45' stroke-width='1.6'/%3E%3C/svg%3E");
+}
+[data-dir=petisco] body{background:var(--wood),radial-gradient(120% 60% at 85% 0%,color-mix(in oklab,var(--primary) 22%,transparent),transparent 70%),var(--bg)}
+/* wordmark: chunky slab like a carved tavern board */
+[data-dir=petisco] .brand{font:400 1.2rem/1.05 var(--tc-font);font-style:normal;color:#f6e6c6;display:inline-flex;align-items:center;gap:10px;letter-spacing:.01em}
+[data-dir=petisco] .brand::before{content:"";width:40px;height:27px;background:var(--clink) center/contain no-repeat;flex:none}
+[data-dir=petisco] .hero-title{font:400 clamp(2.6rem,5.4vw,4.9rem)/1 var(--tc-font);font-style:normal;letter-spacing:-.01em;color:#f6e6c6;max-width:none;overflow-wrap:normal;hyphens:none;
+  text-shadow:0 3px 0 color-mix(in oklab,var(--primary) 80%,#000),0 2px 30px rgba(0,0,0,.5)}
+[data-dir=petisco] .tagline{font:500 clamp(1.15rem,2.2vw,1.45rem)/1.4 var(--body);color:#f1dcb6}
+/* hero: the copy hangs on a wooden sign with two chains */
+[data-dir=petisco] .hero-copy{position:relative}
+@media (min-width:861px){
+  [data-dir=petisco] .hero-copy{width:auto;max-width:min(760px,calc(100% - 2*var(--gutter)));margin:0 0 clamp(36px,5vw,70px) max(var(--gutter),calc((100vw - var(--maxw))/2 + 16px));
+    padding:clamp(34px,4vw,52px);background:var(--wood),color-mix(in oklab,var(--primary) 55%,#1a0f0a);border:3px solid var(--candle-soft);
+    outline:1px solid var(--candle-soft);outline-offset:-12px;border-radius:6px;box-shadow:0 30px 60px -20px rgba(0,0,0,.7)}
+  [data-dir=petisco] .hero-copy::before,[data-dir=petisco] .hero-copy::after{content:"";position:absolute;bottom:100%;width:3px;height:60px;
+    background:repeating-linear-gradient(180deg,var(--candle) 0 6px,transparent 6px 9px)}
+  [data-dir=petisco] .hero-copy::before{left:18%}
+  [data-dir=petisco] .hero-copy::after{right:18%}
+  [data-dir=petisco] .hero-media::after{background:linear-gradient(180deg,rgba(14,9,7,.15),rgba(14,9,7,.55) 70%,var(--bg))}
+}
+[data-dir=petisco] .hero .kicker{font-size:.8rem}
+[data-dir=petisco] h2{font:400 clamp(1.9rem,4.4vw,3rem)/1.05 var(--tc-font);letter-spacing:-.005em}
+[data-dir=petisco] .kicker::before{width:22px;height:22px;background:var(--mug) center/contain no-repeat}
+/* order: petiscos, then the table booking (friends come in groups), then the rest */
+.menu{order:1}.book{order:2}.gallery{order:3}.about{order:4}.qr{order:5}.visit{order:6}.proposal{order:9}
+/* menu: a shelf of canecas over the board */
+[data-dir=petisco] .menu .section-head{position:relative;padding-bottom:30px}
+[data-dir=petisco] .menu .section-head::after{content:"";position:absolute;left:0;right:0;bottom:0;height:24px;
+  background:var(--mug) 0 0/28px 24px repeat-x;border-bottom:4px solid color-mix(in oklab,var(--primary) 60%,#3a2214);opacity:.95}
+[data-dir=petisco] .dishes{border-radius:6px;background:var(--wood),color-mix(in oklab,var(--primary) 30%,#0c0705)}
+[data-dir=petisco] .dish-name{font:400 1.1rem/1.25 var(--tc-font);letter-spacing:.005em}
+[data-dir=petisco] .dish-price{font:400 1.05rem/1 var(--tc-font);font-style:normal;color:var(--candle)}
+[data-dir=petisco] .tab{border-radius:6px 6px 14px 14px}
+/* booking card: big clink ornament */
+[data-dir=petisco] .book .book-copy h2{position:relative;padding-top:64px}
+[data-dir=petisco] .book .book-copy h2::before{content:"";position:absolute;left:0;top:0;width:80px;height:54px;background:var(--clink) left center/contain no-repeat}
+/* about */
+[data-dir=petisco] .lede{font:500 clamp(1.3rem,2.4vw,1.75rem)/1.4 var(--body);font-style:normal;color:#f6e6c6}
+[data-dir=petisco] .point::before{content:"";width:34px;height:34px;background:var(--mug) center/contain no-repeat}
+[data-dir=petisco] .point h3{font:400 1.15rem/1.2 var(--tc-font)}
+[data-dir=petisco] .shot{border:6px solid color-mix(in oklab,var(--primary) 50%,#2a160c);border-radius:4px}
+/* QR + footer */
+[data-dir=petisco] .qr-name{font:400 1.05rem/1.1 var(--tc-font)}
+[data-dir=petisco] .site-foot{position:relative;padding-top:56px}
+[data-dir=petisco] .site-foot::before{content:"";position:absolute;top:16px;left:50%;width:60px;height:40px;margin-left:-30px;background:var(--clink) center/contain no-repeat}
+[data-dir=petisco] .site-foot b{font:400 1.05rem var(--tc-font);font-style:normal}
+@media (max-width:860px){
+  [data-dir=petisco] .hero-title{font-size:clamp(2.1rem,11vw,3.6rem)}
+  [data-dir=petisco] .dish-name{font-size:1rem}
+  [data-dir=petisco] .dish-price{font-size:.98rem}
+}
+/* mesa / cozinha */
+[data-dir=petisco] .m-top h1,[data-dir=petisco] .m-cat{font-family:var(--tc-font);font-style:normal;font-weight:400}
+[data-dir=petisco] .m-item h4{font:400 1rem/1.25 var(--tc-font)}
+[data-dir=petisco] .m-top h1{font-size:clamp(1rem,4.6vw,1.4rem);min-width:0;overflow-wrap:anywhere}
+[data-dir=petisco] .m-item .price{font:400 1rem var(--tc-font);font-style:normal}

@@ -1,0 +1,87 @@
+/* Restaurante Neta do Rei — hook: "do Rei" → royal crown, Roman-capital wordmark, navy and gold court livery */
+@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600;700&display=swap');
+:root{
+  --bg:#f8f6f1; --linen:#eef0f3; --night:#1c2d42; --gold:#C79A3A; --gold-lt:#e6c983;
+  --display:'Cinzel','Trajan Pro',Georgia,serif;
+  --crown:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 40 26'%3E%3Cg fill='none' stroke='%23C79A3A' stroke-width='2' stroke-linejoin='round'%3E%3Cpath d='M6 20L3 6l10 7 7-11 7 11 10-7-3 14z'/%3E%3Cpath d='M6 24h28'/%3E%3C/g%3E%3Cg fill='%23C79A3A'%3E%3Ccircle cx='3' cy='5' r='2'/%3E%3Ccircle cx='20' cy='2' r='2'/%3E%3Ccircle cx='37' cy='5' r='2'/%3E%3C/g%3E%3C/svg%3E");
+  --crown-rule:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 160 26'%3E%3Cg fill='none' stroke='%23C79A3A' stroke-width='1.6' stroke-linejoin='round'%3E%3Cpath d='M0 16h56M104 16h56'/%3E%3Cpath d='M66 20l-3-14 10 7 7-11 7 11 10-7-3 14z'/%3E%3Cpath d='M66 24h28'/%3E%3C/g%3E%3Cg fill='%23C79A3A'%3E%3Ccircle cx='63' cy='5' r='2'/%3E%3Ccircle cx='80' cy='2' r='2'/%3E%3Ccircle cx='97' cy='5' r='2'/%3E%3C/g%3E%3C/svg%3E");
+}
+html[data-dir=mesa] h1,html[data-dir=mesa] h2{font-family:var(--display);font-weight:600;letter-spacing:.02em}
+html[data-dir=mesa] h2::after{width:160px;height:26px;background:var(--crown-rule) 0 50%/160px 26px no-repeat}
+html[data-dir=mesa] .menu h2::after{margin-inline:auto}
+
+/* wordmark: Roman capitals under a small crown */
+html[data-dir=mesa] .brand{display:inline-flex;align-items:center;gap:.5em;font:700 1.08rem/1 var(--display);letter-spacing:.12em;text-transform:uppercase;color:var(--primary)}
+html[data-dir=mesa] .brand::before{content:"";width:1.6em;height:1.05em;background:var(--crown) 50% 50%/contain no-repeat;flex:none}
+
+/* hero: the royal navy panel */
+html[data-dir=mesa] .hero{background:var(--primary);color:#f6f1e6;max-width:none}
+html[data-dir=mesa] .hero .kicker{color:var(--gold-lt)}
+html[data-dir=mesa] .hero-title{font:600 clamp(2.4rem,9vw,4.8rem)/1.04 var(--display);letter-spacing:.01em;color:#fff}
+html[data-dir=mesa] .hero-title::before{content:"";display:block;width:1.3em;height:.85em;margin-bottom:.18em;background:var(--crown) 0 50%/contain no-repeat}
+html[data-dir=mesa] .tagline{color:#e4e9f0}
+html[data-dir=mesa] .hero .btn-primary{background:var(--gold-lt);border-color:var(--gold-lt);color:#14202f}
+html[data-dir=mesa] .hero .btn-primary:hover{background:#fff;border-color:#fff}
+html[data-dir=mesa] .hero .btn-secondary{color:#fff;border-color:rgba(255,255,255,.5)}
+html[data-dir=mesa] .hero .btn-secondary:hover{border-color:#fff}
+html[data-dir=mesa] .hero .facts{border-top-color:rgba(230,201,131,.4);color:#dfe5ee}
+html[data-dir=mesa] .hero .facts a{color:#dfe5ee}
+html[data-dir=mesa] .hero .facts b{color:#fff}
+html[data-dir=mesa] .hero .facts .i{color:var(--gold-lt)}
+html[data-dir=mesa] .hero-media{background:#24394f;border-color:rgba(230,201,131,.45);box-shadow:inset 0 0 0 9px var(--gold)}
+html[data-dir=mesa] .hero-media::after{border-color:rgba(255,255,255,.7)}
+@media (min-width:861px){
+  html[data-dir=mesa] .hero{padding-inline:max(var(--gutter),calc((100vw - var(--maxw))/2 + 16px))}
+  html[data-dir=mesa] .hero-media{box-shadow:inset 0 0 0 13px var(--gold)}
+}
+
+/* order: menu right after the welcome, gallery after the menu */
+html[data-dir=mesa] .about{order:1}
+html[data-dir=mesa] .menu{order:2}
+html[data-dir=mesa] .gallery{order:3}
+html[data-dir=mesa] .book{order:4}
+html[data-dir=mesa] .qr{order:5}
+html[data-dir=mesa] .visit{order:6}
+html[data-dir=mesa] .proposal{order:9}
+
+/* about: crowned numerals */
+html[data-dir=mesa] .point::before{color:var(--primary);font:700 1.1rem/1.2 var(--display)}
+
+/* menu: a gilt-framed royal bill of fare */
+html[data-dir=mesa] .menu{background:var(--linen)}
+html[data-dir=mesa] .menu .wrap{box-shadow:inset 0 0 0 8px var(--surface),inset 0 0 0 10px var(--gold),inset 0 0 0 14px var(--surface),inset 0 0 0 15px var(--gold),0 30px 60px -40px rgba(28,45,66,.5)}
+html[data-dir=mesa] .menu .section-head::before{content:"";width:46px;height:30px;background:var(--crown) 50% 50%/contain no-repeat}
+html[data-dir=mesa] .tab[aria-selected=true]{color:var(--primary);border-bottom-color:var(--gold)}
+html[data-dir=mesa] .dish-name{font:600 1.08rem/1.3 var(--display);letter-spacing:.02em}
+html[data-dir=mesa] .dish-price{font:700 1.08rem/1 var(--display);color:var(--primary)}
+html[data-dir=mesa] .dish-dots{border-bottom-color:rgba(199,154,58,.6)}
+
+/* qr + buttons */
+html[data-dir=mesa] .btn-primary{background:var(--primary);border-color:var(--primary)}
+html[data-dir=mesa] .qr{background:var(--night)}
+html[data-dir=mesa] .qr .kicker{color:var(--gold-lt);opacity:1}
+html[data-dir=mesa] .qr .btn-primary{background:var(--gold-lt);border-color:var(--gold-lt);color:#14202f}
+html[data-dir=mesa] .qr-card{outline:2px solid var(--gold)}
+html[data-dir=mesa] .qr-card::before{content:"";justify-self:center;width:44px;height:28px;background:var(--crown) 50% 50%/contain no-repeat}
+html[data-dir=mesa] .qr-name{font:700 .95rem/1.1 var(--display);color:var(--primary)}
+
+/* footer */
+html[data-dir=mesa] .site-foot{background:var(--primary);color:#e4e9f0;border-top:4px solid var(--gold)}
+html[data-dir=mesa] .site-foot b{font:700 1.05rem var(--display);color:#fff;letter-spacing:.06em}
+html[data-dir=mesa] .site-foot a{color:var(--gold-lt)}
+
+/* mesa / cozinha */
+html[data-dir=mesa] .m-top{background:var(--primary);border-bottom:3px solid var(--gold)}
+html[data-dir=mesa] .m-top h1{font:700 1.25rem/1.1 var(--display);letter-spacing:.06em}
+html[data-dir=mesa] .m-cat,html[data-dir=mesa] .m-item h4{font-family:var(--display)}
+html[data-dir=mesa] .ticket{border-top-color:var(--gold)}
+
+@media (max-width:860px){
+  html[data-dir=mesa] .brand{font-size:.95rem}
+  html[data-dir=mesa] .hero-media{margin-top:16px}
+  html[data-dir=mesa] .hero-copy{padding-bottom:40px}
+}
+
+/* long reading text stays in a book serif, not capitals */
+html[data-dir=mesa] .tagline,html[data-dir=mesa] .lede,html[data-dir=mesa] .caption,html[data-dir=mesa] .menu .note,html[data-dir=mesa] .qr-card p,html[data-dir=mesa] .m-demo{font-family:Georgia,'Times New Roman',serif}
+html[data-dir=mesa] .lede{font-size:clamp(1.3rem,2.3vw,1.75rem)}

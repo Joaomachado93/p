@@ -1,0 +1,67 @@
+/* Restaurante Tasca Carneiro — hook: the carneiro (ram) — curled horns as the house mark, wool-warm browns of Guardizela */
+@import url('https://fonts.googleapis.com/css2?family=Bevan:ital@0;1&display=swap');
+:root{
+  --tc-display:'Bevan','Alfa Slab One',Georgia,serif;
+  --bg:#f5eee2; --surface:#fffaf1;
+  --wood:color-mix(in srgb,var(--primary) 85%,#2a160a);
+  --horns:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 120 64'%3E%3Cg fill='none' stroke='%237B3F1E' stroke-width='5' stroke-linecap='round'%3E%3Cpath d='M56 14C44 2 18 2 10 22C4 38 16 54 32 52C44 50 46 36 38 30C31 25 22 30 25 38'/%3E%3Cpath d='M64 14C76 2 102 2 110 22C116 38 104 54 88 52C76 50 74 36 82 30C89 25 98 30 95 38'/%3E%3C/g%3E%3Cpath d='M52 18Q60 12 68 18L66 46Q60 58 54 46Z' fill='%23D08C3C'/%3E%3Cg fill='%237B3F1E'%3E%3Ccircle cx='56' cy='30' r='2.2'/%3E%3Ccircle cx='64' cy='30' r='2.2'/%3E%3C/g%3E%3C/svg%3E");
+}
+
+/* wordmark: heavy slab, horns crowning the name */
+html[data-dir] .brand{font:400 1.25rem/1 var(--tc-display);color:var(--primary);display:inline-flex;align-items:center;gap:10px}
+html[data-dir] .brand::before{content:"";width:46px;height:25px;flex:none;background:var(--horns) center/contain no-repeat}
+html[data-dir] .hero-title{font-family:var(--tc-display);color:var(--primary);line-height:1.02;letter-spacing:-.01em}
+html[data-dir] .hero-title::before{content:"";display:block;width:clamp(84px,10vw,120px);aspect-ratio:120/64;margin-bottom:14px;background:var(--horns) left center/contain no-repeat}
+html[data-dir] h2{font-family:var(--tc-display)}
+html[data-dir] .kicker{color:var(--wood)}
+
+/* bands: ochre & brown stitched rope instead of azulejo */
+html[data-dir] .site-head::after,html[data-dir] .site-foot::before,html[data-dir] .proposal::before{height:10px;
+  background:repeating-linear-gradient(-45deg,var(--primary) 0 6px,var(--accent) 6px 12px)}
+
+/* hero: photo moves to the left inside a wooden frame, copy on the right */
+html[data-dir] .hero-media{background:var(--wood);padding:12px;box-shadow:0 18px 40px -18px rgba(60,30,10,.55),inset 0 0 0 3px color-mix(in srgb,var(--accent) 70%,#000)}
+html[data-dir] .hero-media img{box-shadow:0 0 0 2px var(--accent)}
+@media (min-width:861px){
+  html[data-dir] .hero{grid-template-columns:minmax(0,1.1fr) minmax(0,1fr);padding-right:0;padding-left:max(var(--gutter),calc((100vw - var(--maxw))/2 + 16px))}
+  html[data-dir] .hero-media{grid-column:1}
+  html[data-dir] .hero-title{font-size:clamp(2.6rem,4.6vw,4.4rem)}
+  html[data-dir] .hero-copy{grid-column:2;padding-left:clamp(28px,4vw,64px);padding-right:max(var(--gutter-r),calc((100vw - var(--maxw))/2 + 16px))}
+}
+
+/* order: the board first — it is a tasca */
+html[data-dir] main .menu{order:1;padding-top:var(--section)}
+html[data-dir] main .about{order:2}
+html[data-dir] main .gallery{order:3}
+html[data-dir] main .book{order:4}
+html[data-dir] main .visit{order:5}
+html[data-dir] main .proposal{order:9}
+
+/* menu: slate board in a dark walnut frame, horns in chalk on top */
+html[data-dir] .menu > .wrap{border-image:repeating-linear-gradient(92deg,#5a2e15 0 9px,#4a240f 9px 13px,#663619 13px 21px,#41200d 21px 24px) 16}
+html[data-dir] .menu .section-head{justify-items:center;text-align:center}
+html[data-dir] .menu .section-head::before{content:"";width:96px;height:52px;background:var(--horns) center/contain no-repeat;filter:brightness(0) invert(.92) sepia(.2)}
+html[data-dir] .menu .tabs{justify-content:safe center}
+
+/* about points: horn marks instead of tiles */
+html[data-dir] .point::before{width:28px;height:16px;margin-top:6px;border:0;background:var(--horns) center/contain no-repeat}
+html[data-dir] .about{background:var(--surface)}
+
+/* tablecloth in the house brown */
+html[data-dir] .book{background-image:linear-gradient(90deg,color-mix(in srgb,var(--accent) 22%,transparent) 50%,transparent 50%),linear-gradient(color-mix(in srgb,var(--accent) 22%,transparent) 50%,transparent 50%)}
+
+/* footer */
+html[data-dir] .site-foot b{font-family:var(--tc-display);font-weight:400;color:var(--primary)}
+html[data-dir] .mbar{border-top-color:var(--primary)}
+html[data-dir] .btn-primary{box-shadow:0 3px 0 var(--wood)}
+
+@media (max-width:860px){
+  html[data-dir] .hero-media{padding:0 0 8px;background:var(--accent);box-shadow:none}
+  html[data-dir] .hero-title::before{width:80px;margin-bottom:10px}
+  html[data-dir] .brand{font-size:1.05rem}
+}
+
+/* mesa / cozinha */
+html[data-dir] .m-top::after{background:repeating-linear-gradient(-45deg,var(--primary) 0 6px,var(--accent) 6px 12px);height:8px;bottom:-8px}
+html[data-dir] .m-top h1,html[data-dir] .m-cat{font-family:var(--tc-display)}
+html[data-dir] .ticket{border-top-color:var(--accent)}

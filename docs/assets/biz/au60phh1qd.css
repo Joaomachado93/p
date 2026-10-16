@@ -1,0 +1,53 @@
+/* David's Bar Snack — hook: Caldas das Taipas thermal water — steam rising off warm waves, a retro snack-bar sign in spa blue */
+@import url('https://fonts.googleapis.com/css2?family=Righteous&display=swap');
+:root{
+  --dav:'Righteous','Anton',sans-serif;
+  --termas:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='48' height='40' viewBox='0 0 48 40'%3E%3Cg fill='none' stroke-linecap='round' stroke-width='3'%3E%3Cpath stroke='%23F2A93B' d='M14 18c-4-4 4-7 0-12M24 18c-4-4 4-7 0-12M34 18c-4-4 4-7 0-12'/%3E%3Cpath stroke='%231D6FA5' d='M2 27q5.5-5 11 0t11 0 11 0 11 0M2 35q5.5-5 11 0t11 0 11 0 11 0'/%3E%3C/g%3E%3C/svg%3E");
+  --termas-light:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='48' height='40' viewBox='0 0 48 40'%3E%3Cg fill='none' stroke-linecap='round' stroke-width='3'%3E%3Cpath stroke='%23F2A93B' d='M14 18c-4-4 4-7 0-12M24 18c-4-4 4-7 0-12M34 18c-4-4 4-7 0-12'/%3E%3Cpath stroke='%23cfe6f5' d='M2 27q5.5-5 11 0t11 0 11 0 11 0M2 35q5.5-5 11 0t11 0 11 0 11 0'/%3E%3C/g%3E%3C/svg%3E");
+  --foam:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='44' height='12' viewBox='0 0 44 12'%3E%3Cpath d='M0 6q5.5-6 11 0t11 0 11 0 11 0V12H0Z' fill='%23cfe6f5'/%3E%3C/svg%3E");
+  --bg:color-mix(in srgb,var(--primary) 7%,#efe4cf);
+  --tile:#e3eef6;
+}
+
+/* wordmark: a rounded retro sign with steam rising beside it */
+html[data-dir] .brand{display:inline-flex;align-items:center;gap:10px;font:400 1.4rem/1 var(--dav);text-transform:none;letter-spacing:.01em}
+html[data-dir] .brand::before{content:"";width:30px;height:25px;flex:none;background:var(--termas-light) center/contain no-repeat}
+html[data-dir] .hero-title{font:400 clamp(3rem,7.4vw,6.2rem)/.95 var(--dav);text-transform:none;letter-spacing:-.01em}
+html[data-dir] h2{font-family:var(--dav);text-transform:none}
+
+/* the awning: white-and-blue bath-house stripes */
+html[data-dir] .site-head::after{background:repeating-linear-gradient(90deg,var(--primary) 0 28px,#f8f1e2 28px 56px)}
+
+/* hero: the photo is a rounded tile card floating in the blue, foam waves along the bottom */
+html[data-dir] .hero::after{content:"";order:3;grid-column:1/-1;height:14px;background:var(--foam) 0 100%/44px 12px repeat-x}
+@media (min-width:861px){
+  html[data-dir] .hero{grid-template-rows:minmax(0,1fr) auto}
+  html[data-dir] .hero-media{width:auto;margin:36px max(32px,calc((100vw - var(--maxw))/2 + 16px)) 30px 0;height:auto;border:4px solid var(--ink);border-radius:28px;box-shadow:8px 8px 0 var(--ink)}
+}
+
+/* menu: on pale bath tiles, headed by the steaming waves */
+html[data-dir] .menu{background-color:var(--tile);background-image:linear-gradient(rgba(29,111,165,.14) 1.5px,transparent 1.5px),linear-gradient(90deg,rgba(29,111,165,.14) 1.5px,transparent 1.5px);background-size:30px 30px}
+html[data-dir] .menu .section-head::before{content:"";width:58px;height:48px;background:var(--termas) center/contain no-repeat}
+html[data-dir] .menu .note{color:#384b58}
+html[data-dir] .dishes{border-radius:18px}
+html[data-dir] .tab{border-radius:999px}
+
+/* order: snacks first */
+html[data-dir] .menu{order:1}
+html[data-dir] .gallery{order:2;padding-top:var(--section)}
+html[data-dir] .about{order:3}
+html[data-dir] .qr{order:4}
+html[data-dir] .book{order:5}
+html[data-dir] .visit{order:6}
+html[data-dir] .proposal{order:9}
+
+html[data-dir] .qr-card{border-radius:22px}
+html[data-dir] .qr-card figcaption::before{content:"";width:30px;height:25px;flex:none;background:var(--termas) center/contain no-repeat}
+html[data-dir] .qr-name{flex:1;font-family:var(--dav);text-transform:none}
+html[data-dir] .site-foot b,html[data-dir] .m-top h1{font-family:var(--dav);text-transform:none}
+html[data-dir] .form,html[data-dir] .map,html[data-dir] .proposal-box{border-radius:18px}
+
+@media (max-width:860px){
+  html[data-dir] .brand{font-size:1.22rem}
+  html[data-dir] .hero-title{font-size:clamp(2.8rem,14vw,4.2rem)}
+}

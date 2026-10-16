@@ -1,0 +1,71 @@
+/* Nicolau — hook: a person's name → the host's monogram seal (N in a burgundy-and-gold wax seal), "mesa posta" calling card */
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,500;1,600&display=swap');
+html[data-dir]{
+  --nic-seal:url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'><circle cx='32' cy='32' r='31' fill='%237a2e2e'/><circle cx='32' cy='32' r='26' fill='none' stroke='%23c9a24b' stroke-width='1.2'/><circle cx='32' cy='32' r='29' fill='none' stroke='%23c9a24b' stroke-width='.6' stroke-dasharray='1 2.2'/><path d='M22 44V20l20 24V20' fill='none' stroke='%23f6efe0' stroke-width='3.2' stroke-linejoin='miter'/><path d='M18 20h8M38 20h8M18 44h8' stroke='%23f6efe0' stroke-width='1.6'/></svg>");
+  --nic-rule:url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 160 16'><path d='M0 8h64M96 8h64' stroke='%23c9a24b' stroke-width='1'/><path d='M80 1l7 7-7 7-7-7z' fill='%237a2e2e'/><circle cx='68' cy='8' r='2' fill='%23c9a24b'/><circle cx='92' cy='8' r='2' fill='%23c9a24b'/></svg>");
+  --nic-gold:#8a6a22; /* accent darkened for text on ivory (≥4.5:1) */
+  --display:'Cormorant Garamond','Bodoni Moda',Georgia,serif;
+  --bg:color-mix(in srgb,var(--primary) 3%,#fbf8f1);
+  --linen:color-mix(in srgb,var(--accent) 12%,#f6f0e4);
+}
+
+/* wordmark: small-caps name beside the seal */
+html[data-dir] .brand{display:inline-flex;align-items:center;gap:12px;font:600 1.5rem/1 var(--display);font-variant:small-caps;letter-spacing:.14em;color:var(--primary);min-height:44px}
+html[data-dir] .brand::before{content:"";width:38px;height:38px;flex:none;background:var(--nic-seal) center/contain no-repeat}
+html[data-dir] .hero-title{font:italic 600 clamp(3.4rem,12vw,7.6rem)/.9 var(--display);letter-spacing:-.01em;color:var(--primary)}
+html[data-dir] .hero-title::after{content:"";display:block;width:min(220px,60%);height:16px;margin-top:22px;background:var(--nic-rule) left center/contain no-repeat}
+html[data-dir] .tagline{font:italic 500 clamp(1.3rem,2.4vw,1.75rem)/1.3 var(--display);color:var(--ink)}
+html[data-dir] .hero .kicker{color:var(--nic-gold)}
+
+/* hero: photo moves left, copy reads like a calling card with a gold double rule */
+html[data-dir] .hero-media{position:relative}
+html[data-dir] .hero-media::before{content:"";position:absolute;z-index:2;right:24px;bottom:24px;width:clamp(64px,9vw,96px);aspect-ratio:1;
+  background:var(--nic-seal) center/contain no-repeat;filter:drop-shadow(0 6px 14px rgba(0,0,0,.35));transform:rotate(-8deg)}
+html[data-dir] .hero-media{border-color:color-mix(in srgb,var(--accent) 55%,transparent)}
+@media (min-width:861px){
+  html[data-dir] .hero-media{order:1}
+  html[data-dir] .hero-copy{order:2;padding:clamp(28px,3.4vw,48px);border:1px solid color-mix(in srgb,var(--accent) 60%,transparent);
+    outline:1px solid color-mix(in srgb,var(--accent) 60%,transparent);outline-offset:-8px;background:var(--surface)}
+  html[data-dir] .hero{grid-template-columns:minmax(0,.95fr) minmax(0,1fr)}
+  html[data-dir] .hero-title{font-size:clamp(3.6rem,7vw,7rem)}
+}
+
+/* palette nuance: gold rule under every heading */
+html[data-dir] h2::after{background:var(--accent);height:2px}
+html[data-dir] .kicker{color:var(--primary)}
+
+/* menu first: the card opens with the seal, burgundy tab underline */
+html[data-dir] .menu{order:1}
+html[data-dir] .about{order:2}
+html[data-dir] .gallery{order:3}
+html[data-dir] .book{order:4}
+html[data-dir] .visit{order:5}
+html[data-dir] .proposal{order:99}
+html[data-dir] .menu .wrap{border-top:4px solid var(--primary)}
+html[data-dir] .menu .section-head::before{content:"";width:58px;height:58px;justify-self:center;background:var(--nic-seal) center/contain no-repeat}
+html[data-dir] .menu h2{font-style:italic;font-weight:600;color:var(--primary)}
+html[data-dir] .menu h2::after{width:160px;height:16px;background:var(--nic-rule) center/contain no-repeat}
+html[data-dir] .dish-name{font-weight:600;font-size:1.32rem}
+html[data-dir] .dish-price{color:var(--primary);font-weight:700;font-size:1.25rem}
+html[data-dir] .dish-dots{border-bottom-color:color-mix(in srgb,var(--accent) 70%,transparent)}
+
+/* about lede set like a handwritten host's note */
+html[data-dir] .lede{font-size:clamp(1.55rem,2.8vw,2.2rem);font-weight:500}
+html[data-dir] .point::before{color:var(--nic-gold);font-weight:600}
+
+/* booking form framed like the menu card */
+html[data-dir] .form{border:1px solid color-mix(in srgb,var(--accent) 60%,transparent);outline:1px solid color-mix(in srgb,var(--accent) 40%,transparent);outline-offset:-8px;padding:clamp(24px,3.6vw,40px)}
+
+/* footer signs off with the seal */
+html[data-dir] .site-foot .wrap::before{content:"";width:44px;height:44px;margin-bottom:8px;background:var(--nic-seal) center/contain no-repeat}
+html[data-dir] .site-foot b{font:italic 600 1.25rem var(--display);color:var(--primary)}
+
+/* mesa / cozinha pages */
+html[data-dir] .m-top h1{font:italic 600 1.6rem/1 var(--display);letter-spacing:.01em}
+html[data-dir] .m-cat{font-style:italic;color:var(--primary)}
+
+@media (max-width:860px){
+  html[data-dir] .hero-copy{padding-top:30px}
+  html[data-dir] .brand{font-size:1.3rem;letter-spacing:.1em}
+  html[data-dir] .brand::before{width:32px;height:32px}
+}

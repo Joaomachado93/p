@@ -1,0 +1,62 @@
+/* Tapiara — hook: "Tap" in the name (gastropub beer tap) + the thermal-water waves of Caldas das Taipas */
+@import url('https://fonts.googleapis.com/css2?family=Pirata+One&display=swap');
+html[data-dir]{
+  --tp-mark:'Pirata One','Old English Text MT',Georgia,serif;
+  --tp-amber:color-mix(in oklab, var(--primary) 55%, #f3c27a);   /* foam-lit amber, light on the dark ground */
+  --bg:color-mix(in oklab, var(--accent) 55%, #0d0a08);          /* slate pub wall from the brand accent */
+  --surface:color-mix(in oklab, var(--accent) 45%, #1a1411);
+  --candle:var(--tp-amber);
+  --tp-wave:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='24' viewBox='0 0 120 24'%3E%3Cpath d='M0 14c10 0 10-8 20-8s10 8 20 8 10-8 20-8 10 8 20 8 10-8 20-8 10 8 20 8' fill='none' stroke='%23e9b267' stroke-width='2'/%3E%3Cg fill='%23e9b267'%3E%3Ccircle cx='30' cy='4' r='2'/%3E%3Ccircle cx='72' cy='20' r='1.6'/%3E%3Ccircle cx='104' cy='5' r='1.3'/%3E%3C/g%3E%3C/svg%3E");
+  --tp-tap:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='26' viewBox='0 0 16 26'%3E%3Cg fill='%23e9b267'%3E%3Crect x='5' y='0' width='6' height='13' rx='3'/%3E%3Crect x='1' y='13' width='14' height='4' rx='1'/%3E%3Cpath d='M6 17h4v5l-2 3-2-3z'/%3E%3C/g%3E%3C/svg%3E");
+}
+
+/* wordmark: pub-sign blackletter with a tap handle */
+html[data-dir] .brand{font:400 1.75rem/1 var(--tp-mark);letter-spacing:.01em;color:#f6ecdc;display:inline-flex;align-items:center;gap:10px;font-style:normal}
+html[data-dir] .brand::before{content:"";width:14px;height:24px;background:var(--tp-tap) center/contain no-repeat;flex:none}
+html[data-dir] .hero-title{font:400 clamp(3.6rem,13vw,8.4rem)/.9 var(--tp-mark);font-style:normal;letter-spacing:0;color:#fbf1df;
+  text-shadow:0 2px 0 color-mix(in oklab, var(--primary) 70%, #000),0 6px 40px rgba(0,0,0,.6)}
+html[data-dir] .m-top h1,html[data-dir] .site-foot b{font-family:var(--tp-mark);font-style:normal;font-weight:400;letter-spacing:.01em}
+
+/* hero: the copy sits on an enamel pub-sign plate, waves of the Taipas spa underneath */
+html[data-dir] .hero-copy{position:relative}
+html[data-dir] .hero-copy > .hero-title{padding-bottom:22px;background:var(--tp-wave) left bottom/120px 24px repeat-x;max-width:none;width:fit-content}
+@media (min-width:861px){
+  html[data-dir] .hero{min-height:min(88vh,820px)}
+  html[data-dir] .hero-copy{align-self:center;max-width:620px;margin-left:max(24px,calc((100vw - var(--maxw))/2 + 16px));margin-right:auto;padding:48px 44px 40px;
+    background:rgba(16,13,12,.78);border:1px solid var(--tp-amber);outline:1px solid color-mix(in oklab, var(--tp-amber) 45%, transparent);outline-offset:-9px;
+    border-radius:6px;backdrop-filter:blur(3px)}
+  html[data-dir] .hero-media::after{background:linear-gradient(90deg, rgba(13,10,8,.55), rgba(13,10,8,.05) 70%)}
+}
+
+/* tap list: menu comes right after the hero, every dish numbered like a tap */
+html[data-dir] .menu{order:1}
+html[data-dir] .about{order:2}
+html[data-dir] .gallery{order:3;padding-top:var(--section)}
+html[data-dir] .qr{order:4}
+html[data-dir] .book{order:5}
+html[data-dir] .visit{order:6}
+html[data-dir] .proposal{order:99}
+html[data-dir] .menu .section-head{padding-top:30px;background:var(--tp-wave) left top/120px 24px repeat-x}
+html[data-dir] .menu h2{font-family:var(--tp-mark);font-style:normal;font-weight:400;letter-spacing:.01em}
+html[data-dir] .dishes{counter-reset:tap;border-color:color-mix(in oklab, var(--tp-amber) 45%, transparent);background:linear-gradient(180deg, rgba(242,231,213,.04), transparent), #100d0c}
+html[data-dir] .dish{counter-increment:tap}
+html[data-dir] .dish-name::before{content:counter(tap,decimal-leading-zero);display:inline-grid;place-items:center;width:30px;height:30px;margin-right:10px;
+  border:1.5px solid var(--tp-amber);border-radius:50%;font:700 .74rem/1 var(--label);letter-spacing:0;color:var(--tp-amber);vertical-align:2px}
+html[data-dir] .dish-desc{padding-left:40px}
+html[data-dir] .dish-price{color:var(--tp-amber)}
+
+/* about: lede reads like a chalked pub promise */
+html[data-dir] .about .lede{border-left:3px solid var(--tp-amber);padding-left:20px}
+
+/* qr card: a beer mat */
+html[data-dir] .qr-card{border-radius:50% / 14%;transform:rotate(3deg);background:#f4e6c8;outline-color:#a5651f}
+html[data-dir] .qr-name{font:400 1.6rem/1 var(--tp-mark);font-style:normal}
+
+/* footer: one last wave */
+html[data-dir] .site-foot{background:#0d0b0a var(--tp-wave) center top/120px 24px repeat-x;padding-top:44px}
+
+@media (max-width:860px){
+  html[data-dir] .hero-title{font-size:clamp(3.4rem,18vw,5rem)}
+  html[data-dir] .dish-desc{padding-left:0}
+  html[data-dir] .dish-name::before{width:26px;height:26px;margin-right:8px}
+}

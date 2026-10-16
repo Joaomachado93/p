@@ -1,0 +1,59 @@
+/* Festivo Guimarães — hook: the name "Festivo" → arraial bunting (bandeirinhas) strung across the page, a joyful Shrikhand wordmark */
+@import url('https://fonts.googleapis.com/css2?family=Shrikhand&display=swap');
+:root{
+  --display:'Shrikhand','Alfa Slab One',Georgia,serif;
+  --bg:color-mix(in srgb,var(--primary) 5%,#fbf4ec);
+  --bunting:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 96 30'%3E%3Cpath d='M0 3Q48 9 96 3' fill='none' stroke='%232b1a22' stroke-width='1.4'/%3E%3Cpath d='M4 3.6L20 5.2L11 26Z' fill='%239B1B5A'/%3E%3Cpath d='M28 5.6L44 6.4L36 27Z' fill='%23F59E0B'/%3E%3Cpath d='M52 6.4L68 5.6L60 27Z' fill='%231d4b8f'/%3E%3Cpath d='M76 5.2L92 3.6L85 26Z' fill='%23F59E0B'/%3E%3C/svg%3E");
+  --flag:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 40 30'%3E%3Cpath d='M0 4Q20 10 40 4' fill='none' stroke='%232b1a22' stroke-width='1.4'/%3E%3Cpath d='M3 5L17 7.6L9 28Z' fill='%239B1B5A'/%3E%3Cpath d='M23 7.6L37 5L30 28Z' fill='%23F59E0B'/%3E%3C/svg%3E");
+}
+/* wordmark: a fat, happy script with two little flags */
+html[data-dir] .brand{display:inline-flex;align-items:center;gap:8px;font:400 1.35rem/1.1 var(--display);color:var(--primary)}
+html[data-dir] .brand::before{content:"";width:30px;height:22px;flex:none;background:var(--flag) center/contain no-repeat}
+html[data-dir] .hero-title{font:400 clamp(2.6rem,5.6vw,4.9rem)/1.02 var(--display);color:var(--primary);letter-spacing:0;transform:rotate(-2deg);transform-origin:left center}
+html[data-dir] h2{font-family:var(--display);font-size:clamp(1.8rem,4vw,2.8rem);color:var(--primary)}
+
+/* bunting strung across the top of the hero, header, proposal and footer */
+html[data-dir] .site-head::after,html[data-dir] .site-foot::before,html[data-dir] .proposal::before{height:30px;background:var(--bunting) 0 0/96px 30px repeat-x}
+html[data-dir] .hero{background:radial-gradient(50% 60% at 15% 40%,color-mix(in srgb,var(--accent) 20%,transparent),transparent 70%)}
+
+/* hero: the photo is a party snapshot — white border, a slight tilt, a pair of flags pinned on */
+html[data-dir] .hero-media{padding:12px 12px 40px;background:#fff;border-radius:2px;transform:rotate(2deg);box-shadow:0 24px 44px -20px rgba(60,20,40,.5);position:relative}
+html[data-dir] .hero-media img{box-shadow:none}
+@media (min-width:861px){html[data-dir] .hero-media{margin-left:28px}}
+html[data-dir] .hero-media::before{content:"";position:absolute;z-index:1;left:50%;top:-14px;width:120px;height:38px;transform:translateX(-50%) rotate(-2deg);
+  background:var(--bunting) center/contain no-repeat}
+@media (prefers-reduced-motion:no-preference){
+  html[data-dir] .hero-media{transition:transform .4s}
+  html[data-dir] .hero-media:hover{transform:rotate(0deg)}
+}
+
+/* order: photos first (the feast), then the menu, then the story */
+html[data-dir] .hero{order:0}
+html[data-dir] .gallery{order:1;padding-top:clamp(40px,6vw,72px)}
+html[data-dir] .menu{order:2;padding-top:var(--section)}
+html[data-dir] .about{order:3}
+html[data-dir] .book{order:4}
+html[data-dir] .visit{order:5}
+html[data-dir] .proposal{order:9}
+
+/* gallery: snapshots, alternately tilted */
+html[data-dir] .shot{border-width:8px;border-color:#fff}
+html[data-dir] .gallery-grid .shot:nth-child(odd){transform:rotate(-1.2deg)}
+html[data-dir] .gallery-grid .shot:nth-child(even){transform:rotate(1.4deg)}
+
+/* menu board: bunting across the top of the slate, magenta-tinted frame */
+html[data-dir] .menu > .wrap{padding-top:clamp(52px,5vw,72px);border-image:none;border:14px solid var(--primary)}
+html[data-dir] .menu > .wrap::before{content:"";position:absolute;left:0;right:0;top:0;height:30px;background:var(--bunting) 0 0/96px 30px repeat-x}
+html[data-dir] .menu h2{color:var(--chalk)}
+html[data-dir] .point::before{background:var(--flag) center/contain no-repeat;border:0;width:26px}
+html[data-dir] .site-foot b{font:400 1.2rem var(--display);color:var(--primary)}
+
+@media (max-width:860px){
+  html[data-dir] .hero-media{margin:22px var(--gutter-r) 0 var(--gutter);padding:8px 8px 26px;height:clamp(240px,36svh,320px);transform:rotate(1.5deg);background:#fff}
+  html[data-dir] .hero-media::before{width:96px;height:30px;top:-12px}
+  html[data-dir] .hero-title{font-size:clamp(2.5rem,12vw,3.4rem)}
+  html[data-dir] .site-head::after{height:24px;background-size:76px 24px}
+  html[data-dir] .menu > .wrap{border-width:10px}
+  html[data-dir] .brand{font-size:1.1rem}
+}
+html[data-dir] .m-top h1{font-family:var(--display)}

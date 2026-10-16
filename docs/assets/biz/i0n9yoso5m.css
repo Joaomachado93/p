@@ -1,0 +1,54 @@
+/* Izzo Eat&Drinks — hook: the Francesinha Izzo, drawn as a layered stack with orange sauce */
+@import url('https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&display=swap');
+:root{
+  --iz-font:'DM Serif Display',Didot,Georgia,serif;
+  --iz-teal:#0F766E; --iz-orange:#F97316; --iz-sauce:#c2410c;
+  --bg:#f7faf8; --linen:#e8f1ee;
+  --iz-stack:url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 80 64'><rect x='8' y='40' width='64' height='12' rx='5' fill='%23e6b979' stroke='%23134e4a' stroke-width='2.5'/><rect x='12' y='33' width='56' height='7' rx='2' fill='%239f3b2a'/><rect x='8' y='22' width='64' height='11' rx='5' fill='%23e6b979' stroke='%23134e4a' stroke-width='2.5'/><path d='M4 18q36-10 72 0v6q-6 0-6 8q-4-8-8 0q-4-14-10 0q-6-8-10 0q-5-10-12 0q-3-8-8-1q-3-6-6 0q-4-5-12-7z' fill='%23F97316' stroke='%23134e4a' stroke-width='2.5' stroke-linejoin='round'/><circle cx='40' cy='12' r='9' fill='%23fff' stroke='%23134e4a' stroke-width='2.5'/><circle cx='42' cy='11' r='4' fill='%23fbbf24'/><path d='M2 60h76' stroke='%230F766E' stroke-width='3' stroke-linecap='round'/></svg>");
+}
+
+/* wordmark: bold display serif, teal ink, orange underline like dripping sauce */
+html[data-dir] .brand{font:400 1.45rem/1 var(--iz-font);color:var(--iz-teal);letter-spacing:0}
+html[data-dir] .hero-title{font:400 clamp(3.2rem,7vw,6.6rem)/.95 var(--iz-font);letter-spacing:-.01em;color:#0b3f3b}
+html[data-dir] .hero-title::after{content:"";display:block;width:clamp(150px,20vw,240px);height:12px;margin-top:16px;border-radius:0 0 8px 8px;
+  background:radial-gradient(circle at 12% 0,var(--iz-orange) 6px,transparent 6.5px) 0 4px/34px 12px repeat-x,linear-gradient(var(--iz-orange) 0 0) 0 0/100% 6px no-repeat}
+html[data-dir] h1,html[data-dir] h2,html[data-dir] h3{font-family:var(--iz-font);font-weight:400}
+html[data-dir] h2::after{background:var(--iz-orange);height:3px}
+html[data-dir] .tagline{font-family:var(--iz-font)}
+
+/* hero: photo becomes a teal plate with the francesinha stack stamped on its corner */
+html[data-dir] .hero-media{background:var(--iz-teal);box-shadow:inset 0 0 0 9px var(--iz-teal)}
+html[data-dir] .hero-media::after{border-color:rgba(255,255,255,.75)}
+html[data-dir] .hero-copy{position:relative}
+html[data-dir] .hero-copy::before{content:"";position:absolute;z-index:2;right:calc(-1 * clamp(32px,5vw,72px) - 40px);bottom:-10px;width:clamp(96px,11vw,132px);aspect-ratio:1;border-radius:50%;
+  background:var(--iz-stack) center 58%/72% no-repeat,#fff;box-shadow:0 0 0 3px var(--iz-orange),0 12px 28px -12px rgba(0,0,0,.4)}
+
+/* order: the food first */
+html[data-dir] .menu{order:1}
+html[data-dir] .about{order:2}
+html[data-dir] .gallery{order:3}
+html[data-dir] .book{order:4}
+html[data-dir] .visit{order:5}
+html[data-dir] .proposal{order:9}
+
+/* menu: teal carte, orange tabs, first dish gets the house plate treatment */
+html[data-dir] .menu{background:var(--linen)}
+html[data-dir] .menu .section-head::before{content:"";width:84px;height:68px;background:var(--iz-stack) center/contain no-repeat}
+html[data-dir] .tab[aria-selected=true]{color:var(--iz-teal);border-bottom-color:var(--iz-orange);border-bottom-width:3px}
+html[data-dir] .dish-name{font:400 1.3rem/1.2 var(--iz-font)}
+html[data-dir] .dish-price{font-family:var(--iz-font);color:var(--iz-teal)}
+html[data-dir] .dishes .dish:first-child{background:#fff4ea;box-shadow:inset 4px 0 0 var(--iz-orange);padding-inline:16px 12px}
+
+/* points + services: orange numerals */
+html[data-dir] .point::before{color:var(--iz-sauce)}
+html[data-dir] .facts .i,html[data-dir] .services .i{color:var(--iz-sauce)}
+html[data-dir] .btn-primary{background:var(--iz-teal);border-color:var(--iz-teal)}
+html[data-dir] .btn-primary:hover{background:#0b5953;border-color:#0b5953}
+
+html[data-dir] .site-foot .wrap::before{content:"";width:60px;height:48px;background:var(--iz-stack) left/contain no-repeat}
+
+@media (max-width:860px){
+  html[data-dir] .hero-copy::before{right:var(--gutter-r);top:-44px;bottom:auto;width:88px}
+  html[data-dir] .hero-copy{padding-top:40px}
+  html[data-dir] .hero-title{font-size:clamp(3rem,13vw,4.4rem)}
+}

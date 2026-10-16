@@ -1,0 +1,51 @@
+/* Restaurante O Regatinho — hook: the name, "little stream" — three running water lines, moss green and river water around the table */
+@import url('https://fonts.googleapis.com/css2?family=Young+Serif&display=swap');
+:root{
+  --rib:'Young Serif',Georgia,serif;
+  --regato:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='40' height='18' viewBox='0 0 40 18'%3E%3Cg fill='none' stroke='%233E6B3A' stroke-width='2' stroke-linecap='round'%3E%3Cpath d='M0 4q5-4 10 0t10 0 10 0 10 0'/%3E%3Cpath d='M0 10q5-4 10 0t10 0 10 0 10 0' opacity='.7'/%3E%3Cpath d='M0 16q5-4 10 0t10 0 10 0 10 0' opacity='.45'/%3E%3C/g%3E%3C/svg%3E");
+  --regato-blue:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='40' height='18' viewBox='0 0 40 18'%3E%3Cg fill='none' stroke='%232f6f8a' stroke-width='2' stroke-linecap='round'%3E%3Cpath d='M0 4q5-4 10 0t10 0 10 0 10 0'/%3E%3Cpath d='M0 10q5-4 10 0t10 0 10 0 10 0' opacity='.7'/%3E%3Cpath d='M0 16q5-4 10 0t10 0 10 0 10 0' opacity='.45'/%3E%3C/g%3E%3C/svg%3E");
+  --regato-chalk:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='40' height='18' viewBox='0 0 40 18'%3E%3Cg fill='none' stroke='%23cfe3d2' stroke-width='2' stroke-linecap='round'%3E%3Cpath d='M0 4q5-4 10 0t10 0 10 0 10 0'/%3E%3Cpath d='M0 10q5-4 10 0t10 0 10 0 10 0' opacity='.7'/%3E%3Cpath d='M0 16q5-4 10 0t10 0 10 0 10 0' opacity='.45'/%3E%3C/g%3E%3C/svg%3E");
+  --bg:color-mix(in srgb,var(--primary) 6%,#f3f1ea);
+  --azul:#2f6f8a;
+}
+
+/* wordmark: a sturdy soft serif in moss green, the stream flowing after it */
+html[data-dir] .brand{display:inline-flex;align-items:center;gap:10px;font:400 1.3rem/1 var(--rib);color:var(--primary)}
+html[data-dir] .brand::after{content:"";width:34px;height:15px;flex:none;background:var(--regato-blue) center/contain no-repeat}
+html[data-dir] .hero-title{font:400 clamp(2.6rem,6vw,5.2rem)/1.02 var(--rib);color:var(--ink);letter-spacing:-.01em}
+html[data-dir] .hero-title::after{content:"";display:block;width:120px;height:26px;margin-top:16px;background:var(--regato) 0 0/40px 18px repeat-x}
+
+/* azulejo bands become the running stream */
+html[data-dir] .site-head::after,html[data-dir] .site-foot::before,html[data-dir] .proposal::before{height:18px;background:var(--regato) 0 0/40px 18px repeat-x}
+
+/* hero: the photo sits in water ripples instead of tiles */
+html[data-dir] .hero-media{background:var(--regato-blue) 0 0/40px 18px,#e6efe9;border-radius:var(--radius-lg)}
+html[data-dir] .hero-media img{border-radius:3px}
+
+html[data-dir] .point::before{width:26px;height:14px;margin-top:6px;border:0;background:var(--regato-blue) center/contain no-repeat}
+
+/* menu: the slate gets a moss frame and a chalk stream */
+html[data-dir] .menu > .wrap{border-image:repeating-linear-gradient(92deg,#4a6b3e 0 9px,#3c5a33 9px 13px,#557a48 13px 21px,#35512d 21px 24px) 16}
+html[data-dir] .menu .section-head::after{content:"";width:120px;height:18px;background:var(--regato-chalk) 0 0/40px 18px repeat-x}
+html[data-dir] .menu h2,html[data-dir] .qr h2{font-family:var(--rib)}
+html[data-dir] h2{font-family:var(--rib)}
+
+/* order: photos right after the name, then the story, then the board */
+html[data-dir] .gallery{order:1;padding-top:var(--section)}
+html[data-dir] .about{order:2}
+html[data-dir] .menu{order:3;padding-top:var(--section)}
+html[data-dir] .qr{order:4}
+html[data-dir] .book{order:5}
+html[data-dir] .visit{order:6}
+html[data-dir] .proposal{order:9}
+
+/* QR: water-framed card */
+html[data-dir] .qr-card{background:linear-gradient(#fff,#fff) padding-box,var(--regato-chalk) 0 0/40px 18px border-box,#fff}
+html[data-dir] .qr{background:linear-gradient(180deg,var(--primary),color-mix(in srgb,var(--primary) 80%,#123));}
+html[data-dir] .qr-name,html[data-dir] .site-foot b,html[data-dir] .m-top h1{font-family:var(--rib);font-weight:400}
+
+@media (max-width:860px){
+  html[data-dir] .brand{font-size:1.12rem}
+  html[data-dir] .hero-media{border-radius:0;padding:0 0 14px;background-size:28px 13px,auto;background-position:0 100%}
+  html[data-dir] .hero-title{font-size:clamp(2.3rem,10vw,3.2rem)}
+}

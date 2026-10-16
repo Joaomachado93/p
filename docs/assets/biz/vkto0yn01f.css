@@ -1,0 +1,62 @@
+/* DanVilla Café — hook: the camel-cased "DanVilla" name + "cafetaria com tempo": a cup seen from above, slow steam */
+@import url('https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&display=swap');
+:root{
+  --teal:#1f6f6f;
+  --steam:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Cg fill='none' stroke='%231f6f6f' stroke-width='3' stroke-linecap='round'%3E%3Cpath d='M22 24c-4-5 4-8 0-14M32 24c-4-5 4-8 0-14M42 24c-4-5 4-8 0-14'/%3E%3C/g%3E%3Cpath d='M12 32h40v6a20 20 0 0 1-40 0z' fill='%23B84E24'/%3E%3Cpath d='M52 35h3a6 6 0 0 1 0 12h-5' fill='none' stroke='%23B84E24' stroke-width='3.5'/%3E%3Cpath d='M6 58h52' stroke='%231f6f6f' stroke-width='3' stroke-linecap='round'/%3E%3C/svg%3E");
+  --bg:color-mix(in srgb,var(--accent) 6%,#fbf6ee);
+  --paper:color-mix(in srgb,var(--accent) 10%,#fbf5ec);
+  --paper-2:color-mix(in srgb,var(--accent) 20%,#f6efe4);
+  --twine:repeating-linear-gradient(-45deg,var(--primary) 0 5px,var(--surface) 5px 10px,var(--teal) 10px 15px,var(--surface) 15px 20px);
+}
+/* wordmark: DM Serif, upright "Dan" + italic "Villa" feel via tight tracking and a teal café dot */
+html[data-dir] .brand,html[data-dir] .hero-title{font-family:'DM Serif Display',Georgia,serif;font-weight:400;font-variation-settings:normal}
+html[data-dir] .brand{font-style:normal;color:var(--primary);letter-spacing:-.02em;display:inline-flex;align-items:center;gap:8px}
+html[data-dir] .brand::before{content:"";width:28px;height:28px;flex:none;background:var(--steam) center/contain no-repeat}
+html[data-dir] .hero-title{font-size:clamp(3rem,11vw,6.4rem);letter-spacing:-.035em;line-height:.92;color:var(--primary)}
+html[data-dir] .hero-title::first-line{color:var(--primary)}
+html[data-dir] .hero-title::after{content:"";display:block;width:64px;height:64px;margin-top:14px;background:var(--steam) center/contain no-repeat}
+html[data-dir] .tagline{font-family:'DM Serif Display',serif;font-style:italic;color:var(--teal)}
+html[data-dir] .kicker{background:var(--teal)}
+html[data-dir] .site-head::before{background:linear-gradient(rgba(0,0,0,.14),rgba(0,0,0,0) 45%),repeating-linear-gradient(90deg,var(--primary) 0 24px,var(--surface) 24px 48px,var(--teal) 48px 72px,var(--surface) 72px 96px)}
+
+/* hero: the photo as a cup seen from above — round, on a saucer ring */
+html[data-dir] .hero-media{border-radius:50%;aspect-ratio:1/1;overflow:hidden;
+  box-shadow:0 0 0 10px var(--surface),0 0 0 12px color-mix(in srgb,var(--teal) 40%,transparent),0 0 0 34px var(--paper-2),0 24px 50px -20px rgba(60,30,15,.5)}
+html[data-dir] .hero-media img{border-radius:50%}
+html[data-dir] .hero-media::after{border-radius:50%}
+@media (min-width:861px){
+  html[data-dir] .hero{grid-template-columns:minmax(0,1.1fr) minmax(0,.9fr);padding-block:56px 80px}
+  html[data-dir] .hero-media{max-height:none;aspect-ratio:1/1;width:min(100%,460px);justify-self:center;margin:30px}
+}
+@media (max-width:860px){
+  html[data-dir] .hero-media{width:min(78vw,320px);justify-self:center;margin:38px auto 18px}
+  html[data-dir] .hero-title::after{width:48px;height:48px}
+}
+
+/* menu: café chalk-free board — teal band, prices in round coaster badges */
+html[data-dir] .menu{background:color-mix(in srgb,var(--teal) 12%,#f7f3ec);border-image:var(--twine) 6}
+html[data-dir] .menu h2{color:var(--teal)}
+html[data-dir] .tab[aria-selected=true]{background:var(--teal)}
+html[data-dir] .dish-price{clip-path:none;-webkit-mask:none;mask:none;border-radius:999px;padding:.45em .85em;background:var(--primary);font-style:normal;
+  font-family:'DM Serif Display',serif;font-weight:400;font-size:1.1rem}
+html[data-dir] .dish-name{font-family:'DM Serif Display',serif;font-weight:400}
+
+/* order: photos (the "tempo" of the place) before the words */
+html main > .gallery{order:1}
+html main > .menu{order:2}
+html main > .about{order:3}
+html main > .book{order:4}
+html main > .visit{order:5}
+html main > .proposal{order:9}
+html[data-dir] .gallery{padding-top:clamp(24px,4vw,48px)}
+html[data-dir] .shot{-webkit-mask:none;mask:none;padding:0;border-radius:999px 999px 18px 18px;overflow:hidden;background:var(--paper-2)}
+html[data-dir] .shot img{border-radius:0}
+
+html[data-dir] .point::before{color:var(--teal);font-family:'DM Serif Display',serif;font-style:normal}
+html[data-dir] .visit-block h3{color:var(--teal)}
+html[data-dir] .site-foot{background:var(--paper)}
+html[data-dir] .site-foot .wrap::before{content:"";width:36px;height:36px;background:var(--steam) center/contain no-repeat}
+@media (prefers-reduced-motion:no-preference){
+  html[data-dir] .hero-title::after{animation:dv-steam 4s ease-in-out infinite}
+  @keyframes dv-steam{50%{transform:translateY(-4px);opacity:.75}}
+}

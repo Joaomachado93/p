@@ -1,0 +1,59 @@
+/* Tasquinha do Tio Júlio — hook: Rua de Couros (the old tanners' street) → saddle-stitched leather label; "Tio" → a family nickname set like a stamped tag */
+@import url('https://fonts.googleapis.com/css2?family=Abril+Fatface&display=swap');
+html[data-dir]{
+  --tj-tag:url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 40'><path d='M14 2h46a2 2 0 0 1 2 2v32a2 2 0 0 1-2 2H14L2 20z' fill='%238a5530'/><path d='M16 6h40a2 2 0 0 1 2 2v24a2 2 0 0 1-2 2H16L7 20z' fill='none' stroke='%23f0d9a8' stroke-width='1.6' stroke-dasharray='3 2.4'/><circle cx='15' cy='20' r='3.2' fill='%23241712'/></svg>");
+  --tj-stitch:repeating-linear-gradient(90deg,#e7c98f 0 10px,transparent 10px 17px);
+  --tj-leather:color-mix(in oklab,var(--primary) 78%,#2a160c);
+  --tj-cream:#f3e3c3;
+  --bg:#17110d;
+  --surface:#21170f;
+}
+
+/* wordmark: high-contrast fat face, a leather tag before it */
+html[data-dir] .brand{display:inline-flex;align-items:center;gap:10px;font:400 1.4rem/1 'Abril Fatface',serif;font-style:normal;letter-spacing:.01em;color:var(--tj-cream);min-height:44px}
+html[data-dir] .brand::before{content:"";width:40px;height:25px;flex:none;background:var(--tj-tag) center/contain no-repeat}
+html[data-dir] .hero-title{font:400 clamp(2.8rem,8.4vw,6.4rem)/.98 'Abril Fatface',serif;font-style:normal;letter-spacing:0;max-width:13ch}
+
+/* hero: copy sits on a stitched leather patch over the photo */
+html[data-dir] .hero-copy{position:relative;width:auto;max-width:min(720px,calc(100% - 32px));margin:0 0 clamp(28px,5vw,64px) max(16px,calc((100vw - var(--maxw))/2 + 16px));
+  padding:clamp(26px,4vw,48px);background:color-mix(in oklab,var(--tj-leather) 92%,transparent);border-radius:10px;
+  box-shadow:0 30px 60px -20px rgba(0,0,0,.7),inset 0 0 0 1px rgba(255,255,255,.08)}
+html[data-dir] .hero-copy::before{content:"";position:absolute;inset:10px;border:2px dashed #e7c98f;border-radius:6px;opacity:.75;pointer-events:none}
+html[data-dir] .hero .facts{border-top-color:rgba(243,227,195,.25)}
+html[data-dir] .hero-media::after{background:linear-gradient(180deg,rgba(13,9,7,.15),rgba(13,9,7,.35) 60%,#120d0b 98%)}
+@media (max-width:860px){html[data-dir] .hero-copy{margin:0 12px 24px;max-width:none;padding:28px 22px}}
+
+/* section order: menu, then the photos, then the story */
+html[data-dir] .menu{order:1}
+html[data-dir] .gallery{order:2}
+html[data-dir] .about{order:3}
+html[data-dir] .qr{order:4}
+html[data-dir] .book{order:5}
+html[data-dir] .visit{order:6}
+html[data-dir] .proposal{order:99}
+
+/* menu: a leather-bound board — stitched rule top and bottom, tag in header */
+html[data-dir] .menu{background:linear-gradient(180deg,var(--surface),var(--bg))}
+html[data-dir] .menu .section-head::before{content:"";width:64px;height:40px;background:var(--tj-tag) center/contain no-repeat}
+html[data-dir] .dishes{background:var(--tj-leather);border:0;outline:2px dashed rgba(231,201,143,.7);outline-offset:-12px;border-radius:12px;padding:clamp(30px,4vw,52px)}
+html[data-dir] .dish{border-bottom-color:rgba(243,227,195,.16)}
+html[data-dir] .dish-name{font:400 1.2rem/1.25 'Abril Fatface',serif;color:var(--tj-cream)}
+html[data-dir] .dish-price{color:#f3cf8a}
+html[data-dir] .dish-desc{color:#dcc7a4}
+html[data-dir] .dish-dots{border-bottom-color:rgba(231,201,143,.5)}
+
+/* headings and stitched dividers */
+html[data-dir] h2{font-family:'Abril Fatface',serif;font-weight:400;letter-spacing:0}
+html[data-dir] .about,html[data-dir] .visit{position:relative}
+html[data-dir] .about::before,html[data-dir] .visit::before{content:"";position:absolute;left:0;right:0;top:0;height:2px;background:var(--tj-stitch);opacity:.55}
+html[data-dir] .point::before{font-family:'Abril Fatface',serif;font-style:normal}
+html[data-dir] .qr-card{border:2px dashed #8a6a3a}
+
+/* footer */
+html[data-dir] .site-foot .wrap::before{content:"";width:52px;height:32px;margin-bottom:6px;background:var(--tj-tag) left/contain no-repeat}
+html[data-dir] .site-foot b{font:400 1.15rem 'Abril Fatface',serif}
+
+/* mesa / cozinha pages */
+html[data-dir] .m-top{background:var(--tj-leather);border-bottom:3px dashed #e7c98f}
+html[data-dir] .m-top h1{font:400 1.4rem/1.05 'Abril Fatface',serif}
+html[data-dir] .m-cat{font-family:'Abril Fatface',serif;font-weight:400}

@@ -1,0 +1,56 @@
+/* Churrasqueira do Parque — hook: the churrasco grill → grill grate + flame, charcoal and embers (Brito) */
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap');
+html[data-dir]{
+  --ch-grill:url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'><path d='M32 4c4 8 12 11 12 21a12 12 0 0 1-24 0c0-5 3-8 5-11 1 4 3 6 5 6-2-6 0-11 2-16z' fill='%23f5b50a'/><path d='M32 18c2 4 6 6 6 11a6 6 0 0 1-12 0c0-3 3-5 6-11z' fill='%23c2410c'/><rect x='6' y='40' width='52' height='18' rx='3' fill='none' stroke='%23252220' stroke-width='3'/><path d='M14 40v18M24 40v18M34 40v18M44 40v18M54 40v18' stroke='%23252220' stroke-width='3'/></svg>");
+  --ch-sear:repeating-linear-gradient(-45deg,#1e1a17 0 6px,transparent 6px 22px);
+  --ch-coal:#1e1a17;
+  --bg:color-mix(in srgb,var(--accent) 8%,#f6f1e7);
+  --display:'Bebas Neue','Alfa Slab One',Impact,sans-serif;
+}
+
+/* wordmark: tall grill-house sign, flame before the name */
+html[data-dir] .brand{display:inline-flex;align-items:center;gap:10px;font:400 1.7rem/1 var(--display);letter-spacing:.06em;color:var(--ch-coal);min-height:44px}
+html[data-dir] .brand::before{content:"";width:34px;height:34px;flex:none;background:var(--ch-grill) center/contain no-repeat}
+html[data-dir] .hero-title{font:400 clamp(3.6rem,11vw,8.4rem)/.86 var(--display);letter-spacing:.02em;text-transform:uppercase;color:var(--ch-coal)}
+html[data-dir] .hero-title::after{content:"";display:block;width:min(260px,70%);height:14px;margin-top:16px;background:var(--ch-sear);border-radius:2px;
+  -webkit-mask:linear-gradient(90deg,#000 70%,transparent);mask:linear-gradient(90deg,#000 70%,transparent)}
+html[data-dir] .hero .kicker{color:var(--primary)}
+
+/* hero: photo framed in charcoal with sear marks instead of azulejo, ember glow */
+html[data-dir] .hero-media{position:relative;background:var(--ch-coal) var(--ch-sear);padding:14px;box-shadow:0 26px 50px -20px color-mix(in srgb,var(--primary) 70%,transparent)}
+html[data-dir] .hero-media::before{content:"";position:absolute;z-index:2;left:-6px;bottom:-6px;width:clamp(70px,9vw,104px);aspect-ratio:1;border-radius:50%;
+  background:#fff8e6 var(--ch-grill) center/66% no-repeat;box-shadow:0 0 0 4px var(--accent),0 10px 24px rgba(0,0,0,.35)}
+html[data-dir] .hero-media img{position:relative;z-index:1;box-shadow:none}
+html[data-dir] .site-head::after,html[data-dir] .site-foot::before,html[data-dir] .proposal::before{background:linear-gradient(90deg,var(--primary),var(--accent),var(--primary));height:8px}
+
+/* menu: the grill board — charcoal slab with ember-orange header strip */
+html[data-dir] .menu{order:1}
+html[data-dir] .gallery{order:2}
+html[data-dir] .about{order:3}
+html[data-dir] .book{order:4}
+html[data-dir] .visit{order:5}
+html[data-dir] .proposal{order:99}
+html[data-dir] .menu > .wrap{background:var(--ch-coal);border-top:10px solid var(--primary);box-shadow:inset 0 3px 0 var(--accent),0 24px 50px -24px rgba(0,0,0,.6)}
+html[data-dir] .menu .section-head{grid-template-columns:auto minmax(0,1fr);column-gap:18px;align-items:center}
+html[data-dir] .menu .section-head::before{content:"";grid-row:span 3;width:64px;height:64px;border-radius:50%;background:#fff8e6 var(--ch-grill) center/70% no-repeat}
+html[data-dir] .menu h2{font:400 clamp(2.4rem,5vw,3.6rem)/1 var(--display);letter-spacing:.03em;text-transform:uppercase}
+html[data-dir] .menu .dish-price{font:400 1.7rem/1 var(--display);transform:none;color:var(--accent)}
+html[data-dir] .menu .dish-name{text-transform:uppercase;letter-spacing:.03em;font-size:1.05rem}
+
+/* headings across the page in the sign face */
+html[data-dir] h2{font:400 clamp(2.3rem,5vw,3.6rem)/1 var(--display);letter-spacing:.03em;text-transform:uppercase}
+html[data-dir] .point h3{font-family:var(--display);font-weight:400;font-size:1.6rem;letter-spacing:.03em}
+html[data-dir] .about{background:linear-gradient(180deg,var(--surface),var(--bg))}
+
+/* footer */
+html[data-dir] .site-foot b{font:400 1.4rem var(--display);letter-spacing:.05em}
+
+/* mesa / cozinha pages */
+html[data-dir] .m-top h1{font:400 1.8rem/1 var(--display);letter-spacing:.05em}
+html[data-dir] .m-cat{font-family:var(--display);font-weight:400;letter-spacing:.04em;text-transform:uppercase}
+
+@media (min-width:861px){html[data-dir] .hero-title{font-size:clamp(3.2rem,6.4vw,6rem)}}
+@media (max-width:860px){
+  html[data-dir] .menu .section-head::before{width:52px;height:52px}
+  html[data-dir] .hero-media::before{left:6px;bottom:6px}
+}

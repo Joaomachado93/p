@@ -1,0 +1,55 @@
+/* Restaurante do Outeiro — hook: "outeiro" (a small hill) — rolling green hill line; bacalhau and vitela in Infantas */
+@import url('https://fonts.googleapis.com/css2?family=Gloock&display=swap');
+html[data-dir]{
+  --ou-mark:'Gloock',Georgia,serif;
+  --ou-green:color-mix(in oklab, var(--primary) 90%, #0b2b16);
+  --bg:color-mix(in oklab, var(--primary) 5%, #fbf9f2); --linen:#eef0e4; --ivory:#f3f4ea;
+  --ou-hill:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='240' height='40' viewBox='0 0 240 40' preserveAspectRatio='none'%3E%3Cpath d='M0 40V30C30 30 40 12 72 12s48 22 80 22 46-24 88-24v30z' fill='%23f0f0e7'/%3E%3Cpath d='M0 30C30 30 40 12 72 12s48 22 80 22 46-24 88-24' fill='none' stroke='%23166534' stroke-width='3'/%3E%3C/svg%3E");
+  --ou-mini:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='40' height='20' viewBox='0 0 40 20'%3E%3Cpath d='M0 20C8 20 12 6 20 6s12 14 20 14z' fill='%23166534'/%3E%3Ccircle cx='31' cy='5' r='3' fill='%23B45309'/%3E%3C/svg%3E");
+}
+
+/* wordmark: a calm old-style serif with a tiny hill and sun */
+html[data-dir] .brand{font:400 1.35rem/1 var(--ou-mark);color:var(--ou-green);display:inline-flex;align-items:center;gap:10px}
+html[data-dir] .brand::before{content:"";width:34px;height:17px;background:var(--ou-mini) center/contain no-repeat;flex:none}
+html[data-dir] .hero-title{font:400 clamp(2.8rem,9vw,6.2rem)/.98 var(--ou-mark);letter-spacing:-.01em;color:#16241a}
+html[data-dir] .m-top h1,html[data-dir] .site-foot b,html[data-dir] h2,html[data-dir] .qr-name,html[data-dir] .dish-name{font-family:var(--ou-mark);font-weight:400}
+
+/* hero: the photo sits under a hill horizon — its bottom edge is the outeiro's curve */
+html[data-dir] .hero-media{border:0;padding:0;box-shadow:none;background:var(--ou-green);border-radius:999px 999px 0 0 / 120px 120px 0 0}
+html[data-dir] .hero-media img{border-radius:999px 999px 0 0 / 120px 120px 0 0}
+html[data-dir] .hero-media::after{inset:auto -1px -1px -1px;height:48px;border:0;background:var(--ou-hill) center bottom/100% 100% no-repeat}
+@media (min-width:861px){
+  html[data-dir] .hero-media{padding:0;box-shadow:none;aspect-ratio:4/5;border-radius:999px 999px 0 0 / 220px 220px 0 0}
+  html[data-dir] .hero-media img{border-radius:999px 999px 0 0 / 220px 220px 0 0}
+  html[data-dir] .hero-media::after{inset:auto 0 -1px 0;height:70px}
+}
+
+/* order: the dishes people talk about (bacalhau, vitela) come first */
+html[data-dir] .menu{order:1}
+html[data-dir] .about{order:2}
+html[data-dir] .gallery{order:3;padding-top:var(--section)}
+html[data-dir] .qr{order:4}
+html[data-dir] .book{order:5}
+html[data-dir] .visit{order:6}
+html[data-dir] .proposal{order:99}
+
+/* menu: a green field card, horizon divider on top */
+html[data-dir] .menu{position:relative;background:var(--linen);padding-top:calc(var(--section) + 40px)}
+html[data-dir] .menu::before{content:"";position:absolute;top:0;left:0;right:0;height:40px;background:var(--ou-hill) center top/240px 40px repeat-x;transform:scaleY(-1)}
+html[data-dir] .dishes{background:#fffef9;border-top:4px solid var(--ou-green);padding:6px clamp(16px,3.5vw,44px);box-shadow:0 20px 40px -30px rgba(22,36,26,.5)}
+html[data-dir] .dish-price{color:var(--ou-green);font-weight:700}
+html[data-dir] .tab[aria-selected=true]{background:var(--ou-green);border-color:var(--ou-green);color:#fff}
+html[data-dir] h2::after{background:var(--accent);height:2px;width:56px}
+
+/* about: points numbered by little hills */
+html[data-dir] .point::before{content:"";width:40px;height:20px;background:var(--ou-mini) center/contain no-repeat;align-self:start;margin-top:4px}
+
+/* footer: the hill line closes the page */
+html[data-dir] .site-foot{position:relative;padding-top:56px}
+html[data-dir] .site-foot::before{content:"";position:absolute;top:0;left:0;right:0;height:40px;background:var(--ou-hill) center top/240px 40px repeat-x}
+
+@media (max-width:860px){
+  html[data-dir] .hero-title{font-size:clamp(2.5rem,12vw,3.6rem)}
+  html[data-dir] .hero-media{aspect-ratio:4/3}
+  html[data-dir] .brand{font-size:1.1rem}
+}

@@ -1,0 +1,64 @@
+/* O Barracão — hook: the name itself, a big timber barn (barracão): gable roof, vertical planks, X-braced barn door */
+@import url('https://fonts.googleapis.com/css2?family=Alfa+Slab+One&display=swap');
+:root{
+  --barn:url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 44'><g fill='none' stroke='%23e6b866' stroke-width='2.4' stroke-linejoin='round' stroke-linecap='round'><path d='M3 20 32 3l29 17'/><path d='M9 17v25h46V17'/><path d='M24 42V26h16v16M24 26l16 16M40 26 24 42'/><path d='M28 15h8v6h-8z'/></g></svg>");
+  --candle:color-mix(in oklab,var(--accent) 14%,#ecc173);
+  --plank:repeating-linear-gradient(90deg,rgba(0,0,0,0) 0 38px,rgba(0,0,0,.35) 38px 40px),
+          linear-gradient(180deg,color-mix(in oklab,var(--primary) 55%,#120c09),color-mix(in oklab,var(--primary) 30%,#0d0806));
+}
+/* wordmark: heavy slab, painted on the barn door */
+:root .brand{font:400 1.25rem/1 'Alfa Slab One',Georgia,serif;text-transform:uppercase;letter-spacing:.06em;color:var(--ink);
+  display:inline-flex;align-items:center;gap:10px}
+:root .brand::before{content:"";width:34px;height:24px;background:var(--barn) center/contain no-repeat;flex:none}
+:root .hero-title{font:400 clamp(2.3rem,10.5vw,4.4rem)/.95 'Alfa Slab One',Georgia,serif;font-style:normal;text-transform:uppercase;
+  letter-spacing:.02em;color:#f6ecdc;text-shadow:0 2px 0 rgba(0,0,0,.45)}
+:root .hero-title::after{content:"";display:block;width:min(260px,70%);height:10px;margin-top:14px;
+  background:linear-gradient(var(--candle),var(--candle)) 0 0/100% 2px no-repeat,linear-gradient(var(--candle),var(--candle)) 0 100%/100% 2px no-repeat,
+  repeating-linear-gradient(90deg,var(--candle) 0 2px,transparent 2px 14px) 0 50%/100% 6px no-repeat}
+
+/* hero: the copy lives inside a barn silhouette (gable top, plank walls) set over the photo */
+:root .hero{min-height:min(92vh,860px)}
+:root .hero-copy{justify-self:start;align-self:end;width:min(700px,calc(100% - 24px));margin:0 12px 22px;max-width:none;
+  padding:clamp(70px,9vw,96px) clamp(20px,4vw,40px) clamp(24px,3vw,36px);background:var(--plank);
+  clip-path:polygon(0 clamp(44px,6vw,64px),50% 0,100% clamp(44px,6vw,64px),100% 100%,0 100%);
+  box-shadow:inset 0 0 0 2px rgba(230,184,102,.25)}
+:root .hero-copy::before{content:"";position:absolute;inset:0;pointer-events:none;
+  background:linear-gradient(to top left,transparent calc(50% - 1.5px),var(--candle) calc(50% - 1.5px) calc(50% + 1.5px),transparent calc(50% + 1.5px)) 0 0/50% clamp(44px,6vw,64px) no-repeat,
+             linear-gradient(to top right,transparent calc(50% - 1.5px),var(--candle) calc(50% - 1.5px) calc(50% + 1.5px),transparent calc(50% + 1.5px)) 100% 0/50% clamp(44px,6vw,64px) no-repeat}
+:root .hero-copy{position:relative}
+:root .hero .facts{border-color:rgba(242,231,213,.2)}
+@media (min-width:861px){
+  :root .hero-copy{margin:0 0 56px max(32px,calc((100vw - var(--maxw))/2 + 16px))}
+}
+@media (max-width:860px){
+  :root .hero{min-height:auto}
+  :root .hero-copy{margin-top:40vh;padding-block:62px 26px}
+}
+
+/* barn ornament in the hero corner */
+:root .hero::after{content:"";position:absolute;top:22px;right:22px;width:86px;height:60px;background:var(--barn) center/contain no-repeat;opacity:.9;pointer-events:none}
+:root .hero{position:relative}
+
+/* order: the board (menu) comes straight after the barn door */
+:root .menu{order:1}
+:root .about{order:2}
+:root .gallery{order:3}
+:root .qr{order:4}
+:root .book{order:5}
+:root .visit{order:6}
+:root .proposal{order:9}
+
+/* menu: hung on a plank wall, barn ornament as header mark */
+:root .menu{background:var(--plank);background-attachment:scroll}
+:root .menu .section-head{position:relative;padding-top:66px}
+:root .menu .section-head::before{content:"";position:absolute;top:0;left:0;width:72px;height:50px;background:var(--barn) left center/contain no-repeat}
+:root .menu h2{font-family:'Alfa Slab One',Georgia,serif;font-weight:400;text-transform:uppercase;letter-spacing:.02em}
+:root .dish-price{font:400 1.05rem/1 'Alfa Slab One',Georgia,serif;font-style:normal;color:var(--candle)}
+
+/* about lede: X-braced rule like the barn door */
+:root .about .lede{border-left:3px solid var(--candle);padding-left:18px}
+:root .visit h2,:root .book h2{font-family:'Alfa Slab One',Georgia,serif;font-weight:400;text-transform:uppercase;letter-spacing:.02em}
+
+/* footer: a little barn closing the page */
+:root .site-foot .wrap::before{content:"";width:64px;height:44px;background:var(--barn) center/contain no-repeat;margin-bottom:6px}
+@media (prefers-reduced-motion:reduce){:root *{transition:none!important;animation:none!important}}

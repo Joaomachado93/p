@@ -1,0 +1,56 @@
+/* Raiz da Cepa Torta — hook: "cepa torta" + "raiz" — a gnarled, twisted vine stock with its roots; seasonal wine bistro */
+@import url('https://fonts.googleapis.com/css2?family=Cormorant:ital,wght@0,500;0,600;1,500;1,600&display=swap');
+:root{
+  --cepa:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 60 90'%3E%3Cg fill='none' stroke='%23C2A15A' stroke-width='3' stroke-linecap='round'%3E%3Cpath d='M30 52c-8-8 8-14 0-22s6-12 2-20'/%3E%3Cpath d='M32 10c6-4 14-2 18 4M31 22c-8-2-14 0-18 6'/%3E%3Cpath d='M4 56h52' stroke-width='1.5'/%3E%3Cpath d='M30 52v8c0 6-8 6-12 14M30 60c2 8 10 8 12 18M30 64c-2 8-2 14 0 22M22 70c-6 2-10 8-12 10M38 72c6 0 10 4 12 8' stroke-width='1.8'/%3E%3C/g%3E%3Cg fill='%23C2A15A'%3E%3Ccircle cx='52' cy='18' r='3'/%3E%3Ccircle cx='48' cy='22' r='3'/%3E%3Ccircle cx='53' cy='25' r='3'/%3E%3C/g%3E%3C/svg%3E");
+  --wine:#3b1226;
+  --linen:color-mix(in srgb,var(--primary) 6%,#f4eee4);
+}
+/* wordmark: Cormorant, italic "da", gold rule — a wine-label feel */
+html[data-dir] .brand,html[data-dir] .hero-title,html[data-dir] h2{font-family:'Cormorant',Georgia,serif}
+html[data-dir] .brand{font-weight:600;font-style:italic;font-size:1.5rem;color:var(--primary);display:inline-flex;align-items:center;gap:8px}
+html[data-dir] .brand::before{content:"";width:20px;height:30px;flex:none;background:var(--cepa) center/contain no-repeat}
+html[data-dir] .hero-title{font-weight:600;font-style:italic;color:var(--primary);letter-spacing:-.02em;line-height:.9;font-size:clamp(3rem,12vw,7rem)}
+html[data-dir] .hero-title::after{content:"";display:block;width:90px;height:1px;margin-top:22px;background:var(--accent)}
+html[data-dir] .tagline{font-family:'Cormorant',serif;font-style:italic;font-size:clamp(1.3rem,2.4vw,1.7rem);color:var(--ink)}
+html[data-dir] .kicker{color:#7a5d24}
+
+/* hero: the photo grows from a root — vine stock drawn at the foot of the frame on a deep-wine panel */
+html[data-dir] .hero-media{background:var(--wine);box-shadow:inset 0 0 0 12px var(--wine)}
+html[data-dir] .hero-media::after{border-color:rgba(194,161,90,.6)}
+html[data-dir] .hero-copy{position:relative}
+@media (min-width:861px){
+  html[data-dir] .hero-media{border-radius:2px 2px 160px 160px}
+  html[data-dir] .hero-media img{border-radius:0 0 150px 150px}
+  html[data-dir] .hero-media::after{border-radius:0 0 150px 150px}
+  html[data-dir] .hero-copy::before{content:"";position:absolute;right:4%;top:-20px;width:70px;height:105px;background:var(--cepa) center/contain no-repeat;opacity:.9}
+}
+@media (max-width:860px){
+  html[data-dir] .hero-media{border-radius:2px 2px 120px 120px;aspect-ratio:4/4}
+  html[data-dir] .hero-media img{border-radius:0 0 110px 110px}
+  html[data-dir] .hero-media::after{border-radius:0 0 110px 110px}
+}
+
+/* menu: the wine-cellar carte — deep wine band, ivory card, seasonal note in gold */
+html[data-dir] .menu{background:var(--wine);border-block:0;position:relative}
+html[data-dir] .menu::before{content:"";display:block;width:60px;height:90px;margin:0 auto 28px;background:var(--cepa) center/contain no-repeat}
+html[data-dir] .menu .wrap{box-shadow:inset 0 0 0 9px var(--surface),inset 0 0 0 10px rgba(194,161,90,.7),0 30px 60px -30px rgba(0,0,0,.6)}
+html[data-dir] .menu h2{font-style:italic;font-weight:600;color:var(--primary)}
+html[data-dir] .menu h2::after{background:var(--accent)}
+html[data-dir] .dish-name{font-family:'Cormorant',serif;font-weight:600;font-size:1.35rem}
+html[data-dir] .dish-price{font-family:'Cormorant',serif;font-weight:600;font-size:1.3rem;color:var(--primary)}
+html[data-dir] .dish-dots{border-bottom-color:rgba(194,161,90,.7)}
+
+/* order: the carte right after the hero (menu changes with the season), story after photos */
+html main > .menu{order:1}
+html main > .gallery{order:2}
+html main > .about{order:3}
+html main > .book{order:4}
+html main > .visit{order:5}
+html main > .proposal{order:9}
+
+html[data-dir] .lede{font-family:'Cormorant',serif;font-weight:500;font-size:clamp(1.45rem,2.6vw,1.95rem);line-height:1.3}
+html[data-dir] .point::before{color:#7a5d24}
+html[data-dir] .site-foot{background:var(--wine);color:#efe4d2}
+html[data-dir] .site-foot .muted{color:#d9c8b0}
+html[data-dir] .site-foot a{color:#fff}
+html[data-dir] .site-foot .wrap::before{content:"";width:30px;height:45px;background:var(--cepa) center/contain no-repeat}

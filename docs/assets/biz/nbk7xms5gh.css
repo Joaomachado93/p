@@ -1,0 +1,68 @@
+/* Gato Azul Pastelaria — hook: the name, a blue cat: cat-ear silhouette on the photo, sitting-cat mark, paw-print trail */
+@import url('https://fonts.googleapis.com/css2?family=Grandstander:ital,wght@0,600;0,800;1,700&display=swap');
+:root{
+  --cat:url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 40 48'><path d='M9 4l5 8a12 12 0 0 1 12 0l5-8 2 13a12 12 0 0 1-1 9c4 4 6 10 6 15 0 4-3 6-7 6H11c-5 0-7-3-7-6 0-6 3-11 6-15a12 12 0 0 1-1-9z' fill='%231565c0'/><path d='M33 44c5 0 7-4 5-8' fill='none' stroke='%231565c0' stroke-width='3' stroke-linecap='round'/><circle cx='16' cy='19' r='1.8' fill='%23ffb300'/><circle cx='24' cy='19' r='1.8' fill='%23ffb300'/></svg>");
+  --paw:url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 60 24'><g fill='%231565c0' opacity='.55'><ellipse cx='12' cy='15' rx='4.5' ry='4'/><circle cx='7' cy='9' r='2'/><circle cx='11' cy='6.5' r='2'/><circle cx='15.5' cy='7' r='2'/><circle cx='18' cy='10.5' r='2'/><ellipse cx='44' cy='11' rx='4.5' ry='4'/><circle cx='39' cy='5' r='2'/><circle cx='43' cy='2.5' r='2'/><circle cx='47.5' cy='3' r='2'/><circle cx='50' cy='6.5' r='2'/></g></svg>");
+  --ears:url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100' preserveAspectRatio='none'><path d='M0 100V22L10 0l22 13Q50 9 68 13L90 0l10 22v78z'/></svg>");
+  --bg:color-mix(in srgb,var(--primary) 5%,#f8f9fc);
+  --paper:color-mix(in srgb,var(--primary) 10%,#f6f8fd);
+  --paper-2:color-mix(in srgb,var(--primary) 18%,#f2f5fc);
+}
+:root h1,:root h2,:root h3{font-family:'Grandstander',system-ui,sans-serif!important;font-variation-settings:normal!important}
+:root h2{font-weight:800!important}
+
+/* wordmark: chunky playful letters with the sitting cat */
+:root .brand{font:800 clamp(1.1rem,2.6vw,1.5rem)/1 'Grandstander',system-ui,sans-serif;font-style:normal;color:var(--primary);
+  display:inline-flex;align-items:flex-end;gap:8px}
+:root .brand::before{content:"";width:24px;height:29px;flex:none;background:var(--cat) center/contain no-repeat}
+:root .hero .hero-title{font:800 clamp(2.5rem,10vw,5.2rem)/.98 'Grandstander',system-ui,sans-serif;letter-spacing:-.02em;color:var(--primary)}
+:root .hero .hero-title::after{content:"";display:block;width:120px;height:24px;margin-top:12px;background:var(--paw) left center/60px 24px repeat-x}
+:root .tagline{font-family:'Grandstander',system-ui,sans-serif;font-style:italic;font-weight:700;color:var(--ink)}
+
+/* awning: blue + amber stripes */
+:root .site-head::before{background:linear-gradient(rgba(0,0,0,.12),rgba(0,0,0,0) 45%),repeating-linear-gradient(90deg,var(--primary) 0 24px,#fff 24px 48px)}
+
+/* hero: photo cut as a cat head (two ears), swapped to the left on desktop; a cat sits on the copy */
+:root .hero-media{-webkit-mask:var(--ears) center/100% 100% no-repeat;mask:var(--ears) center/100% 100% no-repeat;border-radius:0;box-shadow:none}
+:root .hero-media::after{background:none}
+:root .hero-copy{position:relative}
+:root .hero-copy::after{content:"";position:absolute;right:var(--gutter-r);top:18px;width:54px;height:65px;background:var(--cat) center/contain no-repeat}
+@media (min-width:861px){
+  :root .hero{width:100%;grid-template-columns:minmax(0,1fr) minmax(0,1fr)}
+  :root .hero-media{grid-column:1!important;aspect-ratio:1/1}
+  :root .hero-copy{grid-column:2!important}
+  :root .hero-copy::after{top:-70px;right:0;width:70px;height:84px}
+}
+
+/* order: gallery after the menu; the paw trail walks between sections */
+:root .about{order:1}
+:root .menu{order:2}
+:root .gallery{order:3}
+:root .book{order:4}
+:root .visit{order:5}
+:root .proposal{order:9}
+:root .about,:root .book,:root .visit{background-image:var(--paw);background-repeat:no-repeat;background-size:90px 36px;background-position:var(--gutter) 22px}
+
+/* menu: the blue band, amber paw tabs, white vitrine */
+:root .menu{background:var(--primary) var(--paw) right 16px top 24px/120px 48px no-repeat;border-image:none;border-top:0;color:#fff}
+:root .menu h2{color:#fff}
+:root .menu .note{color:#dbe8fb}
+:root .menu .kicker{background:var(--accent);color:#1d1606}
+:root .tab{background:rgba(255,255,255,.14);color:#fff;font-family:'Grandstander',system-ui,sans-serif;font-weight:800}
+:root .tab:hover{background:rgba(255,255,255,.26)}
+:root .tab[aria-selected=true]{background:var(--accent);color:#1d1606}
+:root .tab:focus-visible{outline:3px solid #fff;outline-offset:2px;background:var(--accent);color:#1d1606}
+:root .dishes{color:var(--ink);border-radius:22px}
+:root .dish-name{font-family:'Grandstander',system-ui,sans-serif;font-weight:600}
+:root .dish-price{background:var(--accent);color:#1d1606;font-family:'Grandstander',system-ui,sans-serif;font-style:normal;font-weight:800}
+
+/* gallery: round "cat-eye" portholes */
+:root .gallery .shot{-webkit-mask:none;mask:none;padding:6px;border-radius:999px 999px 28px 28px;background:var(--paper-2)}
+:root .gallery .shot img{border-radius:999px 999px 22px 22px}
+
+:root .kicker{background:var(--primary)}
+:root .point::before{color:var(--primary)}
+:root .site-foot .wrap::before{content:"";width:30px;height:36px;background:var(--cat) center/contain no-repeat}
+/* blue outline around the cat-head photo */
+:root .hero-media{background:var(--primary)}
+:root .hero-media img{inset:10px 10px 0 10px;width:calc(100% - 20px);height:calc(100% - 10px);-webkit-mask:var(--ears) center/100% 100% no-repeat;mask:var(--ears) center/100% 100% no-repeat}

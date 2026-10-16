@@ -1,0 +1,74 @@
+/* Bugalho | Rui Lemos — hook: the bugalho (oak gall) on its oak leaf, deep forest green and gold, a chef's signed table */
+@import url('https://fonts.googleapis.com/css2?family=Gloock&display=swap');
+:root{
+  --bg-display:'Gloock','Bodoni Moda',Georgia,serif;
+  --forest:var(--primary);
+  --forest-2:color-mix(in srgb,var(--primary) 82%,#000);
+  --gold:var(--accent);
+  --cream:#f4eedf;
+  --bg:#f7f4ec; --linen:#ece7da;
+  --oak:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Cg fill='none' stroke='%23C6A15B' stroke-width='2.2' stroke-linejoin='round'%3E%3Cpath d='M46 8C54 15 61 17 57 27C67 25 71 33 61 39C71 41 73 51 61 53C69 59 65 69 53 65C55 75 49 81 45 90C41 81 35 75 37 65C25 69 21 59 29 53C17 51 19 41 29 39C19 33 23 25 33 27C29 17 37 15 46 8Z'/%3E%3Cpath d='M45 20V96M45 40L55 33M45 52L35 45M45 62L55 57'/%3E%3C/g%3E%3Ccircle cx='76' cy='76' r='13' fill='%23C6A15B'/%3E%3Cg fill='%231E3A34'%3E%3Ccircle cx='72' cy='72' r='1.6'/%3E%3Ccircle cx='80' cy='74' r='1.6'/%3E%3Ccircle cx='75' cy='81' r='1.6'/%3E%3C/g%3E%3Cpath d='M68 64L72 66' stroke='%23C6A15B' stroke-width='2'/%3E%3C/svg%3E");
+}
+
+/* wordmark: engraved capitals, gold gall as the full stop */
+html[data-dir] .brand{font:400 1.2rem/1 var(--bg-display);text-transform:uppercase;letter-spacing:.16em;color:var(--forest);display:inline-flex;align-items:center;gap:10px}
+html[data-dir] .brand::before{content:"";width:28px;height:28px;flex:none;background:var(--oak) center/contain no-repeat;filter:brightness(.8)}
+html[data-dir] h1,html[data-dir] h2,html[data-dir] h3{font-family:var(--bg-display);font-weight:400}
+html[data-dir] h2::after{background:var(--gold);width:64px;height:2px}
+
+/* hero: full forest-green band, photo in a gold hairline frame, oak leaf in the corner */
+html[data-dir] .hero{background:var(--forest);color:var(--cream);box-shadow:0 0 0 100vmax var(--forest);clip-path:inset(0 -100vmax);position:relative}
+html[data-dir] .hero::after{content:"";position:absolute;right:max(var(--gutter-r),calc((100% - var(--maxw))/2));bottom:18px;width:84px;height:84px;background:var(--oak) center/contain no-repeat;opacity:.9;pointer-events:none}
+html[data-dir] .hero-media{background:var(--forest-2);border:1px solid color-mix(in srgb,var(--gold) 60%,transparent);box-shadow:inset 0 0 0 9px var(--forest)}
+html[data-dir] .hero-media::after{border-color:color-mix(in srgb,var(--gold) 70%,transparent)}
+html[data-dir] .hero-title{color:var(--cream);font-weight:400;letter-spacing:-.01em;line-height:.95}
+html[data-dir] .hero .kicker{color:var(--gold)}
+html[data-dir] .tagline{color:#d9d3c2}
+html[data-dir] .hero .btn-primary{background:var(--gold);border-color:var(--gold);color:#16231f}
+html[data-dir] .hero .btn-primary:hover{background:var(--cream);border-color:var(--cream)}
+html[data-dir] .hero .btn-secondary{color:var(--cream);border-color:rgba(244,238,223,.5)}
+html[data-dir] .hero .btn-secondary:hover{border-color:var(--cream)}
+html[data-dir] .hero .facts{color:#d9d3c2;border-top-color:rgba(244,238,223,.2)}
+html[data-dir] .hero .facts .i{color:var(--gold)}
+html[data-dir] .hero .facts b{color:var(--cream)}
+html[data-dir] .hero :focus-visible{outline-color:var(--gold)}
+@media (min-width:861px){
+  html[data-dir] .hero{padding-block:clamp(40px,5vw,72px) clamp(56px,6vw,96px)}
+  html[data-dir] .hero-media{order:1;aspect-ratio:4/5;transform:translateY(clamp(24px,4vw,56px))}
+  html[data-dir] .hero-copy{order:2}
+}
+
+/* order: the carte first, the room after */
+html[data-dir] main .menu{order:1}
+html[data-dir] main .about{order:2}
+html[data-dir] main .gallery{order:3;padding-top:0}
+html[data-dir] main .book{order:4}
+html[data-dir] main .visit{order:5}
+html[data-dir] main .proposal{order:9}
+
+/* menu: gold-ruled carte on cream, oak leaf as the crest */
+html[data-dir] .menu{background:var(--linen)}
+html[data-dir] .menu .wrap{box-shadow:inset 0 0 0 9px var(--surface),inset 0 0 0 10px var(--gold),inset 0 0 0 13px var(--surface),inset 0 0 0 14px color-mix(in srgb,var(--gold) 50%,transparent),0 30px 60px -40px rgba(20,40,34,.4)}
+html[data-dir] .menu .section-head::before{content:"";width:56px;height:56px;background:var(--oak) center/contain no-repeat;filter:brightness(.75)}
+html[data-dir] .tab[aria-selected=true]{color:var(--forest);border-bottom-color:var(--gold)}
+html[data-dir] .dish-name{font-family:var(--bg-display)}
+html[data-dir] .dish-price{color:var(--forest)}
+html[data-dir] .dish-dots{border-bottom-color:color-mix(in srgb,var(--gold) 70%,transparent)}
+html[data-dir] .point::before{color:var(--forest)}
+
+/* footer: forest band */
+html[data-dir] .site-foot{background:var(--forest);color:var(--cream);border-top:3px solid var(--gold)}
+html[data-dir] .site-foot a{color:var(--cream)}
+html[data-dir] .site-foot b{font-family:var(--bg-display);font-weight:400;letter-spacing:.12em;text-transform:uppercase}
+
+@media (max-width:860px){
+  html[data-dir] .hero{padding-bottom:12px}
+  html[data-dir] .hero::after{width:56px;height:56px;bottom:10px}
+  html[data-dir] .brand{font-size:1.02rem;letter-spacing:.12em}
+  html[data-dir] .hero-title{font-size:clamp(2.6rem,12vw,3.6rem)}
+}
+
+/* mesa / cozinha */
+html[data-dir] .m-top{background:var(--forest);border-bottom:2px solid var(--gold)}
+html[data-dir] .m-top h1{font-family:var(--bg-display);text-transform:uppercase;letter-spacing:.1em;font-size:1.1rem}
+html[data-dir] .m-cat{font-family:var(--bg-display);font-weight:400}

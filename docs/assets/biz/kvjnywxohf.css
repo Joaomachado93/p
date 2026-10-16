@@ -1,0 +1,67 @@
+/* Mercadinho do Tio Rique — hook: the little shop on Rua da Ponte (stone bridge arch) run by "o Tio" */
+@import url('https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&display=swap');
+:root{
+  --bridge:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 120 40'%3E%3Cpath d='M0 12h120' stroke='%232F6B3A' stroke-width='3'/%3E%3Cpath d='M0 40V16h120v24h-14a46 22 0 0 0-92 0z' fill='%232F6B3A'/%3E%3Cpath d='M20 40a40 19 0 0 1 80 0' fill='none' stroke='%23E0922B' stroke-width='3'/%3E%3Cg stroke='%23f7f3e9' stroke-width='1.5'%3E%3Cpath d='M30 16v6M50 16v4M70 16v4M90 16v6'/%3E%3C/g%3E%3C/svg%3E");
+  --bg:color-mix(in srgb,var(--primary) 5%,#f7f3e9);
+  --crate:color-mix(in srgb,var(--accent) 22%,#f1e6cc);
+  --tag:#ffd36b;
+}
+/* wordmark: rounded, friendly, a little uncle's-shop hand-painted */
+html[data-dir] .brand,html[data-dir] .hero-title{font-family:'Fredoka',var(--display);font-stretch:normal;font-variation-settings:normal}
+html[data-dir] .brand{display:inline-flex;align-items:center;gap:10px;font-weight:700;font-size:1.3rem;color:var(--primary);letter-spacing:0}
+html[data-dir] .brand::before{content:"";flex:none;width:42px;height:14px;background:var(--bridge) center/contain no-repeat}
+html[data-dir] .hero-title{font-weight:700;letter-spacing:-.01em;line-height:1;color:var(--primary);
+  font-size:clamp(2.6rem,10vw,5rem)}
+html[data-dir] .hero-title::after{content:"";display:block;width:min(240px,70%);height:22px;margin-top:14px;
+  background:linear-gradient(var(--accent),var(--accent)) 0 50%/100% 4px no-repeat;
+  -webkit-mask:radial-gradient(circle 4px,#000 98%,#0000) 0 50%/16px 22px repeat-x;mask:radial-gradient(circle 4px,#000 98%,#0000) 0 50%/16px 22px repeat-x;
+  background-color:transparent}
+html[data-dir] .tagline{font-family:'Fredoka',var(--body);font-weight:500;color:var(--ink)}
+html[data-dir] .hero .kicker{color:#7a4a0e;border-color:var(--accent);background:color-mix(in srgb,var(--accent) 12%,#fff)}
+
+/* hero: the photo seen through the bridge arch */
+html[data-dir] .hero-media{overflow:hidden;background:var(--primary)}
+html[data-dir] .hero-media img{border-radius:0}
+@media (min-width:861px){
+  html[data-dir] .hero.hero--photo{padding:28px 0 0;background:var(--surface)}
+  html[data-dir] .hero--photo .hero-media{margin:0 max(var(--gutter-r),calc((100vw - var(--maxw))/2 + 16px)) 0 0;
+    border-radius:50% 50% 0 0 / 34% 34% 0 0;border:6px solid var(--primary);border-bottom:0}
+  html[data-dir] .hero-media::after{display:none}
+}
+@media (max-width:860px){
+  html[data-dir] .hero-media{margin:12px var(--gutter-r) 0 var(--gutter);border-radius:46% 46% 6px 6px / 28% 28% 6px 6px;
+    border:5px solid var(--primary);aspect-ratio:5/4}
+  html[data-dir] .hero-media::after{display:none}
+}
+
+/* bridge as divider over the shopping list and the footer */
+html[data-dir] .menu{position:relative;border-top:0;padding-top:calc(var(--section) + 20px)}
+html[data-dir] .menu::before{content:"";position:absolute;left:0;right:0;top:0;height:40px;
+  background:var(--bridge) 0 0/120px 40px repeat-x}
+html[data-dir] .menu .section-head h2{font-family:'Fredoka',var(--display);font-weight:700;color:var(--primary)}
+
+/* product list: chalk-free, numbered like the uncle's handwritten order slip */
+html[data-dir] .dishes{counter-reset:item;border-color:var(--primary);box-shadow:0 4px 0 var(--primary)}
+html[data-dir] .dish{counter-increment:item}
+html[data-dir] .dish-name::before{content:counter(item);display:inline-grid;place-items:center;width:1.6em;height:1.6em;margin-right:.5em;
+  border-radius:50%;background:color-mix(in srgb,var(--primary) 12%,#fff);color:var(--primary);font:700 .78rem/1 'Fredoka',var(--body);vertical-align:.1em}
+html[data-dir] .tab[aria-selected=true]{background:var(--primary)}
+
+/* order: product list straight after the shop front, then the order slip */
+html main > .menu{order:1}
+html main > .book{order:2}
+html main > .about{order:3}
+html main > .gallery{order:4}
+html main > .visit{order:5}
+html main > .proposal{order:9}
+
+/* order slip header in the brand green */
+html[data-dir] .book h2{font-family:'Fredoka',var(--display);font-weight:700}
+html[data-dir] .form{box-shadow:0 0 0 2px var(--primary),0 10px 24px -14px rgba(30,34,25,.35)}
+
+/* footer: bridge silhouette in cream on the dark ground */
+html[data-dir] .site-foot{background:#1d3423}
+html[data-dir] .site-foot::before{height:10px;background:repeating-linear-gradient(90deg,var(--accent) 0 28px,#efe5cd 28px 56px)}
+html[data-dir] .site-foot .wrap::before{content:"";display:block;width:120px;height:40px;margin-bottom:10px;opacity:.9;
+  background:var(--bridge) center/contain no-repeat;filter:brightness(1.8) saturate(.6)}
+@media (max-width:860px){html[data-dir] .brand{font-size:1.12rem}html[data-dir] .brand::before{width:32px}}

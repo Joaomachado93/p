@@ -1,0 +1,48 @@
+/* A Petisqueira — hook: Largo dos Poetas → the poet's quill, petiscos read like verses */
+@import url('https://fonts.googleapis.com/css2?family=IM+Fell+English:ital@0;1&display=swap');
+:root{
+  --quill:url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 48 48'><path d='M45 3C29 6 15 18 9 38l3 2C19 22 31 10 45 3Z' fill='%237a2e1d'/><path d='M12 40 4 46' stroke='%237a2e1d' stroke-width='2.4' stroke-linecap='round'/><path d='M19 27l8-1M23 20l8-1M28 13l8-1' stroke='%23c8892b' stroke-width='2' stroke-linecap='round'/></svg>");
+  --quill-chalk:url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 48 48'><path d='M45 3C29 6 15 18 9 38l3 2C19 22 31 10 45 3Z' fill='%23f1efe6'/><path d='M12 40 4 46' stroke='%23f1efe6' stroke-width='2.4' stroke-linecap='round'/><path d='M19 27l8-1M23 20l8-1M28 13l8-1' stroke='%23e0b36a' stroke-width='2' stroke-linecap='round'/></svg>");
+  --fell:'IM Fell English',Georgia,serif;
+  --bg:color-mix(in srgb,var(--primary) 5%,#f6efe2);
+  --surface:#fffaf1;
+}
+/* wordmark: a poet's signature with the quill */
+html[data-dir] .brand{display:inline-flex;align-items:center;gap:8px;font:italic 400 1.45rem/1 var(--fell);color:var(--primary);letter-spacing:.01em}
+html[data-dir] .brand::before{content:"";width:26px;height:26px;background:var(--quill) center/contain no-repeat;flex:none}
+html[data-dir] .hero-title{font:400 clamp(2.7rem,7vw,5.6rem)/.95 var(--fell);color:var(--primary);letter-spacing:-.01em}
+html[data-dir] .hero-title::after{content:"";display:block;width:min(260px,70%);height:22px;margin-top:14px;
+  background:var(--quill) right center/22px 22px no-repeat,linear-gradient(var(--accent),var(--accent)) left 50%/calc(100% - 30px) 2px no-repeat}
+/* the tagline is set like a verse */
+html[data-dir] .tagline{font:italic 400 clamp(1.25rem,2.2vw,1.6rem)/1.35 var(--fell);color:var(--ink);padding-left:18px;border-left:3px solid var(--accent)}
+html[data-dir] .kicker{color:var(--primary)}
+/* hero: frame the photo with a parchment mat instead of azulejo */
+html[data-dir] .hero-media{background:color-mix(in srgb,var(--accent) 22%,#f6efe2);padding:12px;outline:1px solid color-mix(in srgb,var(--primary) 40%,transparent);outline-offset:-6px}
+/* about: points as numbered stanzas */
+html[data-dir] .points{counter-reset:st;border-top:2px solid var(--primary)}
+html[data-dir] .point{counter-increment:st}
+html[data-dir] .point::before{content:counter(st,lower-roman) ".";background:none;border:0;width:auto;height:auto;font:italic 400 1.4rem/1 var(--fell);color:var(--accent)}
+html[data-dir] .point h3{font-family:var(--fell);font-weight:400;font-size:1.35rem}
+html[data-dir] .lede{font-family:var(--fell);font-size:clamp(1.35rem,2.4vw,1.75rem)}
+/* order: verses (menu) right after the about, gallery after */
+main > .about{order:1} main > .menu{order:2} main > .gallery{order:3} main > .book{order:4} main > .visit{order:5} main > .proposal{order:9}
+html[data-dir] .menu{padding-top:var(--section)}
+html[data-dir] .gallery{padding-top:0}
+/* menu: chalk board keeps the tasca slate, headed by the quill */
+html[data-dir] .menu .section-head{position:relative;padding-left:58px}
+html[data-dir] .menu .section-head::before{content:"";position:absolute;left:0;top:4px;width:44px;height:44px;background:var(--quill-chalk) center/contain no-repeat}
+html[data-dir] .menu h2{font:400 clamp(2.1rem,4.6vw,3.2rem)/1 var(--fell)}
+html[data-dir] .menu .dish-name{font:400 1.25rem/1.2 var(--fell);letter-spacing:.01em}
+html[data-dir] .menu .dish:nth-child(odd) .dish-name{font-style:italic}
+/* booking + section titles */
+html[data-dir] h2{font-family:var(--fell);font-weight:400}
+html[data-dir] .book h2::after,html[data-dir] .visit h2::after{content:"";display:block;width:34px;height:34px;margin-top:10px;background:var(--quill) left center/contain no-repeat}
+/* footer signature */
+html[data-dir] .site-foot b{font:italic 400 1.2rem var(--fell);color:var(--primary)}
+html[data-dir] .site-foot b::before{content:"";display:inline-block;width:20px;height:20px;margin-right:8px;vertical-align:-4px;background:var(--quill) center/contain no-repeat}
+@media (max-width:860px){
+  html[data-dir] .hero-media{padding:0 0 10px;outline:0;background:linear-gradient(var(--accent),var(--accent)) bottom/100% 10px no-repeat}
+  html[data-dir] .hero-title{font-size:clamp(2.5rem,12vw,3.6rem)}
+  html[data-dir] .menu .section-head{padding-left:48px}
+  html[data-dir] .menu .section-head::before{width:36px;height:36px}
+}

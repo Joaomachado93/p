@@ -1,0 +1,64 @@
+/* Cervejaria Mau Maria — hook: the cervejaria's fresh beer, a foaming caneca + a foam head poured over the hero */
+@import url('https://fonts.googleapis.com/css2?family=Shrikhand&display=swap');
+:root{
+  --beer:#f4a300; --foam:#fffaf0;
+  --bg:#f1e6cf;
+  --script:'Shrikhand','Anton',Georgia,serif;
+  --caneca:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Cpath d='M44 26h7q5 0 5 5v11q0 5-5 5h-7' fill='none' stroke='%231b140d' stroke-width='4'/%3E%3Crect x='12' y='18' width='33' height='40' rx='4' fill='%23f4a300' stroke='%231b140d' stroke-width='3.5'/%3E%3Cpath d='M21 28v22M29 28v22M37 28v22' stroke='%23c47f00' stroke-width='3' stroke-linecap='round'/%3E%3Cg fill='%23fffaf0' stroke='%231b140d' stroke-width='3'%3E%3Ccircle cx='17' cy='17' r='7'/%3E%3Ccircle cx='28' cy='13' r='8'/%3E%3Ccircle cx='40' cy='17' r='7'/%3E%3C/g%3E%3Cpath d='M11 20h35' stroke='%23fffaf0' stroke-width='5'/%3E%3C/svg%3E");
+  --froth:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 60 18'%3E%3Cpath d='M0 0h60v6q-4 10-10 6q-5 8-11 1q-5 7-10 1q-6 8-11 0q-5 7-9 1q-5 7-9 0z' fill='%23fffaf0'/%3E%3Cg fill='%23f1e6cf'%3E%3Ccircle cx='14' cy='5' r='1.6'/%3E%3Ccircle cx='41' cy='4' r='1.2'/%3E%3Ccircle cx='29' cy='8' r='1'/%3E%3C/g%3E%3C/svg%3E");
+}
+
+/* wordmark: a beer-label script in amber on the black sign board */
+html[data-dir] .brand{display:inline-flex;align-items:center;gap:10px;font:400 1.35rem/1 var(--script);text-transform:none;letter-spacing:.01em;color:var(--beer)}
+html[data-dir] .brand::before{content:"";width:34px;height:34px;flex:none;background:var(--caneca) center/contain no-repeat}
+html[data-dir] .hero-title{font:400 clamp(2.8rem,11vw,6rem)/1.02 var(--script);text-transform:none;letter-spacing:0;color:var(--foam);
+  text-shadow:4px 4px 0 var(--beer),5px 5px 0 rgba(0,0,0,.35)}
+html[data-dir] .tagline{color:var(--foam)}
+
+/* hero: navy poster with a foam head poured over its top edge, rating sticker in beer colour */
+html[data-dir] .hero{background:var(--primary);position:relative}
+html[data-dir] .hero-copy{background:radial-gradient(rgba(255,250,240,.12) 2px,transparent 2.5px) 0 0/22px 22px,radial-gradient(rgba(255,250,240,.08) 1.2px,transparent 1.6px) 11px 7px/22px 22px}
+html[data-dir] .hero-copy::before{content:"";width:72px;height:72px;background:var(--caneca) center/contain no-repeat;transform:rotate(-8deg)}
+html[data-dir] .hero .kicker{background:var(--beer);color:#1b140d}
+html[data-dir] .hero--photo .facts li:first-child{background:var(--beer);border-radius:50%}
+@media (max-width:860px){
+  html[data-dir] .hero-copy::before{display:none}
+}
+@media (min-width:861px){
+  html[data-dir] .hero-media{border-left:6px solid var(--beer)}
+  html[data-dir] .hero-title{font-size:clamp(3.2rem,5.8vw,5.6rem)}
+}
+
+/* section order: the drinks board first, then pictures, then the story */
+html[data-dir] main>.hero{order:0}
+html[data-dir] main>.menu{order:1}
+html[data-dir] main>.gallery{order:2;padding-top:var(--section)}
+html[data-dir] main>.about{order:3}
+html[data-dir] main>.book{order:4}
+html[data-dir] main>.visit{order:5}
+html[data-dir] main>.proposal{order:99}
+
+/* menu: tap-list board — dark navy board, foam edge, amber prices like a pint level */
+html[data-dir] .menu{background:#14263d;color:var(--foam);position:relative;border-block:0}
+html[data-dir] .menu::before{content:"";position:absolute;left:0;right:0;top:0;height:22px;background:var(--froth) 0 0/60px 18px repeat-x;transform:none}
+html[data-dir] .menu h2{color:var(--foam);font-family:var(--script);text-transform:none;font-weight:400}
+html[data-dir] .menu .note{color:#e6dcc6}
+html[data-dir] .menu .kicker{background:var(--beer);color:#1b140d}
+html[data-dir] .menu .tab{background:transparent;color:var(--foam);border-color:var(--foam);box-shadow:3px 3px 0 var(--beer)}
+html[data-dir] .menu .tab[aria-selected=true]{background:var(--beer);color:#1b140d;border-color:var(--beer);box-shadow:3px 3px 0 var(--foam)}
+html[data-dir] .menu :focus-visible{outline-color:var(--foam);box-shadow:0 0 0 6px var(--beer)}
+html[data-dir] .dishes{background:var(--foam);color:#1b140d;box-shadow:6px 6px 0 var(--beer);border-color:#1b140d}
+html[data-dir] .dish-price{color:var(--primary)}
+html[data-dir] .dish-name::before{content:"";display:inline-block;width:.85em;height:.85em;margin-right:.4em;vertical-align:-.08em;background:var(--caneca) center/contain no-repeat}
+
+/* about: numbered with beer-colour circles */
+html[data-dir] .point::before{color:var(--primary);text-shadow:2px 2px 0 var(--beer)}
+
+/* footer */
+html[data-dir] .site-foot b{font:400 1.15rem var(--script);color:var(--beer)}
+html[data-dir] .site-foot::before{background:var(--froth) 0 0/60px 18px repeat-x;height:18px}
+
+/* mesa / cozinha */
+html[data-dir] .m-top h1{font:400 1.4rem/1.1 var(--script);color:var(--beer);text-transform:none}
+html[data-dir] .m-cat{font-family:var(--script);text-transform:none;color:var(--primary)}
+html[data-dir] .m-top{border-bottom-color:var(--beer)}

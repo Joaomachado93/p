@@ -1,0 +1,50 @@
+/* Rota do Queijo — hook: the name — a cheese wedge with holes, and the "rota" (route): a dotted path with stops that leads through dozens of cheeses */
+@import url('https://fonts.googleapis.com/css2?family=Young+Serif&display=swap');
+:root{
+  --wedge:url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 72 52'><path d='M4 22 52 4l16 18v26H4z' fill='%23f2c14e' stroke='%238a5a00' stroke-width='2.5' stroke-linejoin='round'/><path d='M4 22h64' stroke='%238a5a00' stroke-width='2.5'/><path d='M4 22 52 4l16 18z' fill='%23f7d77e' stroke='%238a5a00' stroke-width='2.5' stroke-linejoin='round'/><g fill='%23d9a227'><circle cx='18' cy='34' r='4'/><circle cx='36' cy='40' r='3'/><circle cx='52' cy='32' r='5'/><circle cx='30' cy='29' r='2'/><circle cx='42' cy='15' r='2.5'/></g></svg>");
+  --route:url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 160 24'><path d='M4 12c20-14 36 14 56 0s36-14 56 0 28 8 40 0' fill='none' stroke='%233f6b35' stroke-width='2.5' stroke-dasharray='2 6' stroke-linecap='round'/><circle cx='4' cy='12' r='4' fill='%238a5a00'/><circle cx='60' cy='12' r='4' fill='%23f2c14e' stroke='%238a5a00' stroke-width='2'/><circle cx='116' cy='12' r='4' fill='%23f2c14e' stroke='%238a5a00' stroke-width='2'/></svg>");
+  --rind:#f6e7c1; --rind-2:#efd99e;
+}
+/* wordmark: sturdy warm serif, wedge as the mark */
+:root .brand{font:400 clamp(1.15rem,2.6vw,1.45rem)/1 'Young Serif',Georgia,serif;letter-spacing:-.01em;color:var(--ink);display:inline-flex;align-items:center;gap:10px}
+:root .brand::before{content:"";width:34px;height:25px;flex:none;background:var(--wedge) center/contain no-repeat}
+:root .hero .hero-title{font:400 clamp(2.8rem,11vw,5.6rem)/.98 'Young Serif',Georgia,serif;letter-spacing:-.02em;color:var(--ink)}
+:root .hero .hero-title::after{content:"";display:block;width:min(320px,90%);height:30px;margin-top:14px;background:var(--route) left center/160px 24px repeat-x}
+:root h2{font-family:'Young Serif',Georgia,serif!important;font-weight:400!important;letter-spacing:-.01em!important}
+
+/* hero: rind-coloured copy panel; the photo gets a wedge-cut corner and a big wedge sticker */
+:root .hero{background:var(--rind);width:100%}
+:root .hero-media{clip-path:polygon(0 0,100% 0,100% 100%,14% 100%,0 82%)}
+:root .hero-media::after{display:none}
+:root .hero-copy{position:relative}
+:root .hero-copy::after{content:"";position:absolute;right:var(--gutter-r);top:24px;width:88px;height:64px;background:var(--wedge) center/contain no-repeat;transform:rotate(-8deg)}
+@media (min-width:861px){
+  :root .hero--photo .hero-media{clip-path:polygon(10% 0,100% 0,100% 100%,0 100%)}
+  :root .hero-copy::after{width:120px;height:86px;top:40px;right:40px}
+}
+
+@media (max-width:860px){:root .hero-copy::after{top:-52px;right:14px;width:80px;height:58px}}
+
+/* order: straight to the cheeses (menu), then the photos, the shop, ordering */
+:root .menu{order:1}
+:root .gallery{order:2;padding-top:var(--section)}
+:root .about{order:3}
+:root .book{order:4}
+:root .visit{order:5}
+:root .proposal{order:9}
+
+/* every section starts with a stop on the route */
+:root .menu .section-head::before,:root .about .wrap::before,:root .book .wrap::before,:root .visit .wrap::before{content:"";display:block;width:160px;height:24px;background:var(--route) left center/160px 24px no-repeat;margin-bottom:6px;grid-column:1/-1}
+
+/* menu: a cheese-board — rind-yellow cards, each dish a wedge label */
+:root .menu{background:var(--rind-2) radial-gradient(circle,rgba(138,90,0,.14) 3px,transparent 3.5px) 0 0/34px 34px}
+:root .dish{position:relative;padding-left:44px}
+:root .dish::before{content:"";position:absolute;left:0;top:18px;width:32px;height:23px;background:var(--wedge) center/contain no-repeat}
+:root .dishes{background:var(--surface);border-radius:6px;border:2px solid var(--primary)}
+:root .tab[aria-selected=true]{background:var(--primary);color:#fff;border-color:var(--primary)}
+
+/* gallery: wedge-cut photo corners */
+:root .gallery .shot{clip-path:polygon(0 0,100% 0,100% 100%,18% 100%,0 80%)}
+:root .gallery .shot:nth-child(2){clip-path:polygon(0 0,82% 0,100% 20%,100% 100%,0 100%)}
+:root .kicker{color:var(--primary)}
+:root .site-foot .wrap::before{content:"";width:48px;height:35px;background:var(--wedge) center/contain no-repeat}

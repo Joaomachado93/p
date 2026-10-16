@@ -1,0 +1,66 @@
+/* Cantinho dos Sabores — hook: "cantinho" = the little corner → corner brackets framing everything, a warm spoon-in-the-corner mark, polvo à lagareiro up front */
+@import url('https://fonts.googleapis.com/css2?family=Yeseva+One&display=swap');
+html[data-dir]{
+  --cs-corner:url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 48 48'><path d='M4 44V10a6 6 0 0 1 6-6h34' fill='none' stroke='%23a63d2a' stroke-width='5' stroke-linecap='round'/><circle cx='18' cy='18' r='5' fill='%23e0a526'/></svg>");
+  --cs-mark:url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 48 48'><path d='M4 44V10a6 6 0 0 1 6-6h34' fill='none' stroke='%23a63d2a' stroke-width='5' stroke-linecap='round'/><ellipse cx='26' cy='20' rx='7' ry='9' fill='%23e0a526'/><path d='M26 29v13' stroke='%23e0a526' stroke-width='3.5' stroke-linecap='round'/></svg>");
+  --cs-red:color-mix(in srgb,var(--primary) 92%,#000);
+  --display:'Yeseva One','Alfa Slab One',Georgia,serif;
+  --bg:color-mix(in srgb,var(--accent) 7%,#f7f1e6);
+}
+
+/* wordmark: "Cantinho" tucked into its own corner bracket */
+html[data-dir] .brand{display:inline-flex;align-items:center;gap:10px;font:400 1.4rem/1 var(--display);color:var(--cs-red);min-height:44px}
+html[data-dir] .brand::before{content:"";width:30px;height:30px;flex:none;background:var(--cs-mark) center/contain no-repeat}
+html[data-dir] .hero-title{position:relative;font:400 clamp(2.8rem,6.4vw,5.6rem)/1 var(--display);letter-spacing:0;color:var(--ink);padding:18px 0 0 22px}
+html[data-dir] .hero-title::before{content:"";position:absolute;left:0;top:0;width:clamp(40px,5vw,62px);aspect-ratio:1;background:var(--cs-corner) 0 0/contain no-repeat}
+html[data-dir] .hero .kicker{padding-left:22px}
+
+/* hero: photo cut into a rounded "corner" (one big rounded corner, three square) with brackets at opposite corners */
+html[data-dir] .hero-media{position:relative;background:var(--primary);padding:0;border-radius:0 0 0 clamp(60px,10vw,140px);overflow:hidden;box-shadow:none}
+html[data-dir] .hero-media img{border-radius:0}
+html[data-dir] .hero-media::after{content:"";position:absolute;right:16px;bottom:16px;width:64px;height:64px;background:var(--cs-corner) center/contain no-repeat;transform:rotate(180deg);
+  filter:drop-shadow(0 0 1px #fff) drop-shadow(0 0 2px #fff)}
+html[data-dir] .site-head::after,html[data-dir] .site-foot::before,html[data-dir] .proposal::before{background:repeating-linear-gradient(90deg,var(--primary) 0 18px,var(--accent) 18px 24px);height:6px}
+
+/* section order: dishes first, then the photos, then the story */
+html[data-dir] .menu{order:1}
+html[data-dir] .gallery{order:2}
+html[data-dir] .about{order:3}
+html[data-dir] .qr{order:4}
+html[data-dir] .book{order:5}
+html[data-dir] .visit{order:6}
+html[data-dir] .proposal{order:99}
+
+/* menu: warm paper card held by two corner brackets (not a slate) */
+html[data-dir] .menu > .wrap{position:relative;background:#fffaf0;color:var(--ink);border:0;box-shadow:0 20px 50px -26px rgba(80,30,10,.5)}
+html[data-dir] .menu > .wrap::before,html[data-dir] .menu > .wrap::after{content:"";position:absolute;width:56px;height:56px;background:var(--cs-corner) center/contain no-repeat}
+html[data-dir] .menu > .wrap::before{left:10px;top:10px}
+html[data-dir] .menu > .wrap::after{right:10px;bottom:10px;transform:rotate(180deg)}
+html[data-dir] .menu h2,html[data-dir] .menu .dish-name{color:var(--ink)}
+html[data-dir] .menu h2{font:400 clamp(2.2rem,5vw,3.4rem)/1 var(--display)}
+html[data-dir] .menu .kicker{color:var(--cs-red)}
+html[data-dir] .menu .note,html[data-dir] .menu .dish-desc{color:var(--muted)}
+html[data-dir] .menu .dish{border-bottom-color:var(--line)}
+html[data-dir] .menu .dish-dots{border-bottom-color:color-mix(in srgb,var(--primary) 40%,transparent)}
+html[data-dir] .menu .dish-price{color:var(--cs-red)}
+html[data-dir] .menu .tabs{border-bottom-color:var(--line)}
+html[data-dir] .menu .tab{color:var(--ink);border-color:color-mix(in srgb,var(--primary) 40%,transparent)}
+html[data-dir] .menu .tab[aria-selected=true]{background:var(--primary);border-color:var(--primary);color:#fff}
+
+/* headings + gallery shots with the same single rounded corner */
+html[data-dir] h2{font-family:var(--display);font-weight:400}
+html[data-dir] .shot{border-radius:0 0 0 36px}
+html[data-dir] .point h3{font-family:var(--display);font-weight:400;color:var(--cs-red)}
+html[data-dir] .qr-card{border-radius:0 0 0 40px}
+
+/* footer */
+html[data-dir] .site-foot b{font:400 1.2rem var(--display);color:var(--cs-red)}
+
+/* mesa / cozinha pages */
+html[data-dir] .m-top h1{font:400 1.45rem/1.05 var(--display)}
+html[data-dir] .m-cat{font-family:var(--display);font-weight:400;color:var(--cs-red)}
+
+@media (max-width:860px){
+  html[data-dir] .hero-media{border-radius:0 0 0 64px}
+  html[data-dir] .menu > .wrap::before,html[data-dir] .menu > .wrap::after{width:40px;height:40px}
+}

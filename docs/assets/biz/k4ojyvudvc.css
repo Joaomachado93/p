@@ -1,0 +1,57 @@
+/* Pão Quente do Lugarinho (Creixomil) — hook: "pão quente" — bread straight from the oven: scored loaf with heat rising, oven-mouth arch, ember glow */
+@import url('https://fonts.googleapis.com/css2?family=Shrikhand&display=swap');
+:root{
+  --loaf:url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 72 56'><g fill='none' stroke='%23f2b134' stroke-width='2.6' stroke-linecap='round'><path d='M24 14c-3-4 3-6 0-10M36 14c-3-4 3-6 0-10M48 14c-3-4 3-6 0-10'/></g><ellipse cx='36' cy='38' rx='32' ry='15' fill='%23c1440e'/><g fill='none' stroke='%23f7d79a' stroke-width='3' stroke-linecap='round'><path d='M18 38l8-8M32 42l9-10M47 42l8-8'/></g></svg>");
+  --oven:#2a1610; --ember:#ff9f43;
+  --bg:#fdf6ee; --paper:#f9e9d8; --paper-2:#f4dcc2;
+}
+/* awning: hot stripes */
+:root .site-head::before{background:linear-gradient(rgba(0,0,0,.12),rgba(0,0,0,0) 45%),repeating-linear-gradient(90deg,var(--primary) 0 24px,var(--accent) 24px 48px)}
+
+/* wordmark: fat, warm, rounded italic script — like bakery van lettering */
+:root .brand{font:400 clamp(1rem,2.4vw,1.35rem)/1.1 'Shrikhand',Georgia,serif;font-style:normal;color:var(--primary);display:inline-flex;align-items:center;gap:10px;max-width:64vw}
+:root .brand::before{content:"";width:34px;height:26px;flex:none;background:var(--loaf) center/contain no-repeat}
+:root .hero .hero-title{font:400 clamp(2.2rem,8.6vw,4.6rem)/1.05 'Shrikhand',Georgia,serif;letter-spacing:0;color:#fff3e0;text-shadow:0 2px 0 rgba(0,0,0,.35)}
+:root .hero .hero-title::before{content:"";display:block;width:80px;height:62px;margin-bottom:8px;background:var(--loaf) left center/contain no-repeat}
+:root .hero .tagline{color:#ffd9a8}
+:root h2{font-family:'Shrikhand',Georgia,serif!important;font-weight:400!important;letter-spacing:0!important}
+
+/* hero: the whole hero is the oven — dark brick, the photo in a glowing arched oven mouth */
+:root .hero{background:radial-gradient(70% 60% at 50% 30%,rgba(255,140,40,.28),transparent 70%),
+  repeating-linear-gradient(0deg,rgba(0,0,0,.25) 0 2px,transparent 2px 26px),var(--oven);color:#fff3e0;width:100%}
+:root .hero-media{border-radius:999px 999px 10px 10px / 70% 70% 10px 10px;margin-top:20px!important;
+  box-shadow:0 0 0 8px #4a2618,0 0 0 10px rgba(255,159,67,.5),0 0 50px 10px rgba(255,120,30,.45)}
+:root .hero-media::after{background:linear-gradient(0deg,rgba(255,120,30,.35),transparent 45%)}
+:root .hero .facts{color:#f4dcc2;border-top-color:rgba(255,255,255,.18)}
+:root .hero .facts .i{color:var(--accent)}
+:root .hero .kicker{background:var(--accent);color:#2a1610}
+:root .hero .btn-primary{background:var(--accent);color:#2a1610;box-shadow:0 2px 0 #9a5a00}
+:root .hero .btn-secondary{background:transparent;color:#fff3e0;border-color:rgba(255,243,224,.55)}
+:root .hero :focus-visible{outline-color:var(--accent)}
+@media (min-width:861px){:root .hero{max-width:none!important;padding-inline:max(32px,calc((100vw - var(--maxw))/2 + 16px))!important}}
+
+/* order: menu ("a fornada") straight after the oven */
+:root .menu{order:1}
+:root .about{order:2}
+:root .gallery{order:3}
+:root .book{order:4}
+:root .visit{order:5}
+:root .proposal{order:9}
+
+/* menu: warm crust band, ember-coloured price tags, loaf as the section mark */
+:root .menu{background:var(--paper) radial-gradient(circle,rgba(193,68,14,.08) 1.5px,transparent 2px) 0 0/14px 14px;border-image:none;border-top:8px solid var(--primary)}
+:root .menu .section-head{position:relative;padding-top:66px}
+:root .menu .section-head::before{content:"";position:absolute;top:0;left:0;width:76px;height:58px;background:var(--loaf) left center/contain no-repeat}
+:root .tab{clip-path:none;border-radius:999px;font-weight:700}
+:root .tab[aria-selected=true]{background:var(--primary)}
+:root .dishes{border-radius:20px 20px 8px 8px;box-shadow:0 0 0 2px color-mix(in srgb,var(--primary) 30%,transparent),0 16px 30px -18px rgba(120,40,10,.6)}
+:root .dish-price{background:linear-gradient(135deg,var(--primary),#e0661c);clip-path:none;-webkit-mask:none;mask:none;border-radius:999px;padding:.45em .8em;font-style:normal}
+
+:root .gallery .shot{-webkit-mask:none;mask:none;padding:0;border-radius:999px 999px 10px 10px / 50% 50% 10px 10px;box-shadow:0 0 0 5px var(--paper-2)}
+:root .kicker{background:var(--primary)}
+:root .point::before{color:var(--primary)}
+:root .site-foot{background:var(--oven);color:#f4dcc2}
+:root .site-foot a{color:#ffd9a8}
+:root .site-foot .muted{color:#d9bfa4}
+:root .site-foot b{color:#fff3e0}
+:root .site-foot .wrap::before{content:"";width:56px;height:44px;background:var(--loaf) center/contain no-repeat}

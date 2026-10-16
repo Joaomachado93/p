@@ -1,0 +1,63 @@
+/* Restaurante Etc — hook: the grill (grelhados de família) + the name "Etc." read as an ellipsis — three ember dots */
+@import url('https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&display=swap');
+:root{
+  --etc-coal:#132a30; --etc-ember:#f2a541; --etc-ember-ink:#8a5208;
+  --bg:#f6f4ef; --linen:#ebe7de;
+  --etc-grill:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120' viewBox='0 0 120 120'%3E%3Cg fill='none' stroke='%23f2a541' stroke-width='6' stroke-linecap='round'%3E%3Cpath d='M14 46 46 14M14 78 78 14M14 110 110 14M46 110 110 46M78 110 110 78'/%3E%3C/g%3E%3C/svg%3E");
+  --etc-dots:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='60' height='14' viewBox='0 0 60 14'%3E%3Cg fill='%23f2a541'%3E%3Ccircle cx='7' cy='7' r='6'/%3E%3Ccircle cx='30' cy='7' r='6'/%3E%3Ccircle cx='53' cy='7' r='6'/%3E%3C/g%3E%3C/svg%3E");
+}
+/* wordmark: "Restaurante Etc" in Instrument Serif, the Etc in italic followed by three ember dots */
+html[data-dir] .brand{font:400 1.55rem/1 'Instrument Serif',var(--display);letter-spacing:0;display:inline-flex;align-items:baseline;gap:6px}
+html[data-dir] .brand::after{content:"";width:26px;height:6px;background:var(--etc-dots) 0 0/100% 100% no-repeat;align-self:center}
+html[data-dir] .hero-title{font-family:'Instrument Serif',var(--display);font-weight:400;font-style:italic;letter-spacing:-.02em;line-height:.92}
+html[data-dir] .hero-title::after{content:"";display:block;width:84px;height:20px;margin-top:18px;background:var(--etc-dots) 0 50%/100% auto no-repeat}
+html[data-dir] h2{font-family:'Instrument Serif',var(--display);font-weight:400}
+html[data-dir] .kicker{color:var(--primary)}
+
+/* hero: photo branded with grill marks in the corner, copy panel on charcoal */
+html[data-dir] .hero-media{position:relative}
+html[data-dir] .hero-media::before{content:"";position:absolute;z-index:2;right:-6px;bottom:-6px;width:130px;height:130px;
+  background:var(--etc-grill) 0 0/100% 100% no-repeat;pointer-events:none}
+html[data-dir] .hero-media img{filter:saturate(1.08) contrast(1.04)}
+
+/* menu first: the grill comes before the story */
+html[data-dir] .hero{order:-10}
+html[data-dir] .menu{order:-2}
+html[data-dir] .about{order:-1}
+html[data-dir] .gallery{order:0}
+/* menu: charcoal grill board with ember prices */
+html[data-dir] .menu{background:var(--etc-coal);border:0;position:relative;overflow:hidden}
+html[data-dir] .menu::before{content:"";position:absolute;left:-30px;top:-30px;width:220px;height:220px;opacity:.22;background:var(--etc-grill) 0 0/100% 100% no-repeat}
+html[data-dir] .menu .wrap{background:#fbfaf6;box-shadow:inset 0 0 0 9px #fbfaf6,inset 0 0 0 10px rgba(15,92,110,.4),0 40px 80px -40px #000;position:relative}
+html[data-dir] .menu .section-head .kicker{color:var(--primary)}
+html[data-dir] .menu h2::after{width:84px;height:12px;background:var(--etc-dots) 50% 50%/auto 100% no-repeat}
+html[data-dir] .dish-price{color:var(--etc-ember-ink)}
+html[data-dir] .dish-name{font-family:'Instrument Serif',var(--display);font-size:1.4rem;font-weight:400}
+html[data-dir] .tab[aria-selected=true]{color:var(--primary);border-bottom-color:var(--etc-ember)}
+
+/* about: lede with ember initial */
+html[data-dir] .lede::first-letter{color:var(--primary);font-style:normal}
+html[data-dir] .point::before{color:var(--etc-ember-ink)}
+html[data-dir] .qr{background:var(--primary)}
+html[data-dir] .qr h2::after{background:var(--etc-ember)}
+html[data-dir] .qr-card{outline-color:rgba(15,92,110,.4)}
+html[data-dir] .qr-card::after{content:"";position:absolute;left:24px;bottom:12px;width:38px;height:8px;background:var(--etc-dots) 0 0/100% 100% no-repeat}
+html[data-dir] .qr-card{position:relative}
+
+/* footer signature */
+html[data-dir] .site-foot{position:relative}
+html[data-dir] .site-foot::after{content:"";display:block;width:60px;height:10px;margin:18px auto 0;background:var(--etc-dots) 0 0/100% 100% no-repeat}
+html[data-dir] .site-foot b{font-family:'Instrument Serif',var(--display);font-weight:400;font-size:1.3rem}
+
+/* mesa / cozinha pages */
+html[data-dir] .m-top{background:var(--etc-coal);border-bottom:4px solid var(--etc-ember)}
+html[data-dir] .m-top h1{font-family:'Instrument Serif',var(--display);font-style:italic;font-weight:400;font-size:1.7rem}
+html[data-dir] .ticket{border-top-color:var(--etc-ember)}
+
+@media (min-width:861px){
+  html[data-dir] .hero-media::before{width:170px;height:170px;right:-14px;bottom:-14px}
+}
+@media (max-width:860px){
+  html[data-dir] .hero-media::before{width:96px;height:96px;right:0;bottom:0}
+  html[data-dir] .brand{font-size:1.4rem}
+}

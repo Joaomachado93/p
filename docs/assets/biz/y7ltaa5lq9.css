@@ -1,0 +1,63 @@
+/* Paraxut — hook: the name (a parachute canopy) echoing the esplanada parasols on Praça de São Tiago */
+@import url('https://fonts.googleapis.com/css2?family=Unbounded:wght@400;600;800&display=swap');
+html[data-dir]{
+  --px-mark:'Unbounded',system-ui,sans-serif;
+  --px-teal:color-mix(in oklab, var(--primary) 88%, #052a33);
+  --px-pink:var(--accent);
+  --bg:color-mix(in oklab, var(--primary) 5%, #fbfaf6); --linen:#e9f2f2; --ivory:#f2f6f5;
+  --px-chute:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='60' height='58' viewBox='0 0 60 58'%3E%3Cpath d='M4 24a26 22 0 0 1 52 0q-6.5-5-13 0-6.5-5-13 0-6.5-5-13 0-6.5-5-13 0z' fill='%230E7490'/%3E%3Cpath d='M17 24a13 22 0 0 1 13-22 13 22 0 0 1 13 22q-6.5-5-13 0-6.5-5-13 0z' fill='%23BE185D'/%3E%3Cpath d='M4 24l26 24 26-24M17 24l13 24 13-24' fill='none' stroke='%23164e63' stroke-width='1.3'/%3E%3Crect x='26' y='47' width='8' height='9' rx='2' fill='%23164e63'/%3E%3C/svg%3E");
+  --px-scallop:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='32' height='12' viewBox='0 0 32 12'%3E%3Cpath d='M0 0h32v2a8 8 0 0 1-16 0 8 8 0 0 1-16 0z' fill='%230E7490'/%3E%3Cpath d='M16 2a8 8 0 0 1-16 0' fill='%23BE185D' transform='translate(16 0)'/%3E%3C/svg%3E");
+}
+
+/* wordmark: round, wide, upbeat letters with the canopy */
+html[data-dir] .brand{font:800 1.15rem/1 var(--px-mark);text-transform:uppercase;letter-spacing:.06em;color:var(--px-teal);display:inline-flex;align-items:center;gap:10px}
+html[data-dir] .brand::before{content:"";width:28px;height:27px;background:var(--px-chute) center/contain no-repeat;flex:none}
+html[data-dir] .hero-title{font:800 clamp(2.8rem,6vw,5rem)/.95 var(--px-mark);text-transform:uppercase;letter-spacing:-.01em;color:var(--px-teal)}
+html[data-dir] .hero-title::after{content:"";display:block;width:clamp(120px,40%,260px);height:12px;margin-top:16px;background:var(--px-scallop) left top/32px 12px repeat-x}
+html[data-dir] .m-top h1,html[data-dir] .site-foot b,html[data-dir] .qr-name{font-family:var(--px-mark);font-weight:800;text-transform:uppercase;letter-spacing:.04em}
+html[data-dir] h2{font-family:var(--px-mark);font-weight:600;letter-spacing:-.02em;font-size:clamp(1.8rem,3.8vw,2.8rem)}
+
+/* hero: the photo is the canopy — a wide dome on top, a scalloped hem below */
+html[data-dir] .hero-media{border:0;padding:0;box-shadow:none;background:var(--px-teal);border-radius:50% 50% 0 0 / 30% 30% 0 0;
+  -webkit-mask:linear-gradient(#000 0 0) top/100% calc(100% - 14px) no-repeat,radial-gradient(circle 14px at 14px 0,#000 98%,transparent) bottom left/28px 14px repeat-x;
+          mask:linear-gradient(#000 0 0) top/100% calc(100% - 14px) no-repeat,radial-gradient(circle 14px at 14px 0,#000 98%,transparent) bottom left/28px 14px repeat-x}
+html[data-dir] .hero-media img{border-radius:0}
+html[data-dir] .hero-media::after{inset:0;border:0;border-top:10px solid var(--px-pink);border-radius:50% 50% 0 0 / 30% 30% 0 0;opacity:.9}
+@media (min-width:861px){
+  html[data-dir] .hero-media{padding:0;box-shadow:none;aspect-ratio:1/1;border-radius:50% 50% 0 0 / 34% 34% 0 0}
+  html[data-dir] .hero-media::after{inset:0;border-radius:50% 50% 0 0 / 34% 34% 0 0}
+}
+
+/* order: menu first, then the esplanada & services, then visit (it is on the square) */
+html[data-dir] .menu{order:1}
+html[data-dir] .about{order:2}
+html[data-dir] .visit{order:3}
+html[data-dir] .gallery{order:4;padding-top:var(--section)}
+html[data-dir] .qr{order:5}
+html[data-dir] .book{order:6}
+html[data-dir] .proposal{order:99}
+
+/* menu: hung under a canopy hem */
+html[data-dir] .menu{position:relative;padding-top:calc(var(--section) + 12px)}
+html[data-dir] .menu::before{content:"";position:absolute;top:0;left:0;right:0;height:12px;background:var(--px-scallop) left top/32px 12px repeat-x}
+html[data-dir] .menu .section-head::before{content:"";display:block;width:52px;height:50px;margin:0 auto 12px;background:var(--px-chute) center/contain no-repeat}
+html[data-dir] .dishes{background:#fff;border-radius:22px;padding:8px clamp(16px,3.5vw,40px);border:2px solid color-mix(in oklab, var(--primary) 25%, #fff)}
+html[data-dir] .dish-name{font-family:var(--px-mark);font-weight:600;font-size:.98rem}
+html[data-dir] .dish-price{color:var(--px-teal);font-weight:700}
+html[data-dir] .tab{border-radius:999px}
+html[data-dir] .tab[aria-selected=true]{background:var(--px-teal);border-color:var(--px-teal);color:#fff}
+html[data-dir] .tag-veg{background:#dcfce7;color:#14532d}
+
+/* services: pill chips like parasol tops (esplanada, vegetarian, accessible...) */
+html[data-dir] .services li{background:#fff;border:1.5px solid var(--px-teal);border-radius:999px;padding:.5em .95em;color:#123a44;min-height:44px}
+html[data-dir] .services .i{color:var(--px-pink)}
+
+/* buttons: rounded like the canopy */
+html[data-dir] main .btn{border-radius:999px}
+html[data-dir] .btn-primary{background:var(--px-teal);border-color:var(--px-teal)}
+html[data-dir] .qr-card{border-radius:28px 28px 6px 6px}
+
+@media (max-width:860px){
+  html[data-dir] .hero-title{font-size:clamp(2.4rem,13vw,3.6rem)}
+  html[data-dir] .brand{font-size:1rem}
+}

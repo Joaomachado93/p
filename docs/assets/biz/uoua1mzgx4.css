@@ -1,0 +1,39 @@
+/* Pizzaria Artesanal Oliva — hook: "Oliva" = olive → an olive branch around a round, hand-made pizza */
+@import url('https://fonts.googleapis.com/css2?family=Lobster+Two:ital,wght@1,700&display=swap');
+:root{
+  --branch:url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 80 40'><path d='M4 34Q36 30 76 8' fill='none' stroke='%234a5e1a' stroke-width='2.4' stroke-linecap='round'/><g fill='%236b8e23'><ellipse cx='20' cy='26' rx='9' ry='3.4' transform='rotate(-35 20 26)'/><ellipse cx='26' cy='37' rx='9' ry='3.4' transform='rotate(20 26 37)'/><ellipse cx='42' cy='18' rx='9' ry='3.4' transform='rotate(-45 42 18)'/><ellipse cx='50' cy='28' rx='9' ry='3.4' transform='rotate(5 50 28)'/><ellipse cx='64' cy='9' rx='8' ry='3' transform='rotate(-55 64 9)'/></g><ellipse cx='34' cy='31' rx='4' ry='5' fill='%232a3410'/><ellipse cx='58' cy='19' rx='3.6' ry='4.6' fill='%232a3410'/></svg>");
+  --script:'Lobster Two','Barlow',cursive;
+  --olive-ink:color-mix(in srgb,var(--accent) 70%,#14190a);
+}
+/* wordmark: a trattoria script, mixed case */
+html[data-dir] .brand{display:inline-flex;align-items:center;gap:8px;font:italic 700 1.45rem/1 var(--script);text-transform:none;letter-spacing:0}
+html[data-dir] .brand::after{content:"";width:40px;height:20px;flex:none;background:var(--branch) center/contain no-repeat;filter:brightness(1.6)}
+html[data-dir] .hero-title{font:italic 700 clamp(2.8rem,6.4vw,5.8rem)/1 var(--script);text-transform:none;letter-spacing:0;text-shadow:3px 3px 0 rgba(0,0,0,.3)}
+html[data-dir] .hero-title::after{content:"";display:block;width:clamp(120px,16vw,180px);aspect-ratio:2/1;margin-top:8px;background:var(--branch) left center/contain no-repeat;filter:brightness(1.9) saturate(.8)}
+/* hero: the photo cut round like the pizza, on a floured board */
+html[data-dir] .hero .kicker{background:var(--accent);color:#14190a}
+@media (min-width:861px){
+  html[data-dir] .hero{background:var(--primary)}
+  html[data-dir] .hero-media{border-left:0;align-self:center;justify-self:center;width:min(86%,560px);height:auto;aspect-ratio:1;border-radius:50%;
+    border:10px solid #f3e7cf;box-shadow:0 0 0 4px var(--ink),14px 14px 0 rgba(0,0,0,.25);margin-block:40px}
+  html[data-dir] .hero--photo .facts li:first-child{top:auto;bottom:34px;right:34px}
+}
+@media (max-width:860px){
+  html[data-dir] .hero-media{border-radius:0 0 50% 50% / 0 0 16% 16%;border-bottom:0}
+  html[data-dir] .hero-title{font-size:clamp(2.6rem,13vw,3.8rem)}
+}
+/* order: the pizzas first, then the story */
+main > .menu{order:1} main > .about{order:2} main > .gallery{order:3} main > .book{order:4} main > .visit{order:5} main > .proposal{order:9}
+html[data-dir] .gallery{padding-top:var(--section)}
+/* menu: olive-green board, branch on the header */
+html[data-dir] .menu{background-color:color-mix(in srgb,var(--accent) 18%,#e9dfc7)}
+html[data-dir] .menu .section-head::after{content:"";width:120px;height:60px;background:var(--branch) left center/contain no-repeat}
+html[data-dir] .menu h2,html[data-dir] h2{font:italic 700 clamp(2.2rem,5vw,3.6rem)/1 var(--script);text-transform:none}
+html[data-dir] .menu h2{color:var(--primary)}
+html[data-dir] .dish-name::before{content:"";display:inline-block;width:9px;height:12px;margin-right:9px;border-radius:50%;background:var(--olive-ink);vertical-align:.02em}
+html[data-dir] .tab[aria-selected=true]{color:#fff;box-shadow:3px 3px 0 var(--accent)}
+html[data-dir] .dishes{box-shadow:6px 6px 0 var(--accent)}
+html[data-dir] .point::before{color:var(--olive-ink)}
+/* footer */
+html[data-dir] .site-foot b{font:italic 700 1.25rem var(--script)}
+html[data-dir] .site-foot .wrap::after{content:"";width:90px;height:45px;background:var(--branch) left center/contain no-repeat;filter:brightness(1.7)}

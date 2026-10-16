@@ -1,0 +1,48 @@
+/* Pastelaria S. Jorge — hook: São Jorge → the heraldic shield with St George's cross; the montra becomes a shield */
+@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700;800&display=swap');
+:root{
+  --shield:url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 48 52'><path d='M24 2 44 8v17c0 13-9 21-20 25C13 46 4 38 4 25V8Z' fill='%23c2185b' stroke='%23f9a825' stroke-width='2.5'/><path d='M20 10h8v12h11v8H28v14h-8V30H9v-8h11Z' fill='%23ffffff'/></svg>");
+  --heraldic:'Cinzel',Georgia,serif;
+  --gold:color-mix(in srgb,var(--accent) 80%,#7a4a00);
+}
+/* wordmark: carved Cinzel capitals with the shield */
+html[data-dir] .brand{display:inline-flex;align-items:center;gap:10px;font:700 1.2rem/1 var(--heraldic);font-style:normal;letter-spacing:.08em;text-transform:uppercase;color:var(--primary)}
+html[data-dir] .brand::before{content:"";width:26px;height:28px;flex:none;background:var(--shield) center/contain no-repeat}
+html[data-dir] .hero-title{font:800 clamp(2.5rem,6.2vw,5rem)/1 var(--heraldic);letter-spacing:.03em;color:var(--primary);font-variation-settings:normal}
+html[data-dir] .hero-title::after{content:"";display:block;height:12px;width:min(280px,80%);margin-top:16px;
+  background:radial-gradient(circle,var(--accent) 4px,transparent 4.5px) center/12px 12px no-repeat,
+    linear-gradient(var(--gold),var(--gold)) left center/calc(50% - 12px) 1.5px no-repeat,linear-gradient(var(--gold),var(--gold)) right center/calc(50% - 12px) 1.5px no-repeat}
+html[data-dir] .tagline{color:var(--ink)}
+/* hero: photo on the left, cut like a shield with a gold rim; copy on the right */
+html[data-dir] .hero-media{border-radius:16px 16px 50% 50% / 16px 16px 24% 24%;box-shadow:0 0 0 6px var(--surface),0 0 0 9px var(--accent),0 22px 44px -20px rgba(80,10,40,.5)}
+html[data-dir] .hero-media::before{content:"";position:absolute;z-index:2;top:14px;left:50%;width:58px;height:63px;margin-left:-29px;background:var(--shield) center/contain no-repeat;filter:drop-shadow(0 4px 6px rgba(0,0,0,.3))}
+@media (min-width:861px){
+  html[data-dir] .hero-media{grid-column:1}
+  html[data-dir] .hero-copy{grid-column:2}
+}
+/* gold ribbons instead of pink on section kickers */
+html[data-dir] .kicker{background:var(--primary);color:#fff}
+html[data-dir] h2{font-family:var(--heraldic);font-weight:700;letter-spacing:.01em}
+/* order: the vitrine first, then photos, then the story */
+main > .menu{order:1} main > .gallery{order:2} main > .about{order:3} main > .book{order:4} main > .visit{order:5} main > .proposal{order:9}
+html[data-dir] .gallery{padding-top:var(--section)}
+html[data-dir] .menu{border-image:repeating-linear-gradient(-45deg,var(--accent) 0 5px,var(--primary) 5px 10px) 6}
+html[data-dir] .menu .section-head{justify-items:center;text-align:center}
+html[data-dir] .menu .section-head::before{content:"";width:44px;height:48px;background:var(--shield) center/contain no-repeat}
+html[data-dir] .menu .tabs{justify-content:safe center}
+html[data-dir] .dish-name{font:700 1.05rem/1.25 var(--heraldic);letter-spacing:.02em}
+html[data-dir] .dish-price{background:var(--primary)}
+/* about: points numbered as heraldic quarters */
+html[data-dir] .point::before{content:counter(pt,upper-roman);font:700 1.05rem/1.4 var(--heraldic);color:var(--gold)}
+html[data-dir] .point h3{font-family:var(--heraldic);font-weight:700;font-size:1.1rem;letter-spacing:.03em}
+html[data-dir] .lede{color:var(--ink)}
+/* footer seal */
+html[data-dir] .site-foot{border-image:repeating-linear-gradient(-45deg,var(--accent) 0 5px,var(--primary) 5px 10px) 6}
+html[data-dir] .site-foot b{font:700 1rem var(--heraldic);font-style:normal;letter-spacing:.06em;text-transform:uppercase}
+html[data-dir] .site-foot b::before{content:"";display:inline-block;width:18px;height:20px;margin-right:8px;vertical-align:-4px;background:var(--shield) center/contain no-repeat}
+html[data-dir] .site-head::before{background:linear-gradient(rgba(0,0,0,.14),rgba(0,0,0,0) 45%),repeating-linear-gradient(90deg,var(--primary) 0 24px,var(--accent) 24px 26px,var(--surface) 26px 46px,var(--accent) 46px 48px)}
+@media (max-width:860px){
+  html[data-dir] .hero-title{font-size:clamp(2.1rem,10vw,3.2rem)}
+  html[data-dir] .hero-media{aspect-ratio:1/1}
+  html[data-dir] .hero-media::before{width:46px;height:50px;margin-left:-23px}
+}

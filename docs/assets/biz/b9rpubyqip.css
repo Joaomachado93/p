@@ -1,0 +1,54 @@
+/* Adega dos Caquinhos — hook: "caquinhos" = little shards — a broken-tile mosaic in wine, gold and azul */
+@import url('https://fonts.googleapis.com/css2?family=Bevan&display=swap');
+:root{
+  --cq-display:'Bevan','Alfa Slab One',Georgia,serif;
+  --bg:#f4ede6; --surface:#fffaf5;
+  --shards:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='60' height='60' viewBox='0 0 60 60'%3E%3Crect width='60' height='60' fill='%23f4ede6'/%3E%3Cpath d='M2 2L24 3L18 20L3 16Z' fill='%235b1f2b'/%3E%3Cpath d='M27 2L46 4L40 15L22 19Z' fill='%23c28a3a'/%3E%3Cpath d='M49 3L58 2L58 22L44 18Z' fill='%231d4b8f'/%3E%3Cpath d='M2 19L16 23L12 40L2 37Z' fill='%23c28a3a'/%3E%3Cpath d='M19 23L38 19L42 34L23 39Z' fill='%23fffaf5' stroke='%235b1f2b' stroke-width='1.2'/%3E%3Cpath d='M44 21L58 25L58 42L45 37Z' fill='%235b1f2b'/%3E%3Cpath d='M2 40L20 43L16 58L2 58Z' fill='%231d4b8f'/%3E%3Cpath d='M23 42L43 38L40 58L19 58Z' fill='%235b1f2b'/%3E%3Cpath d='M46 40L58 45L58 58L43 58Z' fill='%23c28a3a'/%3E%3C/svg%3E");
+  --shard:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 40 40'%3E%3Cpath d='M4 8L22 3L19 19L6 22Z' fill='%235b1f2b'/%3E%3Cpath d='M25 4L37 10L30 22L22 20Z' fill='%23c28a3a'/%3E%3Cpath d='M8 25L20 22L26 37L5 36Z' fill='%231d4b8f'/%3E%3Cpath d='M29 25L37 27L35 37L28 35Z' fill='%235b1f2b'/%3E%3C/svg%3E");
+}
+
+/* wordmark: heavy round slab, a shard cluster as the seal */
+html[data-dir] .brand{font:400 1.15rem/1 var(--cq-display);color:var(--primary);display:inline-flex;align-items:center;gap:.5em}
+html[data-dir] .brand::before{content:"";width:1.6em;height:1.6em;flex:none;background:var(--shard) center/contain no-repeat}
+html[data-dir] .hero-title{font-family:var(--cq-display);color:var(--primary);font-size:clamp(2.6rem,6vw,5.2rem);line-height:1;letter-spacing:-.01em}
+html[data-dir] .hero-title::first-line{color:var(--ink)}
+html[data-dir] .hero .kicker{color:#7a2a3a}
+
+/* shard band replaces the azulejo band */
+html[data-dir] .site-head::after,html[data-dir] .site-foot::before,html[data-dir] .proposal::before{height:18px;background:var(--shards) 0 0/36px 36px repeat-x}
+
+/* hero: photo set into a mosaic of shards, tilted like a found fragment */
+html[data-dir] .hero-media{background:var(--shards) 0 0/54px 54px;padding:18px;transform:rotate(1.2deg);border-radius:4px}
+html[data-dir] .hero-media img{clip-path:polygon(0 2%,38% 0,100% 1.5%,99% 62%,100% 100%,55% 98.5%,0 100%,1.2% 45%);box-shadow:none}
+
+/* order: gallery (petiscos, rojões) → menu → about */
+main > .gallery{order:1} main > .menu{order:2} main > .about{order:3} main > .qr{order:4}
+main > .book{order:5} main > .visit{order:6} main > .proposal{order:20}
+html[data-dir] .menu{padding-top:var(--section)}
+html[data-dir] .gallery .shot:nth-child(2){transform:rotate(-1.4deg)}
+html[data-dir] .gallery .shot:nth-child(3){transform:rotate(1deg)}
+
+/* menu: mosaic frame on the board instead of wood */
+html[data-dir] .menu > .wrap{border-image:none;border:clamp(10px,1.6vw,16px) solid transparent;
+  background:linear-gradient(#2a2427,#211c1e) padding-box,var(--shards) 0 0/40px 40px border-box}
+html[data-dir] .menu h2{font-family:var(--cq-display)}
+html[data-dir] .menu .dish-price{color:#e5b46e}
+html[data-dir] .menu .tab[aria-selected=true]{background:#e5b46e;border-color:#e5b46e;color:#2a1015}
+
+/* about: shards as markers, esplanada service pill */
+html[data-dir] .point::before{background:var(--shard) center/contain no-repeat;border:0;width:26px;height:26px}
+html[data-dir] .points{border-top-color:var(--primary)}
+html[data-dir] .services li{color:var(--primary)}
+
+html[data-dir] .qr-card{background:linear-gradient(#fff,#fff) padding-box,var(--shards) 0 0/30px 30px border-box}
+html[data-dir] .qr-name,html[data-dir] .m-top h1{font-family:var(--cq-display);font-size:1rem}
+html[data-dir] .site-foot b{font-family:var(--cq-display);font-weight:400;color:var(--primary)}
+
+@media (prefers-reduced-motion:reduce){html[data-dir] .hero-media,html[data-dir] .gallery .shot{transform:none}}
+@media (max-width:860px){
+  html[data-dir] .hero-media{transform:none;margin:12px var(--gutter-r) 0 var(--gutter);height:clamp(230px,36svh,320px);padding:10px;background-size:40px 40px}
+  html[data-dir] .hero-title{font-size:clamp(2.1rem,10vw,3rem)}
+  html[data-dir] .brand{font-size:.98rem}
+  html[data-dir] .gallery .shot:nth-child(n){transform:none}
+  html[data-dir] .site-head::after{height:14px;background-size:28px 28px}
+}

@@ -1,0 +1,69 @@
+/* Street Food Guimarães — hook: the street itself — stencil lettering, road-marking chevrons, asphalt and safety orange */
+@import url('https://fonts.googleapis.com/css2?family=Saira+Stencil+One&display=swap');
+:root{
+  --stencil:'Saira Stencil One','Anton',Impact,sans-serif;
+  --chev:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='28' height='16' viewBox='0 0 28 16'%3E%3Cpath d='M4 0h8l8 8-8 8H4l8-8z' fill='%23C2410C'/%3E%3C/svg%3E");
+  --chev-ink:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='28' height='16' viewBox='0 0 28 16'%3E%3Cpath d='M4 0h8l8 8-8 8H4l8-8z' fill='%231b140d'/%3E%3C/svg%3E");
+  --on-accent:#fff;
+  --asphalt:#27241f;
+  --orange-light:#f39a6b;
+  --hazard:repeating-linear-gradient(-45deg,var(--primary) 0 14px,#1b140d 14px 28px);
+}
+
+/* wordmark: spray-stencil, followed by road chevrons */
+html[data-dir] .brand{display:inline-flex;align-items:center;gap:12px;font:400 1.45rem/1 var(--stencil);letter-spacing:.03em}
+html[data-dir] .brand::after{content:"";width:42px;height:14px;flex:none;background:var(--chev) 0 50%/21px 12px repeat-x}
+html[data-dir] .hero-title{font:400 clamp(3rem,8.6vw,6.4rem)/.95 var(--stencil);letter-spacing:.01em}
+
+/* the awning becomes hazard tape */
+html[data-dir] .site-head::after{height:12px;-webkit-mask:none;mask:none;background:var(--hazard)}
+html[data-dir] .site-foot::before{background:var(--hazard)}
+
+/* hero: photo on the left, the poster on the right, chevrons painted under the copy */
+html[data-dir] .hero-copy::after{content:"";height:16px;max-width:280px;background:var(--chev-ink) 0 0/28px 16px repeat-x}
+html[data-dir] .hero .kicker{background:var(--ink);color:#fff}
+html[data-dir] .hero .btn-primary{box-shadow:4px 4px 0 #fff3}
+@media (min-width:861px){
+  html[data-dir] .hero{grid-template-columns:1fr 1.05fr}
+  html[data-dir] .hero-media{order:1;border-left:0;border-right:4px solid var(--ink)}
+  html[data-dir] .hero-copy{order:2;padding:72px max(32px,calc((100vw - var(--maxw))/2 + 16px)) 72px 56px}
+}
+
+/* menu: an asphalt section with a painted lane line */
+html[data-dir] .menu{background:var(--asphalt);color:#f3ede3;
+  background-image:repeating-linear-gradient(90deg,#f2efe8 0 44px,transparent 44px 80px);background-size:100% 6px;background-position:0 30px;background-repeat:no-repeat}
+html[data-dir] .menu h2{color:#fff}
+html[data-dir] .menu .kicker{background:var(--primary);color:#fff}
+html[data-dir] .menu .note{color:#d8cfc2}
+html[data-dir] .menu .section-head::after{content:"";height:16px;width:112px;background:var(--chev) 0 0/28px 16px repeat-x}
+html[data-dir] .tab{box-shadow:3px 3px 0 #000}
+html[data-dir] .tab[aria-selected=true]{background:var(--primary);color:#fff;border-color:#000;box-shadow:3px 3px 0 #000}
+html[data-dir] .menu .dishes{box-shadow:6px 6px 0 var(--primary)}
+
+/* fixes for a black accent on dark grounds */
+html[data-dir] .nav a:hover{color:var(--orange-light)}
+html[data-dir] .qr .kicker{background:var(--primary);color:#fff}
+html[data-dir] .steps li::before{background:var(--primary);color:#fff}
+html[data-dir] .qr-card{box-shadow:8px 8px 0 var(--primary)}
+html[data-dir] .qr .btn-primary{border-color:#f3e9d6}
+html[data-dir] :focus-visible{outline:3px solid var(--primary);box-shadow:0 0 0 6px #fff}
+
+/* order: food first */
+html[data-dir] .menu{order:1}
+html[data-dir] .gallery{order:2;padding-top:var(--section)}
+html[data-dir] .about{order:3}
+html[data-dir] .qr{order:4}
+html[data-dir] .book{order:5}
+html[data-dir] .visit{order:6}
+html[data-dir] .proposal{order:9}
+
+html[data-dir] .qr-name,html[data-dir] .m-top h1{font-family:var(--stencil)}
+@media (max-width:860px){
+  html[data-dir] .brand{font-size:1.2rem;gap:8px}
+  html[data-dir] .mbar{border-top-color:var(--primary)}
+  html[data-dir] .mbar .i{color:var(--orange-light)}
+}
+html[data-dir] .m-top .tab[aria-selected=true]{background:var(--primary);color:#fff;border-color:var(--primary)}
+html[data-dir] .m-table{border-color:var(--primary)}
+@media (min-width:861px){html[data-dir] .hero--photo .facts li:first-child{right:auto;left:34px}}
+@media (max-width:860px){html[data-dir] .brand::after{width:21px}}

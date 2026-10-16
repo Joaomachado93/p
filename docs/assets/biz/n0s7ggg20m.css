@@ -1,0 +1,80 @@
+/* Roiyaru Sushi House — hook: sushi house → seigaiha wave pattern, red hanko seal and hinomaru disc, mincho type */
+@import url('https://fonts.googleapis.com/css2?family=Shippori+Mincho+B1:wght@500;700;800&display=swap');
+:root{
+  --bg:#faf7f1; --linen:#f1ece2; --night:var(--accent);
+  --display:'Shippori Mincho B1','Hiragino Mincho ProN','Yu Mincho',Georgia,serif;
+  /* seigaiha — light (mat) and night (bands) */
+  --seigaiha:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='40' height='20' viewBox='0 0 40 20'%3E%3Cdefs%3E%3Cg id='f' fill='%23fbf8f2' stroke='%23b9c0cf' stroke-width='1.1'%3E%3Ccircle r='19.4'/%3E%3Ccircle r='14.4'/%3E%3Ccircle r='9.4'/%3E%3Ccircle r='4.4'/%3E%3C/g%3E%3C/defs%3E%3Cuse href='%23f' x='20' y='0'/%3E%3Cuse href='%23f' x='0' y='10'/%3E%3Cuse href='%23f' x='40' y='10'/%3E%3Cuse href='%23f' x='20' y='20'/%3E%3Cuse href='%23f' x='0' y='30'/%3E%3Cuse href='%23f' x='40' y='30'/%3E%3C/svg%3E");
+  --seigaiha-n:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='40' height='20' viewBox='0 0 40 20'%3E%3Cdefs%3E%3Cg id='f' fill='%231F2A44' stroke='%23C8203A' stroke-width='1.2'%3E%3Ccircle r='19.4'/%3E%3Ccircle r='14.4'/%3E%3Ccircle r='9.4'/%3E%3Ccircle r='4.4'/%3E%3C/g%3E%3C/defs%3E%3Cuse href='%23f' x='20' y='0'/%3E%3Cuse href='%23f' x='0' y='10'/%3E%3Cuse href='%23f' x='40' y='10'/%3E%3Cuse href='%23f' x='20' y='20'/%3E%3Cuse href='%23f' x='0' y='30'/%3E%3Cuse href='%23f' x='40' y='30'/%3E%3C/svg%3E");
+}
+html[data-dir=mesa] h1,html[data-dir=mesa] h2,html[data-dir=mesa] h3{font-family:var(--display);font-weight:700;letter-spacing:0}
+html[data-dir=mesa] h2::after{width:28px;height:4px;background:var(--primary);border-radius:0}
+
+/* wordmark: red hanko seal + mincho caps */
+html[data-dir=mesa] .brand{display:inline-flex;align-items:center;gap:.55em;font:800 1.08rem/1 var(--display);letter-spacing:.14em;text-transform:uppercase}
+html[data-dir=mesa] .brand::before{content:"R";display:grid;place-items:center;flex:none;width:1.75em;height:1.75em;background:var(--primary);color:#fff;
+  font:800 1.05em/1 var(--display);letter-spacing:0;border-radius:3px;box-shadow:inset 0 0 0 2px var(--primary),inset 0 0 0 3.5px rgba(255,255,255,.75)}
+html[data-dir=mesa] .hero-title{font-weight:800;letter-spacing:.005em;line-height:1.02}
+html[data-dir=mesa] .hero-title::after{content:"";display:block;width:2.1em;height:.08em;min-height:4px;background:var(--primary);margin-top:.22em}
+html[data-dir=mesa] .tagline{font-family:var(--display);font-style:normal;font-weight:500}
+
+/* hero: photo on a seigaiha mat with the red sun disc */
+html[data-dir=mesa] .hero-media{background:var(--seigaiha) 0 0/32px 16px;padding:18px;box-shadow:none;border:1px solid var(--line)}
+html[data-dir=mesa] .hero-media::after{inset:18px;border-color:rgba(255,255,255,.4)}
+html[data-dir=mesa] .hero-media::before{content:"";position:absolute;z-index:1;top:6px;right:6px;width:clamp(54px,8vw,92px);aspect-ratio:1;border-radius:50%;
+  background:var(--primary);box-shadow:0 0 0 5px #fbf8f2,0 10px 24px -8px rgba(31,42,68,.5)}
+@media (min-width:861px){
+  html[data-dir=mesa] .hero-media{padding:26px;box-shadow:none}
+  html[data-dir=mesa] .hero-media::after{inset:26px}
+  html[data-dir=mesa] .hero-media::before{top:10px;right:10px}
+}
+
+/* order: the menu comes straight after the hero */
+html[data-dir=mesa] .menu{order:1}
+html[data-dir=mesa] .qr{order:2}
+html[data-dir=mesa] .about{order:3}
+html[data-dir=mesa] .gallery{order:4}
+html[data-dir=mesa] .book{order:5}
+html[data-dir=mesa] .visit{order:6}
+html[data-dir=mesa] .proposal{order:9}
+
+/* menu: a carte with a seigaiha header band and navy rule */
+html[data-dir=mesa] .menu{background:var(--accent);border:0}
+html[data-dir=mesa] .menu .wrap{position:relative;padding-top:clamp(64px,8vw,92px);
+  background:linear-gradient(var(--primary),var(--primary)) 50% 0/100% 6px no-repeat,var(--seigaiha) 0 6px/40px 20px repeat-x,var(--surface);
+  box-shadow:0 30px 70px -30px rgba(0,0,0,.6)}
+html[data-dir=mesa] .menu .kicker{background:var(--surface);padding:4px 10px;justify-self:center}
+html[data-dir=mesa] .tab[aria-selected=true]{color:var(--primary);border-bottom-color:var(--primary)}
+html[data-dir=mesa] .dish-name{font:700 1.15rem/1.3 var(--display)}
+html[data-dir=mesa] .dish-price{font:800 1.1rem/1 var(--display);color:var(--primary)}
+html[data-dir=mesa] .dish-dots{border-bottom:1px solid var(--line)}
+
+/* qr: night navy with the seal on the table card */
+html[data-dir=mesa] .qr{background:linear-gradient(var(--primary),var(--primary)) 0 20px/100% 3px no-repeat,var(--seigaiha-n) 0 0/40px 20px repeat-x,#141c30}
+html[data-dir=mesa] .qr-card{outline-color:rgba(200,32,58,.45)}
+html[data-dir=mesa] .qr-name{font:800 1rem/1.1 var(--display);letter-spacing:.08em;text-transform:uppercase}
+html[data-dir=mesa] .qr-table{color:#fff;background:var(--primary);padding:5px 8px}
+
+/* about points: red disc numerals */
+html[data-dir=mesa] .point::before{content:counter(pt);display:grid;place-items:center;width:34px;height:34px;border-radius:50%;
+  background:var(--primary);color:#fff;font:700 .95rem/1 var(--display)}
+
+/* footer: seigaiha band */
+html[data-dir=mesa] .site-foot{border-top:0;position:relative;padding-top:56px;
+  background:var(--seigaiha-n) 0 0/40px 20px repeat-x,var(--bg)}
+html[data-dir=mesa] .site-foot::before{content:"";position:absolute;left:0;right:0;top:20px;height:4px;background:var(--primary)}
+html[data-dir=mesa] .site-foot b{font:800 1.05rem var(--display);letter-spacing:.08em;text-transform:uppercase}
+
+/* mesa / cozinha */
+html[data-dir=mesa] .m-top{background:var(--accent);border-bottom:5px solid var(--primary)}
+html[data-dir=mesa] .m-top h1{font:800 1.3rem/1.1 var(--display);letter-spacing:.08em;text-transform:uppercase}
+html[data-dir=mesa] .m-item .price{font-family:var(--display);color:var(--primary);font-weight:800}
+html[data-dir=mesa] .qty button{background:var(--primary)}
+html[data-dir=mesa] .qty button.minus{background:transparent}
+html[data-dir=mesa] .ticket{border-top-color:var(--primary)}
+
+@media (max-width:860px){
+  html[data-dir=mesa] .brand{font-size:.98rem}
+  html[data-dir=mesa] .menu .wrap{padding-top:60px}
+}
+@media (prefers-reduced-motion:reduce){html[data-dir=mesa] *{transition:none!important}}

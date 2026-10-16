@@ -1,0 +1,87 @@
+/* Kasablanca Restaurante Sushi Bar — hook: the name ("casa branca", white house) stamped as a red hanko seal; sushi and grills at one table */
+@import url('https://fonts.googleapis.com/css2?family=Shippori+Mincho+B1:wght@500;700;800&display=swap');
+:root{
+  --kb:'Shippori Mincho B1','Bodoni Moda',Georgia,serif;
+  --sumi:#111827; --washi:#fbfaf7; --red:#c4202d;
+  --bg:#fbfaf7; --linen:#f1efea;
+  --seal:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 40 40'%3E%3Crect x='1' y='1' width='38' height='38' rx='5' fill='%23c4202d'/%3E%3Crect x='4.5' y='4.5' width='31' height='31' rx='2.5' fill='none' stroke='%23fff' stroke-width='1.2'/%3E%3Cpath d='M9 20.5L20 10.5l11 10M12.5 18v12.5h15V18' fill='none' stroke='%23fff' stroke-width='2.6' stroke-linejoin='round'/%3E%3Cpath d='M18 30.5v-6h4v6' fill='%23fff'/%3E%3C/svg%3E");
+}
+[data-dir] body{background:var(--bg)}
+
+/* wordmark: mincho caps + seal */
+[data-dir] .brand{display:inline-flex;align-items:center;gap:10px;font:800 1.15rem/1 var(--kb);letter-spacing:.18em;text-transform:uppercase;color:var(--sumi)}
+[data-dir] .brand::before{content:"";width:30px;height:30px;flex:none;background:var(--seal) center/contain no-repeat}
+[data-dir] .hero-title{font:800 clamp(2.2rem,5vw,4.4rem)/1.05 var(--kb);letter-spacing:.02em;color:#fff}
+[data-dir] .hero-title::after{content:"";display:block;width:56px;height:56px;margin-top:20px;background:var(--seal) center/contain no-repeat}
+[data-dir] h2{font-family:var(--kb);font-weight:700}
+
+/* hero: sumi-ink band, photo in a white house frame, seal under the name */
+[data-dir] .hero{background:var(--sumi);color:#f3f4f6;max-width:none}
+@media (min-width:861px){
+  [data-dir] .hero{padding-inline:max(var(--gutter),calc((100vw - var(--maxw))/2 + 16px));grid-template-columns:minmax(0,.95fr) minmax(0,1.05fr)}
+  [data-dir] .hero-media{aspect-ratio:4/3}
+}
+[data-dir] .hero-media{background:#fff;padding:12px;border:0;box-shadow:12px 12px 0 var(--red)}
+[data-dir] .hero-media::after{inset:12px;border-color:rgba(255,255,255,.4)}
+[data-dir] .hero .kicker{color:#f3a7ad}
+[data-dir] .tagline{color:#d1d5db}
+[data-dir] .hero .btn-primary{background:var(--red);border-color:var(--red)}
+[data-dir] .hero .btn-primary:hover{background:#a51a25}
+[data-dir] .hero .btn-secondary{color:#fff;border-color:rgba(255,255,255,.5)}
+[data-dir] .facts{color:#d1d5db;border-top-color:rgba(255,255,255,.18)}
+[data-dir] .facts b{color:#fff}
+[data-dir] .facts .i{color:#f3a7ad}
+
+/* menu: a bento — every dish in its own lacquer cell */
+[data-dir] .menu{background:var(--linen)}
+[data-dir] .menu .wrap{max-width:1120px;background:transparent;box-shadow:none;padding-inline:var(--gutter)}
+[data-dir] .menu .section-head::before{content:"";width:46px;height:46px;background:var(--seal) center/contain no-repeat}
+[data-dir] .menu h2::after{background:var(--red)}
+[data-dir] .tab[aria-selected=true]{color:var(--red);border-bottom-color:var(--red)}
+[data-dir] .dishes{grid-template-columns:repeat(auto-fill,minmax(min(300px,100%),1fr));gap:0;background:none;border:0;padding:1px}
+[data-dir] .dish{background:#fff;padding:20px 20px 22px;border-left:4px solid transparent;box-shadow:0 0 0 1px var(--sumi)}
+[data-dir] .dish:hover{border-left-color:var(--red)}
+[data-dir] .dish-name{font-family:var(--kb);font-weight:700}
+[data-dir] .dish-price{color:var(--red);font-family:var(--kb);font-weight:700}
+
+/* about: sushi bar + grills as two equal halves */
+[data-dir] .point:nth-child(-n+2){border-left:3px solid var(--red);padding-left:14px}
+[data-dir] .point::before{color:var(--red)}
+
+/* QR on red, card sealed */
+[data-dir] .qr{background:var(--red)}
+[data-dir] .qr .kicker{color:#fff;opacity:.85}
+[data-dir] .qr .btn-primary{color:var(--red)}
+[data-dir] .qr .steps li::before{color:#fff;opacity:1}
+[data-dir] .qr-card{padding-top:70px;background:#fff var(--seal) 50% 18px/40px 40px no-repeat}
+[data-dir] .qr-name{font-family:var(--kb);font-weight:800;letter-spacing:.06em}
+
+/* order: menu straight after the hero */
+[data-dir] main > .menu{order:1}
+[data-dir] main > .gallery{order:2;padding-top:var(--section)}
+[data-dir] main > .about{order:3}
+[data-dir] main > .qr{order:4}
+[data-dir] main > .book{order:5}
+[data-dir] main > .visit{order:6}
+[data-dir] main > .proposal{order:9}
+
+[data-dir] .site-foot{border-top:4px solid var(--red)}
+[data-dir] .site-foot b{font-family:var(--kb);font-weight:800;letter-spacing:.1em;text-transform:uppercase}
+
+@media (max-width:860px){
+  [data-dir] .hero{padding-bottom:8px}
+  [data-dir] .hero-media{margin:18px calc(var(--gutter-r) + 10px) 0 var(--gutter);padding:8px;box-shadow:8px 8px 0 var(--red)}
+  [data-dir] .hero-media::after{inset:8px}
+  [data-dir] .hero-title{font-size:clamp(2rem,9.4vw,2.8rem)}
+  [data-dir] .hero-title::after{width:44px;height:44px;margin-top:14px}
+  [data-dir] .brand{font-size:.82rem;letter-spacing:.08em;line-height:1.15;min-width:0}
+  [data-dir] .brand::before{width:26px;height:26px}
+  [data-dir] .menu .wrap{margin-inline:0;padding:0 var(--gutter-r) 0 var(--gutter)}
+}
+
+/* mesa / cozinha */
+[data-dir] .m-top{background:var(--sumi);border-bottom:4px solid var(--red)}
+[data-dir] .m-top h1{font-family:var(--kb);font-weight:800;display:flex;gap:8px;align-items:center}
+[data-dir] .m-top h1::before{content:"";width:26px;height:26px;flex:none;background:var(--seal) center/contain no-repeat}
+[data-dir] .m-cat{font-family:var(--kb);font-weight:700}
+[data-dir] .m-item .price{color:var(--red)}

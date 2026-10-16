@@ -1,0 +1,71 @@
+/* Pastelarias Caneiros — hook: the croissant de mel — a golden crescent and a honey drip; several shops, pastries to take away in the box */
+@import url('https://fonts.googleapis.com/css2?family=Shrikhand&display=swap');
+:root{
+  --cn:'Shrikhand','Fraunces',Georgia,serif;
+  --honey:#e3b35c; --honey-soft:#f8e7c4; --honey-ink:#5a3a0c;
+  --paper:color-mix(in srgb,var(--accent) 14%,#fff8f0);
+  --croissant:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 56 34'%3E%3Cpath d='M5 29Q28-6 51 29' fill='none' stroke='%23e3b35c' stroke-width='13' stroke-linecap='round'/%3E%3Cpath d='M5 29Q28-6 51 29' fill='none' stroke='%23b9822a' stroke-width='1.6' stroke-dasharray='1 7' stroke-linecap='round'/%3E%3Cg stroke='%238c2f39' stroke-width='2' stroke-linecap='round'%3E%3Cpath d='M14 13l4 7M23 8l1.5 8M33 8l-1.5 8M42 13l-4 7'/%3E%3C/g%3E%3C/svg%3E");
+  --drip:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='60' height='18' viewBox='0 0 60 18'%3E%3Cpath d='M0 0h60v5c-4 0-5 2-6 6-1 5-6 5-7 0-1-4-3-6-7-6s-5 1-6 3-4 2-5 0-3-3-7-3-6 3-7 8c-1 6-7 6-8 0-1-4-3-8-7-8z' fill='%23e3b35c'/%3E%3C/svg%3E");
+}
+
+/* wordmark: a fat bakery script, honey-glazed */
+html .brand{display:inline-flex;align-items:center;gap:10px;font:400 clamp(1.25rem,2.2vw,1.55rem)/1.1 var(--cn);font-style:normal;color:var(--primary)}
+html .brand::before{content:"";width:36px;height:22px;flex:none;background:var(--croissant) center/contain no-repeat}
+html .hero-title{font:400 clamp(2.5rem,6vw,5rem)/1.08 var(--cn);letter-spacing:0;color:var(--primary);text-shadow:3px 3px 0 var(--honey-soft)}
+html .hero-title::before{content:"";display:block;width:84px;height:51px;margin-bottom:12px;background:var(--croissant) left bottom/contain no-repeat}
+
+/* awning dripping honey under it */
+html .site-head::before{background:linear-gradient(rgba(0,0,0,.12),rgba(0,0,0,0) 45%),repeating-linear-gradient(90deg,var(--primary) 0 24px,var(--honey-soft) 24px 48px)}
+html .site-head::after{content:"";display:block;height:18px;background:var(--drip) 0 0/60px 18px repeat-x}
+
+/* hero: the arch window glazed with a honey frame */
+html .hero-media{background:var(--honey-soft);box-shadow:0 0 0 8px var(--honey),0 0 0 10px var(--surface),0 22px 44px -18px rgba(90,58,12,.45)}
+html .hero .kicker{background:var(--honey);color:var(--honey-ink)}
+
+/* about: "Várias lojas" as the house badge */
+html .point:nth-child(2){background:var(--primary);color:#fff;border-radius:14px;padding:18px 16px;border-bottom:0}
+html .point:nth-child(2)::before{color:var(--honey)}
+html .point:nth-child(2) p{color:#f6e2e4}
+html .point h3{font-family:var(--display)}
+
+/* menu: the take-away pastry box — honey lid stripe, drip under the head */
+html .menu{background:var(--paper)}
+html .menu .section-head::after{content:"";display:block;height:18px;max-width:240px;background:var(--drip) 0 0/60px 18px repeat-x}
+html .menu h2{font-family:var(--cn);font-weight:400;color:var(--primary)}
+html .dishes{border-top:16px solid var(--primary);border-radius:6px;
+  box-shadow:inset 0 3px 0 var(--honey),0 1px 0 var(--line),0 18px 30px -18px rgba(90,58,12,.4)}
+html .dish-price{background:var(--honey);color:var(--honey-ink)}
+html .tab[aria-selected=true]{background:var(--primary)}
+html .tab{background:var(--honey-soft)}
+
+/* QR: wine with honey */
+html .qr .steps li::before{background:var(--honey);color:var(--honey-ink)}
+html .qr .btn-primary{background:var(--honey);color:var(--honey-ink)}
+html .qr-name{font-family:var(--cn);font-style:normal;font-weight:400}
+html .qr-card figcaption::before{content:"";width:30px;height:18px;flex:none;background:var(--croissant) center/contain no-repeat}
+
+/* order: menu right after the hero */
+html main > .menu{order:1}
+html main > .about{order:2}
+html main > .gallery{order:3}
+html main > .qr{order:4}
+html main > .book{order:5}
+html main > .visit{order:6}
+html main > .proposal{order:9}
+
+html .site-foot{border-image:repeating-linear-gradient(-45deg,var(--honey) 0 5px,var(--primary) 5px 10px) 6}
+html .site-foot b{font-family:var(--cn);font-style:normal;font-weight:400}
+
+@media (max-width:860px){
+  html .hero-media{box-shadow:0 0 0 6px var(--honey),0 0 0 8px var(--surface),0 18px 36px -18px rgba(90,58,12,.45)}
+  html .hero-title{font-size:clamp(2.2rem,10vw,3.2rem)}
+  html .hero-title::before{width:64px;height:39px}
+  html .brand::before{width:30px;height:18px}
+  html .site-head::after{height:14px;background-size:46px 14px}
+}
+
+/* mesa / cozinha */
+html .m-top h1{font-family:var(--cn);font-style:normal;font-weight:400}
+html .m-top::after{content:"";position:absolute;left:0;right:0;bottom:-14px;height:14px;background:var(--drip) 0 0/46px 14px repeat-x}
+html .m-cat{font-family:var(--cn);font-weight:400;color:var(--primary)}
+html .m-item .price{color:var(--primary)}

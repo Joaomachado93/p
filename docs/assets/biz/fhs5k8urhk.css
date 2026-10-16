@@ -1,0 +1,69 @@
+/* Sabores Restaurante (churrasqueira) — hook: the churrasqueira's open flame (a row of flame tongues licking up from the charcoal) */
+@import url('https://fonts.googleapis.com/css2?family=Sansita:ital,wght@1,800;1,900&display=swap');
+:root{
+  --sb-font:'Sansita','Trebuchet MS',sans-serif;
+  --bg:#fbf3e7; --surface:#fffaf2;
+  --sb-char:#2b1d16;
+  /* flame row (tiles horizontally) */
+  --sb-flames:url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 60 36'><path d='M0 36c6-6 2-14 8-22 0 8 6 10 6 4 0-6 4-10 8-14-2 8 4 14 6 20 2-6 6-8 6-14 4 6 8 10 6 18 4-4 4-8 10-12-2 8 6 12 4 20z' fill='%23f0b429'/><path d='M4 36c4-4 2-8 6-12 1 6 6 6 8 2 2 4 2 8 6 10 2-4 4-6 8-10 0 4 6 8 6 10 4-2 6-6 10-8 0 6 2 6 4 8z' fill='%23b5451b'/><rect y='33' width='60' height='3' fill='%232b1d16'/></svg>");
+  --sb-flame1:url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 40'><path d='M15 1c2 8 12 12 12 24a12 12 0 0 1-24 0c0-6 3-9 6-13 0 5 2 7 4 7-1-6 0-12 2-18z' fill='%23f0b429'/><path d='M15 17c2 4 6 7 6 12a6 6 0 0 1-12 0c0-3 2-5 3-7 1 2 2 3 3 3 0-3-1-5 0-8z' fill='%23b5451b'/></svg>");
+}
+html[data-dir] body{background:var(--bg)}
+
+/* wordmark: slanted, fired-up italic; a single flame dots the name */
+html[data-dir] .brand{font:italic 900 1.32rem/1 var(--sb-font);color:var(--primary);display:inline-flex;align-items:center;gap:6px;letter-spacing:.005em}
+html[data-dir] .brand::before{content:"";width:18px;height:24px;flex:none;background:var(--sb-flame1) 0 0/100% 100% no-repeat}
+html[data-dir] h1,html[data-dir] h2{font-family:var(--sb-font);font-style:italic;font-weight:900}
+html[data-dir] .hero-title{font:italic 900 clamp(2.3rem,5vw,4.2rem)/1 var(--sb-font);color:var(--primary);letter-spacing:-.01em}
+
+/* hero: full-width photo, flames licking up from its bottom edge, copy on a cream sign that overlaps it */
+html[data-dir] .hero{grid-template-columns:minmax(0,1fr);padding:0}
+html[data-dir] .hero-media{grid-column:1;grid-row:1;position:relative;height:min(48vh,440px);padding:0;border-radius:0;box-shadow:none;background:var(--sb-char)}
+html[data-dir] .hero-media img{border-radius:0;box-shadow:none;filter:saturate(1.1)}
+html[data-dir] .hero-media::after{content:"";position:absolute;left:0;right:0;bottom:0;height:54px;background:var(--sb-flames) 0 100%/90px 54px repeat-x}
+html[data-dir] .hero-copy{grid-column:1;grid-row:2;position:relative;z-index:2;width:min(var(--maxw) - 32px,100% - 32px);margin:-110px auto 0;
+  padding:clamp(22px,3vw,40px);background:var(--surface);border-radius:4px;border-top:6px solid var(--primary);box-shadow:0 22px 40px -22px rgba(43,29,22,.55)}
+html[data-dir] .hero-copy .kicker{color:var(--sb-char)}
+
+/* order: the grill menu first */
+html[data-dir] .menu{order:1;padding-top:clamp(40px,6vw,72px)}
+html[data-dir] .gallery{order:2;padding-top:var(--section)}
+html[data-dir] .about{order:3}
+html[data-dir] .qr{order:4}
+html[data-dir] .book{order:5}
+html[data-dir] .visit{order:6}
+html[data-dir] .proposal{order:9}
+
+/* menu: charcoal board with the flame row along its base */
+html[data-dir] .menu > .wrap{border-image:none;border-color:var(--sb-char);padding-bottom:calc(clamp(26px,4vw,52px) + 34px);
+  background:var(--sb-flames) 0 100%/60px 36px repeat-x,linear-gradient(#2f2520,#211813)}
+html[data-dir] .menu h2{font-family:var(--sb-font)}
+html[data-dir] .menu .tab{border-radius:999px 999px 999px 4px}
+html[data-dir] .menu .tab[aria-selected=true]{background:var(--accent);border-color:var(--accent);color:var(--sb-char)}
+html[data-dir] .menu .dish-price{color:#f6c860}
+
+/* about: points marked with a flame */
+html[data-dir] .point::before{background:var(--sb-flame1) 50% 50%/16px 22px no-repeat;border:0}
+
+/* qr: hot gradient from the brand orange */
+html[data-dir] .qr{background:linear-gradient(0deg,color-mix(in srgb,var(--primary) 70%,#2b1d16),var(--primary))}
+html[data-dir] .qr-card{background:linear-gradient(#fff,#fff) padding-box,linear-gradient(var(--sb-char),var(--sb-char)) border-box;border-width:8px}
+html[data-dir] .qr-card::after{content:"";height:28px;margin:0 -10px -10px;background:var(--sb-flames) 0 100%/48px 28px repeat-x}
+html[data-dir] .qr-name{font:italic 900 1.1rem var(--sb-font)}
+
+/* dividers: flames instead of azulejo */
+html[data-dir] .site-head::after,html[data-dir] .proposal::before,html[data-dir] .site-foot::before{height:24px;background:var(--sb-flames) 0 100%/40px 24px repeat-x}
+html[data-dir] .site-foot b{font:italic 900 1.05rem var(--sb-font);color:var(--primary)}
+
+@media (max-width:860px){
+  html[data-dir] .hero-media{height:clamp(240px,40svh,340px)}
+  html[data-dir] .hero-media::after{height:36px;background-size:60px 36px}
+  html[data-dir] .hero-copy{margin-top:-40px;width:calc(100% - 20px);padding:20px 16px 26px}
+  html[data-dir] .hero-title{font-size:clamp(2.1rem,10vw,2.9rem)}
+  html[data-dir] .site-head::after{height:18px;background-size:30px 18px}
+}
+
+/* mesa / cozinha */
+html[data-dir] .m-top h1{font:italic 900 1.3rem/1.05 var(--sb-font)}
+html[data-dir] .m-top::after{height:16px;bottom:-16px;background:var(--sb-flames) 0 100%/28px 16px repeat-x}
+html[data-dir] .m-cat{font-family:var(--sb-font);font-style:italic;color:var(--primary)}

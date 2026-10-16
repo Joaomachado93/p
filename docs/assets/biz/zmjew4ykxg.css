@@ -1,0 +1,50 @@
+/* Sabores Pevidem — hook: the tradition at the table — a clay pot (panela de barro) steaming, earthenware + olive palette */
+@import url('https://fonts.googleapis.com/css2?family=Yeseva+One&display=swap');
+:root{
+  --sp-clay:#8a4b24; --sp-clay-d:#5e3015; --sp-olive:#6f8b3d; --sp-olive-d:#4a5f25; --sp-cream:#f7efe3;
+  --bg:#f5eee4; --surface:#fffaf3;
+  --sp-pot:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='96' height='96' viewBox='0 0 96 96'%3E%3Cg fill='none' stroke='%23f7efe3' stroke-width='3' stroke-linecap='round'%3E%3Cpath d='M38 8c-4 6 4 10 0 16M48 6c-4 6 4 10 0 16M58 8c-4 6 4 10 0 16'/%3E%3C/g%3E%3Cpath d='M14 38h68v6H14z' fill='%23f7efe3'/%3E%3Cpath d='M20 44h56c0 22-10 40-28 40S20 66 20 44z' fill='%23f7efe3'/%3E%3Cpath d='M10 50c4-4 8-4 10 0M86 50c-4-4-8-4-10 0' fill='none' stroke='%23f7efe3' stroke-width='4' stroke-linecap='round'/%3E%3Cpath d='M28 58h40' stroke='%238a4b24' stroke-width='3'/%3E%3C/svg%3E");
+  --sp-pot-clay:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='96' height='96' viewBox='0 0 96 96'%3E%3Cg fill='none' stroke='%236f8b3d' stroke-width='3' stroke-linecap='round'%3E%3Cpath d='M38 8c-4 6 4 10 0 16M48 6c-4 6 4 10 0 16M58 8c-4 6 4 10 0 16'/%3E%3C/g%3E%3Cpath d='M14 38h68v6H14z' fill='%238a4b24'/%3E%3Cpath d='M20 44h56c0 22-10 40-28 40S20 66 20 44z' fill='%238a4b24'/%3E%3Cpath d='M10 50c4-4 8-4 10 0M86 50c-4-4-8-4-10 0' fill='none' stroke='%238a4b24' stroke-width='4' stroke-linecap='round'/%3E%3Cpath d='M28 58h40' stroke='%23f5eee4' stroke-width='3'/%3E%3C/svg%3E");
+}
+/* wordmark: "Sabores" small and tracked over a big rounded "Pevidem" — like a painted clay plate */
+html[data-dir] .brand{font:400 1.35rem/1 'Yeseva One',var(--display);color:var(--sp-clay-d);display:inline-flex;align-items:center;gap:10px}
+html[data-dir] .brand::before{content:"";width:30px;height:30px;flex:none;background:var(--sp-pot-clay) 0 0/100% 100% no-repeat}
+html[data-dir] .hero-title{font-family:'Yeseva One',var(--display);font-weight:400;color:var(--sp-clay-d);line-height:.95;letter-spacing:0}
+html[data-dir] h2{font-family:'Yeseva One',var(--display);font-weight:400}
+
+/* hero: copy sits on a terracotta glaze panel with the pot, photo keeps its azulejo frame */
+html[data-dir] .hero-copy{position:relative;background:var(--sp-clay);color:var(--sp-cream);padding:clamp(28px,4vw,48px);border-radius:0 0 40px 0;box-shadow:inset 0 -8px 0 var(--sp-olive)}
+html[data-dir] .hero-copy::before{content:"";position:absolute;right:18px;top:18px;width:64px;height:64px;background:var(--sp-pot) 0 0/100% 100% no-repeat;opacity:.9}
+html[data-dir] .hero-copy .hero-title{color:#fff;padding-right:60px}
+html[data-dir] .hero-copy .kicker,html[data-dir] .hero-copy .tagline,html[data-dir] .hero-copy .facts,html[data-dir] .hero-copy .facts a{color:var(--sp-cream)}
+html[data-dir] .hero-copy .facts .i{color:#d9e6bf}
+html[data-dir] .hero-copy .btn-primary{background:var(--sp-cream);color:var(--sp-clay-d);border-color:var(--sp-cream)}
+html[data-dir] .hero-copy .btn-secondary{background:transparent;color:#fff;border-color:rgba(255,255,255,.7)}
+html[data-dir] .hero-copy :focus-visible{outline-color:#fff}
+
+/* order: the slate menu comes right after the hero, story and photos after */
+html[data-dir] .hero{order:-10}
+html[data-dir] .menu{order:-2}
+html[data-dir] .gallery{order:-1}
+html[data-dir] .about{order:0}
+html[data-dir] .menu .section-head{position:relative;padding-left:70px}
+html[data-dir] .menu .section-head::before{content:"";position:absolute;left:0;top:0;width:56px;height:56px;background:var(--sp-pot) 0 0/100% 100% no-repeat;opacity:.85}
+
+/* about: earthenware rim */
+html[data-dir] .about{background:var(--surface);border-block:6px double rgba(138,75,36,.35)}
+html[data-dir] .lede{font-family:'Yeseva One',var(--display);font-size:clamp(1.3rem,2.4vw,1.75rem);line-height:1.35;color:var(--sp-clay-d)}
+html[data-dir] .point::before{background-color:var(--sp-olive)}
+html[data-dir] .qr{background:var(--sp-olive-d)}
+html[data-dir] .site-foot b{font-family:'Yeseva One',var(--display);font-weight:400;color:var(--sp-clay-d)}
+
+/* mesa / cozinha pages */
+html[data-dir] .m-top{background:var(--sp-clay)}
+html[data-dir] .m-top h1{font-family:'Yeseva One',var(--display);font-weight:400}
+
+@media (max-width:860px){
+  html[data-dir] .hero-copy{border-radius:0;margin:0}
+  html[data-dir] .hero-copy .kicker{padding-right:56px}
+  html[data-dir] .hero-copy::before{width:48px;height:48px;right:14px;top:14px}
+  html[data-dir] .menu .section-head{padding-left:58px}
+  html[data-dir] .menu .section-head::before{width:46px;height:46px}
+}

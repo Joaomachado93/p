@@ -1,0 +1,55 @@
+/* Orfeu Restaurante — hook: Orpheus' lyre — a gold lyre on a music staff, classical capitals and a starry weekend-night navy (Fri–Sun dinners) */
+@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@600;800&display=swap');
+:root{
+  --orfeu:'Cinzel','Anton',Georgia,serif;
+  --lyre:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='40' height='44' viewBox='0 0 40 44'%3E%3Cg fill='none' stroke='%23e8c98f' stroke-width='2.4' stroke-linecap='round'%3E%3Cpath d='M12 4C4 6 3 16 8 22S12 34 14 38H26C28 34 27 28 32 22S36 6 28 4'/%3E%3Cpath d='M7 12H33M16 12V38M20 12V38M24 12V38M11 41H29'/%3E%3C/g%3E%3Ccircle cx='12' cy='4' r='2.5' fill='%23e8c98f'/%3E%3Ccircle cx='28' cy='4' r='2.5' fill='%23e8c98f'/%3E%3C/svg%3E");
+  --lyre-navy:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='40' height='44' viewBox='0 0 40 44'%3E%3Cg fill='none' stroke='%231F3A5F' stroke-width='2.4' stroke-linecap='round'%3E%3Cpath d='M12 4C4 6 3 16 8 22S12 34 14 38H26C28 34 27 28 32 22S36 6 28 4'/%3E%3Cpath d='M7 12H33M16 12V38M20 12V38M24 12V38M11 41H29'/%3E%3C/g%3E%3Ccircle cx='12' cy='4' r='2.5' fill='%231F3A5F'/%3E%3Ccircle cx='28' cy='4' r='2.5' fill='%231F3A5F'/%3E%3C/svg%3E");
+  --staff:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='26' viewBox='0 0 10 26'%3E%3Cpath d='M0 1h10M0 7h10M0 13h10M0 19h10M0 25h10' stroke='%231F3A5F' stroke-width='1'/%3E%3C/svg%3E");
+  --bg:color-mix(in srgb,var(--primary) 8%,#efe4cf);
+  --kraft:color-mix(in srgb,var(--primary) 14%,#d8c19a);
+  --awning:repeating-linear-gradient(90deg,var(--primary) 0 28px,var(--accent) 28px 56px);
+}
+
+/* wordmark: engraved classical capitals with the lyre */
+html[data-dir] .brand{display:inline-flex;align-items:center;gap:10px;font:800 1.2rem/1 var(--orfeu);letter-spacing:.1em}
+html[data-dir] .brand::before{content:"";width:22px;height:25px;flex:none;background:var(--lyre) center/contain no-repeat}
+html[data-dir] .hero-title{font:800 clamp(2.6rem,5.6vw,5.2rem)/1.02 var(--orfeu);letter-spacing:.04em;text-transform:uppercase}
+html[data-dir] h2{font-family:var(--orfeu);font-weight:800;letter-spacing:.02em}
+html[data-dir] h3{font-family:var(--orfeu);font-weight:600}
+
+/* hero: a night sky behind the copy, the photo framed in gold */
+html[data-dir] .hero-copy{background:
+  radial-gradient(rgba(255,255,255,.22) 1px,transparent 1.5px) 0 0/23px 23px,
+  radial-gradient(rgba(232,201,143,.3) 1px,transparent 1.5px) 11px 13px/37px 37px}
+html[data-dir] .hero-media{border-color:var(--accent)}
+html[data-dir] .hero-media img{box-shadow:inset 0 0 0 6px var(--accent)}
+@media (min-width:861px){
+  html[data-dir] .hero-copy::before{content:"";width:54px;height:60px;background:var(--lyre) 0 0/contain no-repeat}
+  html[data-dir] .hero-media{border-left:6px solid var(--accent)}
+}
+
+/* menu: the lyre sits like a clef on a five-line staff */
+html[data-dir] .menu .section-head::after{content:"";height:34px;max-width:420px;background:var(--lyre-navy) 0 0/31px 34px no-repeat,var(--staff) 0 4px/10px 26px repeat-x}
+html[data-dir] .dish-price{color:var(--primary)}
+html[data-dir] .tab[aria-selected=true]{color:var(--accent)}
+
+/* order: the pizzas first */
+html[data-dir] .menu{order:1}
+html[data-dir] .gallery{order:2;padding-top:var(--section)}
+html[data-dir] .about{order:3}
+html[data-dir] .qr{order:4}
+html[data-dir] .book{order:5}
+html[data-dir] .visit{order:6}
+html[data-dir] .proposal{order:9}
+
+/* QR: navy night with the gold lyre on the card */
+html[data-dir] .qr{background:radial-gradient(rgba(255,255,255,.12) 1px,transparent 1.5px) 0 0/29px 29px,var(--primary)}
+html[data-dir] .qr-card figcaption::before{content:"";width:22px;height:25px;flex:none;background:var(--lyre-navy) center/contain no-repeat}
+html[data-dir] .qr-name{flex:1;font-family:var(--orfeu);font-weight:800;font-size:1rem;letter-spacing:.06em}
+html[data-dir] .site-foot b,html[data-dir] .m-top h1{font-family:var(--orfeu);font-weight:800;letter-spacing:.06em}
+
+@media (max-width:860px){
+  html[data-dir] .brand{font-size:1.02rem;letter-spacing:.06em}
+  html[data-dir] .hero-title{font-size:clamp(2.2rem,10.5vw,3.4rem)}
+  html[data-dir] .hero-media{border-bottom:5px solid var(--accent)}
+}

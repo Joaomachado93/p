@@ -1,0 +1,54 @@
+/* Confeitaria Ribela — hook: "confeitaria" → the piping bag: a piped-icing rosette and bead borders, signed in an old shop-sign script */
+@import url('https://fonts.googleapis.com/css2?family=Grand+Hotel&display=swap');
+:root{
+  --cream:#fff6f0; --cocoa:#92400E;
+  --rosette:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Cg fill='%23fde7ef' stroke='%23BE185D' stroke-width='2.2'%3E%3Ccircle cx='32' cy='12' r='9'/%3E%3Ccircle cx='51' cy='26' r='9'/%3E%3Ccircle cx='44' cy='48' r='9'/%3E%3Ccircle cx='20' cy='48' r='9'/%3E%3Ccircle cx='13' cy='26' r='9'/%3E%3Ccircle cx='32' cy='32' r='11'/%3E%3C/g%3E%3Cpath d='M32 25c5 3 5 9 0 11-4-2-4-6 0-8' fill='none' stroke='%2392400E' stroke-width='2.2' stroke-linecap='round'/%3E%3C/svg%3E");
+  /* a row of piped beads */
+  --beads:radial-gradient(circle at 50% 60%,var(--primary) 0 4.5px,transparent 5px) 0 0/16px 12px repeat-x;
+}
+
+/* wordmark: the confeitaria sign in flowing script, a rosette as the dot */
+html[data-dir] .brand{font:400 clamp(1.7rem,3vw,2.1rem)/1 'Grand Hotel',cursive;font-style:normal;color:var(--primary);letter-spacing:0;
+  display:inline-flex;align-items:center;gap:8px}
+html[data-dir] .brand::after{content:"";width:22px;height:22px;flex:none;background:var(--rosette) center/contain no-repeat}
+html[data-dir] .hero-title{font:400 clamp(3rem,8vw,6.4rem)/.95 'Grand Hotel',cursive;letter-spacing:0;color:var(--primary)}
+html[data-dir] .hero-title::after{content:"";display:block;width:min(220px,70%);height:12px;margin-top:14px;background:var(--beads)}
+html[data-dir] .hero .kicker{background:var(--cocoa)}
+
+/* hero: the window gets a piped-cream border — bead edge around the arch and a rosette on top */
+html[data-dir] .hero-media{position:relative;overflow:visible;
+  box-shadow:0 0 0 6px var(--surface),0 0 0 9px var(--primary),0 0 0 15px var(--surface),0 22px 44px -18px rgba(110,20,60,.45)}
+html[data-dir] .hero-media img{border-radius:inherit}
+html[data-dir] .hero-media::before{content:"";position:absolute;z-index:2;left:50%;top:-30px;width:60px;height:60px;transform:translateX(-50%);
+  background:var(--rosette) center/contain no-repeat;filter:drop-shadow(0 4px 6px rgba(110,20,60,.25))}
+html[data-dir] .hero{padding-top:34px}
+
+/* palette nuance: strawberry pink with cocoa — cocoa on the ribbon, pink on price tags */
+html[data-dir] .dish-price{background:var(--primary)}
+html[data-dir] .menu{border-image:none;border-top:0}
+html[data-dir] .menu::before{content:"";position:absolute;inset:0 0 auto;height:12px;background:var(--beads)}
+html[data-dir] .menu .section-head{justify-items:center;text-align:center}
+html[data-dir] .menu .section-head::before{content:"";width:54px;height:54px;background:var(--rosette) center/contain no-repeat}
+html[data-dir] .menu h2,html[data-dir] h2{font-family:'Grand Hotel',cursive;font-weight:400;letter-spacing:0;font-size:clamp(2.4rem,5vw,3.6rem);line-height:1}
+
+/* section order: the montra (photos) first, then the vitrine, then the story */
+html[data-dir] main > .gallery{order:1}
+html[data-dir] main > .menu{order:2}
+html[data-dir] main > .about{order:3}
+html[data-dir] main > .book{order:4}
+html[data-dir] main > .visit{order:5}
+html[data-dir] main > .proposal{order:9}
+html[data-dir] .gallery{padding-block:var(--section)}
+
+/* about: Rua de Santo António lede on a cream card with bead edges */
+html[data-dir] .lede{background:var(--beads),var(--cream);background-position:0 0,0 0;padding:22px 20px 18px;border-radius:10px}
+
+/* footer: beads */
+html[data-dir] .site-foot::before{content:"";display:block;height:12px;margin-bottom:24px;background:var(--beads)}
+
+@media (max-width:860px){
+  html[data-dir] .brand{font-size:1.6rem}
+  html[data-dir] .hero{padding-top:30px}
+  html[data-dir] .hero-media::before{width:48px;height:48px;top:-24px}
+  html[data-dir] .hero-title{font-size:clamp(2.9rem,14vw,4rem)}
+}

@@ -1,0 +1,58 @@
+/* Restaurante A Carvalha — hook: the name — carvalha, the oak — oak leaf + acorn, tree-ring grain, a Sunday table under the oak */
+@import url('https://fonts.googleapis.com/css2?family=IM+Fell+English:ital@0;1&display=swap');
+:root{
+  --cv-bark:#5a3a1f; --cv-bark-d:#3b2412; --cv-leaf:#8aa03a; --cv-leaf-d:#4f5f17; --cv-cream:#f6f0e2;
+  --bg:#f4efe3;
+  --cv-oak:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='80' height='80' viewBox='0 0 80 80'%3E%3Cpath d='M40 6c4 4 2 9 6 11s9-2 10 3-5 7-3 11 9 3 9 8-7 5-7 9 7 6 4 10-8 0-11 3-2 7-8 7-5-5-8-7-9 1-11-3 5-6 4-10-8-4-7-9 7-4 9-8-4-7-3-11 7 0 10-3 2-7 6-11z' fill='%238aa03a'/%3E%3Cpath d='M40 14v60M40 30l9-6M40 30l-9-6M40 46l11-6M40 46l-11-6' stroke='%234f5f17' stroke-width='2.4' fill='none' stroke-linecap='round'/%3E%3C/svg%3E");
+  --cv-acorn:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='40' height='48' viewBox='0 0 40 48'%3E%3Cpath d='M20 2v8' stroke='%235a3a1f' stroke-width='3' stroke-linecap='round'/%3E%3Cpath d='M6 20c0-7 6-11 14-11s14 4 14 11z' fill='%235a3a1f'/%3E%3Cpath d='M9 20h22c0 12-5 24-11 26C14 44 9 32 9 20z' fill='%23b88a4a'/%3E%3C/svg%3E");
+  --cv-rings:repeating-radial-gradient(circle at 0% 100%,transparent 0 14px,rgba(90,58,31,.10) 14px 15px,transparent 15px 23px,rgba(90,58,31,.07) 23px 24px);
+}
+/* wordmark: old-press IM Fell, "A" on a leaf */
+html[data-dir] .brand{font:400 1.5rem/1 'IM Fell English',var(--display);color:var(--cv-bark-d);display:inline-flex;align-items:center;gap:8px}
+html[data-dir] .brand::before{content:"";width:28px;height:28px;flex:none;background:var(--cv-oak) 0 0/100% 100% no-repeat;transform:rotate(-18deg)}
+html[data-dir] .hero-title{font-family:'IM Fell English',var(--display);font-weight:400;color:var(--cv-bark-d);line-height:.98;letter-spacing:-.01em}
+html[data-dir] .hero-title::first-line{font-style:italic}
+html[data-dir] h2{font-family:'IM Fell English',var(--display);font-weight:400}
+html[data-dir] .tagline{font-family:'IM Fell English',var(--display);font-style:italic;font-size:1.3rem;color:var(--cv-leaf-d)}
+
+/* hero: tree rings spread from the copy corner, leaf + acorn pinned to the photo */
+html[data-dir] .hero{background:var(--cv-rings),var(--bg);overflow-x:clip}
+html[data-dir] .hero::after{content:"";position:absolute;z-index:3;width:92px;height:92px;top:12px;right:10px;background:var(--cv-oak) 0 0/100% 100% no-repeat;transform:rotate(24deg);pointer-events:none}
+html[data-dir] .hero-media{border-radius:0 0 0 90px}
+
+/* order: sunday lunch — menu before the story, then photos */
+html[data-dir] .hero{order:-10}
+html[data-dir] .menu{order:1}
+html[data-dir] .about{order:2}
+html[data-dir] .gallery{order:3}
+html[data-dir] .qr{order:4}
+html[data-dir] .book{order:5}
+html[data-dir] .visit{order:6}
+html[data-dir] .proposal{order:99}
+html[data-dir] .menu .section-head{position:relative}
+html[data-dir] .menu .section-head::after{content:"";position:absolute;right:0;top:0;width:40px;height:48px;background:var(--cv-acorn) 0 0/100% 100% no-repeat}
+
+/* about: heartwood band */
+html[data-dir] .about{background:var(--cv-bark);color:var(--cv-cream)}
+html[data-dir] .about .lede{font-family:'IM Fell English',var(--display);font-style:italic;font-size:clamp(1.35rem,2.4vw,1.8rem);line-height:1.4;color:#fff}
+html[data-dir] .about .point h3{color:#fff}
+html[data-dir] .about .point p,html[data-dir] .about .services{color:#eadfc8}
+html[data-dir] .about .points,html[data-dir] .about .point{border-color:rgba(246,240,226,.22)}
+html[data-dir] .about .point::before{background:var(--cv-acorn) 50% 50%/60% auto no-repeat,var(--cv-cream);color:transparent}
+html[data-dir] .about .i{color:var(--cv-leaf)}
+html[data-dir] .qr{background:var(--cv-leaf-d)}
+html[data-dir] .site-foot b{font-family:'IM Fell English',var(--display);font-weight:400;font-size:1.15rem}
+html[data-dir] .site-foot .wrap::after{content:"";width:34px;height:34px;background:var(--cv-oak) 0 0/100% 100% no-repeat;margin-top:6px}
+
+/* mesa / cozinha pages */
+html[data-dir] .m-top{background:var(--cv-bark-d)}
+html[data-dir] .m-top h1{font-family:'IM Fell English',var(--display);font-weight:400}
+
+@media (max-width:860px){
+  html[data-dir] .hero-media{border-radius:0 0 0 56px}
+  html[data-dir] .hero::after{width:64px;height:64px;top:8px;right:8px}
+}
+@media (prefers-reduced-motion:no-preference){
+  html[data-dir] .brand::before{transition:transform .4s ease}
+  html[data-dir] .brand:hover::before{transform:rotate(8deg)}
+}

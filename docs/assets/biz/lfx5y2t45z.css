@@ -1,0 +1,53 @@
+/* Restaurante Ponte do Ave — hook: the stone bridge over the Ave: arches on water, an unhurried lunch by the river */
+@import url('https://fonts.googleapis.com/css2?family=Marcellus&display=swap');
+:root{
+  --pa-font:'Marcellus','Bodoni Moda',Georgia,serif;
+  --pa-blue:#1E6091; --pa-deep:#123d5e; --pa-orange:#E07A1F; --pa-water:#e6eff6;
+  --bg:#f8fafb; --linen:#edf3f7;
+  --pa-bridge:url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 160 48'><path d='M0 10h160v6H0z' fill='%231E6091'/><path d='M0 16h160v18h-12a14 14 0 0 0-28 0h-12a14 14 0 0 0-28 0h-12a14 14 0 0 0-28 0h-12a14 14 0 0 0-28 0H0z' fill='%23123d5e'/><path d='M0 40q10-5 20 0t20 0 20 0 20 0 20 0 20 0 20 0 20 0M0 46q10-5 20 0t20 0 20 0 20 0 20 0 20 0 20 0 20 0' fill='none' stroke='%23E07A1F' stroke-width='2'/></svg>");
+  --pa-waves:url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 40 12'><path d='M0 6q10-6 20 0t20 0' fill='none' stroke='%231E6091' stroke-width='2'/></svg>");
+}
+
+/* wordmark: calm inscribed roman, the bridge drawn under the name */
+html[data-dir] .brand{font:400 1.3rem/1.1 var(--pa-font);color:var(--pa-deep);letter-spacing:.02em}
+html[data-dir] .hero-title{font:400 clamp(3rem,6.4vw,6rem)/1 var(--pa-font);letter-spacing:-.005em;color:var(--pa-deep)}
+html[data-dir] .hero-title::after{content:"";display:block;width:clamp(180px,24vw,300px);aspect-ratio:160/48;margin-top:20px;background:var(--pa-bridge) left/contain no-repeat}
+html[data-dir] h1,html[data-dir] h2,html[data-dir] h3{font-family:var(--pa-font);font-weight:400}
+html[data-dir] h2::after{background:var(--pa-orange)}
+html[data-dir] .tagline{font-family:var(--pa-font);font-style:normal}
+
+/* hero: the photo sits on the river — its foot dissolves into gentle waves */
+html[data-dir] .hero-media{background:var(--pa-water);box-shadow:inset 0 0 0 9px #fff}
+html[data-dir] .hero-media::after{inset:auto 0 0 0;height:30px;border:0;background:var(--pa-waves) 0 100%/40px 12px repeat-x,linear-gradient(transparent,rgba(230,239,246,.95) 60%)}
+html[data-dir] .facts .i{color:var(--pa-orange)}
+html[data-dir] .btn-primary{background:var(--pa-blue);border-color:var(--pa-blue)}
+html[data-dir] .btn-primary:hover{background:var(--pa-deep);border-color:var(--pa-deep)}
+
+/* order: "sem pressa" — the story first, then the carte */
+html[data-dir] .about{order:1}
+html[data-dir] .menu{order:2}
+html[data-dir] .gallery{order:3}
+html[data-dir] .book{order:4}
+html[data-dir] .visit{order:5}
+html[data-dir] .proposal{order:9}
+
+/* about on the water */
+html[data-dir] .about{background:linear-gradient(180deg,var(--bg),var(--pa-water));border-top:0;position:relative}
+html[data-dir] .about::after{content:"";position:absolute;left:0;right:0;bottom:0;height:12px;background:var(--pa-waves) 0 0/40px 12px repeat-x;opacity:.6}
+html[data-dir] .point::before{color:var(--pa-blue)}
+
+/* menu: carte headed by the bridge */
+html[data-dir] .menu{background:var(--linen)}
+html[data-dir] .menu .section-head::before{content:"";width:160px;height:48px;background:var(--pa-bridge) center/contain no-repeat}
+html[data-dir] .tab[aria-selected=true]{color:var(--pa-blue);border-bottom-color:var(--pa-orange)}
+html[data-dir] .dish-name{font:400 1.22rem/1.25 var(--pa-font)}
+html[data-dir] .dish-price{font-family:var(--pa-font);color:var(--pa-deep)}
+
+/* footer under the bridge */
+html[data-dir] .site-foot{border-top:0}
+html[data-dir] .site-foot::before{content:"";display:block;height:48px;margin:-36px 0 26px;background:var(--pa-bridge) 0 0/160px 48px repeat-x}
+
+@media (max-width:860px){
+  html[data-dir] .hero-title{font-size:clamp(2.6rem,12vw,3.8rem)}
+  html[data-dir] .hero-title::after{width:200px}
+}

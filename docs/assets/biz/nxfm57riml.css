@@ -1,0 +1,50 @@
+/* Trapani Pizzaria — hook: pizza to share — a round pie cut in slices, served on a wooden board over a green trattoria check */
+@import url('https://fonts.googleapis.com/css2?family=Lobster&display=swap');
+:root{
+  --script:'Lobster','Anton',cursive;
+  --pizza:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='48' height='48' viewBox='0 0 48 48'%3E%3Ccircle cx='24' cy='24' r='21' fill='%23f8f1e2' stroke='%23C8321E' stroke-width='3'/%3E%3Cpath d='M24 3v42M3 24h42M9 9l30 30M39 9L9 39' stroke='%23C8321E' stroke-width='1.6'/%3E%3Cg fill='%23C8321E'%3E%3Ccircle cx='17' cy='13' r='2.6'/%3E%3Ccircle cx='33' cy='18' r='2.6'/%3E%3Ccircle cx='14' cy='30' r='2.6'/%3E%3Ccircle cx='30' cy='35' r='2.6'/%3E%3C/g%3E%3C/svg%3E");
+  --pizza-ink:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='48' height='48' viewBox='0 0 48 48'%3E%3Ccircle cx='24' cy='24' r='21' fill='%23E8C27A' stroke='%231b140d' stroke-width='3'/%3E%3Cpath d='M24 3v42M3 24h42M9 9l30 30M39 9L9 39' stroke='%231b140d' stroke-width='1.6'/%3E%3Cg fill='%231b140d'%3E%3Ccircle cx='17' cy='13' r='2.6'/%3E%3Ccircle cx='33' cy='18' r='2.6'/%3E%3Ccircle cx='14' cy='30' r='2.6'/%3E%3Ccircle cx='30' cy='35' r='2.6'/%3E%3C/g%3E%3C/svg%3E");
+  --on-accent:#fff;
+  --check:linear-gradient(90deg,color-mix(in srgb,var(--accent) 50%,transparent) 50%,transparent 0) 0 0/36px 36px,
+          linear-gradient(color-mix(in srgb,var(--accent) 50%,transparent) 50%,transparent 0) 0 0/36px 36px,#f8f1e2;
+  --awning:repeating-linear-gradient(90deg,var(--primary) 0 28px,#f8f1e2 28px 56px,var(--accent) 56px 84px,#f8f1e2 84px 112px);
+}
+
+/* wordmark: classic pizzeria script with the sliced pie as its mark */
+html[data-dir] .brand{display:inline-flex;align-items:center;gap:10px;font:400 1.6rem/1 var(--script);text-transform:none;letter-spacing:.01em}
+html[data-dir] .brand::before{content:"";width:30px;height:30px;flex:none;background:var(--pizza) center/contain no-repeat}
+html[data-dir] .hero-title{font:400 clamp(3.2rem,9vw,6.6rem)/1 var(--script);text-transform:none;letter-spacing:0;text-shadow:4px 4px 0 rgba(0,0,0,.3)}
+
+/* hero: the photo becomes a round pie on a wooden board, on a checked tablecloth */
+html[data-dir] .hero-media{display:grid;place-items:center;background:var(--check)}
+html[data-dir] .hero-media img{height:82%;width:auto;max-width:92%;aspect-ratio:1;object-fit:cover;border-radius:50%;
+  border:10px solid #c89b62;box-shadow:0 0 0 3px var(--ink),8px 10px 0 var(--ink)}
+
+/* menu: on the green check, headed by the pie */
+html[data-dir] .menu{background:var(--check);background-size:44px 44px,44px 44px,auto}
+html[data-dir] .menu .section-head{background:var(--surface);border:3px solid var(--ink);padding:16px 18px;box-shadow:5px 5px 0 var(--ink);justify-self:start}
+html[data-dir] .menu .section-head::before{content:"";width:48px;height:48px;background:var(--pizza) center/contain no-repeat}
+html[data-dir] .menu h2{font-family:var(--script);text-transform:none}
+html[data-dir] .tag-popular{color:#fff}
+
+/* order: straight to the pizzas */
+html[data-dir] .menu{order:1}
+html[data-dir] .gallery{order:2;padding-top:var(--section)}
+html[data-dir] .about{order:3}
+html[data-dir] .qr{order:4}
+html[data-dir] .book{order:5}
+html[data-dir] .visit{order:6}
+html[data-dir] .proposal{order:9}
+
+html[data-dir] .qr-card{position:relative}
+html[data-dir] .qr-card::before{content:"";position:absolute;top:-20px;right:-14px;width:52px;height:52px;background:var(--pizza) center/contain no-repeat;transform:rotate(-12deg)}
+html[data-dir] .qr-name,html[data-dir] .site-foot b,html[data-dir] .m-top h1{font-family:var(--script);text-transform:none}
+html[data-dir] .proposal h2,html[data-dir] .qr h2{text-transform:none;font-family:var(--script)}
+
+@media (max-width:860px){
+  html[data-dir] .brand{font-size:1.4rem}
+  html[data-dir] .hero-title{font-size:clamp(2.8rem,15vw,4.4rem)}
+  html[data-dir] .hero-media img{border-width:7px;box-shadow:0 0 0 2px var(--ink),5px 6px 0 var(--ink)}
+  html[data-dir] .menu .section-head{padding:12px 14px}
+}
+html[data-dir] .hero .kicker{color:#9fdcab}

@@ -1,0 +1,77 @@
+/* Restaurante Devesa — hook: the name "devesa" (a grove) — a row of round tree crowns, leaf-green clearing around the table */
+@import url('https://fonts.googleapis.com/css2?family=Vollkorn:ital,wght@0,600;0,800;1,500&display=swap');
+:root{
+  --dv-font:'Vollkorn',Georgia,serif;
+  --bg:#f3f1e7; --surface:#fdfcf6;
+  --dv-deep:color-mix(in srgb,var(--primary) 78%,#0d140a);
+  /* grove: three round crowns on trunks over a ground line (tiles horizontally) */
+  --dv-grove:url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 96 48'><g fill='%23b9772e'><rect x='14' y='30' width='4' height='16'/><rect x='46' y='26' width='4' height='20'/><rect x='78' y='32' width='4' height='14'/></g><g fill='%233d5a2a'><circle cx='16' cy='24' r='12'/><circle cx='48' cy='18' r='15'/><circle cx='80' cy='26' r='11'/></g><g fill='%235e7d44'><circle cx='12' cy='20' r='5'/><circle cx='43' cy='12' r='6'/><circle cx='76' cy='22' r='4'/></g><rect y='45' width='96' height='3' fill='%233d5a2a'/></svg>");
+}
+html[data-dir] body{background:var(--bg)}
+
+/* wordmark: sturdy book serif in small caps, a single tree as initial */
+html[data-dir] .brand{font:800 1.3rem/1 var(--dv-font);font-variant:small-caps;letter-spacing:.04em;color:var(--primary);display:inline-flex;align-items:center;gap:8px}
+html[data-dir] .brand::before{content:"";width:28px;height:28px;flex:none;background:var(--dv-grove) 42% 100%/96px 30px no-repeat;
+  background-size:84px 42px;background-position:-28px 100%}
+html[data-dir] .hero-title{font:800 clamp(2.6rem,6vw,5.2rem)/1 var(--dv-font);font-variant:small-caps;letter-spacing:.01em;color:#fff}
+html[data-dir] h2{font-family:var(--dv-font);font-weight:800}
+html[data-dir] .tagline{font:italic 500 clamp(1.2rem,2vw,1.5rem)/1.35 var(--dv-font)}
+
+/* hero: the copy sits in a deep-green clearing; the photo is fenced by the grove along its top */
+html[data-dir] .hero{background:var(--dv-deep);color:#f4f1e4;padding-block:0}
+html[data-dir] .hero .kicker{color:#e4c08d}
+html[data-dir] .tagline,html[data-dir] .facts,html[data-dir] .facts b{color:#ecead9}
+html[data-dir] .facts .i{color:#e4c08d}
+html[data-dir] .hero .btn-primary{background:var(--accent);color:#1f1c18}
+html[data-dir] .hero .btn-secondary{color:#fff}
+html[data-dir] .hero :focus-visible{outline-color:#e4c08d}
+html[data-dir] .hero-media{position:relative;height:min(76vh,640px);padding:46px 0 0;border-radius:0;box-shadow:none;
+  background:var(--dv-grove) 0 0/96px 48px repeat-x,var(--surface)}
+html[data-dir] .hero-media img{border-radius:0;box-shadow:none}
+html[data-dir] .hero-copy::after{content:"";width:150px;height:75px;background:var(--dv-grove) 0 100%/100% 100% no-repeat;filter:brightness(0) invert(.92) sepia(.3);opacity:.5}
+
+/* order: photos first, then the menu, then the house */
+html[data-dir] .gallery{order:1;padding-top:var(--section)}
+html[data-dir] .menu{order:2;padding-top:var(--section)}
+html[data-dir] .about{order:3}
+html[data-dir] .qr{order:4}
+html[data-dir] .book{order:5}
+html[data-dir] .visit{order:6}
+html[data-dir] .proposal{order:9}
+
+/* gallery: framed in leaf green */
+html[data-dir] .shot{border-color:var(--primary)}
+html[data-dir] .caption{color:var(--muted)}
+
+/* menu: slate board framed in green wood with the grove on top */
+html[data-dir] .menu > .wrap{border-image:none;border-color:var(--primary);margin-top:30px}
+html[data-dir] .menu > .wrap::before{content:"";position:absolute;left:-6px;right:-6px;top:-52px;height:40px;background:var(--dv-grove) 0 100%/80px 40px repeat-x}
+html[data-dir] .menu h2{font-family:var(--dv-font)}
+html[data-dir] .menu .kicker{color:#e9c999}
+
+/* about: round crowns as bullets */
+html[data-dir] .point::before{border:0;border-radius:50%;background:radial-gradient(circle at 35% 35%,#5e7d44 0 30%,var(--primary) 32%)}
+html[data-dir] .lede{font-family:var(--dv-font)}
+
+/* qr + dividers: the grove instead of azulejo */
+html[data-dir] .qr{background:var(--dv-deep)}
+html[data-dir] .qr .btn-primary{background:var(--accent);color:#1f1c18}
+html[data-dir] .qr-card{background:linear-gradient(#fff,#fff) padding-box,linear-gradient(var(--primary),var(--primary)) border-box;border-width:8px}
+html[data-dir] .qr-card::before{content:"";height:36px;background:var(--dv-grove) 50% 100%/72px 36px repeat-x}
+html[data-dir] .qr-name{font:800 1.1rem var(--dv-font);font-variant:small-caps}
+html[data-dir] .site-head::after{height:6px;background:var(--primary)}
+html[data-dir] .proposal::before,html[data-dir] .site-foot::before{height:36px;background:var(--dv-grove) 0 100%/72px 36px repeat-x}
+html[data-dir] .site-foot b{font:800 1.05rem var(--dv-font);font-variant:small-caps;color:var(--primary)}
+
+@media (max-width:860px){
+  html[data-dir] .hero-media{height:clamp(250px,40svh,350px);padding:30px 0 0;background-size:60px 30px,auto;background-position:0 0}
+  html[data-dir] .hero-copy::after{width:110px;height:55px}
+  html[data-dir] .hero-title{font-size:clamp(2.3rem,11vw,3.2rem)}
+  html[data-dir] .menu > .wrap::before{top:-46px;height:34px;background-size:68px 34px}
+}
+
+/* mesa / cozinha */
+html[data-dir] .m-top{background:var(--dv-deep)}
+html[data-dir] .m-top h1{font:800 1.3rem/1 var(--dv-font);font-variant:small-caps}
+html[data-dir] .m-top::after{height:20px;bottom:-20px;background:var(--dv-grove) 0 100%/40px 20px repeat-x}
+html[data-dir] .m-cat{font-family:var(--dv-font);color:var(--primary)}

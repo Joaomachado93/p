@@ -1,0 +1,60 @@
+/* Porta 38 - Wine, Food & More — hook: the door number in the name (Porta 38, Largo da República do Brasil 38) → arched doorway + enamel "Nº 38" plate */
+@import url('https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&display=swap');
+:root{
+  --display:'DM Serif Display','Bodoni Moda',Georgia,serif;
+  --bg:#0f1820; --surface:#16232d; --surface-2:#1c2c38; --line:rgba(242,231,213,.14);
+  --candle:color-mix(in oklab,var(--accent) 72%,#f7dcc0); --candle-soft:color-mix(in oklab,var(--candle) 30%,transparent);
+  --wine:color-mix(in oklab,var(--primary) 85%,#05090c);
+  --door:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 40 52'%3E%3Cpath d='M5 50V20a15 15 0 0 1 30 0v30Z' fill='none' stroke='%23E07A5F' stroke-width='2.6'/%3E%3Cpath d='M11 50V22a9 9 0 0 1 18 0v28M20 13v37M11 34h18' fill='none' stroke='%23E07A5F' stroke-width='1.4'/%3E%3Ccircle cx='24' cy='38' r='1.6' fill='%23E07A5F'/%3E%3C/svg%3E");
+}
+/* wordmark: door emblem + upright serif; the hero title carries an enamel number plate */
+html[data-dir] .brand{display:inline-flex;align-items:center;gap:10px;font:400 1.2rem/1.1 var(--display);font-style:normal}
+html[data-dir] .brand::before{content:"";width:20px;height:26px;flex:none;background:var(--door) center/contain no-repeat}
+html[data-dir] .hero-title{font:400 clamp(2.4rem,5.2vw,4.6rem)/1 var(--display);font-style:normal;letter-spacing:-.01em;max-width:13ch}
+html[data-dir] .hero-title::before{content:"Nº 38";display:block;width:max-content;margin-bottom:18px;padding:.32em .7em;font:400 1.6rem/1 var(--display);
+  color:#14202a;background:#f4efe6;border:3px solid #f4efe6;border-radius:8px;box-shadow:inset 0 0 0 2px var(--primary);letter-spacing:.02em}
+html[data-dir] h2{font-family:var(--display);font-weight:400}
+html[data-dir] .lede{font-family:var(--display);font-style:italic}
+
+/* hero: split — copy on the night-blue wall, photo inside an arched doorway */
+html[data-dir] .hero{background:radial-gradient(60% 60% at 75% 40%,color-mix(in oklab,var(--accent) 16%,transparent),transparent 70%),var(--bg)}
+html[data-dir] .hero-media::after{background:none;inset:10px;border:1px solid rgba(244,239,230,.55);border-radius:inherit}
+html[data-dir] .hero-media img{filter:none;border-radius:inherit}
+@media (min-width:861px){
+  html[data-dir] .hero{grid-template-columns:minmax(0,1.1fr) minmax(0,.9fr);align-items:center;min-height:0;
+    padding:clamp(36px,5vw,64px) max(var(--gutter-r),calc((100vw - var(--maxw))/2 + 16px)) clamp(36px,5vw,64px) 0;gap:clamp(24px,4vw,56px)}
+  html[data-dir] .hero-media{grid-area:1/2;z-index:0;height:min(72vh,600px);border-radius:999px 999px 6px 6px;
+    border:10px solid var(--accent);box-shadow:0 0 0 1px var(--candle-soft),0 30px 60px -20px rgba(0,0,0,.7)}
+  html[data-dir] .hero-copy{grid-area:1/1;align-self:center;padding:24px 0 24px max(var(--gutter),calc((100vw - var(--maxw))/2 + 16px));color:var(--ink)}
+}
+
+/* order: petiscos to share first, then the place */
+html[data-dir] .hero{order:0}
+html[data-dir] .menu{order:1}
+html[data-dir] .about{order:2}
+html[data-dir] .gallery{order:3}
+html[data-dir] .book{order:4}
+html[data-dir] .visit{order:5}
+html[data-dir] .proposal{order:9}
+
+/* menu: door crest over a shop-shelf board with a coral lintel */
+html[data-dir] .menu .section-head{grid-template-columns:auto 1fr;column-gap:20px;align-items:end}
+html[data-dir] .menu .section-head::before{content:"";grid-row:span 3;width:52px;height:68px;background:var(--door) center/contain no-repeat}
+html[data-dir] .dishes{border-top:6px solid var(--accent)}
+html[data-dir] .dish-name{font:400 1.2rem/1.25 var(--display)}
+html[data-dir] .dish-price{font:400 1.2rem/1 var(--display);font-style:normal}
+html[data-dir] .gallery .shot{border-radius:160px 160px 2px 2px}
+html[data-dir] .gallery .shot::after{border-radius:inherit}
+html[data-dir] .site-foot::before{content:"";display:block;width:30px;height:39px;margin:0 auto 18px;background:var(--door) center/contain no-repeat}
+html[data-dir] .site-foot b{font:400 1.1rem var(--display);font-style:normal}
+
+@media (max-width:860px){
+  html[data-dir] .hero{min-height:0;padding-top:14px}
+  html[data-dir] .hero-media{grid-area:1/1;z-index:0;height:clamp(260px,46svh,380px);margin:0 var(--gutter-r) 0 var(--gutter);border-radius:999px 999px 4px 4px;border:8px solid var(--accent)}
+  html[data-dir] .hero-copy{grid-area:2/1;padding-block:22px 34px}
+  html[data-dir] .hero-title{font-size:clamp(2.1rem,10vw,3rem)}
+  html[data-dir] .hero-title::before{font-size:1.25rem;margin-bottom:12px}
+  html[data-dir] .brand{font-size:1rem}
+  html[data-dir] .menu .section-head::before{width:40px;height:52px}
+}
+html[data-dir] .m-top h1{font-family:var(--display);font-style:normal}
