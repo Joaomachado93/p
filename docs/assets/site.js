@@ -13,7 +13,7 @@
     subjYes: 'Go ahead — ', subjNo: 'Not interested — ', locale: 'en-IE'
   } : {
     table: 'Mesa', remove: 'Remover', add: 'Adicionar', veg: 'vegetariano', ready: 'Marcar como pronto', served: 'Servido',
-    empty: 'Ainda não há pedidos.<br>Abra a <a href="../mesa/?mesa=4">ementa da mesa</a> neste dispositivo, faça um pedido e ele aparece aqui.',
+    empty: 'Ainda não há pedidos.<br>Abra a <a href="../mesa/?mesa=4">ementa da mesa</a> neste dispositivo, faça um pedido e o pedido aparece aqui.',
     yes: n => `Olá João! Vimos a demonstração do site para ${n} e gostávamos de avançar / saber mais.`,
     no: n => `Olá João, obrigado pela demonstração para ${n}, mas de momento não temos interesse.`,
     subjYes: 'Quero avançar — ', subjNo: 'Sem interesse — ', locale: 'pt-PT'
