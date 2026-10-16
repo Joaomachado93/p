@@ -4,18 +4,32 @@
   const page = document.body.dataset.page;
   const $ = (s, r = document) => r.querySelector(s);
   const esc = s => String(s ?? '').replace(/[&<>"']/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
-  const eur = n => Number(n).toLocaleString('pt-PT', { style: 'currency', currency: 'EUR' });
+  const EN = document.documentElement.lang === 'en';
+  const L = EN ? {
+    table: 'Table', remove: 'Remove', add: 'Add', veg: 'vegetarian', ready: 'Mark as ready', served: 'Served',
+    empty: 'No orders yet.<br>Open the <a href="../mesa/?mesa=4">table menu</a> on this device, place an order and it shows up here.',
+    yes: n => `Hi João! We saw the website demo for ${n} and would like to go ahead / know more.`,
+    no: n => `Hi João, thanks for the demo for ${n}, but we are not interested at the moment.`,
+    subjYes: 'Go ahead — ', subjNo: 'Not interested — ', locale: 'en-IE'
+  } : {
+    table: 'Mesa', remove: 'Remover', add: 'Adicionar', veg: 'vegetariano', ready: 'Marcar como pronto', served: 'Servido',
+    empty: 'Ainda não há pedidos.<br>Abra a <a href="../mesa/?mesa=4">ementa da mesa</a> neste dispositivo, faça um pedido e ele aparece aqui.',
+    yes: n => `Olá João! Vimos a demonstração do site para ${n} e gostávamos de avançar / saber mais.`,
+    no: n => `Olá João, obrigado pela demonstração para ${n}, mas de momento não temos interesse.`,
+    subjYes: 'Quero avançar — ', subjNo: 'Sem interesse — ', locale: 'pt-PT'
+  };
+  const eur = n => Number(n).toLocaleString(L.locale, { style: 'currency', currency: 'EUR' });
+  // keep ?mesa=N when switching language
+  document.querySelectorAll('[data-langswitch]').forEach(a => { a.href += location.search; });
   const telHref = p => 'tel:+351' + String(p).replace(/\D/g, '');
   const waHref = (n, text) => 'https://wa.me/351' + n + (text ? '?text=' + encodeURIComponent(text) : '');
 
   // ---------- owner accept/decline ----------
   function ownerLink(yes) {
     const O = window.OWNER || {};
-    const msg = yes
-      ? `Olá João! Vimos a demonstração do site para o ${D.name} e gostávamos de avançar / saber mais.`
-      : `Olá João, obrigado pela demonstração para o ${D.name}, mas de momento não temos interesse.`;
+    const msg = yes ? L.yes(D.name) : L.no(D.name);
     if (O.whatsapp) return 'https://wa.me/' + O.whatsapp + '?text=' + encodeURIComponent(msg);
-    if (O.email) return 'mailto:' + O.email + '?subject=' + encodeURIComponent((yes ? 'Quero avançar — ' : 'Sem interesse — ') + D.name) + '&body=' + encodeURIComponent(msg);
+    if (O.email) return 'mailto:' + O.email + '?subject=' + encodeURIComponent((yes ? L.subjYes : L.subjNo) + D.name) + '&body=' + encodeURIComponent(msg);
     return '#proposta';
   }
   document.querySelectorAll('[data-owner]').forEach(a => {
@@ -33,7 +47,7 @@
       onPick(+b.dataset.i);
     });
   }
-  const tagHtml = tags => (tags || []).map(x => `<span class="tag tag-${esc(x)}">${esc(x === 'veg' ? 'vegetariano' : x)}</span>`).join('');
+  const tagHtml = tags => (tags || []).map(x => `<span class="tag tag-${esc(x)}">${esc(x === 'veg' ? L.veg : x)}</span>`).join('');
 
   if (page === 'landing') landing();
   if (page === 'mesa') mesa();
@@ -76,7 +90,7 @@
   function mesa() {
     const params = new URLSearchParams(location.search);
     const table = (params.get('mesa') || '7').replace(/\D/g, '').slice(0, 3) || '7';
-    $('#table').textContent = 'Mesa ' + table;
+    $('#table').textContent = L.table + ' ' + table;
     const cart = new Map(); // key "c-i" -> qty
     const list = $('#list');
     list.innerHTML = D.menu.map((c, ci) => `
@@ -84,7 +98,7 @@
       ${c.items.map((it, ii) => `
         <div class="m-item"><div class="txt"><h4>${esc(it.name)} ${tagHtml(it.tags)}</h4>
           ${it.desc ? `<p>${esc(it.desc)}</p>` : ''}<div class="price">${eur(it.price)}</div></div>
-          <div class="qty" data-k="${ci}-${ii}"><button class="minus" aria-label="Remover" hidden>−</button><span hidden>0</span><button class="plus" aria-label="Adicionar">+</button></div>
+          <div class="qty" data-k="${ci}-${ii}"><button class="minus" aria-label="${L.remove}" hidden>−</button><span hidden>0</span><button class="plus" aria-label="${L.add}">+</button></div>
         </div>`).join('')}`).join('');
     tabs($('#tabs'), i => $('#cat-' + i).scrollIntoView({ behavior: 'smooth' }));
 
@@ -141,13 +155,13 @@
       const all = read();
       $('#tickets').innerHTML = all.length ? all.map((o, i) => `
         <div class="ticket ${o.ready ? 'ready' : ''}">
-          <h3><span>Mesa ${esc(o.table)}</span><span>#${o.id}</span></h3>
-          <small>${new Date(o.at).toLocaleTimeString('pt-PT', { hour: '2-digit', minute: '2-digit' })}</small>
+          <h3><span>${L.table} ${esc(o.table)}</span><span>#${o.id}</span></h3>
+          <small>${new Date(o.at).toLocaleTimeString(L.locale, { hour: '2-digit', minute: '2-digit' })}</small>
           <ul>${o.lines.map(l => `<li><b>${l.q}×</b> ${esc(l.name)}</li>`).join('')}</ul>
           ${o.obs ? `<div class="obs">📝 ${esc(o.obs)}</div>` : ''}
-          <p><button class="btn ${o.ready ? 'btn-secondary' : 'btn-primary'}" data-i="${i}">${o.ready ? 'Servido ✓' : 'Marcar como pronto'}</button></p>
+          <p><button class="btn ${o.ready ? 'btn-secondary' : 'btn-primary'}" data-i="${i}">${o.ready ? L.served + ' ✓' : L.ready}</button></p>
         </div>`).join('')
-        : `<div class="empty"><p style="font-size:3rem;margin:0">🧾</p><p>Ainda não há pedidos.<br>Abra a <a href="../mesa/?mesa=4">ementa da mesa</a> neste dispositivo, faça um pedido e ele aparece aqui.</p></div>`;
+        : `<div class="empty"><p style="font-size:3rem;margin:0">🧾</p><p>${L.empty}</p></div>`;
     }
     $('#tickets').addEventListener('click', e => {
       const b = e.target.closest('button[data-i]'); if (!b) return;

@@ -228,3 +228,16 @@ body.mesa{padding-bottom:110px}
   .gallery-grid{grid-template-columns:1fr 1fr}
   .gallery-grid .shot:first-child{grid-row:auto;grid-column:span 2;aspect-ratio:16/9;min-height:0}
 }
+
+/* language switch (PT / EN) */
+.site-head-row{flex-wrap:nowrap}
+.site-head nav{margin-left:auto}
+.langswitch{display:inline-flex;flex:none;border:1.5px solid currentColor;border-radius:var(--radius);overflow:hidden;font:700 .75rem/1 var(--label);letter-spacing:.08em}
+.langswitch a,.langswitch span{display:grid;place-items:center;min-width:36px;min-height:32px;padding:0 8px;text-decoration:none;color:inherit}
+.langswitch [aria-current]{background:var(--primary);color:var(--on-primary)}
+.langswitch a:hover{text-decoration:underline}
+.m-top-end{display:inline-flex;gap:8px;align-items:center}
+.m-top .langswitch{border-color:currentColor}
+.m-top .langswitch [aria-current]{background:var(--on-primary);color:var(--primary)}
+html .m-top .langswitch a{background:transparent;color:inherit}
+html .m-top .langswitch [aria-current]{background:var(--on-primary);color:var(--primary)}
